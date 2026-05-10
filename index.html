@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compositions</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,50 +12,98 @@
             margin: 40px auto;
             padding: 0 20px;
             line-height: 1.6;
+            background-color: #fafafa;
         }
+
         h1 {
             text-align: center;
+            margin-bottom: 10px;
         }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #444;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
-            margin: 12px 0;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
         }
+
         a {
             text-decoration: none;
             color: #1a73e8;
             font-size: 1.1em;
+            font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .meta {
             color: #555;
             font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+            margin-top: 40px;
         }
     </style>
 </head>
+
 <body>
 
+    <!-- Title -->
     <h1>🎶 Compositions</h1>
 
-    <p>Collection of compositions and notations.</p>
+    <!-- Subtitle (UPDATED TEXT) -->
+    <p class="subtitle">
+        Collection of my compositions, with notations and recordings
+    </p>
+
+    <hr>
+
+    <!-- Section Header -->
+    <h2>📂 Available Works</h2>
 
     <ul>
+        <!-- Composition 1 -->
         <li>
             <a href="pada_varna_hindola_RamaprasadKV_Final.html">
                 Hindola Pada Varṇa
             </a>
-            <div class="meta">Composer: Ramaprasad KV</div>
+            <div class="meta">
+                Composer: Ramaprasad KV | Rāga: Hindola
+            </div>
         </li>
 
-        <!-- Add new compositions below -->
+        <!-- Add future compositions below -->
         <!-- Example:
         <li>
-            <a href="new_file.html">Title</a>
-            <div class="meta">Composer / Details</div>
+            <a href="file_name.html">Title</a>
+            <div class="meta">Composer | Rāga | Tāla</div>
         </li>
         -->
 
@@ -62,9 +111,9 @@
 
     <hr>
 
-    <p class="meta" style="text-align:center;">
+    <footer>
         Hosted on GitHub Pages
-    </p>
+    </footer>
 
 </body>
 </html>
