@@ -52,25 +52,45 @@
             background: #e0e0e0;
         }
 
+        /* ✅ Audio toggle styling */
+        .audio {
+            margin-top: 10px;
+        }
+
+        .play-btn {
+            margin-top: 6px;
+            padding: 4px 8px;
+            font-size: 0.9em;
+            border: 1px solid #bbb;
+            background: #fafafa;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        iframe {
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>🎶 Original Compositions</h1>
+<h1>🎶 Original Compositions</h1>
 
-    <p>Collection of my compositions, with notations and recordings</p>
+<p>Collection of my compositions, with notations and recordings</p>
 
-    <!-- ✅ FILTER BUTTONS -->
-    <div id="tag-filter">
-        <button onclick="filterItems('all')">All</button>
-        <button onclick="filterItems('geete')">Geete</button>
-        <button onclick="filterItems('tanavarna')">Tana Varna</button>
-        <button onclick="filterItems('padavarna')">Pada Varna</button>
-        <button onclick="filterItems('kriti')">Kriti</button>
-        <button onclick="filterItems('pushpanjali')">Pushpanjali</button>
-    </div>
+<!-- ✅ FILTER -->
+<div id="tag-filter">
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('geete')">Geete</button>
+    <button onclick="filterItems('tanavarna')">Tana Varna</button>
+    <button onclick="filterItems('padavarna')">Pada Varna</button>
+    <button onclick="filterItems('kriti')">Kriti</button>
+    <button onclick="filterItems('pushpanjali')">Pushpanjali</button>
+</div>
 
-    <ul>
+<ul>
 
 <li class="composition padavarna">
     <a href="pada_varna_hindola_RamaprasadKV_Final.html">
@@ -83,57 +103,52 @@
     <a href="kalyanimalikavarnam_final.html">
         Rāgamālikā Tāna Varṇa
     </a>
-    <div class="meta">Composer: Ramaprasad KV | Rāgamalika | Tāla: Adi </div>
+    <div class="meta">Composer: Ramaprasad KV | Rāgamalika | Tāla: Adi</div>
 </li>
 
 <li class="composition kriti">
     <a href="hottu_muluguta_mohanagi_4.html">
-        Kriti :  Rāga: Mohanāngi  
+        Kriti: Rāga: Mohanāngi
     </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Mohanāngi | Tāla: Misra Chapu</div>
 </li>
 
+<!-- ✅ VASANTA GEETE WITH TOGGLE AUDIO -->
 <li class="composition geete">
-
-     <a href="vasanta_geete_1.html">
+    <a href="vasanta_geete_1.html">
         Sanchāri Geete: Rāga: Vasanta
-     </a>
+    </a>
+    <div class="meta">Composer: Ramaprasad KV | Rāga: Vasanta | Tāla: Trisra Triputa</div>
 
-    <div class="meta">
-        Composer: Ramaprasad KV | Rāga: Vasanta | Tāla: Trisra Triputa
+    <button class="play-btn" onclick="toggleAudio(this)">▶ Play Audio</button>
+
+    <div class="audio" style="display:none;">
+        https://www.youtube.com/embed/uLIQ2RrxBhg
+        </iframe>
     </div>
-
-    <!-- ✅ YouTube Audio -->
-    <iframe width="300" height="170"
-        src="https://www.youtube.com/embed/uLIQ2RrxBhg"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-
 </li>
 
 <li class="composition geete">
     <a href="keeravani_geete_2.html">
-        Sanchāri Geete: Rāga: Kīravāni  
+        Sanchāri Geete: Rāga: Kīravāni
     </a>
-    <div class="meta">Composer: Ramaprasad KV | Rāga: Kīravāni  | Tāla: Rupaka </div>
+    <div class="meta">Composer: Ramaprasad KV | Rāga: Kīravāni | Tāla: Rupaka</div>
 </li>
 
 <li class="composition pushpanjali">
     <a href="ragamalika_pushpanjali_3.html">
-         Rāgamālikā Pushpānjali
+        Rāgamālikā Pushpānjali
     </a>
-    <div class="meta">Composer: Ramaprasad KV | Rāgamalika  | Tāla: Adi</div>
+    <div class="meta">Composer: Ramaprasad KV | Rāgamalika | Tāla: Adi</div>
 </li>
-        
-        <!-- Add new compositions below -->
-    </ul>
 
-    <hr>
+</ul>
 
-    <p class="meta" style="text-align:center;">
-        Hosted on GitHub Pages
-    </p>
+<hr>
+
+<p class="meta" style="text-align:center;">
+    Hosted on GitHub Pages
+</p>
 
 <!-- ✅ FILTER SCRIPT -->
 <script>
@@ -150,13 +165,22 @@ function filterItems(type) {
         }
     }
 }
+</script>
 
-/* Load default */
-window.onload = function() {
-    filterItems('all');
-};
+<!-- ✅ AUDIO TOGGLE SCRIPT -->
+<script>
+function toggleAudio(btn) {
+    const audioDiv = btn.nextElementSibling;
+
+    if (audioDiv.style.display === "none") {
+        audioDiv.style.display = "block";
+        btn.textContent = "⏹ Hide Audio";
+    } else {
+        audioDiv.style.display = "none";
+        btn.textContent = "▶ Play Audio";
+    }
+}
 </script>
 
 </body>
 </html>
-
