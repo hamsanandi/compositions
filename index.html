@@ -34,6 +34,24 @@
             color: #555;
             font-size: 0.9em;
         }
+
+        /* ✅ Tag buttons */
+        #tag-filter {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #tag-filter button {
+            margin: 4px;
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        #tag-filter button:hover {
+            background: #e0e0e0;
+        }
+
     </style>
 </head>
 <body>
@@ -42,42 +60,57 @@
 
     <p>Collection of my compositions, with notations and recordings</p>
 
+    <!-- ✅ FILTER BUTTONS -->
+    <div id="tag-filter">
+        <button onclick="filterItems('all')">All</button>
+        <button onclick="filterItems('geete')">Geete</button>
+        <button onclick="filterItems('tanavarna')">Tana Varna</button>
+        <button onclick="filterItems('padavarna')">Pada Varna</button>
+        <button onclick="filterItems('kriti')">Kriti</button>
+        <button onclick="filterItems('pushpanjali')">Pushpanjali</button>
+    </div>
+
     <ul>
-<li>
+
+<li class="composition padavarna">
     <a href="pada_varna_hindola_RamaprasadKV_Final.html">
         Pada Varṇa: Rāga: Hindola 
     </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Hindola | Tāla: Adi</div>
 </li>
 
-<li>
+<li class="composition tanavarna">
     <a href="kalyanimalikavarnam_final.html">
         Rāgamālikā Tāna Varṇa
     </a>
     <div class="meta">Composer: Ramaprasad KV | Rāgamalika | Tāla: Adi </div>
 </li>
 
-<li>
-     <a href="hottu_muluguta_mohanagi_4.html">
-        Kriti :  Rāga: Mohanāngi  </a>
+<li class="composition kriti">
+    <a href="hottu_muluguta_mohanagi_4.html">
+        Kriti :  Rāga: Mohanāngi  
+    </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Mohanāngi | Tāla: Misra Chapu</div>
 </li>
 
-<li>
-     <a href="vasanta_geete_1.html">
-        Sanchāri Geete:  Rāga: Vasanta </a>
+<li class="composition geete">
+    <a href="vasanta_geete_1.html">
+        Sanchāri Geete:  Rāga: Vasanta 
+    </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Vasanta | Tāla: Trisra Triputa</div>
 </li>
 
-<li>
-     <a href="keeravani_geete_2.html">
-        Sanchāri Geete: Rāga: Kīravāni  </a>
+<li class="composition geete">
+    <a href="keeravani_geete_2.html">
+        Sanchāri Geete: Rāga: Kīravāni  
+    </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Kīravāni  | Tāla: Rupaka </div>
 </li>
 
-<li>
-     <a href="ragamalika_pushpanjali_3.html">
-         Rāgamālikā Pushpānjali </a>
+<li class="composition pushpanjali">
+    <a href="ragamalika_pushpanjali_3.html">
+         Rāgamālikā Pushpānjali
+    </a>
     <div class="meta">Composer: Ramaprasad KV | Rāgamalika  | Tāla: Adi</div>
 </li>
         
@@ -90,6 +123,28 @@
         Hosted on GitHub Pages
     </p>
 
+<!-- ✅ FILTER SCRIPT -->
+<script>
+function filterItems(type) {
+    const items = document.getElementsByClassName("composition");
+
+    for (let i = 0; i < items.length; i++) {
+        if (type === "all") {
+            items[i].style.display = "list-item";
+        } else if (items[i].classList.contains(type)) {
+            items[i].style.display = "list-item";
+        } else {
+            items[i].style.display = "none";
+        }
+    }
+}
+
+/* Load default */
+window.onload = function() {
+    filterItems('all');
+};
+</script>
+
 </body>
 </html>
-``
+
