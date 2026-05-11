@@ -6,8 +6,28 @@
 <title>Compositions</title>
 
 <style>
+
+/* ✅ Shared design system from composition page */
+:root {
+  --bg: #ffffff;
+  --border: #d4c5a9;
+  --border-light: #c0aa88;
+  --gold: #8b5e1a;
+  --gold-light: #6b4510;
+  --gold-dim: #a0783a;
+  --text: #1a1208;
+  --meta: #8a7055;
+  --section-bg: #fdf9f3;
+  --header-bg: #f5ede0;
+}
+
+/* Reset */
+* { box-sizing: border-box; }
+
 body {
-  font-family: system-ui, Arial;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans Kannada', system-ui, Arial, sans-serif;
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
@@ -15,105 +35,156 @@ body {
   line-height: 1.6;
 }
 
-/* ✅ Intro paragraph */
+/* ✅ TITLE BLOCK (matches composition page feel) */
+.title-area {
+  max-width:700px;
+  margin: 0 auto 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.title-area::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  font-family: 'Noto Serif Kannada', serif;
+  font-size: 0.9em;
+  color: var(--gold-dim);
+  margin-top: 4px;
+}
+
+/* Intro */
 .intro {
   max-width:700px;
-  margin: 15px auto 25px;
-  color:#444;
+  margin: 15px auto 20px;
+  color: var(--text);
   text-align:left;
   line-height: 1.7;
 }
 
-/* ✅ Helper label */
+/* Label */
 .helper-text {
-  font-size:0.9em;
-  color:#666;
+  font-size:0.8em;
+  color: var(--meta);
   max-width:700px;
   margin: 0 auto 8px;
 }
 
-/* ✅ Controls panel */
+/* Controls */
 .controls {
   max-width:700px;
   margin: 10px auto 25px;
   padding: 12px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--section-bg);
 }
 
-/* ✅ Inputs */
+/* Inputs */
 input, select {
   padding:8px 10px;
   margin-right:8px;
-  font-size: 0.95em;
+  font-size: 0.9em;
+  border:1px solid var(--border-light);
+  background:white;
 }
 
-/* ✅ Search width */
+/* Search width */
 #search {
-  width: 50%;
-  max-width: 250px;
+  width: 55%;
+  max-width: 260px;
 }
 
-/* ✅ Buttons */
+/* Button */
 button {
   padding:8px 10px;
-  border:1px solid #ddd;
+  border:1px solid var(--border-light);
   background:white;
   cursor:pointer;
-  border-radius:6px;
+  border-radius:4px;
 }
 button:hover {
-  background:#f5f5f5;
+  background:#f8f2e8;
 }
 
-/* ✅ Sections */
+/* Sections */
 details {
-  margin:18px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:10px;
-  background:#fff;
+  margin:20px 0;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background: var(--section-bg);
+  overflow:hidden;
 }
 
+/* ✅ Section header styling */
 summary {
-  font-weight:bold;
-  cursor:pointer;
-  font-size: 1.05em;
-  padding: 4px 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  background: var(--header-bg);
+  padding: 8px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ✅ Gold accent underline */
+summary::after {
+  content:"";
+  display:block;
+  height:2px;
+  margin-top:6px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 details summary:hover {
-  color:#333;
+  color: var(--gold-light);
 }
 
-/* ✅ Composition items */
+/* Items */
 .comp {
   margin:10px 0;
-  padding:8px 10px;
+  padding:10px 12px;
   border-radius:6px;
 }
 
 .comp:hover {
-  background:#fafafa;
+  background:#f8f2e8;
 }
 
 .meta {
-  font-size:0.9em;
-  color:#555;
+  font-size:0.85em;
+  color: var(--meta);
 }
 
-/* ✅ Links */
+/* Links */
 a {
   text-decoration:none;
-  color:#1a73e8;
+  color: var(--gold-light);
 }
-
 a:hover {
   text-decoration:underline;
 }
 
-/* ✅ Audio */
+/* Audio */
 .play-btn {
   margin-top:5px;
 }
@@ -129,58 +200,52 @@ iframe {
   height:280px;
 }
 
-/* ✅ About */
+/* About */
 .about {
   max-width:700px;
   margin: 30px auto 10px;
-  color:#444;
+  color: var(--text);
   line-height:1.7;
   text-align:left;
 }
 
-/* ✅ Divider */
+/* Divider */
 .section-divider {
-  border:none;
   height:1px;
-  background:#eee;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
   margin:40px 0;
 }
 
 footer {
   text-align:center;
-  color:#777;
+  color: var(--meta);
   margin-top:30px;
-  font-size:0.9em;
+  font-size:0.85em;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
-<h2 class="page-title">Composition Archive</h2>
+<!-- ✅ Title Area -->
+<div class="title-area">
+  <div class="page-title">Composition Archive</div>
+  <div class="page-subtitle">
+    A curated archive of original compositions in the Karnataka Sangeeta tradition
+  </div>
+</div>
 
-<p class="page-subtitle">
-A curated archive of original compositions in the Karnataka Sangeeta tradition by @hamsanandi
-</p>
-
-<p class="intro">
-...
-</p>
-
-<!-- ✅ Intro -->
 <p class="intro">
 This archive presents a collection of original compositions in the Karnataka Sangeeta tradition 
 (also called Carnatic), spanning forms such as geete, varṇa, kriti, and related compositional types. 
 Each entry includes notation and, where available, audio renderings. 
 </p>
 
-<!-- ✅ Label -->
 <p class="helper-text">
 Browse or search the collection:
 </p>
 
-<!-- ✅ Controls -->
 <div class="controls">
   <input id="search" placeholder="Search...">
 
@@ -197,12 +262,10 @@ Browse or search the collection:
   <button id="clearBtn">Clear</button>
 </div>
 
-<!-- ✅ Archive -->
 <div id="archive"></div>
 
 <hr class="section-divider">
 
-<!-- ✅ About -->
 <section class="about">
 <h3 style="text-align:center; margin-bottom:15px;">About the Composer</h3>
 
@@ -228,7 +291,8 @@ Instagram:
 
 <script>
 
-/* ✅ DATA */
+/* unchanged JS */
+
 const DATA = [
   {type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa", youtube:"uLIQ2RrxBhg"},
   {type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka"},
@@ -240,16 +304,12 @@ const DATA = [
 
 const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
 
-/* ✅ Render */
 function render() {
-
   let container = document.getElementById("archive");
   container.innerHTML = "";
 
   TYPES.forEach(type => {
-
     let section = document.createElement("details");
-
     if (type === "varna") section.open = true;
 
     let summary = document.createElement("summary");
@@ -259,7 +319,6 @@ function render() {
     let filtered = DATA.filter(c => c.type === type);
 
     filtered.forEach(c => {
-
       let div = document.createElement("div");
       div.className = "comp";
       div.dataset.text = (c.title + " " + (c.raga||"") + " " + (c.tala||"")).toLowerCase();
@@ -274,7 +333,6 @@ function render() {
       `;
 
       if (c.youtube) {
-
         let btn = document.createElement("button");
         btn.className="play-btn";
         btn.textContent="▶ Play";
@@ -284,7 +342,6 @@ function render() {
 
         let iframe = document.createElement("iframe");
         iframe.dataset.src = "https://www.youtube.com/embed/" + c.youtube;
-
         audio.appendChild(iframe);
 
         btn.onclick = () => {
@@ -311,7 +368,6 @@ function render() {
 
 render();
 
-/* ✅ Filter */
 document.getElementById("search").addEventListener("input", filter);
 document.getElementById("typeFilter").addEventListener("change", filter);
 
@@ -326,7 +382,6 @@ function filter() {
   });
 }
 
-/* ✅ Clear button */
 document.getElementById("clearBtn").onclick = () => {
   document.getElementById("search").value = "";
   document.getElementById("typeFilter").value = "all";
