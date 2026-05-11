@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compositions</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 12px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #1a73e8;
-            font-size: 1.1em;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .meta {
-            color: #555;
-            font-size: 0.9em;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compositions</title>
 
-        /* ✅ Tag buttons */
-        #tag-filter {
-            text-align: center;
-            margin: 20px 0;
-        }
-        #tag-filter button {
-            margin: 4px;
-            padding: 6px 10px;
-            border: 1px solid #ccc;
-            background: #f5f5f5;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-        #tag-filter button:hover {
-            background: #e0e0e0;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
 
-        /* ✅ Audio toggle styling */
-        .audio {
-            margin-top: 10px;
-        }
+h1 {
+    text-align: center;
+}
 
-        .play-btn {
-            margin-top: 6px;
-            padding: 4px 8px;
-            font-size: 0.9em;
-            border: 1px solid #bbb;
-            background: #fafafa;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        iframe {
-            border-radius: 8px;
-            margin-top: 5px;
-        }
+li {
+    margin: 12px 0;
+}
 
-    </style>
+a {
+    text-decoration: none;
+    color: #1a73e8;
+    font-size: 1.1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.meta {
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* ✅ Tag buttons */
+#tag-filter {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#tag-filter button {
+    margin: 4px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#tag-filter button:hover {
+    background: #e0e0e0;
+}
+
+/* ✅ Audio toggle styling */
+.play-btn {
+    margin-top: 6px;
+    padding: 4px 8px;
+    font-size: 0.9em;
+    border: 1px solid #bbb;
+    background: #fafafa;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.audio {
+    margin-top: 10px;
+}
+
+iframe {
+    border-radius: 8px;
+    margin-top: 5px;
+}
+</style>
+
 </head>
 <body>
 
@@ -94,7 +103,7 @@
 
 <li class="composition padavarna">
     <a href="pada_varna_hindola_RamaprasadKV_Final.html">
-        Pada Varṇa: Rāga: Hindola 
+        Pada Varṇa: Rāga: Hindola
     </a>
     <div class="meta">Composer: Ramaprasad KV | Rāga: Hindola | Tāla: Adi</div>
 </li>
@@ -123,7 +132,10 @@
     <button class="play-btn" onclick="toggleAudio(this)">▶ Play Audio</button>
 
     <div class="audio" style="display:none;">
-        https://www.youtube.com/embed/uLIQ2RrxBhg
+        <iframe width="100%" height="180"
+            src="https://www.youtube.com/embed/uLIQ2RrxBhg"
+            frameborder="0"
+            allowfullscreen>
         </iframe>
     </div>
 </li>
@@ -167,20 +179,26 @@ function filterItems(type) {
 }
 </script>
 
-<!-- ✅ AUDIO TOGGLE SCRIPT -->
+<!-- ✅ SINGLE ACTIVE AUDIO SCRIPT -->
 <script>
 function toggleAudio(btn) {
-    const audioDiv = btn.nextElementSibling;
+    const allAudio = document.querySelectorAll(".audio");
+    const allButtons = document.querySelectorAll(".play-btn");
 
-    if (audioDiv.style.display === "none") {
-        audioDiv.style.display = "block";
+    const currentAudio = btn.nextElementSibling;
+
+    // Close all
+    allAudio.forEach(div => div.style.display = "none");
+    allButtons.forEach(b => b.textContent = "▶ Play Audio");
+
+    // Open selected
+    if (currentAudio.style.display === "none") {
+        currentAudio.style.display = "block";
         btn.textContent = "⏹ Hide Audio";
-    } else {
-        audioDiv.style.display = "none";
-        btn.textContent = "▶ Play Audio";
     }
 }
 </script>
 
 </body>
 </html>
+``
