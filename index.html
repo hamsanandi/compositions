@@ -1,398 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compositions</title>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
+body {
+    font-family: Arial;
+    max-width: 850px;
     margin: 40px auto;
     padding: 0 20px;
-    line-height: 1.6;
-  }
+}
 
-  h1 { text-align: center; margin-bottom: 6px; }
-  p.lead { text-align: center; margin-top: 0; color: #444; }
+h1 { text-align:center; }
 
-  /* Controls */
-  .controls {
-    margin: 22px 0 10px;
-    padding: 14px;
-    border: 1px solid #e2e2e2;
-    border-radius: 10px;
-    background: #fafafa;
-  }
+.section-title {
+    margin-top: 30px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
 
-  .controls-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+li { margin: 12px 0; }
 
-  @media (max-width: 700px) {
-    .controls-row { grid-template-columns: 1fr; }
-  }
-
-  label {
+.meta {
     font-size: 0.9em;
-    color: #333;
-    display: block;
-    margin-bottom: 6px;
-  }
+    color: #555;
+}
 
-  input[type="text"], select {
+.play-btn {
+    margin-top: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.audio {
+    display: none;
+    margin-top: 10px;
+}
+
+iframe {
+    width: 100%;
+    max-width: 500px;
+    height: 280px;
+}
+
+/* Search */
+#search {
     width: 100%;
     padding: 10px;
-    border: 1px solid #cfcfcf;
+    margin: 20px 0;
     border-radius: 8px;
-    font-size: 1em;
-    background: white;
-  }
-
-  .statusline {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #555;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .statusline .pill {
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    padding: 6px 10px;
-    border-radius: 999px;
-  }
-
-  /* Groups + list items */
-  .raga-group {
-    margin-top: 26px;
-  }
-
-  .raga-title {
-    font-size: 1.25em;
-    margin: 18px 0 8px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-  }
-
-  ul.comp-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li.composition {
-    margin: 12px 0;
-    padding: 10px 12px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    background: #fff;
-  }
-
-  .title-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  a.comp-link {
-    text-decoration: none;
-    color: #1a73e8;
-    font-size: 1.08em;
-  }
-
-  a.comp-link:hover { text-decoration: underline; }
-
-  .type-badge {
-    font-size: 0.85em;
-    color: #333;
-    background: #f5f7ff;
-    border: 1px solid #d9e0ff;
-    padding: 3px 8px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .meta {
-    color: #555;
-    font-size: 0.92em;
-    margin-top: 4px;
-  }
-
-  /* Audio */
-  .play-btn {
-    margin-top: 10px;
-    padding: 6px 10px;
-    font-size: 0.95em;
-    border: 1px solid #bbb;
-    background: #fafafa;
-    cursor: pointer;
-    border-radius: 8px;
-  }
-
-  .play-btn:hover { background: #f0f0f0; }
-
-  .audio {
-    margin-top: 10px;
-    display: none;
-  }
-
-  iframe {
-    width: 100%;
-    max-width: 560px;
-    height: 315px;
-    border: 0;
-    border-radius: 10px;
-  }
-
-  hr { margin: 28px 0; }
-
-  .footer {
-    text-align: center;
-    color: #777;
-    font-size: 0.9em;
-  }
-
-  details {
-    margin-top: 18px;
-    padding: 10px 12px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    background: #fff;
-  }
-
-  details summary {
-    cursor: pointer;
-    font-weight: 600;
-  }
-
-  code {
-    background: #f6f6f6;
-    padding: 2px 6px;
-    border-radius: 6px;
-  }
+    border: 1px solid #ccc;
+}
 </style>
+
 </head>
-
 <body>
-  <h1>🎶 Original Compositions</h1>
-  <p class="lead">Collection of my compositions, with notations and recordings</p>
 
-  <!-- ✅ Controls: Search + Type + Rāga -->
-  <div class="controls">
-    <div class="controls-row">
-      <div>
-        <label for="searchInput">Search (title / composer / rāga / tāla)</label>
-        <input id="searchInput" type="text" placeholder="Type to search… (e.g., vasanta, geete, rupaka)" />
-      </div>
+<h1>🎶 Original Compositions</h1>
 
-      <div>
-        <label for="typeFilter">Type</label>
-        <select id="typeFilter">
-          <option value="all">All</option>
-          <option value="geete">Geete</option>
-          <option value="tanavarna">Tāna Varṇa</option>
-          <option value="padavarna">Pada Varṇa</option>
-          <option value="kriti">Kṛti</option>
-          <option value="pada">Pada</option>
-          <option value="pushpanjali">Puṣpāñjali</option>
-          <option value="kautuva">Kautuva</option>
-          <option value="swarajati">Svarajāti</option>
-        </select>
-      </div>
+<input id="search" placeholder="Search compositions...">
 
-      <div>
-        <label for="ragaFilter">Rāga</label>
-        <!-- auto-populated on load so you never have to maintain this manually -->
-        <select id="ragaFilter">
-          <option value="all">All</option>
-        </select>
-      </div>
 
-      <div class="statusline">
-        <div class="pill" id="countPill">Showing 0 of 0</div>
-        <div class="pill" id="activeFiltersPill">Filters: none</div>
-      </div>
-    </div>
-  </div>
+<!-- ✅ GEETE -->
+<div class="section-title">Geete</div>
+<ul>
 
-  <!-- ✅ Rāga Group: Hindola -->
-  <section class="raga-group" data-raga="hindola" data-raga-label="Hindola">
-    <div class="raga-title">Rāga: Hindola</div>
-    <ul class="comp-list">
-      <li class="composition"
-          data-type="padavarna"
-          data-type-label="Pada Varṇa"
-          data-raga="hindola"
-          data-raga-label="Hindola"
-          data-title="Pada Varṇa"
-          data-composer="Ramaprasad KV"
-          data-tala="Adi">
-        <div class="title-row">
-          <a class="comp-link" href="pada_varna_hindola_RamaprasadKV_Final.html">Pada Varṇa</a>
-          <span class="type-badge">Pada Varṇa</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Hindola | Tāla: Adi</div>
-      </li>
-    </ul>
-  </section>
+<li class="composition" data-text="vasanta geete">
+vasanta_geete_1.htmlSanchāri Geete – Vasanta</a>
+<div class="meta">Rāga: Vasanta | Tāla: Trisra Triputa</div>
 
-  <!-- ✅ Rāga Group: Rāgamālikā -->
-  <section class="raga-group" data-raga="ragamalika" data-raga-label="Rāgamālikā">
-    <div class="raga-title">Rāga: Rāgamālikā</div>
-    <ul class="comp-list">
-      <li class="composition"
-          data-type="tanavarna"
-          data-type-label="Tāna Varṇa"
-          data-raga="ragamalika"
-          data-raga-label="Rāgamālikā"
-          data-title="Rāgamālikā Tāna Varṇa"
-          data-composer="Ramaprasad KV"
-          data-tala="Adi">
-        <div class="title-row">
-          <a class="comp-link" href="kalyanimalikavarnam_final.html">Rāgamālikā Tāna Varṇa</a>
-          <span class="type-badge">Tāna Varṇa</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Rāgamālikā | Tāla: Adi</div>
-      </li>
+<button class="play-btn" onclick="toggleAudio(this)">▶ Play</button>
 
-      <li class="composition"
-          data-type="pushpanjali"
-          data-type-label="Puṣpāñjali"
-          data-raga="ragamalika"
-          data-raga-label="Rāgamālikā"
-          data-title="Rāgamālikā Puṣpāñjali"
-          data-composer="Ramaprasad KV"
-          data-tala="Adi">
-        <div class="title-row">
-          <a class="comp-link" href="ragamalika_pushpanjali_3.html">Rāgamālikā Puṣpāñjali</a>
-          <span class="type-badge">Puṣpāñjali</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Rāgamālikā | Tāla: Adi</div>
-      </li>
-    </ul>
-  </section>
+<div class="audio">
+<iframe data-src="https://www.youtube.com/embed/uLIQ2RrxBhg"></iframe>
+</div>
 
-  <!-- ✅ Rāga Group: Mohanāngi -->
-  <section class="raga-group" data-raga="mohanangi" data-raga-label="Mohanāngi">
-    <div class="raga-title">Rāga: Mohanāngi</div>
-    <ul class="comp-list">
-      <li class="composition"
-          data-type="kriti"
-          data-type-label="Kṛti"
-          data-raga="mohanangi"
-          data-raga-label="Mohanāngi"
-          data-title="Kṛti"
-          data-composer="Ramaprasad KV"
-          data-tala="Misra Chapu">
-        <div class="title-row">
-          <a class="comp-link" href="hottu_muluguta_mohanagi_4.html">Kṛti</a>
-          <span class="type-badge">Kṛti</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Mohanāngi | Tāla: Misra Chapu</div>
-      </li>
-    </ul>
-  </section>
+</li>
 
-  <!-- ✅ Rāga Group: Vasanta -->
-  <section class="raga-group" data-raga="vasanta" data-raga-label="Vasanta">
-    <div class="raga-title">Rāga: Vasanta</div>
-    <ul class="comp-list">
-      <li class="composition"
-          data-type="geete"
-          data-type-label="Geete"
-          data-raga="vasanta"
-          data-raga-label="Vasanta"
-          data-title="Sanchāri Geete"
-          data-composer="Ramaprasad KV"
-          data-tala="Trisra Triputa"
-          data-hasaudio="true">
-        <div class="title-row">
-          <a class="comp-link" href="vasanta_geete_1.html">Sanchāri Geete</a>
-          <span class="type-badge">Geete</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Vasanta | Tāla: Trisra Triputa</div>
 
-        <!-- ✅ Toggle audio (lazy src) -->
-        <button class="play-btn" onclick="toggleAudio(this)">▶ Play Audio</button>
-        <div class="audio">
-          <iframe
-            title="Vasanta Geete audio"
-            loading="lazy"
-            data-src="https://www.youtube.com/embed/uLIQ2RrxBhg"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </li>
-    </ul>
-  </section>
+<li class="composition" data-text="keeravani geete">
+keeravani_geete_2.htmlSanchāri Geete – Kīravāni</a>
+<div class="meta">Rāga: Kīravāni | Tāla: Rupaka</div>
+</li>
 
-  <!-- ✅ Rāga Group: Kīravāni -->
-  <section class="raga-group" data-raga="keeravani" data-raga-label="Kīravāni">
-    <div class="raga-title">Rāga: Kīravāni</div>
-    <ul class="comp-list">
-      <li class="composition"
-          data-type="geete"
-          data-type-label="Geete"
-          data-raga="keeravani"
-          data-raga-label="Kīravāni"
-          data-title="Sanchāri Geete"
-          data-composer="Ramaprasad KV"
-          data-tala="Rupaka">
-        <div class="title-row">
-          <a class="comp-link" href="keeravani_geete_2.html">Sanchāri Geete</a>
-          <span class="type-badge">Geete</span>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Kīravāni | Tāla: Rupaka</div>
-      </li>
-    </ul>
-  </section>
+</ul>
 
-  <hr />
-  <div class="footer">Hosted on GitHub Pages</div>
 
-  <!-- ✅ Filename + IAST guidance (so you can scale cleanly) -->
-  <details>
-    <summary>📌 Naming & adding new compositions (IAST-safe workflow)</summary>
-    <p><strong>Best practice:</strong> Keep <em>display text</em> in IAST (with diacritics), but keep <em>filenames</em> ASCII-only (web-safe). This avoids broken links and encoding issues.</p>
-    <p><strong>Filename rules:</strong></p>
-    <ul>
-      <li>Lowercase only</li>
-      <li>No spaces (use <code>_</code>)</li>
-      <li>No diacritics (ī, ā, ṇ, etc.) in filenames</li>
-      <li>Example good: <code>keeravani_geete_3.html</code></li>
-      <li>Example bad: <code>kīravāni gīte 3.html</code></li>
-    </ul>
+<!-- ✅ SWARAJATI -->
+<div class="section-title">Swarajati</div>
+<ul>
+<!-- future -->
+</ul>
 
-    <p><strong>How to add a new composition:</strong></p>
-    <ol>
-      <li>Add a new <code>&lt;li class="composition"&gt;</code> under the right rāga group.</li>
-      <li>Fill <code>data-type</code>, <code>data-raga</code>, <code>data-title</code>, <code>data-tala</code>.</li>
-      <li>Use an ASCII filename in the <code>href</code>, but show the IAST title in the link text.</li>
-      <li>If audio exists, copy the Play button + audio div pattern and set <code>data-src</code> to <code>https://www.youtube.com/embed/VIDEO_ID</code>.</li>
-    </ol>
-  </details>
+
+<!-- ✅ VARNAM -->
+<div class="section-title">Varnam</div>
+<ul>
+
+<li class="composition" data-text="hindola varnam">
+pada_varna_hindola_RamaprasadKV_Final.htmlPada Varṇa – Hindola</a>
+<div class="meta">Rāga: Hindola | Tāla: Adi</div>
+</li>
+
+<li class="composition" data-text="ragamalika varnam">
+kalyanimalikavarnam_final.htmlTāna Varṇa – Rāgamālikā</a>
+<div class="meta">Rāga: Rāgamālikā | Tāla: Adi</div>
+</li>
+
+</ul>
+
+
+<!-- ✅ KRITI -->
+<div class="section-title">Kriti</div>
+<ul>
+
+<li class="composition" data-text="mohanangi kriti">
+hottu_muluguta_mohanagi_4.htmlKriti – Mohanāngi</a>
+<div class="meta">Rāga: Mohanāngi | Tāla: Misra Chapu</div>
+</li>
+
+</ul>
+
+
+<!-- ✅ PADA -->
+<div class="section-title">Pada</div>
+<ul>
+<!-- future -->
+</ul>
+
+
+<!-- ✅ OTHERS -->
+<div class="section-title">Others</div>
+<ul>
+
+<li class="composition" data-text="pushpanjali ragamalika">
+ragamalika_pushpanjali_3.htmlRāgamālikā Pushpāñjali</a>
+<div class="meta">Tāla: Adi</div>
+</li>
+
+</ul>
+
+
+<hr>
+<p style="text-align:center;color:#777;">Hosted on GitHub Pages</p>
+
 
 <script>
-  // --- Helpers ---
-  // Normalize text for search (case-insensitive + diacritic-insensitive)
-  function norm(s) {
-    return (s || "")
-      .toString()
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/\p{Diacritic}/gu, "");
-  }
 
-  function closeAllAudio() {
+/* ✅ SEARCH */
+document.getElementById("search").addEventListener("input", function () {
+    let q = this.value.toLowerCase();
+
+    document.querySelectorAll(".composition").forEach(item => {
+        let text = item.dataset.text || "";
+        item.style.display = text.includes(q) ? "list-item" : "none";
+    });
+
+    closeAllAudio();
+});
 
 
+/* ✅ AUDIO LOGIC (FIXED + CLEAN) */
+function toggleAudio(btn) {
+
+    let audioDiv = btn.nextElementSibling;
+    let iframe = audioDiv.querySelector("iframe");
+    let isOpen = audioDiv.style.display === "block";
+
+    closeAllAudio();
+
+    if (!isOpen) {
+        audioDiv.style.display = "block";
+        btn.textContent = "⏹ Stop";
+
+        iframe.src = iframe.dataset.src;  // ✅ always set fresh
+    }
+}
+
+
+function closeAllAudio() {
+
+    document.querySelectorAll(".audio").forEach(div => {
+        let iframe = div.querySelector("iframe");
+
+        div.style.display = "none";
+
+        if (iframe) {
+            iframe.src = "";   // ✅ HARD STOP playback
+        }
+    });
+
+    document.querySelectorAll(".play-btn").forEach(btn => {
+        btn.textContent = "▶ Play";
+    });
+}
+
+</script>
+
+</body>
+</html>
