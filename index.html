@@ -6,723 +6,231 @@
 <title>Compositions</title>
 
 <style>
-  :root{
-    --bg:#ffffff;
-    --ink:#1f2937;
-    --muted:#6b7280;
-    --line:#e5e7eb;
-    --pill:#f3f4f6;
-    --accent:#2563eb;
-    --accentSoft:#eef2ff;
-    --card:#ffffff;
-    --shadow:0 8px 20px rgba(0,0,0,0.06);
-    --radius:16px;
-  }
+body {
+  font-family: system-ui, Arial;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
 
-  body{
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    max-width: 980px;
-    margin: 36px auto;
-    padding: 0 18px 60px;
-    line-height: 1.5;
-  }
+h1 { text-align:center; }
 
-  header{
-    text-align:center;
-    margin-bottom: 18px;
-  }
+.intro {
+  text-align:center;
+  max-width:700px;
+  margin: 10px auto 25px;
+  color:#555;
+}
 
-  header h1{
-    margin: 0;
-    font-size: 2rem;
-    letter-spacing: -0.02em;
-  }
+.controls {
+  margin-bottom:20px;
+}
 
-  header p{
-    margin: 8px 0 0;
-    color: var(--muted);
-  }
+input, select {
+  padding:8px;
+  margin-right:10px;
+  margin-top:5px;
+}
 
-  /* Controls */
-  .controls{
-    margin: 18px 0 16px;
-    padding: 14px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: #fafafa;
-    box-shadow: var(--shadow);
-  }
+details {
+  margin:15px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:10px;
+}
 
-  .controls-grid{
-    display:grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 10px;
-    align-items: end;
-  }
+summary {
+  font-weight:bold;
+  cursor:pointer;
+}
 
-  @media (max-width: 820px){
-    .controls-grid{ grid-template-columns: 1fr; }
-  }
+.comp {
+  margin:10px 0;
+}
 
-  label{
-    font-size: 0.9rem;
-    color: var(--muted);
-    display:block;
-    margin-bottom:6px;
-  }
+.meta {
+  font-size:0.9em;
+  color:#555;
+}
 
-  input[type="search"], select{
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #cfd5dd;
-    border-radius: 12px;
-    font-size: 1rem;
-    background: white;
-  }
+.play-btn {
+  margin-top:5px;
+  padding:5px 10px;
+  cursor:pointer;
+}
 
-  .controls-row2{
-    margin-top: 10px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    align-items:center;
-    justify-content: space-between;
-  }
+.audio {
+  display:none;
+  margin-top:10px;
+}
 
-  .left-row2{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    align-items:center;
-  }
+iframe {
+  width:100%;
+  max-width:500px;
+  height:280px;
+}
 
-  .pill{
-    display:inline-flex;
-    gap:8px;
-    align-items:center;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--pill);
-    color: #374151;
-    font-size: 0.9rem;
-  }
-
-  .toggle{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    user-select:none;
-    cursor:pointer;
-    font-size: 0.95rem;
-    color: #374151;
-  }
-
-  .toggle input{ transform: translateY(1px); }
-
-  .btn{
-    border: 1px solid var(--line);
-    background: white;
-    padding: 8px 10px;
-    border-radius: 12px;
-    cursor:pointer;
-    font-size: 0.95rem;
-  }
-
-  .btn:hover{ background: #f8fafc; }
-
-  /* Sections */
-  .type-section{
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--card);
-    box-shadow: var(--shadow);
-    margin: 14px 0;
-    overflow:hidden;
-  }
-
-  .type-section summary{
-    cursor:pointer;
-    padding: 14px 14px;
-    font-weight: 700;
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    gap: 12px;
-    background: linear-gradient(0deg, #fff, #fff), var(--accentSoft);
-  }
-
-  .type-section[open] summary{
-    border-bottom: 1px solid var(--line);
-  }
-
-  .summary-right{
-    display:flex;
-    gap:8px;
-    align-items:center;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  .count-badge{
-    background: var(--accentSoft);
-    color: #1e3a8a;
-    border: 1px solid #dbe4ff;
-    padding: 2px 10px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-  .section-inner{
-    padding: 12px 14px 14px;
-  }
-
-  .empty{
-    color: var(--muted);
-    font-style: italic;
-    margin: 8px 0 0;
-  }
-
-  /* Composition cards */
-  ul.list{
-    list-style:none;
-    padding: 0;
-    margin: 0;
-    display:flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .comp{
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 12px 12px;
-    background: #fff;
-  }
-
-  .title-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap: 10px;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-
-  .title-row a{
-    color: var(--accent);
-    text-decoration:none;
-    font-size: 1.05rem;
-    font-weight: 650;
-  }
-
-  .title-row a:hover{ text-decoration: underline; }
-
-  .badges{
-    display:flex;
-    gap: 6px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-  }
-
-  .badge{
-    font-size: 0.82rem;
-    padding: 2px 8px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--pill);
-    color: #374151;
-  }
-
-  .meta{
-    margin-top: 4px;
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
-  /* Audio */
-  .play-btn{
-    margin-top: 10px;
-    padding: 8px 10px;
-    border-radius: 12px;
-    border: 1px solid #cfd5dd;
-    background: #fff;
-    cursor:pointer;
-    font-size: 0.95rem;
-  }
-  .play-btn:hover{ background:#f8fafc; }
-
-  .audio{
-    display:none;
-    margin-top: 10px;
-  }
-
-  iframe{
-    width: 100%;
-    max-width: 640px;
-    height: 360px;
-    border: 0;
-    border-radius: 14px;
-    background: #000;
-  }
-
-  footer{
-    margin-top: 20px;
-    text-align:center;
-    color: var(--muted);
-    font-size: 0.9rem;
-  }
-
-  details.guide{
-    margin-top: 16px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 12px 14px;
-    background: #fff;
-  }
-  details.guide summary{ cursor:pointer; font-weight:700; }
-  code{ background:#f3f4f6; padding: 2px 6px; border-radius: 8px; }
+footer {
+  text-align:center;
+  color:#777;
+  margin-top:30px;
+}
 </style>
 </head>
 
 <body>
-<header>
-  <h1>🎶 Original Compositions</h1>
-  <p>A curated archive of my compositions — notations and recordings</p>
-</header>
 
-<!-- Controls -->
-<section class="controls" aria-label="Filters">
-  <div class="controls-grid">
-    <div>
-      <label for="q">Search</label>
-      <input id="q" type="search" placeholder="Try: vasanta, geete, rupaka, hindola…" />
-    </div>
+<h1>🎶 Original Compositions</h1>
 
-    <div>
-      <label for="type">Type</label>
-      <select id="type">
-        <option value="all">All</option>
-        <option value="geete">Geete</option>
-        <option value="swarajati">Swarajati</option>
-        <option value="varna">Varna</option>
-        <option value="kriti">Kriti</option>
-        <option value="pada">Pada</option>
-        <option value="others">Others</option>
-      </select>
-    </div>
+<p class="intro">
+This archive presents a collection of original compositions in the Karnataka Sangeeta tradition 
+(also called Carnatic in English), spanning forms such as geete, varṇa, kriti, and other compositional types. 
+Each entry includes notation and, where available, audio renderings. 
+The compositions may be browsed by type or searched by rāga, tāla, or title, providing a structured 
+yet flexible way to explore the collection.
+</p>
 
-    <div>
-      <label for="sort">Sort</label>
-      <select id="sort">
-        <option value="title">Title</option>
-        <option value="raga">Rāga</option>
-        <option value="tala">Tāla</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="controls-row2">
-    <div class="left-row2">
-      <label class="toggle">
-        <input id="audioOnly" type="checkbox" />
-        Audio only
-      </label>
-      <button class="btn" id="clearBtn" type="button">Clear</button>
-    </div>
-
-    <div class="pill" id="countPill">Showing 0 of 0</div>
-  </div>
-</section>
-
-<!-- =========================
-     TYPE SECTIONS (accordion)
-     Only one open at a time via name=""
-     ========================= -->
-
-<!-- Geete -->
-<details class="type-section" name="typeSections" open data-section="geete">
-  <summary>
-    <span>Geete</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="geete">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="geete">
-
-      <!-- Vasanta Geete (has audio) -->
-      <li class="comp composition"
-          data-type="geete"
-          data-title="Sanchāri Geete"
-          data-raga="Vasanta"
-          data-tala="Trisra Triputa"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="true"
-          data-search="sanchari geete vasanta trisra triputa ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="vasanta_geete_1.html">Sanchāri Geete — Rāga: Vasanta</a>
-          <div class="badges">
-            <span class="badge">Geete</span>
-            <span class="badge">Vasanta</span>
-            <span class="badge">Trisra Triputa</span>
-            <span class="badge">🎧</span>
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Vasanta | Tāla: Trisra Triputa</div>
-
-        <button class="play-btn" onclick="toggleAudio(this)">▶ Play Audio</button>
-        <div class="audio">
-          <iframe
-            title="Vasanta Geete audio"
-            loading="lazy"
-            data-src="https://www.youtube.com/embed/uLIQ2RrxBhg"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-          <div class="meta" style="margin-top:6px;">
-            <a href="https://www.youtube.com/watch?v=uLIQ2RrxBhg" target="_blank" rel="noopener">Open on YouTube</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Keeravani Geete (no audio yet) -->
-      <li class="comp composition"
-          data-type="geete"
-          data-title="Sanchāri Geete"
-          data-raga="Kīravāni"
-          data-tala="Rupaka"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="false"
-          data-search="sanchari geete keeravani kiravani rupaka ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="keeravani_geete_2.html">Sanchāri Geete — Rāga: Kīravāni</a>
-          <div class="badges">
-            <span class="badge">Geete</span>
-            <span class="badge">Kīravāni</span>
-            <span class="badge">Rupaka</span>
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Kīravāni | Tāla: Rupaka</div>
-      </li>
-
-    </ul>
-    <div class="empty" data-empty-for="geete" style="display:none;">No compositions yet.</div>
-  </div>
-</details>
-
-<!-- Swarajati -->
-<details class="type-section" name="typeSections" data-section="swarajati">
-  <summary>
-    <span>Swarajati</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="swarajati">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="swarajati"></ul>
-    <div class="empty" data-empty-for="swarajati">No compositions yet.</div>
-  </div>
-</details>
-
-<!-- Varna (covers pada varna + tana varna under same bucket) -->
-<details class="type-section" name="typeSections" data-section="varna">
-  <summary>
-    <span>Varna</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="varna">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="varna">
-
-      <li class="comp composition"
-          data-type="varna"
-          data-title="Pada Varṇa"
-          data-raga="Hindola"
-          data-tala="Adi"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="false"
-          data-search="pada varna hindola adi ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="pada_varna_hindola_RamaprasadKV_Final.html">Pada Varṇa — Rāga: Hindola</a>
-          <div class="badges">
-            <span class="badge">Varna</span>
-            <span class="badge">Hindola</span>
-            <span class="badge">Adi</span>
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Hindola | Tāla: Adi</div>
-      </li>
-
-      <li class="comp composition"
-          data-type="varna"
-          data-title="Rāgamālikā Tāna Varṇa"
-          data-raga="Rāgamālikā"
-          data-tala="Adi"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="false"
-          data-search="ragamalika tana varna adi ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="kalyanimalikavarnam_final.html">Rāgamālikā Tāna Varṇa</a>
-          <div class="badges">
-            <span class="badge">Varna</span>
-            <span class="badge">Rāgamālikā</span>
-            <span class="badge">Adi</span>
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Rāgamālikā | Tāla: Adi</div>
-      </li>
-
-    </ul>
-    <div class="empty" data-empty-for="varna" style="display:none;">No compositions yet.</div>
-  </div>
-</details>
-
-<!-- Kriti -->
-<details class="type-section" name="typeSections" data-section="kriti">
-  <summary>
-    <span>Kriti</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="kriti">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="kriti">
-
-      <li class="comp composition"
-          data-type="kriti"
-          data-title="Kriti"
-          data-raga="Mohanāngi"
-          data-tala="Misra Chapu"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="false"
-          data-search="kriti mohanangi misra chapu ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="hottu_muluguta_mohanagi_4.html">Kriti — Rāga: Mohanāngi</a>
-          <div class="badges">
-            <span class="badge">Kriti</span>
-            <span class="badge">Mohanāngi</span>
-            <span class="badge">Misra Chapu</span>
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Mohanāngi | Tāla: Misra Chapu</div>
-      </li>
-
-    </ul>
-    <div class="empty" data-empty-for="kriti" style="display:none;">No compositions yet.</div>
-  </div>
-</details>
-
-<!-- Pada -->
-<details class="type-section" name="typeSections" data-section="pada">
-  <summary>
-    <span>Pada</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="pada">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="pada"></ul>
-    <div class="empty" data-empty-for="pada">No compositions yet.</div>
-  </div>
-</details>
-
-<!-- Others -->
-<details class="type-section" name="typeSections" data-section="others">
-  <summary>
-    <span>Others</span>
-    <span class="summary-right"><span class="count-badge" data-count-for="others">0</span></span>
-  </summary>
-  <div class="section-inner">
-    <ul class="list" data-list-for="others">
-
-      <li class="comp composition"
-          data-type="others"
-          data-title="Rāgamālikā Puṣpāñjali"
-          data-raga="Rāgamālikā"
-          data-tala="Adi"
-          data-composer="Ramaprasad KV"
-          data-hasaudio="false"
-          data-search="ragamalika pushpanjali adi ramaprasad kv">
-        <div class="title-row">
-          <a class="comp-link" href="ragamalika_pushpanjali_3.html">Rāgamālikā Puṣpāñjali</a>
-          <div class="badges">
-            <span class="badge">Others</span>
-            <span class="badge">Rāgamālikā</span>
-            <span class="badge">Adi</span>
-
-<button class="play-btn" onclick="toggleAudio(this)">▶ Play</button>
-
-<div class="audio">
-    <iframe data-src="https://www.youtube.com/embed/uLIQ2RrxBhg"></iframe>
+<div class="controls">
+<input id="search" placeholder="Search...">
+<select id="typeFilter">
+<option value="all">All</option>
+<option value="geete">Geete</option>
+<option value="swarajati">Swarajati</option>
+<option value="varna">Varna</option>
+<option value="kriti">Kriti</option>
+<option value="pada">Pada</option>
+<option value="others">Others</option>
+</select>
 </div>
 
-          </div>
-        </div>
-        <div class="meta">Composer: Ramaprasad KV | Rāga: Rāgamālikā | Tāla: Adi</div>
-      </li>
+<div id="archive"></div>
 
-    </ul>
-    <div class="empty" data-empty-for="others" style="display:none;">No compositions yet.</div>
-  </div>
-</details>
+<hr>
 
-<details class="guide">
-  <summary>➕ How to add a new composition (copy‑paste template)</summary>
-  <p><strong>Best practice:</strong> keep filenames web-safe (ASCII, no spaces/diacritics) but display beautiful IAST in the title.</p>
-  <p><strong>Template (paste inside the right section’s &lt;ul&gt;):</strong></p>
+<section style="max-width:700px; margin: 30px auto 10px; text-align:center; color:#555;">
+<h3>About the Composer</h3>
 
-<pre style="white-space:pre-wrap; margin:10px 0; color:#111;">
-&lt;li class="comp composition"
-    data-type="geete"
-    data-title="Sanchāri Geete"
-    data-raga="Kalyāṇi"
-    data-tala="Adi"
-    data-composer="Ramaprasad KV"
-    data-hasaudio="true"
-    data-search="sanchari geete kalyani adi ramaprasad kv"&gt;
+<p>
+Ramaprasad KV is a composer in the Karnataka Sangeeta tradition (also called Carnatic in English), 
+with a focus on creating original compositions across a range of compositional forms 
+including geete, varṇa, kriti, and related types.
+</p>
 
-  &lt;div class="title-row"&gt;
-    &lt;a class="comp-link" href="kalyani_geete_3.html"&gt;Sanchāri Geete — Rāga: Kalyāṇi&lt;/a&gt;
-    &lt;div class="badges"&gt;
-      &lt;span class="badge"&gt;Geete&lt;/span&gt;
-      &lt;span class="badge"&gt;Kalyāṇi&lt;/span&gt;
-      &lt;span class="badge"&gt;Adi&lt;/span&gt;
-      &lt;span class="badge"&gt;🎧&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+<p>
+This archive documents an evolving body of work, bringing together notated compositions 
+and audio realizations, and reflecting an ongoing engagement with both traditional frameworks 
+and creative exploration within the idiom.
+</p>
+</section>
 
-  &lt;div class="meta"&gt;Composer: Ramaprasad KV | Rāga: Kalyāṇi | Tāla: Adi&lt;/div&gt;
-
-  &lt;button class="play-btn" onclick="toggleAudio(this)"&gt;▶ Play Audio&lt;/button&gt;
-  &lt;div class="audio"&gt;
-    &lt;iframe
-      title="Audio"
-      loading="lazy"
-      data-src="https://www.youtube.com/embed/VIDEO_ID"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen&gt;&lt;/iframe&gt;
-    &lt;div class="meta" style="margin-top:6px;"&gt;
-      &lt;a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener"&gt;Open on YouTube&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-&lt;/li&gt;
-</pre>
-
-  <p><em>Note:</em> YouTube embeds should use <code>https://www.youtube.com/embed/VIDEO_ID</code>. [1](https://developers.google.com/youtube/player_parameters)</p>
-</details>
-
-<footer>
-  Hosted on GitHub Pages
-</footer>
+<footer>Hosted on GitHub Pages</footer>
 
 <script>
-  // Normalize text for search: lowercase + strip diacritics
-  function norm(s){
-    return (s||"").toString().toLowerCase()
-      .normalize("NFD").replace(/\p{Diacritic}/gu,"");
-  }
 
-  function closeAllAudio(){
-    document.querySelectorAll(".audio").forEach(div => {
-      div.style.display = "none";
-      const iframe = div.querySelector("iframe");
-      if (iframe) iframe.removeAttribute("src"); // stops playback
-    });
-    document.querySelectorAll(".play-btn").forEach(btn => btn.textContent = "▶ Play Audio");
-  }
+const DATA = [
+  {type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa", youtube:"uLIQ2RrxBhg"},
+  {type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka"},
+  {type:"varna", title:"Pada Varṇa — Hindola", file:"pada_varna_hindola_RamaprasadKV_Final.html", raga:"Hindola", tala:"Adi"},
+  {type:"varna", title:"Rāgamālikā Tāna Varṇa", file:"kalyanimalikavarnam_final.html", raga:"Rāgamālikā", tala:"Adi"},
+  {type:"kriti", title:"Kriti — Mohanāngi", file:"hottu_muluguta_mohanagi_4.html", raga:"Mohanāngi", tala:"Misra Chapu"},
+  {type:"others", title:"Rāgamālikā Puṣpāñjali", file:"ragamalika_pushpanjali_3.html", tala:"Adi"}
+];
 
-  // Only one audio open at a time + lazy-load src when opened
-  function toggleAudio(btn){
-    const audioDiv = btn.nextElementSibling;
-    if (!audioDiv || !audioDiv.classList.contains("audio")) return;
+const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
 
-    const iframe = audioDiv.querySelector("iframe");
-    const isOpen = (audioDiv.style.display === "block");
+function render() {
 
-    closeAllAudio();
+  let container = document.getElementById("archive");
+  container.innerHTML = "";
 
-    if (!isOpen){
-      audioDiv.style.display = "block";
-      btn.textContent = "⏹ Hide Audio";
-      if (iframe && !iframe.getAttribute("src")){
-        iframe.setAttribute("src", iframe.dataset.src);
-      }
+  TYPES.forEach(type => {
+
+    let section = document.createElement("details");
+
+    if (type === "varna") section.open = true; // ✅ default open
+
+    let summary = document.createElement("summary");
+    summary.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+    section.appendChild(summary);
+
+    let filtered = DATA.filter(c => c.type === type);
+
+    if (filtered.length === 0) {
+      let empty = document.createElement("p");
+      empty.textContent = "No compositions yet.";
+      section.appendChild(empty);
     }
-  }
 
-  // Sorting within each section
-  function sortVisible(){
-    const mode = document.getElementById("sort").value;
-    document.querySelectorAll("ul.list").forEach(ul => {
-      const items = Array.from(ul.querySelectorAll("li.composition"));
-      items.sort((a,b) => {
-        const av = (a.dataset[mode] || "").toString();
-        const bv = (b.dataset[mode] || "").toString();
-        return norm(av).localeCompare(norm(bv));
-      });
-      items.forEach(li => ul.appendChild(li));
-    });
-  }
+    filtered.forEach(c => {
 
-  function applyFilters(){
-    closeAllAudio();
+      let div = document.createElement("div");
+      div.className = "comp";
+      div.dataset.text = (c.title + " " + (c.raga||"") + " " + (c.tala||"")).toLowerCase();
+      div.dataset.type = c.type;
 
-    const q = norm(document.getElementById("q").value);
-    const type = document.getElementById("type").value;
-    const audioOnly = document.getElementById("audioOnly").checked;
+      div.innerHTML = `
+        <a href="${c.file}">${c.title}</a>
+        <div class="meta">
+          ${c.raga ? "Rāga: " + c.raga : ""} 
+          ${c.tala ? " | Tāla: " + c.tala : ""}
+        </div>
+      `;
 
-    const allItems = Array.from(document.querySelectorAll("li.composition"));
-    let shown = 0;
+      if (c.youtube) {
 
-    allItems.forEach(li => {
-      const liType = li.dataset.type || "";
-      const liAudio = (li.dataset.hasaudio || "false") === "true";
-      const hay = norm(li.dataset.search || "");
+        let btn = document.createElement("button");
+        btn.className="play-btn";
+        btn.textContent="▶ Play";
 
-      const matchType = (type === "all" || liType === type);
-      const matchAudio = (!audioOnly || liAudio);
-      const matchText = (!q || hay.includes(q));
+        let audio = document.createElement("div");
+        audio.className="audio";
 
-      const ok = matchType && matchAudio && matchText;
-      li.style.display = ok ? "" : "none";
-      if (ok) shown++;
-    });
+        let iframe = document.createElement("iframe");
+        iframe.dataset.src = "https://www.youtube.com/embed/" + c.youtube;
 
-    // Update per-section counts + empty labels
-    const sections = ["geete","swarajati","varna","kriti","pada","others"];
-    sections.forEach(sec => {
-      const sectionEl = document.querySelector(`details[data-section="${sec}"]`);
-      const countBadge = document.querySelector(`[data-count-for="${sec}"]`);
-      const emptyEl = document.querySelector(`[data-empty-for="${sec}"]`);
-      const visibleInSection = Array.from(sectionEl.querySelectorAll("li.composition"))
-        .filter(li => li.style.display !== "none").length;
+        audio.appendChild(iframe);
 
-      countBadge.textContent = visibleInSection;
-      if (emptyEl){
-        // Show "No compositions yet" only if the section has no items at all
-        const totalInSection = sectionEl.querySelectorAll("li.composition").length;
-        emptyEl.style.display = (totalInSection === 0) ? "" : "none";
+        btn.onclick = () => {
+
+          document.querySelectorAll(".audio").forEach(a=>{
+            a.style.display="none";
+            let f=a.querySelector("iframe");
+            if(f) f.src="";
+          });
+
+          audio.style.display="block";
+          iframe.src = iframe.dataset.src;
+        };
+
+        div.appendChild(btn);
+        div.appendChild(audio);
       }
+
+      section.appendChild(div);
     });
 
-    document.getElementById("countPill").textContent = `Showing ${shown} of ${allItems.length}`;
-  }
-
-  function clearAll(){
-    document.getElementById("q").value = "";
-    document.getElementById("type").value = "all";
-    document.getElementById("audioOnly").checked = false;
-    document.getElementById("sort").value = "title";
-    sortVisible();
-    applyFilters();
-  }
-
-  // Init
-  window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("q").addEventListener("input", applyFilters);
-    document.getElementById("type").addEventListener("change", applyFilters);
-    document.getElementById("audioOnly").addEventListener("change", applyFilters);
-    document.getElementById("sort").addEventListener("change", () => { sortVisible(); applyFilters(); });
-    document.getElementById("clearBtn").addEventListener("click", clearAll);
-
-    sortVisible();
-    applyFilters();
+    container.appendChild(section);
   });
+}
+
+render();
+
+/* Search + filter */
+
+document.getElementById("search").addEventListener("input", filter);
+document.getElementById("typeFilter").addEventListener("change", filter);
+
+function filter() {
+  let q = document.getElementById("search").value.toLowerCase();
+  let t = document.getElementById("typeFilter").value;
+
+  document.querySelectorAll(".comp").forEach(c => {
+    let matchText = c.dataset.text.includes(q);
+    let matchType = (t==="all" || c.dataset.type===t);
+    c.style.display = (matchText && matchType) ? "block":"none";
+  });
+}
+
 </script>
 
 </body>
