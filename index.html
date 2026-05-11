@@ -15,33 +15,61 @@ body {
   line-height: 1.6;
 }
 
-h1 {
-  text-align:center;
-}
-
 /* ✅ Intro paragraph */
 .intro {
   max-width:700px;
-  margin: 15px auto 30px;
+  margin: 15px auto 25px;
   color:#444;
   text-align:left;
   line-height: 1.7;
 }
 
-/* Controls */
+/* ✅ Helper label */
+.helper-text {
+  font-size:0.9em;
+  color:#666;
+  max-width:700px;
+  margin: 0 auto 8px;
+}
+
+/* ✅ Controls panel */
 .controls {
-  margin-bottom:20px;
+  max-width:700px;
+  margin: 10px auto 25px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
 }
 
+/* ✅ Inputs */
 input, select {
-  padding:8px;
-  margin-right:10px;
-  margin-top:5px;
+  padding:8px 10px;
+  margin-right:8px;
+  font-size: 0.95em;
 }
 
-/* Sections */
+/* ✅ Search width */
+#search {
+  width: 50%;
+  max-width: 250px;
+}
+
+/* ✅ Buttons */
+button {
+  padding:8px 10px;
+  border:1px solid #ddd;
+  background:white;
+  cursor:pointer;
+  border-radius:6px;
+}
+button:hover {
+  background:#f5f5f5;
+}
+
+/* ✅ Sections */
 details {
-  margin:15px 0;
+  margin:18px 0;
   border:1px solid #ddd;
   border-radius:10px;
   padding:10px;
@@ -51,11 +79,23 @@ details {
 summary {
   font-weight:bold;
   cursor:pointer;
+  font-size: 1.05em;
+  padding: 4px 0;
 }
 
-/* Composition item */
+details summary:hover {
+  color:#333;
+}
+
+/* ✅ Composition items */
 .comp {
-  margin:12px 0;
+  margin:10px 0;
+  padding:8px 10px;
+  border-radius:6px;
+}
+
+.comp:hover {
+  background:#fafafa;
 }
 
 .meta {
@@ -63,11 +103,19 @@ summary {
   color:#555;
 }
 
-/* Audio */
+/* ✅ Links */
+a {
+  text-decoration:none;
+  color:#1a73e8;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+/* ✅ Audio */
 .play-btn {
   margin-top:5px;
-  padding:5px 10px;
-  cursor:pointer;
 }
 
 .audio {
@@ -81,7 +129,7 @@ iframe {
   height:280px;
 }
 
-/* ✅ About section */
+/* ✅ About */
 .about {
   max-width:700px;
   margin: 30px auto 10px;
@@ -90,7 +138,7 @@ iframe {
   text-align:left;
 }
 
-/* subtle divider */
+/* ✅ Divider */
 .section-divider {
   border:none;
   height:1px;
@@ -110,8 +158,6 @@ footer {
 
 <body>
 
-/* Removed <h1>🎶 Original Compositions</h1> */
-
 <!-- ✅ Intro -->
 <p class="intro">
 This archive presents a collection of original compositions in the Karnataka Sangeeta tradition 
@@ -119,26 +165,34 @@ This archive presents a collection of original compositions in the Karnataka San
 Each entry includes notation and, where available, audio renderings. 
 </p>
 
-<!-- Controls -->
+<!-- ✅ Label -->
+<p class="helper-text">
+Browse or search the collection:
+</p>
+
+<!-- ✅ Controls -->
 <div class="controls">
-<input id="search" placeholder="Search...">
-<select id="typeFilter">
-<option value="all">All</option>
-<option value="geete">Geete</option>
-<option value="swarajati">Swarajati</option>
-<option value="varna">Varna</option>
-<option value="kriti">Kriti</option>
-<option value="pada">Pada</option>
-<option value="others">Others</option>
-</select>
+  <input id="search" placeholder="Search...">
+
+  <select id="typeFilter">
+    <option value="all">All</option>
+    <option value="geete">Geete</option>
+    <option value="swarajati">Swarajati</option>
+    <option value="varna">Varna</option>
+    <option value="kriti">Kriti</option>
+    <option value="pada">Pada</option>
+    <option value="others">Others</option>
+  </select>
+
+  <button id="clearBtn">Clear</button>
 </div>
 
-<!-- Archive container -->
+<!-- ✅ Archive -->
 <div id="archive"></div>
 
 <hr class="section-divider">
 
-<!-- ✅ About section -->
+<!-- ✅ About -->
 <section class="about">
 <h3 style="text-align:center; margin-bottom:15px;">About the Composer</h3>
 
@@ -164,7 +218,7 @@ Instagram:
 
 <script>
 
-/* ✅ DATA (only edit this in future) */
+/* ✅ DATA */
 const DATA = [
   {type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa", youtube:"uLIQ2RrxBhg"},
   {type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka"},
@@ -186,7 +240,6 @@ function render() {
 
     let section = document.createElement("details");
 
-    // ✅ Varna default open
     if (type === "varna") section.open = true;
 
     let summary = document.createElement("summary");
@@ -194,12 +247,6 @@ function render() {
     section.appendChild(summary);
 
     let filtered = DATA.filter(c => c.type === type);
-
-    if (filtered.length === 0) {
-      let empty = document.createElement("p");
-      empty.textContent = "No compositions yet.";
-      section.appendChild(empty);
-    }
 
     filtered.forEach(c => {
 
@@ -216,7 +263,6 @@ function render() {
         </div>
       `;
 
-      /* ✅ Audio */
       if (c.youtube) {
 
         let btn = document.createElement("button");
@@ -255,7 +301,7 @@ function render() {
 
 render();
 
-/* ✅ Search & filter */
+/* ✅ Filter */
 document.getElementById("search").addEventListener("input", filter);
 document.getElementById("typeFilter").addEventListener("change", filter);
 
@@ -269,6 +315,13 @@ function filter() {
     c.style.display = (matchText && matchType) ? "block":"none";
   });
 }
+
+/* ✅ Clear button */
+document.getElementById("clearBtn").onclick = () => {
+  document.getElementById("search").value = "";
+  document.getElementById("typeFilter").value = "all";
+  filter();
+};
 
 </script>
 
