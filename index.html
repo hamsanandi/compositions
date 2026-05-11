@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compositions</title>
 
 <style>
@@ -11,17 +11,24 @@ body {
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-h1 { text-align:center; }
-
-.intro {
+h1 {
   text-align:center;
-  max-width:700px;
-  margin: 10px auto 25px;
-  color:#555;
 }
 
+/* ✅ Intro paragraph */
+.intro {
+  max-width:700px;
+  margin: 15px auto 30px;
+  color:#444;
+  text-align:left;
+  line-height: 1.7;
+}
+
+/* Controls */
 .controls {
   margin-bottom:20px;
 }
@@ -32,11 +39,13 @@ input, select {
   margin-top:5px;
 }
 
+/* Sections */
 details {
   margin:15px 0;
   border:1px solid #ddd;
   border-radius:10px;
   padding:10px;
+  background:#fff;
 }
 
 summary {
@@ -44,8 +53,9 @@ summary {
   cursor:pointer;
 }
 
+/* Composition item */
 .comp {
-  margin:10px 0;
+  margin:12px 0;
 }
 
 .meta {
@@ -53,6 +63,7 @@ summary {
   color:#555;
 }
 
+/* Audio */
 .play-btn {
   margin-top:5px;
   padding:5px 10px;
@@ -70,24 +81,47 @@ iframe {
   height:280px;
 }
 
+/* ✅ About section */
+.about {
+  max-width:700px;
+  margin: 30px auto 10px;
+  color:#444;
+  line-height:1.7;
+  text-align:left;
+}
+
+/* subtle divider */
+.section-divider {
+  border:none;
+  height:1px;
+  background:#eee;
+  margin:40px 0;
+}
+
 footer {
   text-align:center;
   color:#777;
   margin-top:30px;
+  font-size:0.9em;
 }
 </style>
+
 </head>
 
 <body>
 
 <h1>🎶 Original Compositions</h1>
 
+<!-- ✅ Intro -->
 <p class="intro">
-This archive presents a collection of my original compositions in the Karnataka Sangeeta tradition 
-(also referred to as Carnatic music). 
-Each entry includes notation and, where available, audio renderings. Explore the collection!
+This archive presents a collection of original compositions in the Karnataka Sangeeta tradition 
+(also called Carnatic in English), spanning forms such as geete, varṇa, kriti, and other compositional types. 
+Each entry includes notation and, where available, audio renderings. 
+The compositions may be browsed by type or searched by rāga, tāla, or title, providing a structured 
+yet flexible way to explore the collection.
 </p>
 
+<!-- Controls -->
 <div class="controls">
 <input id="search" placeholder="Search...">
 <select id="typeFilter">
@@ -101,48 +135,52 @@ Each entry includes notation and, where available, audio renderings. Explore the
 </select>
 </div>
 
+<!-- Archive container -->
 <div id="archive"></div>
 
-<hr>
+<hr class="section-divider">
 
-<section style="max-width:700px; margin: 30px auto 10px; text-align:center; color:#555;">
-  <h3>About the Composer</h3>
+<!-- ✅ About section -->
+<section class="about">
+<h3 style="text-align:center; margin-bottom:15px;">About the Composer</h3>
 
-  <p>
-    Ramaprasad KV is a composer in the Karnataka Sangeeta tradition, with over 100 original compositions across a range of compositional forms.
-    Many of his compositions have been performed on stage and also choreographed in dance concerts.
-    He is also a published author with 4 Kannada books to his credit. 
-  </p>
+<p>
+Ramaprasad KV is a composer in the Karnataka Sangeeta tradition (also called Carnatic in English), 
+with a focus on creating original compositions across a range of compositional forms 
+including geete, varṇa, kriti, and related types.
+</p>
 
-  <p>
-    This archive documents an evolving body of work, bringing together notated compositions 
-    and audio renditions to help those who would like to learn these compositions.
-  </p>
+<p>
+This archive documents an evolving body of work, bringing together notated compositions 
+and audio realizations, and reflecting an ongoing engagement with both traditional frameworks 
+and creative exploration within the idiom.
+</p>
 
-  <p style="margin-top:10px;">
-    Instagram: 
-    <a href="https://www.instagram.com/hamsanandi" target="_blank" style="text-decoration:none; color:#1a73e8;">
-      @hamsanandi
-    </a>
-  </p>
+<p style="margin-top:12px;">
+Instagram: 
+<a href="https://www.instagram.com/hamsanandi" target="_blank">
+@hamsanandi
+</a>
+</p>
 </section>
-``
 
 <footer>Hosted on GitHub Pages</footer>
 
 <script>
 
+/* ✅ DATA (only edit this in future) */
 const DATA = [
   {type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa", youtube:"uLIQ2RrxBhg"},
   {type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka"},
   {type:"varna", title:"Pada Varṇa — Hindola", file:"pada_varna_hindola_RamaprasadKV_Final.html", raga:"Hindola", tala:"Adi"},
   {type:"varna", title:"Rāgamālikā Tāna Varṇa", file:"kalyanimalikavarnam_final.html", raga:"Rāgamālikā", tala:"Adi"},
   {type:"kriti", title:"Kriti — Mohanāngi", file:"hottu_muluguta_mohanagi_4.html", raga:"Mohanāngi", tala:"Misra Chapu"},
-  {type:"others", title:"Rāgamālikā Puṣpāñjali", file:"ragamalika_pushpanjali_3.html", tala:"Adi",youtube:"jzSKVZgP-HQ" }
+  {type:"others", title:"Rāgamālikā Puṣpāñjali", file:"ragamalika_pushpanjali_3.html", tala:"Adi"}
 ];
 
 const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
 
+/* ✅ Render */
 function render() {
 
   let container = document.getElementById("archive");
@@ -152,7 +190,8 @@ function render() {
 
     let section = document.createElement("details");
 
-    if (type === "varna") section.open = true; // ✅ default open
+    // ✅ Varna default open
+    if (type === "varna") section.open = true;
 
     let summary = document.createElement("summary");
     summary.textContent = type.charAt(0).toUpperCase() + type.slice(1);
@@ -176,11 +215,12 @@ function render() {
       div.innerHTML = `
         <a href="${c.file}">${c.title}</a>
         <div class="meta">
-          ${c.raga ? "Rāga: " + c.raga : ""} 
+          ${c.raga ? "Rāga: " + c.raga : ""}
           ${c.tala ? " | Tāla: " + c.tala : ""}
         </div>
       `;
 
+      /* ✅ Audio */
       if (c.youtube) {
 
         let btn = document.createElement("button");
@@ -196,7 +236,6 @@ function render() {
         audio.appendChild(iframe);
 
         btn.onclick = () => {
-
           document.querySelectorAll(".audio").forEach(a=>{
             a.style.display="none";
             let f=a.querySelector("iframe");
@@ -220,8 +259,7 @@ function render() {
 
 render();
 
-/* Search + filter */
-
+/* ✅ Search & filter */
 document.getElementById("search").addEventListener("input", filter);
 document.getElementById("typeFilter").addEventListener("change", filter);
 
