@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ಜಯ ಜಯ ಜಯಾ — ಶಂಕರಾಭರಣ ಗೀತೆ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;600;700&family=Noto+Serif+Kannada:wght@400;600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#ffffff;--border:#d4c5a9;--border-light:#c0aa88;--gold:#8b5e1a;--gold-light:#6b4510;--gold-dim:#a0783a;--swara:#1a1208;--sahitya:#1a4a30;--section-bg:#fdf9f3;--header-bg:#f5ede0;--beat-label:#8a7055;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--swara);font-family:'Noto Sans Kannada',sans-serif;padding:2rem 1rem 4rem;}
+
+  .title-block{text-align:center;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);position:relative;}
+  .title-block::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .raga-label{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:0.6rem;}
+  .title-kn{font-family:'Noto Serif Kannada',serif;font-size:1.8rem;color:var(--gold-light);font-weight:600;margin-bottom:0.3rem;}
+  .title-sub{font-family:'Noto Serif Kannada',serif;font-size:0.95rem;color:var(--gold-dim);margin-bottom:0.45rem;}
+  .scale-line{font-size:0.75rem;color:var(--swara);line-height:2.2;margin-bottom:0.2rem;}
+  .scale-line-en{font-family:'EB Garamond',serif;font-size:0.78rem;color:var(--beat-label);font-style:italic;}
+
+  .legend{display:flex;gap:1.2rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;align-items:center;}
+  .legend-item{display:flex;align-items:center;gap:0.5rem;font-size:0.7rem;color:var(--beat-label);}
+  .legend-dot{width:8px;height:8px;border-radius:50%;}
+
+  .sahitya-block{margin-bottom:2rem;padding:1rem 1.25rem;border:1px solid var(--border);border-left:3px solid var(--gold-dim);background:var(--section-bg);}
+  .sahitya-title{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:0.7rem;}
+  .sah-line{font-family:'Noto Serif Kannada',serif;font-size:0.88rem;line-height:2.1;color:var(--swara);}
+
+  .section{margin-bottom:2rem;}
+  .section-header{padding:0.5rem 0.75rem;background:var(--header-bg);border-left:3px solid var(--gold);margin-bottom:0;display:flex;align-items:baseline;gap:0.7rem;flex-wrap:wrap;}
+  .sh-en{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;}
+  .sh-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:0.8rem;color:var(--gold-dim);}
+  .charana-label{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;color:var(--gold-dim);padding:0.2rem 0.75rem;background:#f8f2e8;border-left:3px solid var(--border-light);border-bottom:1px solid var(--border);}
+
+  /* 4-column geete table */
+  .geete-table{width:100%;border-collapse:collapse;table-layout:fixed;background:var(--section-bg);border:1px solid var(--border);}
+  .tala-header th{font-family:'Noto Sans Kannada',sans-serif;font-size:0.7rem;font-weight:600;color:var(--gold);text-align:center;padding:0.3rem 0.2rem;background:#e8d8b8;border:1px solid var(--border-light);}
+  .akshar-header th{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.08em;color:var(--beat-label);text-align:center;padding:0.25rem 0.2rem 0.35rem;border:1px solid var(--border);background:#ede0cc;width:25%;}
+  .geete-table td{border:1px solid var(--border);padding:0.5rem 0.4rem;vertical-align:top;width:25%;}
+
+  /* Swara layers */
+  .kn{font-family:'Noto Sans Kannada',sans-serif;font-size:0.85rem;color:var(--swara);display:block;line-height:1.3;padding-top:0.8em;padding-bottom:0.55em;}
+  .en{font-family:'EB Garamond',serif;font-size:0.8rem;color:#5a4a30;display:block;line-height:1.4;padding-top:0.15em;padding-bottom:0.15em;border-top:1px dotted #ccc;}
+  .sa{font-family:'Noto Serif Kannada',serif;font-size:0.82rem;color:var(--sahitya);display:block;line-height:1.5;margin-top:0.3rem;padding-top:0.3rem;border-top:1px dashed #a8ccb8;}
+  .saen{font-family:'EB Garamond',serif;font-size:0.78rem;color:#3a6a50;display:block;line-height:1.5;font-style:italic;}
+  .sa2{font-family:'Noto Serif Kannada',serif;font-size:0.82rem;color:#3a5a30;display:block;line-height:1.5;padding-top:0.2rem;}
+  .sa2en{font-family:'EB Garamond',serif;font-size:0.78rem;color:#2a4a20;display:block;line-height:1.5;font-style:italic;}
+
+  /* Tara — red, dot above */
+  .t{color:#cc0000;display:inline-block;position:relative;}
+  .t::before{content:'•';position:absolute;top:-0.82em;left:50%;transform:translateX(-50%);font-size:0.5em;line-height:1;color:#cc0000;}
+  /* Mandra — green, dot below */
+  .m{color:#007700;display:inline-block;position:relative;}
+  .m::after{content:'•';position:absolute;bottom:-0.6em;left:50%;transform:translateX(-50%);font-size:0.5em;line-height:1;color:#007700;}
+
+  .avarta-div td{height:4px;background:linear-gradient(90deg,var(--border),var(--border-light),var(--border));padding:0;border:none;}
+</style>
+</head>
+<body>
+
+<div class="title-block">
+  <div class="raga-label">ಗೀತೆ &nbsp;·&nbsp; Geete &nbsp;·&nbsp; ತ್ರಿಪುಟ ತಾಳ</div>
+  <div class="title-kn">ಜಯ ಜಯ ಕರುಣಾಳು</div>
+  <div class="title-sub">ರಾಗ ಶಂಕರಾಭರಣ &nbsp;·&nbsp; ತ್ರಿಪುಟ ತಾಳ</div>
+  <div class="scale-line">ಸ ರಿ₂ ಗ₃ ಮ₁ ಪ ದ₂ ನಿ₃ <span class="t" style="padding-top:0.5em">ಸ</span> &nbsp;|&nbsp; <span class="t" style="padding-top:0.5em">ಸ</span> ನಿ₃ ದ₂ ಪ ಮ₁ ಗ₃ ರಿ₂ ಸ</div>
+  <div class="scale-line-en">S R₂ G₃ M₁ P D₂ N₃ <span class="t" style="padding-top:0.5em;font-size:0.78rem">S</span> | <span class="t" style="padding-top:0.5em;font-size:0.78rem">S</span> N₃ D₂ P M₁ G₃ R₂ S &nbsp;·&nbsp; Rāga Shankarābharaṇa</div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1a1208"></div> Madhyasthayi</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#cc0000"></div>&nbsp;<span class="t" style="font-size:0.8rem;padding-top:0.5em">S</span>&nbsp; Tarasthāyi (red)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#007700"></div>&nbsp;<span class="m" style="font-size:0.8rem;padding-bottom:0.5em">n</span>&nbsp; Mandrasthāyi (green)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1a4a30"></div> ಸಾಹಿತ್ಯ</div>
+</div>
+
+<div class="sahitya-block">
+  <div class="sahitya-title">ಶುದ್ಧ ಸಾಹಿತ್ಯ</div>
+  <div class="sah-line">ಜಯಜಯ ಕರುಣಾಳು ರಘುವರ ಶ್ರಿತಜನಪರಿಪಾಲ ರೇ ರೇ &nbsp;‖ ಪಲ್ಲವಿ ‖</div>
+  <div class="sah-line" style="font-family:'EB Garamond',serif;font-size:0.82rem;color:var(--beat-label);font-style:italic;margin-bottom:0.4rem">jayajaya karuṇāḷu Raghuvara Śritajanaparipāla rē rē &nbsp;‖ Pallavi ‖</div>
+  <div class="sah-line">ಸುಜನರಭಯವನೀವ ಕರುಣಾಸಾಂದ್ರ ಜಾನಕಿ ಕಾಂತ ರೇ ರೇ &nbsp;‖ ಅನುಪಲ್ಲವಿ ‖</div>
+  <div class="sah-line" style="font-family:'EB Garamond',serif;font-size:0.82rem;color:var(--beat-label);font-style:italic;margin-bottom:0.4rem">sujanarabhayavanīva karuṇāsāndra Jānaki kānta rē rē &nbsp;‖ Anupallavi ‖</div>
+  <div class="sah-line">ದಾನವಾಂತಕ ವಾನರಗಣದ ಸೇನೆ ಹೊರಡಿಸಿ ನಡೆದ ಲಂಕೆಗೆ &nbsp;‖ ಚರಣ ೧ ‖</div>
+  <div class="sah-line" style="font-family:'EB Garamond',serif;font-size:0.82rem;color:var(--beat-label);font-style:italic;margin-bottom:0.4rem">dānavāntaka vānaragaṇada sēne horaḍisi naḍeda Laṃkege &nbsp;‖ Charaṇa 1 ‖</div>
+  <div class="sah-line">ರಾವಣಾಸುರನನ್ನು ತರಿದು ಅಯೋಧ್ಯೆ ನಗರಿಗೆ ತೆರಳಿದಾತಗೆ &nbsp;‖ ಚರಣ ೨ ‖</div>
+  <div class="sah-line" style="font-family:'EB Garamond',serif;font-size:0.82rem;color:var(--beat-label);font-style:italic">rāvaṇāsuranannū tariduha Ayodhye nagarige teraḷidātage &nbsp;‖ Charaṇa 2 ‖</div>
+</div>
+
+<!-- ══ PALLAVI ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="sh-en">Pallavi</span><span class="sh-kn">ಪಲ್ಲವಿ</span>
+  </div>
+  <table class="geete-table">
+    <thead>
+      <tr class="tala-header">
+        <th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th><th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Avarta 1 -->
+      <tr>
+        <td><span class="kn">ಮ ಗ ಮ</span><span class="en">M G M</span><span class="sa">ಜ ಯ ಜ</span><span class="saen">ja ya ja</span></td>
+        <td><span class="kn">ಪಾ ಗ ಮ</span><span class="en">P , G M</span><span class="sa">ಯಾ ಕ ರು</span><span class="saen">yā ka ru</span></td>
+        <td><span class="kn">ಪಾ ಮ</span><span class="en">P , M</span><span class="sa">ಣಾ ಳು</span><span class="saen">ṇā ḷu</span></td>
+        <td><span class="kn">ಗ ರಿ ಸ <span class="m">ನಿ</span></span><span class="en">G R S <span class="m">N</span></span><span class="sa">ರ ಘು ವ ರ</span><span class="saen">ra ghu va ra</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="4"></td></tr>
+      <!-- Avarta 2 -->
+      <tr>
+        <td><span class="kn"><span class="m">ದ</span> <span class="m">ನಿ</span> ಸ</span><span class="en"><span class="m">D</span> <span class="m">N</span> S</span><span class="sa">ಶ್ರಿ ತ ಜ</span><span class="saen">śri ta ja</span></td>
+        <td><span class="kn">ರೀ ಗ ಮ</span><span class="en">R , G M</span><span class="sa">ನಾ ಪ ರಿ</span><span class="saen">nā pa ri</span></td>
+        <td><span class="kn">ಪಾ ಮ</span><span class="en">P , M</span><span class="sa">ಪಾ ಲ</span><span class="saen">pā la</span></td>
+        <td><span class="kn">ಪಾ ಪಾ</span><span class="en">P , P ,</span><span class="sa">ರೇ ರೇ</span><span class="saen">rē rē</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ ANUPALLAVI ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="sh-en">Anupallavi</span><span class="sh-kn">ಅನುಪಲ್ಲವಿ</span>
+  </div>
+  <table class="geete-table">
+    <tbody>
+      <!-- Avarta 3 -->
+      <tr>
+        <td><span class="kn"><span class="m">ದ</span> <span class="m">ನಿ</span> <span class="t">ಸ</span></span><span class="en"><span class="m">D</span> <span class="m">N</span> <span class="t">S</span></span><span class="sa">ಸು ಜ ನ</span><span class="saen">su ja na</span></td>
+        <td><span class="kn">ನಿ ದ ಪ ಪ</span><span class="en">N D P P</span><span class="sa">ರ ಭ ಯ ವ</span><span class="saen">ra bha ya va</span></td>
+        <td><span class="kn">ಮಾ- ರಿ</span><span class="en">M , R</span><span class="sa">ನೀ ವ</span><span class="saen">nī va</span></td>
+        <td><span class="kn">ಗ ಮ ಪಾ</span><span class="en">G M P ,</span><span class="sa">ಕ ರು ಣಾ</span><span class="saen">ka ru ṇā</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="4"></td></tr>
+      <!-- Avarta 4 -->
+      <tr>
+        <td><span class="kn"><span class="t">ಸಾ</span> <span class="t">ಸ</span></span><span class="en"><span class="t">S</span> , <span class="t">S</span></span><span class="sa">ಸಾಂ ದ್ರ</span><span class="saen">sāṃ dra</span></td>
+        <td><span class="kn">ದಾ ಪ ಮ</span><span class="en">D , P M</span><span class="sa">ಜಾ ನ ಕಿ</span><span class="saen">jā na ki</span></td>
+        <td><span class="kn">ರೀ ಗ</span><span class="en">R , G</span><span class="sa">ಕಾಂ ತ</span><span class="saen">kāṃ ta</span></td>
+        <td><span class="kn">ಮಾ ಪಾ</span><span class="en">M , P ,</span><span class="sa">ರೇ ರೇ</span><span class="saen">rē rē</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ CHARANA ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="sh-en">Charaṇa</span><span class="sh-kn">ಚರಣ</span>
+    <span style="font-family:'Noto Sans Kannada',sans-serif;font-size:0.72rem;color:var(--beat-label)">(ಒಂದೇ ಧಾತು · ಎರಡು ಸಾಹಿತ್ಯ)</span>
+  </div>
+  <table class="geete-table" style="table-layout:fixed;">
+    <thead>
+      <tr class="tala-header">
+        <th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th><th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th>
+        <th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th><th>ಲಘು (I3)</th><th>ದ್ರುತ (O)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="8" class="charana-label">ಚರಣ ೧ · ಚರಣ ೨</td></tr>
+      <tr>
+        <td>
+          <span class="kn"><span class="t">ಸಾ</span> <span class="t">ಸ</span></span><span class="en"><span class="t">S</span> , <span class="t">S</span></span>
+          <span class="sa">ದಾ ನ</span><span class="saen">dā na</span>
+          <span class="sa2">ರಾ ವ</span><span class="sa2en">rā va</span>
+        </td>
+        <td>
+          <span class="kn"><span class="t">ಸಾ</span> <span class="t">ರಿ</span> <span class="t">ಗ</span></span><span class="en"><span class="t">S</span> , <span class="t">R</span> <span class="t">G</span></span>
+          <span class="sa">ವಾಂತಕ</span><span class="saen">vāntaka</span>
+          <span class="sa2">ಣಾ ಸು ರ</span><span class="sa2en">ṇā su ra</span>
+        </td>
+        <td>
+          <span class="kn"><span class="t">ರೀ</span> <span class="t">ಸ</span></span><span class="en"><span class="t">R</span> , <span class="t">S</span></span>
+          <span class="sa">ವಾ ನ</span><span class="saen">vā na</span>
+          <span class="sa2">ನ ನ್ನು</span><span class="sa2en">na nnu</span>
+        </td>
+        <td>
+          <span class="kn"><span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ-ಪ</span><span class="en"><span class="t">R</span> <span class="t">S</span> N-P</span>
+          <span class="sa">ರ ಗ ಣ ದ</span><span class="saen">ra ga ṇa da</span>
+          <span class="sa2">ತ ರಿ ದು ಅ</span><span class="sa2en">ta ri du a</span>
+        </td>
+        <td>
+          <span class="kn">ದಾ ನಿ</span><span class="en">D , N</span>
+          <span class="sa">ಸೇ ನೆ</span><span class="saen">sē ne</span>
+          <span class="sa2">ಯೋಧ್ಯೆ</span><span class="sa2en">yōdhye</span>
+        </td>
+        <td>
+          <span class="kn">ರಿ ಸ ನಿ ದ</span><span class="en">R S N D</span>
+          <span class="sa">ಹೊರಡಿಸಿ</span><span class="saen">horaḍisi</span>
+          <span class="sa2">ನ ಗರಿ ಗೆ</span><span class="sa2en">na gari ge</span>
+        </td>
+        <td>
+          <span class="kn">ಪ ಪ ಮ</span><span class="en">P P M</span>
+          <span class="sa">ನಡೆ ದ</span><span class="saen">naḍe da</span>
+          <span class="sa2">ತೆ ರ ಳಿ</span><span class="sa2en">te ra ḷi</span>
+        </td>
+        <td>
+          <span class="kn">ಗಾ ರಿ ಸ</span><span class="en">G , R S</span>
+          <span class="sa">ಲಂ ಕೆ ಗೆ</span><span class="saen">laṃ ke ge</span>
+          <span class="sa2">ದಾ ತ ಗೆ</span><span class="sa2en">dā ta ge</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center;margin-top:1rem;margin-bottom:2rem;font-family:'Noto Serif Kannada',serif;font-size:1rem;color:var(--gold);letter-spacing:0.1em;">‖ ಜಯ ಜಯಾ ‖</div>
+
+<div style="text-align:right;padding-right:0.5rem;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.12em;color:var(--beat-label);opacity:0.75;">A composition of &nbsp;Ramaprasad K V &nbsp;(Hamsanandi)</div>
+
+</body>
+</html>
