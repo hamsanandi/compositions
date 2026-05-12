@@ -15,12 +15,4 @@ The site includes:
 - Structured presentation for easy reading and reference
 - Individual pages for each composition
 
-### Current compositions
-
-- **Hindola Pada Varṇa**  
-  Composer: Ramaprasad KV  
-  👉 [View](https://hamsanandi.github.io/compositions/pada_varna_hindola_RamaprasadKV_Final.html)
-
-*(More compositions will be added over time.)*
-
 ## 🗂 Repository Structure
