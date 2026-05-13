@@ -197,6 +197,11 @@ details summary:hover {
   cursor:pointer;
 }
 
+.raga-tag.active {
+  background: var(--gold);
+  color: white;
+}
+
 /* Links */
 a {
   text-decoration:none;
@@ -560,10 +565,22 @@ function filter() {
 // ✅ UPDATED: clicking rāga now combines with type (no forced dropdown reset)
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("raga-tag")) {
+
     let r = e.target.dataset.raga;
 
-    // Toggle behavior: click same rāga again to clear rāga filter
-    selectedRaga = (selectedRaga === r) ? null : r;
+    // Clear previous highlights
+    document.querySelectorAll(".raga-tag").forEach(tag => {
+      tag.classList.remove("active");
+    });
+
+    // Toggle selection
+    if (selectedRaga === r) {
+      selectedRaga = null;
+      // no tag stays active
+    } else {
+      selectedRaga = r;
+      e.target.classList.add("active");
+    }
 
     applyFilters();
   }
