@@ -509,17 +509,28 @@ function filter() {
 
   let t = document.getElementById("typeFilter").value;
 
-  let hasQuery = q.length > 0 || t !== "all";
-  let anyVisible = false;
-
   // Step 1: Filter items
   document.querySelectorAll(".comp").forEach(c => {
-
-    let show = (t === "all" || c.dataset.type === 
+    let show = (t === "all" || c.dataset.type === t);
     c.style.display = show ? "block" : "none";
-
-    if (show) anyVisible = true;
   });
+
+  // Step 2: Handle sections
+  document.querySelectorAll("details").forEach(section => {
+
+    let visibleItems = Array.from(section.querySelectorAll(".comp"))
+      .filter(c => c.style.display !== "none");
+
+    let hasVisible = visibleItems.length > 0;
+
+    section.style.display = hasVisible ? "block" : "none";
+
+    if (hasVisible) {
+      section.open = true;
+    }
+  });
+}
+
 
 let hasVisible = visibleItems.length > 0;
 
