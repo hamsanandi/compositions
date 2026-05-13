@@ -506,7 +506,7 @@ render();
 document.getElementById("typeFilter").addEventListener("change", filter);
 
 function filter() {
-  let q = document.getElementById("search").value.toLowerCase().trim();
+
   let t = document.getElementById("typeFilter").value;
 
   let hasQuery = q.length > 0 || t !== "all";
@@ -514,32 +514,27 @@ function filter() {
 
   // Step 1: Filter items
   document.querySelectorAll(".comp").forEach(c => {
-    let matchText = c.dataset.text.includes(q);
-    let matchType = (t === "all" || c.dataset.type === t);
 
-    let show = matchText && matchType;
+    let show = (t === "all" || c.dataset.type === 
     c.style.display = show ? "block" : "none";
 
     if (show) anyVisible = true;
   });
 
+let hasVisible = visibleItems.length > 0;
+
+section.style.display = hasVisible ? "block" : "none";
+
+if (hasVisible) {
+  section.open = true;
+}
   // Step 2: Handle sections
   document.querySelectorAll("details").forEach(section => {
     let visibleItems = section.querySelectorAll(".comp[style*='block']");
 
-    if (!hasQuery) {
-      // Reset state when no filter
-      section.style.display = "block";
-      section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
-    } else {
-      let hasVisible = visibleItems.length > 0;
 
-      section.style.display = hasVisible ? "block" : "none";
 
-      if (hasVisible) {
-        section.open = true;
-      }
-    }
+
   });
 }
 
