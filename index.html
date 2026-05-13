@@ -244,7 +244,6 @@ footer {
   margin-top:30px;
   font-size:0.85em;
 }
-
 </style>
 </head>
 
@@ -297,7 +296,7 @@ Many of his compositions have been featured in music and dance concerts. He is a
 
 <p>
 This archive documents an evolving body of work, bringing together notated compositions
-and audio recordings to help those who would like to learn them. The notations are generally bilingual in English & Kannada.
+and audio recordings to help those who would like to learn them. The notations are generally bilingual in English &amp; Kannada.
 </p>
 
 <p style="margin-top:12px;">
@@ -345,7 +344,7 @@ const DATA = [
       youtube: [
       { label: "Student Rendition", id: "YN48t9ObHeg" }
       ]
-     
+
   },
 
   {
@@ -382,7 +381,7 @@ const DATA = [
       { label: "Vocal version", id:"VGFLE6lyL3M"}
       ]
   },
- 
+
   {
     type:"swarajati",
     title:"Mohana Swarajati",
@@ -392,7 +391,7 @@ const DATA = [
     youtube: [
       { label: "Vidushi Jyothi Chetan", id: "uzZKlfuSuAQ" }
       ]
-  },  
+  },
   {
     type:"varna",
     title:"Rāgeshri Tāna Varṇa",
@@ -403,7 +402,7 @@ const DATA = [
       { label: "Vidushi Jayanthi Umesh", id: "soUIyuwXs9Y" }
       ]
   },
- 
+
   {
     type:"kriti",
     title:"Kriti — Mohanāngi",
@@ -431,9 +430,13 @@ const DATA = [
   tala: "Misra Chapu"
 }
 
- 
+
 ];
+
 const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
+
+// ✅ NEW: keep selected rāga so type + rāga can combine
+let selectedRaga = null;
 
 function render() {
   let container = document.getElementById("archive");
@@ -511,9 +514,6 @@ if (c.audio) {
   });
 }
 
-
-
-     
       section.appendChild(div);
     });
 
@@ -523,21 +523,19 @@ if (c.audio) {
 
 render();
 
-document.getElementById("typeFilter").addEventListener("change", filter);
-
-function filter() {
-
+// ✅ NEW: unified filter applying BOTH type + selectedRaga
+function applyFilters() {
   let t = document.getElementById("typeFilter").value;
 
-  // Step 1: Filter items
   document.querySelectorAll(".comp").forEach(c => {
-    let show = (t === "all" || c.dataset.type === t);
+    let matchType = (t === "all" || c.dataset.type === t);
+    let matchRaga = (!selectedRaga || c.dataset.raga === selectedRaga);
+    let show = matchType && matchRaga;
+
     c.style.display = show ? "block" : "none";
   });
 
-  // Step 2: Handle sections
   document.querySelectorAll("details").forEach(section => {
-
     let visibleItems = Array.from(section.querySelectorAll(".comp"))
       .filter(c => c.style.display !== "none");
 
@@ -550,36 +548,30 @@ function filter() {
     }
   });
 }
+
+// Keep your existing event wiring, but now it uses the unified logic
+document.getElementById("typeFilter").addEventListener("change", applyFilters);
+
+// Keep function name "filter" for compatibility (if anything calls it)
+function filter() {
+  applyFilters();
+}
+
+// ✅ UPDATED: clicking rāga now combines with type (no forced dropdown reset)
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("raga-tag")) {
-
     let r = e.target.dataset.raga;
 
-    // Show only matching rāga
-    document.querySelectorAll(".comp").forEach(c => {
-      c.style.display = (c.dataset.raga === r) ? "block" : "none";
-    });
+    // Toggle behavior: click same rāga again to clear rāga filter
+    selectedRaga = (selectedRaga === r) ? null : r;
 
-    // Fix sections
-    document.querySelectorAll("details").forEach(section => {
-      let visibleItems = Array.from(section.querySelectorAll(".comp"))
-        .filter(c => c.style.display !== "none");
-
-      let hasVisible = visibleItems.length > 0;
-
-      section.style.display = hasVisible ? "block" : "none";
-
-      if (hasVisible) {
-        section.open = true;
-      }
-    });
-
-    // Reset dropdown (important UX)
-    document.getElementById("typeFilter").value = "all";
+    applyFilters();
   }
 });
 
-  document.getElementById("clearBtn").onclick = () => {
+// ✅ UPDATED: Clear resets BOTH filters and keeps your original “Varna open” default
+document.getElementById("clearBtn").onclick = () => {
+  selectedRaga = null;
   document.getElementById("typeFilter").value = "all";
 
   document.querySelectorAll(".comp").forEach(c => {
@@ -591,6 +583,7 @@ document.addEventListener("click", function(e) {
     section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
   });
 };
+
 </script>
 
 </body>
