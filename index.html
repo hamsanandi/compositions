@@ -6,6 +6,18 @@
 <title>Compositions</title>
 
 <style>
+.audio-block {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f2e8;
+  border-radius: 6px;
+}
+.audio-block p {
+  margin: 0 0 6px 0;
+  font-size: 0.9em;
+  color: var(--gold-light);
+}
+/* ✅ Shared design system from composition page */
 :root {
   --bg: #ffffff;
   --border: #d4c5a9;
@@ -19,6 +31,9 @@
   --header-bg: #f5ede0;
 }
 
+/* Reset */
+* { box-sizing: border-box; }
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -26,70 +41,139 @@ body {
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
-/* Title */
+/* ✅ TITLE BLOCK (matches composition page feel) */
 .title-area {
-  text-align:center;
-  border-bottom:1px solid var(--border);
-  padding-bottom:12px;
+  max-width:700px;
+  margin: 0 auto 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.title-area::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 .page-title {
-  font-family:'Cinzel', serif;
-  letter-spacing:0.2em;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
   color: var(--gold);
-  font-size:1rem;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
 .page-subtitle {
-  font-size:0.9em;
+  font-family: 'Noto Serif Kannada', serif;
+  font-size: 0.9em;
   color: var(--gold-dim);
+  margin-top: 4px;
 }
 
 /* Intro */
 .intro {
-  margin: 20px auto;
-  max-width: 700px;
+  max-width:700px;
+  margin: 15px auto 20px;
+  color: var(--text);
+  text-align:left;
+  line-height: 1.7;
+}
+
+/* Label */
+.helper-text {
+  font-size:0.8em;
+  color: var(--meta);
+  max-width:700px;
+  margin: 0 auto 8px;
 }
 
 /* Controls */
 .controls {
-  margin: 20px auto;
+  max-width:700px;
+  margin: 10px auto 25px;
   padding: 12px;
   border: 1px solid var(--border);
+  border-radius: 6px;
   background: var(--section-bg);
-  max-width: 700px;
 }
 
-select {
-  padding:6px 8px;
+/* Inputs */
+input, select {
+  padding:8px 10px;
+  margin-right:8px;
+  font-size: 0.9em;
   border:1px solid var(--border-light);
+  background:white;
+}
+
+/* Search width */
+#search {
+  width: 55%;
+  max-width: 260px;
+}
+
+/* Button */
+button {
+  padding:8px 10px;
+  border:1px solid var(--border-light);
+  background:white;
+  cursor:pointer;
+  border-radius:4px;
+}
+button:hover {
+  background:#f8f2e8;
 }
 
 /* Sections */
 details {
   margin:20px 0;
   border:1px solid var(--border);
-  background: var(--section-bg);
   border-radius:6px;
+  background: var(--section-bg);
+  overflow:hidden;
 }
 
+/* ✅ Section header styling */
 summary {
-  font-family:'Cinzel', serif;
-  font-size:0.75rem;
-  letter-spacing:0.3em;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
   color: var(--gold);
-  padding:8px 10px;
-  cursor:pointer;
+  text-transform: uppercase;
   background: var(--header-bg);
+  padding: 8px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ✅ Gold accent underline */
+summary::after {
+  content:"";
+  display:block;
+  height:2px;
+  margin-top:6px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+details summary:hover {
+  color: var(--gold-light);
 }
 
 /* Items */
 .comp {
+  margin:10px 0;
   padding:10px 12px;
+  border-radius:6px;
 }
 
 .comp:hover {
@@ -110,78 +194,231 @@ a:hover {
   text-decoration:underline;
 }
 
-/* ✅ Raga tag (clickable) */
-.raga-tag {
-  display:inline-block;
-  margin-top:6px;
-  padding:2px 8px;
-  font-size:0.75em;
-  border:1px solid var(--border-light);
-  border-radius:4px;
-  background:#fdf6ec;
-  color: var(--gold-light);
-  cursor:pointer;
+/* Audio */
+.play-btn {
+  margin-top:5px;
 }
 
-/* Footer */
+.audio {
+  display:none;
+  margin-top:10px;
+}
+
+iframe {
+  width:100%;
+  max-width:500px;
+  height:280px;
+}
+
+/* About */
+.about {
+  max-width:700px;
+  margin: 30px auto 10px;
+  color: var(--text);
+  line-height:1.7;
+  text-align:left;
+}
+
+/* Divider */
+.section-divider {
+  height:1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin:40px 0;
+}
+
 footer {
   text-align:center;
-  margin-top:30px;
   color: var(--meta);
+  margin-top:30px;
   font-size:0.85em;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ✅ Title Area -->
 <div class="title-area">
   <div class="page-title">Composition Archive</div>
-  <div class="page-subtitle">Karnataka Sangeeta Compositions</div>
+  <div class="page-subtitle">
+    A curated archive of original compositions in the Karnataka Sangeeta tradition
+  </div>
 </div>
 
 <p class="intro">
-A curated collection of original compositions in the Carnatic tradition spanning geete, varṇa, kriti and related forms.
+This archive presents a collection of original compositions in the Karnataka Sangeeta tradition
+(also called Carnatic), spanning forms such as geete, varṇa, kriti, and related compositional types.
 Each entry includes notation and, where available, audio renderings.
 </p>
 
-<!-- ✅ Type filter -->
+<p class="helper-text">
+Browse or search the collection:
+</p>
+
 <div class="controls">
-  <label>Filter by type:</label>
+  <input id="search" placeholder="Search...">
+
   <select id="typeFilter">
     <option value="all">All</option>
     <option value="geete">Geete</option>
     <option value="swarajati">Swarajati</option>
     <option value="varna">Varna</option>
     <option value="kriti">Kriti</option>
+    <option value="pada">Pada</option>
     <option value="others">Others</option>
   </select>
+
+  <button id="clearBtn">Clear</button>
 </div>
 
 <div id="archive"></div>
+
+<hr class="section-divider">
+
+<section class="about">
+<h3 style="text-align:center; margin-bottom:15px;">About the Composer</h3>
+
+<p>
+Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre.
+Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.
+</p>
+
+<p>
+This archive documents an evolving body of work, bringing together notated compositions
+and audio recordings to help those who would like to learn them. The notations are generally bilingual in English & Kannada.
+</p>
+
+<p style="margin-top:12px;">
+Instagram:
+<a href="https://www.instagram.com/hamsanandi" target="_blank">
+@hamsanandi
+</a>
+</p>
+</section>
 
 <footer>Hosted on GitHub Pages</footer>
 
 <script>
 
-/* ✅ DATA */
+/* unchanged JS */
 
 const DATA = [
-  { type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa" },
-  { type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka" },
+{
+  type:"geete",
+  title:"Sanchāri Geete — Vasanta",
+  file:"vasanta_geete_1.html",
+  raga:"Vasanta",
+  tala:"Trisra Triputa",
+  youtube: [
+    { label: "Vocal Version", id: "uLIQ2RrxBhg" }
+  ]
+},
 
-  { type:"varna", title:"Pada Varṇa — Hindola", file:"pada_varna_hindola_RamaprasadKV_Final.html", raga:"Hindola", tala:"Adi" },
-  { type:"varna", title:"Rāgamālikā Tāna Varṇa", file:"kalyanimalikavarnam_final.html", raga:"Rāgamālikā", tala:"Adi" },
 
-  { type:"swarajati", title:"Mohana Swarajati", file:"mohana_swarajati.html", raga:"Mohana", tala:"Adi" },
 
-  { type:"kriti", title:"Kriti — Mohanāngi", file:"hottu_muluguta_mohanagi_4.html", raga:"Mohanāngi", tala:"Misra Chapu" },
-  { type:"kriti", title:"Kriti — Udayaravichandrika", file:"udayaravichandrika_misrachapu.html", raga:"Udayaravichandrika", tala:"Misra Chapu" }
+  {
+    type:"geete",
+    title:"Sanchāri Geete — Kīravāni",
+    file:"keeravani_geete_2.html",
+    raga:"Kīravāni",
+    tala:"Rupaka"
+  },
+
+    {
+    type:"geete",
+    title:"Sanchāri Geete — Shankarābharana",
+    file:"shankarabharana_geete_2.html",
+    raga:"Shankarābharana",
+    tala:"Trishra Triputa",
+      youtube: [
+      { label: "Student Rendition", id: "YN48t9ObHeg" }
+      ]
+     
+  },
+
+  {
+    type:"varna",
+    title:"Pada Varṇa — Hindola",
+    file:"pada_varna_hindola_RamaprasadKV_Final.html",
+    raga:"Hindola",
+    tala:"Adi"
+  },
+
+  {
+    type:"varna",
+    title:"Tana Varṇa — Navaraga Malika",
+    file:"tyagaraja_navaraga_malika_varna_8.html",
+    raga:"Ragamalika",
+    tala:"Adi",
+    youtube: [
+      { label: "Vidushi Bhama Krishnan", id: "uLIQ2RrxBhg" },
+      { label: "Vidushi Ragini Sanath", id: "bIs4xYKd_zM" },
+      { label: "Vidushi Uma Kumar", id: "z6wMjn4AEyE" },
+      { label: "Full Lesson Version", id: "fY4aq7DfFaM" }
+    ]
+  },
+
+  {
+    type:"varna",
+    title:"Rāgamālikā Tāna Varṇa",
+    file:"kalyanimalikavarnam_final.html",
+    raga:"Rāgamālikā",
+    tala:"Adi",
+    youtube: [
+      { label: "Class recording", id:"PKdSBS_cGSk"},
+      { label: "Vid. Vijay Kannan (Flute)", id:"TJWSctBE2ug"},
+      { label: "Vocal version", id:"VGFLE6lyL3M"}
+      ]
+  },
+ 
+  {
+    type:"swarajati",
+    title:"Mohana Swarajati",
+    file:"mohana_swarajati.html",
+    raga:"Mohana",
+    tala:"Adi",
+    youtube: [
+      { label: "Vidushi Jyothi Chetan", id: "uzZKlfuSuAQ" }
+      ]
+  },  
+  {
+    type:"varna",
+    title:"Rāgeshri Tāna Varṇa",
+    file:"rageshri_varna_8.html",
+    raga:"Rāgeshri",
+    tala:"Adi",
+    youtube: [
+      { label: "Vidushi Jayanthi Umesh", id: "soUIyuwXs9Y" }
+      ]
+  },
+ 
+  {
+    type:"kriti",
+    title:"Kriti — Mohanāngi",
+    file:"hottu_muluguta_mohanagi_4.html",
+    raga:"Mohanāngi",
+    tala:"Misra Chapu"
+  },
+
+  {
+    type:"others",
+    title:"Rāgamālikā Puṣpāñjali",
+    file:"ragamalika_pushpanjali_3.html",
+    tala:"Adi"
+  },
+
+{
+  type: "kriti",
+  title: "Kriti — Udayaravichandrika",
+  file: "udayaravichandrika_misrachapu.html",
+  raga: "Udayaravichandrika",
+  tala: "Misra Chapu"
+}
+
+ 
 ];
-
-const TYPES = ["geete","swarajati","varna","kriti","others"];
-
-/* ✅ Render */
+const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
 
 function render() {
   let container = document.getElementById("archive");
@@ -195,14 +432,13 @@ function render() {
     summary.textContent = type.charAt(0).toUpperCase() + type.slice(1);
     section.appendChild(summary);
 
-    let items = DATA.filter(c => c.type === type);
+    let filtered = DATA.filter(c => c.type === type);
 
-    items.forEach(c => {
+    filtered.forEach(c => {
       let div = document.createElement("div");
       div.className = "comp";
-
+      div.dataset.text = (c.title + " " + (c.raga||"") + " " + (c.tala||"")).toLowerCase();
       div.dataset.type = c.type;
-      div.dataset.raga = (c.raga || "").toLowerCase();
 
       div.innerHTML = `
         <a href="${c.file}">${c.title}</a>
@@ -210,9 +446,55 @@ function render() {
           ${c.raga ? "Rāga: " + c.raga : ""}
           ${c.tala ? " | Tāla: " + c.tala : ""}
         </div>
-        ${c.raga ? `<div class="raga-tag" data-raga="${c.raga.toLowerCase()}">${c.raga}</div>` : ""}
       `;
 
+// Multiple YouTube versions
+if (c.youtube) {
+  c.youtube.forEach(v => {
+    let btn = document.createElement("button");
+    btn.className = "play-btn";
+    btn.textContent = "▶ " + v.label;
+
+    let audio = document.createElement("div");
+    audio.className = "audio";
+
+    let iframe = document.createElement("iframe");
+    iframe.dataset.src = "https://www.youtube.com/embed/" + v.id;
+    audio.appendChild(iframe);
+
+    btn.onclick = () => {
+      document.querySelectorAll(".audio").forEach(a => {
+        a.style.display = "none";
+        let f = a.querySelector("iframe");
+        if (f) f.src = "";
+      });
+
+      audio.style.display = "block";
+      iframe.src = iframe.dataset.src;
+    };
+
+    div.appendChild(btn);
+    div.appendChild(audio);
+  });
+}
+// Multiple audio versions
+if (c.audio) {
+  c.audio.forEach(a => {
+    let block = document.createElement("div");
+    block.className = "audio-block";
+    block.innerHTML = `
+      <p>${a.label}</p>
+      <audio controls>
+        <source src="${a.url}" type="audio/mpeg">
+      </audio>
+    `;
+    div.appendChild(block);
+  });
+}
+
+
+
+     
       section.appendChild(div);
     });
 
@@ -220,57 +502,48 @@ function render() {
   });
 }
 
-/* ✅ TYPE FILTER (fixed UX) */
+render();
 
-document.getElementById("typeFilter").addEventListener("change", () => {
+document.getElementById("search").addEventListener("input", filter);
+document.getElementById("typeFilter").addEventListener("change", filter);
+
+function filter() {
+  let q = document.getElementById("search").value.toLowerCase().trim();
   let t = document.getElementById("typeFilter").value;
 
+  let hasQuery = q.length > 0 || t !== "all";
+  let anyVisible = false;
+
+  // Step 1: Filter items
   document.querySelectorAll(".comp").forEach(c => {
-    let show = (t === "all" || c.dataset.type === t);
+    let matchText = c.dataset.text.includes(q);
+    let matchType = (t === "all" || c.dataset.type === t);
+
+    let show = matchText && matchType;
     c.style.display = show ? "block" : "none";
+
+    if (show) anyVisible = true;
   });
 
+  // Step 2: Handle sections
   document.querySelectorAll("details").forEach(section => {
-    let visible = section.querySelector(".comp[style*='block']");
+    let visibleItems = section.querySelectorAll(".comp[style*='block']");
 
-    if (visible) {
+    if (!hasQuery) {
+      // Reset state when no filter
       section.style.display = "block";
-      section.open = true;   // ✅ auto-open
+      section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
     } else {
-      section.style.display = "none";
+      let hasVisible = visibleItems.length > 0;
+
+      section.style.display = hasVisible ? "block" : "none";
+
+      if (hasVisible) {
+        section.open = true;
+      }
     }
   });
-});
-
-/* ✅ RAGA TAG FILTER */
-
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("raga-tag")) {
-
-    let raga = e.target.dataset.raga;
-
-    document.querySelectorAll(".comp").forEach(c => {
-      let match = c.dataset.raga === raga;
-      c.style.display = match ? "block" : "none";
-    });
-
-    document.querySelectorAll("details").forEach(section => {
-      let visible = section.querySelector(".comp[style*='block']");
-
-      if (visible) {
-        section.style.display = "block";
-        section.open = true;
-      } else {
-        section.style.display = "none";
-      }
-    });
-
-    // reset type dropdown
-    document.getElementById("typeFilter").value = "all";
-  }
-});
-
-render();
+}
 
 </script>
 
