@@ -589,6 +589,13 @@ document.addEventListener("click", function(e) {
 // ✅ UPDATED: Clear resets BOTH filters and keeps your original “Varna open” default
 document.getElementById("clearBtn").onclick = () => {
   selectedRaga = null;
+
+  // ✅ ADD THIS
+  document.querySelectorAll(".raga-tag").forEach(tag => {
+    tag.classList.remove("active");
+  });
+
+  
   document.getElementById("typeFilter").value = "all";
 
   document.querySelectorAll(".comp").forEach(c => {
