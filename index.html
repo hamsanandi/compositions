@@ -530,7 +530,10 @@ if (hasVisible) {
 }
   // Step 2: Handle sections
   document.querySelectorAll("details").forEach(section => {
-    let visibleItems = section.querySelectorAll(".comp[style*='block']");
+   
+let visibleItems = Array.from(section.querySelectorAll(".comp"))
+  .filter(c => c.style.display !== 
+
 
 
 
