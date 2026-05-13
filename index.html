@@ -578,6 +578,19 @@ document.addEventListener("click", function(e) {
     document.getElementById("typeFilter").value = "all";
   }
 });
+
+  document.getElementById("clearBtn").onclick = () => {
+  document.getElementById("typeFilter").value = "all";
+
+  document.querySelectorAll(".comp").forEach(c => {
+    c.style.display = "block";
+  });
+
+  document.querySelectorAll("details").forEach(section => {
+    section.style.display = "block";
+    section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
+  });
+};
 </script>
 
 </body>
