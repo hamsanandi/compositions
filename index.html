@@ -6,7 +6,6 @@
 <title>Compositions</title>
 
 <style>
-
 :root {
   --bg: #ffffff;
   --border: #d4c5a9;
@@ -111,7 +110,7 @@ a:hover {
   text-decoration:underline;
 }
 
-/* ✅ Raga tag */
+/* ✅ Raga tag (clickable) */
 .raga-tag {
   display:inline-block;
   margin-top:6px;
@@ -121,22 +120,7 @@ a:hover {
   border-radius:4px;
   background:#fdf6ec;
   color: var(--gold-light);
-}
-
-/* Audio */
-.play-btn {
-  margin-top:6px;
-}
-
-.audio {
-  display:none;
-  margin-top:10px;
-}
-
-iframe {
-  width:100%;
-  max-width:500px;
-  height:280px;
+  cursor:pointer;
 }
 
 /* Footer */
@@ -146,7 +130,6 @@ footer {
   color: var(--meta);
   font-size:0.85em;
 }
-
 </style>
 </head>
 
@@ -154,15 +137,15 @@ footer {
 
 <div class="title-area">
   <div class="page-title">Composition Archive</div>
-  <div class="page-subtitle">Carnatic Compositions</div>
+  <div class="page-subtitle">Karnataka Sangeeta Compositions</div>
 </div>
 
 <p class="intro">
-A curated collection of original compositions across geete, varṇa, kriti and related forms.  
+A curated collection of original compositions in the Carnatic tradition spanning geete, varṇa, kriti and related forms.
 Each entry includes notation and, where available, audio renderings.
 </p>
 
-<!-- ✅ Type filter only -->
+<!-- ✅ Type filter -->
 <div class="controls">
   <label>Filter by type:</label>
   <select id="typeFilter">
@@ -184,48 +167,16 @@ Each entry includes notation and, where available, audio renderings.
 /* ✅ DATA */
 
 const DATA = [
-  {
-    type:"geete",
-    title:"Sanchāri Geete — Vasanta",
-    file:"vasanta_geete_1.html",
-    raga:"Vasanta",
-    tala:"Trisra Triputa"
-  },
-  {
-    type:"geete",
-    title:"Sanchāri Geete — Kīravāni",
-    file:"keeravani_geete_2.html",
-    raga:"Kīravāni",
-    tala:"Rupaka"
-  },
-  {
-    type:"varna",
-    title:"Pada Varṇa — Hindola",
-    file:"pada_varna_hindola_RamaprasadKV_Final.html",
-    raga:"Hindola",
-    tala:"Adi"
-  },
-  {
-    type:"varna",
-    title:"Rāgamālikā Tāna Varṇa",
-    file:"kalyanimalikavarnam_final.html",
-    raga:"Rāgamālikā",
-    tala:"Adi"
-  },
-  {
-    type:"swarajati",
-    title:"Mohana Swarajati",
-    file:"mohana_swarajati.html",
-    raga:"Mohana",
-    tala:"Adi"
-  },
-  {
-    type:"kriti",
-    title:"Kriti — Mohanāngi",
-    file:"hottu_muluguta_mohanagi_4.html",
-    raga:"Mohanāngi",
-    tala:"Misra Chapu"
-  }
+  { type:"geete", title:"Sanchāri Geete — Vasanta", file:"vasanta_geete_1.html", raga:"Vasanta", tala:"Trisra Triputa" },
+  { type:"geete", title:"Sanchāri Geete — Kīravāni", file:"keeravani_geete_2.html", raga:"Kīravāni", tala:"Rupaka" },
+
+  { type:"varna", title:"Pada Varṇa — Hindola", file:"pada_varna_hindola_RamaprasadKV_Final.html", raga:"Hindola", tala:"Adi" },
+  { type:"varna", title:"Rāgamālikā Tāna Varṇa", file:"kalyanimalikavarnam_final.html", raga:"Rāgamālikā", tala:"Adi" },
+
+  { type:"swarajati", title:"Mohana Swarajati", file:"mohana_swarajati.html", raga:"Mohana", tala:"Adi" },
+
+  { type:"kriti", title:"Kriti — Mohanāngi", file:"hottu_muluguta_mohanagi_4.html", raga:"Mohanāngi", tala:"Misra Chapu" },
+  { type:"kriti", title:"Kriti — Udayaravichandrika", file:"udayaravichandrika_misrachapu.html", raga:"Udayaravichandrika", tala:"Misra Chapu" }
 ];
 
 const TYPES = ["geete","swarajati","varna","kriti","others"];
@@ -251,6 +202,7 @@ function render() {
       div.className = "comp";
 
       div.dataset.type = c.type;
+      div.dataset.raga = (c.raga || "").toLowerCase();
 
       div.innerHTML = `
         <a href="${c.file}">${c.title}</a>
@@ -258,7 +210,7 @@ function render() {
           ${c.raga ? "Rāga: " + c.raga : ""}
           ${c.tala ? " | Tāla: " + c.tala : ""}
         </div>
-        ${c.raga ? `<div class="raga-tag">${c.raga}</div>` : ""}
+        ${c.raga ? `<div class="raga-tag" data-raga="${c.raga.toLowerCase()}">${c.raga}</div>` : ""}
       `;
 
       section.appendChild(div);
@@ -268,21 +220,54 @@ function render() {
   });
 }
 
-/* ✅ Type filter only */
+/* ✅ TYPE FILTER (fixed UX) */
 
 document.getElementById("typeFilter").addEventListener("change", () => {
   let t = document.getElementById("typeFilter").value;
 
   document.querySelectorAll(".comp").forEach(c => {
-    c.style.display = (t === "all" || c.dataset.type === t)
-      ? "block"
-      : "none";
+    let show = (t === "all" || c.dataset.type === t);
+    c.style.display = show ? "block" : "none";
   });
 
   document.querySelectorAll("details").forEach(section => {
     let visible = section.querySelector(".comp[style*='block']");
-    section.style.display = visible ? "block" : "none";
+
+    if (visible) {
+      section.style.display = "block";
+      section.open = true;   // ✅ auto-open
+    } else {
+      section.style.display = "none";
+    }
   });
+});
+
+/* ✅ RAGA TAG FILTER */
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("raga-tag")) {
+
+    let raga = e.target.dataset.raga;
+
+    document.querySelectorAll(".comp").forEach(c => {
+      let match = c.dataset.raga === raga;
+      c.style.display = match ? "block" : "none";
+    });
+
+    document.querySelectorAll("details").forEach(section => {
+      let visible = section.querySelector(".comp[style*='block']");
+
+      if (visible) {
+        section.style.display = "block";
+        section.open = true;
+      } else {
+        section.style.display = "none";
+      }
+    });
+
+    // reset type dropdown
+    document.getElementById("typeFilter").value = "all";
+  }
 });
 
 render();
