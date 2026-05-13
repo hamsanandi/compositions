@@ -413,7 +413,7 @@ const DATA = [
   title: "Kriti — Udayaravichandrika",
   file: "udayaravichandrika_misrachapu.html",
   raga: "Udayaravichandrika",
-  tala: "Misra Chapu",
+  tala: "Misra Chapu"
 }
 
   
@@ -508,21 +508,42 @@ document.getElementById("search").addEventListener("input", filter);
 document.getElementById("typeFilter").addEventListener("change", filter);
 
 function filter() {
-  let q = document.getElementById("search").value.toLowerCase();
+  let q = document.getElementById("search").value.toLowerCase().trim();
   let t = document.getElementById("typeFilter").value;
 
+  let hasQuery = q.length > 0 || t !== "all";
+  let anyVisible = false;
+
+  // Step 1: Filter items
   document.querySelectorAll(".comp").forEach(c => {
     let matchText = c.dataset.text.includes(q);
-    let matchType = (t==="all" || c.dataset.type===t);
-    c.style.display = (matchText && matchType) ? "block":"none";
+    let matchType = (t === "all" || c.dataset.type === t);
+
+    let show = matchText && matchType;
+    c.style.display = show ? "block" : "none";
+
+    if (show) anyVisible = true;
+  });
+
+  // Step 2: Handle sections
+  document.querySelectorAll("details").forEach(section => {
+    let visibleItems = section.querySelectorAll(".comp[style*='block']");
+
+    if (!hasQuery) {
+      // Reset state when no filter
+      section.style.display = "block";
+      section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
+    } else {
+      let hasVisible = visibleItems.length > 0;
+
+      section.style.display = hasVisible ? "block" : "none";
+
+      if (hasVisible) {
+        section.open = true;
+      }
+    }
   });
 }
-
-document.getElementById("clearBtn").onclick = () => {
-  document.getElementById("search").value = "";
-  document.getElementById("typeFilter").value = "all";
-  filter();
-};
 
 </script>
 
