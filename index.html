@@ -185,6 +185,18 @@ details summary:hover {
   color: var(--meta);
 }
 
+.raga-tag {
+  display:inline-block;
+  margin-top:6px;
+  padding:2px 8px;
+  font-size:0.75em;
+  border:1px solid var(--border-light);
+  border-radius:4px;
+  color: var(--gold-light);
+  background:#fdf6ec;
+  cursor:pointer;
+}
+
 /* Links */
 a {
   text-decoration:none;
@@ -438,13 +450,17 @@ function render() {
       div.className = "comp";
       div.dataset.text = (c.title + " " + (c.raga||"") + " " + (c.tala||"")).toLowerCase();
       div.dataset.type = c.type;
+      div.dataset.raga = (c.raga || "").toLowerCase();
 
       div.innerHTML = `
         <a href="${c.file}">${c.title}</a>
-        <div class="meta">
-          ${c.raga ? "Rāga: " + c.raga : ""}
-          ${c.tala ? " | Tāla: " + c.tala : ""}
-        </div>
+
+<div class="meta">
+  ${c.raga ? "Rāga: " + c.raga : ""}
+  ${c.tala ? " | Tāla: " + c.tala : ""}
+</div>
+${c.raga ? `<div class="raga-tag" data-raga="${c.raga.toLowerCase()}">${c.raga}</div>` : ""}
+
       `;
 
 // Multiple YouTube versions
@@ -530,7 +546,34 @@ function filter() {
     }
   });
 }
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("raga-tag")) {
 
+    let r = e.target.dataset.raga;
+
+    // Show only matching rāga
+    document.querySelectorAll(".comp").forEach(c => {
+      c.style.display = (c.dataset.raga === r) ? "block" : "none";
+    });
+
+    // Fix sections
+    document.querySelectorAll("details").forEach(section => {
+      let visibleItems = Array.from(section.querySelectorAll(".comp"))
+        .filter(c => c.style.display !== "none");
+
+      let hasVisible = visibleItems.length > 0;
+
+      section.style.display = hasVisible ? "block" : "none";
+
+      if (hasVisible) {
+        section.open = true;
+      }
+    });
+
+    // Reset dropdown (important UX)
+    document.getElementById("typeFilter").value = "all";
+  }
+});
 </script>
 
 </body>
