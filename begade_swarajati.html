@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Begade Swarajati - @hamsanandi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;600;700&family=Noto+Serif+Kannada:wght@400;600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #ffffff;
+    --border: #d4c5a9;
+    --gold: #8b5e1a;
+    --swara: #1a1208;
+    --section-bg: #fdf9f3;
+    --header-bg: #f5ede0;
+    --tara: #cc0000;
+    --mandra: #007700;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--swara);
+    font-family: 'Noto Sans Kannada', sans-serif;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-block {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    max-width: 1200px;
+}
+.main-title {
+    font-family: 'Noto Serif Kannada', serif;
+    font-size: 1.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.sub-title {
+    font-size: 1.05rem;
+    color: #5a4a30;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+.raga-details {
+    font-size: 1rem;
+    color: #1a4a30;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-style: italic;
+}
+.raga-gamaka {
+    font-size: 1.0rem;
+    color: #333;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.raga-gamaka sub {
+    vertical-align: sub;
+    font-size: 0.7em;
+}
+.t {
+    color: var(--tara);
+    position: relative;
+    display: inline-block;
+}
+.t::before {
+    content: '•';
+    position: absolute;
+    top: -0.75em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6em;
+}
+.m {
+    color: var(--mandra);
+    position: relative;
+    display: inline-block;
+}
+.m::after {
+    content: '•';
+    position: absolute;
+    bottom: -0.65em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6em;
+}
+.varna-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    max-width: 1200px;
+    margin-bottom: 2.5rem;
+}
+.varna-table th {
+    background: var(--header-bg);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 0.4rem;
+    border: 1px solid var(--border);
+}
+.varna-table td {
+    border: 1px solid var(--border);
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 12.5%;
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+.varna-table td:nth-child(4), .varna-table td:nth-child(6) {
+    border-right: 3px solid var(--gold);
+}
+.en-swara {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--swara);
+    display: block;
+    line-height: 1.2;
+}
+.avarta-div td {
+    height: 1px;
+    background: var(--gold);
+    border: none;
+    padding: 0;
+}
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin: 2.2rem 0 0.9rem;
+    width: 100%;
+    max-width: 1200px;
+    text-align: left;
+    border-left: 4px solid var(--gold);
+    padding-left: 12px;
+}
+.kannada-swara {
+    font-family: 'Noto Sans Kannada', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--swara);
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+.footer {
+    text-align: right;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    color: #8a7055;
+}
+</style>
+</head>
+<body>
+
+<div class="title-block">
+    <div class="main-title">ಬೇಗಡೆ ಸ್ವರಜತಿ</div>
+    <div class="sub-title">ರಾಗ ಬೇಗಡೆ (Raga Begade) | ತಾಳ ಆದಿ (Tala Adi)</div>
+    <div class="raga-gamaka">
+        ಸ ಗ<sub>3</sub> ರಿ<sub>2</sub> ಗ<sub>3</sub> ಮ<sub>1</sub> ಪ ದ<sub>2</sub> (ನೀ<sub>3</sub> ದ<sub>2</sub>) ಪ ಸ - ಸ ನೀ<sub>3</sub> ದ<sub>2</sub> ಪ ಮಾ<sub>1</sub> ಗ<sub>3</sub> ರಿ<sub>2</sub> ಸ (29 ನೆಯ ಮೇಳದಲ್ಲಿ)
+    </div>
+    <div class="raga-gamaka" style="margin-top: 0.1rem; font-family: 'EB Garamond', serif;">
+        S G<sub>3</sub> R<sub>2</sub> G<sub>3</sub> M<sub>1</sub> P D<sub>2</sub> (N<sub>3</sub> D<sub>2</sub>) P S - S N<sub>3</sub> D<sub>2</sub> P M<sub>1</sub> G<sub>3</sub> R<sub>2</sub> S ( From 29th Mela)
+    </div>
+    <div class="raga-details">
+        <div style="font-size: 0.88rem; color: #666; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        (ತಾರಸ್ಥಾಯಿ - <span class="t">ಸ</span> <span class="t">ರಿ</span> <span class="t">ಗ</span> | ಮಂದ್ರಸ್ಥಾಯಿ - <span class="m">ನಿ</span> <span class="m">ದ</span> <span class="m">ಪ</span>)
+        </div>
+    </div>
+</div>
+
+<div class="section-title">Pallavi ॥ ಪ॥</div>
+<table class="varna-table">
+<thead>
+<tr>
+<th colspan="4">Laghu (ಲಘು - I4)</th>
+<th colspan="2">Dhruta (ದ್ರುತ - O)</th>
+<th colspan="2">Dhruta (ದ್ರುತ - O)</th>
+</tr>
+</thead>
+<tr>
+    <td><span class="kannada-swara">ಮಾ , , ,</span><span class="en-swara">M , , ,</span></td>
+    <td><span class="kannada-swara">, , ಗ ಮ</span><span class="en-swara">, , G M</span></td>
+    <td><span class="kannada-swara">ದ ಪ , ಮ</span><span class="en-swara">D P , M</span></td>
+    <td><span class="kannada-swara">, ಪ ಗ ರಿ</span><span class="en-swara">, P G R</span></td>
+    <td><span class="kannada-swara">ಸ , , ,</span><span class="en-swara">S , , ,</span></td>
+    <td><span class="kannada-swara">, , <span class="m">ನಿ</span> ,</span><span class="en-swara">, , <span class="m">n</span> ,</span></td>
+    <td><span class="kannada-swara"><span class="m">ದ</span> <span class="m">ಪ</span> , ಸ</span><span class="en-swara"><span class="m">d</span> <span class="m">p</span> , S</span></td>
+    <td><span class="kannada-swara">, ಗ ರಿ ಗ</span><span class="en-swara">, G R G</span></td>
+</tr>
+</table>
+
+<div class="section-title">Anupallavi ॥ ಅ॥</div>
+<table class="varna-table">
+<tr>
+    <td><span class="kannada-swara">ಮ ನಿ ದ ಪ</span><span class="en-swara">M N D P</span></td>
+    <td><span class="kannada-swara">ಮ ಪ ಗ ರಿ</span><span class="en-swara">M P G R</span></td>
+    <td><span class="kannada-swara">ಸ ಗ ರಿ <span class="m">ನಿ</span></span><span class="en-swara">S G R <span class="m">n</span></span></td>
+    <td><span class="kannada-swara">ರಿ ಸ <span class="m">ದ</span> <span class="m">ಪ</span></span><span class="en-swara">R S <span class="m">d</span> <span class="m">p</span></span></td>
+    <td><span class="kannada-swara">ಸ <span class="m">ನಿ</span> ರಿ ಸ</span><span class="en-swara">S <span class="m">n</span> R S</span></td>
+    <td><span class="kannada-swara">ಗ ರಿ ಮ ಗ</span><span class="en-swara">G R M G</span></td>
+    <td><span class="kannada-swara">ನಿ ನಿ ದ ಪ</span><span class="en-swara">N N D P</span></td>
+    <td><span class="kannada-swara">ಮ ಗ ರಿ ಗ</span><span class="en-swara">M G RG</span></td>
+</tr>
+</table>
+
+<div class="section-title">Charanam 1 ॥ ೧॥</div>
+<table class="varna-table">
+<tr>
+    <td><span class="kannada-swara">ನಿ , , ,</span><span class="en-swara">N , , ,</span></td>
+    <td><span class="kannada-swara">, , ದ ಪ</span><span class="en-swara">, , D P</span></td>
+    <td><span class="kannada-swara">ದ ಮ , ಪ</span><span class="en-swara">D M , P</span></td>
+    <td><span class="kannada-swara">ಗ ರಿ ಗ ಮ</span><span class="en-swara">G R G M</span></td>
+    <td><span class="kannada-swara">ಪ , , ,</span><span class="en-swara">P , , ,</span></td>
+    <td><span class="kannada-swara">, , ಮ ಗ</span><span class="en-swara">, , M G</span></td>
+    <td><span class="kannada-swara">ರಿ ಸ , ರಿ</span><span class="en-swara">R S , R</span></td>
+    <td><span class="kannada-swara">ಸ <span class="m">ನಿ</span> <span class="m">ದ</span> <span class="m">ಪ</span></span><span class="en-swara">S <span class="m">n</span> <span class="m">d</span> <span class="m">p</span></span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara">ಸ , , ಗ</span><span class="en-swara">S , , G</span></td>
+    <td><span class="kannada-swara">ರಿ ಸ - ಮ ಗ</span><span class="en-swara">R S - M G</span></td>
+    <td><span class="kannada-swara">ರಿ ಸ - ಪ ಮ</span><span class="en-swara">R S - P M</span></td>
+    <td><span class="kannada-swara">ಗ ರಿ ಸ - ದ</span><span class="en-swara">G R S - D</span></td>
+    <td><span class="kannada-swara">ಪ ಮ ಗ ರಿ</span><span class="en-swara">P M G R</span></td>
+    <td><span class="kannada-swara">ಸ - <span class="t">ಸ</span> ನಿ ದ</span><span class="en-swara">S - <span class="t">S</span> N D</span></td>
+    <td><span class="kannada-swara">ಪ ಮ ಗ ರಿ</span><span class="en-swara">P M G R</span></td>
+    <td><span class="kannada-swara">ಸ - ಗ ರಿ ಗ</span><span class="en-swara">S - G R G</span></td>
+</tr>
+</table>
+
+<div class="section-title">Charanam 2 ॥ ೨॥</div>
+<table class="varna-table">
+<tr>
+    <td><span class="kannada-swara">ದ ನಿ ದ - ಪ</span><span class="en-swara">D N D - P</span></td>
+    <td><span class="kannada-swara">, ಮ ಪ ದ</span><span class="en-swara">, M P D</span></td>
+    <td><span class="kannada-swara">ಪ , , ಮ</span><span class="en-swara">P , , M</span></td>
+    <td><span class="kannada-swara">ಪ ಗ ರಿ ಸ</span><span class="en-swara">P G R S</span></td>
+    <td><span class="kannada-swara">, ಗ ರಿ ಗ</span><span class="en-swara">, G R G</span></td>
+    <td><span class="kannada-swara">ಮ ದ ಪ ಮ</span><span class="en-swara">M D P M</span></td>
+    <td><span class="kannada-swara">ಪ - <span class="t">ಸ</span> ನಿ <span class="t">ರಿ</span></span><span class="en-swara">P - <span class="t">S</span> N <span class="t">R</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , <span class="t">R</span></span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ನಿ</span><span class="en-swara"><span class="t">S</span> , , N</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> <span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ಮ</span></span><span class="en-swara"><span class="t">S</span> <span class="t">M</span> <span class="t">G</span> <span class="t">M</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಪ</span> <span class="t">ಮ</span> , <span class="t">ಪ</span></span><span class="en-swara"><span class="t">P</span> <span class="t">M</span> , <span class="t">P</span></span></td>
+    <td><span class="kannada-swara">, <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ರಿ</span> ನಿ <span class="t">ಸ</span> ಪ</span><span class="en-swara"><span class="t">R</span> N <span class="t">S</span> P</span></td>
+    <td><span class="kannada-swara">ದ ಮ ಪ ಗ</span><span class="en-swara">D M P G</span></td>
+    <td><span class="kannada-swara">ಮ ರಿ ಗ ಸ</span><span class="en-swara">M R G S</span></td>
+    <td><span class="kannada-swara">ಗ ರಿ ಮ ಗ</span><span class="en-swara">G R M G</span></td>
+</tr>
+</table>
+
+<div class="section-title">Charanam 3 ॥ ೩॥</div>
+<table class="varna-table">
+<tr>
+    <td><span class="kannada-swara">ಪ ದ , ಪ</span><span class="en-swara">P D , P</span></td>
+    <td><span class="kannada-swara">, ದ <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, D <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, <span class="t">ಸ</span> , ನಿ</span><span class="en-swara">, <span class="t">S</span> , N</span></td>
+    <td><span class="kannada-swara">ದ ಪ <span class="t">ಸ</span> ,</span><span class="en-swara">D P <span class="t">S</span> ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ರಿ</span> , <span class="t">ಸ</span></span><span class="en-swara"><span class="t">G</span> <span class="t">R</span> , <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, ನಿ* ದ ,</span><span class="en-swara">, N* D ,</span></td>
+    <td><span class="kannada-swara">ಪ ಮ ಪ ಗ</span><span class="en-swara">P M P G</span></td>
+    <td><span class="kannada-swara">, ರಿ ಗ ಮ</span><span class="en-swara">, R G M</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara">ಪ , ಮ ಪ</span><span class="en-swara">P , M P</span></td>
+    <td><span class="kannada-swara">ದ ಮ , ಗ</span><span class="en-swara">D M , G</span></td>
+    <td><span class="kannada-swara">ರಿ ಸ - ಮ ,</span><span class="en-swara">R S - M ,</span></td>
+    <td><span class="kannada-swara">ಗ ಮ ಪ ದ</span><span class="en-swara">G M P D</span></td>
+    <td><span class="kannada-swara">ದ , ಪ <span class="t">ಸ</span></span><span class="en-swara">D , P <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, ನಿ <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, N <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">G</span> <span class="t">M</span> <span class="t">G</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ,</span><span class="en-swara"><span class="t">S</span> , , ,</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ರಿ</span> <span class="t">ಸ</span> , ಪ</span><span class="en-swara"><span class="t">R</span> <span class="t">S</span> , P</span></td>
+    <td><span class="kannada-swara">ದ ಪ ಮ ಪ</span><span class="en-swara">D P M P</span></td>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ರಿ</span> , <span class="t">ಪ</span></span><span class="en-swara"><span class="t">G</span> <span class="t">R</span> , <span class="t">P</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara"><span class="t">M</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> <span class="t">ರಿ</span> ನಿ <span class="t">ಸ</span></span><span class="en-swara"><span class="t">S</span> <span class="t">R</span> N <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, ದ , ಪ</span><span class="en-swara">, D , P</span></td>
+    <td><span class="kannada-swara">ದ ಪ ಮ ಗ</span><span class="en-swara">D P M G</span></td>
+    <td><span class="kannada-swara">ಮ , , ,</span><span class="en-swara">M , , ,</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ,</span><span class="en-swara"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> ,</span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಮ</span> ,</span><span class="en-swara"><span class="t">G</span> <span class="t">R</span> <span class="t">M</span> ,</span></td>
+    <td><span class="kannada-swara">, <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ , , ದ</span><span class="en-swara">N , , D</span></td>
+    <td><span class="kannada-swara">ಪ ಮ - ಮ ,</span><span class="en-swara">P M - M ,</span></td>
+    <td><span class="kannada-swara">, ಗ ರಿ ಸ</span><span class="en-swara">, G R S</span></td>
+    <td><span class="kannada-swara">, ನಿ ದ ಪ</span><span class="en-swara">, N D P</span></td>
+</tr>
+</table>
+
+<div class="section-title">Charanam 4 ॥ ೪॥</div>
+<table class="varna-table">
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="en-swara">N , <span class="t">S</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">N , <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ,</span><span class="en-swara"><span class="t">S</span> , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="en-swara">N , <span class="t">S</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">N , <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ,</span><span class="en-swara"><span class="t">S</span> , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+    <td><span class="kannada-swara">, , , ಗ</span><span class="en-swara">, , , G</span></td>
+    <td><span class="kannada-swara">ಮ ಪ ದ ಪ</span><span class="en-swara">M P D P</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="en-swara">N , <span class="t">S</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">N , <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ,</span><span class="en-swara"><span class="t">S</span> , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+    <td><span class="kannada-swara">, , , <span class="t">ರಿ</span></span><span class="en-swara">, , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> ನಿ ದ ಪ</span><span class="en-swara"><span class="t">S</span> N D P</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="en-swara">N , <span class="t">S</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">N , <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ,</span><span class="en-swara"><span class="t">S</span> , , ,</span></td>
+    <td><span class="kannada-swara">, , , ,</span><span class="en-swara">, , , ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara"><span class="t">M</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, ಪ ದ ಪ</span><span class="en-swara">, P D P</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="en-swara">N , <span class="t">S</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ , <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">N , <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ದ ಪ ,</span><span class="en-swara">N D P ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , ನಿ</span><span class="en-swara"><span class="t">S</span> , , N</span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> <span class="t">ಗ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> <span class="t">G</span> <span class="t">G</span> <span class="t">R</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara"><span class="t">M</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">, ಪ ದ ಪ</span><span class="en-swara">, P D P</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara">ನಿ , ನಿ ,</span><span class="en-swara">N , N ,</span></td>
+    <td><span class="kannada-swara">ದ ನಿ ದ ಪ</span><span class="en-swara">D N D P</span></td>
+    <td><span class="kannada-swara">ಮ , , ದ</span><span class="en-swara">M , , D</span></td>
+    <td><span class="kannada-swara">ಮ ಗ ರಿ ಸ</span><span class="en-swara">M G R S</span></td>
+    <td><span class="kannada-swara"><span class="m">ನಿ</span> ರಿ , ಸ</span><span class="en-swara"><span class="m">n</span> R , S</span></td>
+    <td><span class="kannada-swara">ಗ ರಿ ಮ ಗ</span><span class="en-swara">G R M G</span></td>
+    <td><span class="kannada-swara">ಪ ಮ ಪ ದ</span><span class="en-swara">P M P D</span></td>
+    <td><span class="kannada-swara">ಪ , , ,</span><span class="en-swara">P , , ,</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara">ರಿ ಸ ಮ ಗ</span><span class="en-swara">R S M G</span></td>
+    <td><span class="kannada-swara">ಪ ಮ ದ ,</span><span class="en-swara">P M D ,</span></td>
+    <td><span class="kannada-swara">ಪ <span class="t">ಸ</span> , ನಿ</span><span class="en-swara">P <span class="t">S</span> , N</span></td>
+    <td><span class="kannada-swara"><span class="t">ರಿ</span> , <span class="t">ಸ</span> ,</span><span class="en-swara"><span class="t">R</span> , <span class="t">S</span> ,</span></td>
+    <td><span class="kannada-swara"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಮ</span> <span class="t">ಮ</span></span><span class="en-swara"><span class="t">G</span> <span class="t">R</span> <span class="t">M</span> <span class="t">M</span></span></td>
+    <td><span class="kannada-swara">, <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara">ನಿ ನಿ , ದ</span><span class="en-swara">N N , D</span></td>
+    <td><span class="kannada-swara">ಪ ಮ - ದ ಮ</span><span class="en-swara">P M - D M</span></td>
+</tr>
+<tr class="avarta-div"><td colspan="8"></td></tr>
+<tr>
+    <td><span class="kannada-swara">, ಗ ರಿ ಸ -</span><span class="en-swara">, G R S -</span></td>
+    <td><span class="kannada-swara"><span class="t">ರಿ</span> ನಿ , ದ</span><span class="en-swara"><span class="t">R</span> N , D</span></td>
+    <td><span class="kannada-swara">ಪ ಮ - <span class="t">ಮ</span> <span class="t">ಮ</span></span><span class="en-swara">P M - <span class="t">M</span> <span class="t">M</span></span></td>
+    <td><span class="kannada-swara">, <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></td>
+    <td><span class="kannada-swara"><span class="t">ಸ</span> , , <span class="t">ರಿ</span></span><span class="en-swara"><span class="t">S</span> , , <span class="t">R</span></span></td>
+    <td><span class="kannada-swara">ನಿ <span class="t">ಸ</span> ದ ಪ</span><span class="en-swara">N <span class="t">S</span> D P</span></td>
+    <td><span class="kannada-swara">ಮ ದ ಪ ಮ</span><span class="en-swara">M D P M</span></td>
+    <td><span class="kannada-swara">, ಗ ರಿ ಗ</span><span class="en-swara">, G R G</span></td>
+</tr>
+</table>
+
+<div class="footer">
+Composed by Ramaprasad K V (@hamsanandi)
+</div>
+
+</body>
+</html>
+
+
+
