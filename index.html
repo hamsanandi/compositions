@@ -1,3 +1,6 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
   --gold: #8b5e1a;
   --gold-light: #6b4510;
@@ -20,7 +23,7 @@
   --text: #1a1208;
   --meta: #8a7055;
 }
-
+ 
 body {
   font-family: 'EB Garamond', serif;
   background: var(--bg);
@@ -31,7 +34,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
 }
-
+ 
 /* Header */
 .page-header {
   text-align: center;
@@ -53,7 +56,7 @@ body {
 }
 .page-title {
   font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   letter-spacing: 0.22em;
   color: var(--gold);
   text-transform: uppercase;
@@ -62,16 +65,16 @@ body {
   font-family: 'Noto Serif Kannada', serif;
   letter-spacing: 0.05em;
   text-transform: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .page-subtitle {
-  font-size: 0.85em;
+  font-size: 0.95em;
   color: var(--gold-dim);
   margin-top: 5px;
 }
 .page-subtitle.en { font-family: 'EB Garamond', serif; font-style: italic; }
 .page-subtitle.kn { font-family: 'Noto Sans Kannada', sans-serif; }
-
+ 
 /* Language toggle */
 .lang-toggle {
   position: absolute;
@@ -86,7 +89,7 @@ body {
   cursor: pointer;
 }
 .lang-btn {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 16px;
   border: none;
@@ -97,19 +100,19 @@ body {
   transition: all 0.18s;
 }
 .lang-btn.active { background: var(--gold); color: #fff; font-weight: 600; }
-.lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.75rem; }
-
+.lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.8rem; }
+ 
 /* Intro */
 .intro {
   max-width: 680px;
   margin: 18px auto 0;
-  font-size: 0.95em;
+  font-size: 1em;
   line-height: 1.75;
   padding: 0 20px;
   color: var(--text);
 }
-.intro.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.9em; }
-
+.intro.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 1em; }
+ 
 /* Tab bar */
 .tab-bar {
   display: flex;
@@ -123,7 +126,7 @@ body {
 .tab-bar::-webkit-scrollbar-thumb { background: var(--border); }
 .tab {
   font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--meta);
@@ -138,17 +141,17 @@ body {
 }
 .tab.kn {
   font-family: 'Noto Sans Kannada', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-transform: none;
 }
 .tab:hover { color: var(--gold-dim); }
 .tab.active { color: var(--gold); border-bottom: 2px solid var(--gold); font-weight: 600; }
-
+ 
 /* Section labels */
 .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--meta);
@@ -162,10 +165,10 @@ body {
   text-transform: none;
   font-size: 0.8rem;
 }
-
+ 
 /* Archive root padding */
 #archiveRoot { padding: 0 20px; }
-
+ 
 /* Composition entries */
 .comp {
   padding: 12px 14px;
@@ -176,21 +179,21 @@ body {
 .comp:hover { background: var(--header-bg); }
 .comp-title {
   font-family: 'EB Garamond', serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--gold-light);
   text-decoration: none;
 }
-.comp-title.kn { font-family: 'Noto Serif Kannada', serif; font-size: 0.95rem; }
+.comp-title.kn { font-family: 'Noto Serif Kannada', serif; font-size: 1.05rem; }
 .comp-title:hover { text-decoration: underline; }
-.comp-meta { font-size: 0.83em; color: var(--meta); margin-top: 3px; }
-.comp-meta.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78em; }
-
+.comp-meta { font-size: 0.88em; color: var(--meta); margin-top: 3px; }
+.comp-meta.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88em; }
+ 
 .raga-tag {
   display: inline-block;
   margin-top: 6px;
   padding: 2px 9px;
-  font-size: 0.73em;
+  font-size: 0.78em;
   border: 1px solid var(--border-light);
   border-radius: 4px;
   color: var(--gold-light);
@@ -198,16 +201,16 @@ body {
   cursor: pointer;
   font-family: 'EB Garamond', serif;
 }
-.raga-tag.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.7rem; }
+.raga-tag.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78rem; }
 .raga-tag:hover { background: var(--header-bg); }
-
+ 
 /* Play buttons */
 .play-btn {
   display: inline-block;
   margin-top: 6px;
   margin-right: 6px;
   padding: 4px 10px;
-  font-size: 0.78em;
+  font-size: 0.85em;
   border: 1px solid var(--border-light);
   border-radius: 4px;
   background: white;
@@ -215,27 +218,27 @@ body {
   font-family: 'EB Garamond', serif;
   color: var(--gold-light);
 }
-.play-btn.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.72rem; }
+.play-btn.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.85rem; }
 .play-btn:hover { background: var(--header-bg); }
 .audio-embed { display: none; margin-top: 10px; }
 .audio-embed iframe { width: 100%; max-width: 480px; height: 260px; border: none; border-radius: 6px; }
-
+ 
 /* Audio blocks (mp3) */
 .audio-block { margin-top: 10px; padding: 10px; background: #f8f2e8; border-radius: 6px; }
 .audio-block p { margin: 0 0 6px 0; font-size: 0.9em; color: var(--gold-light); }
-
+ 
 /* About & footer */
 .about-section {
   max-width: 680px;
   margin: 36px auto 0;
   padding: 0 20px;
   line-height: 1.8;
-  font-size: 0.95em;
+  font-size: 1em;
 }
-.about-section.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88em; }
+.about-section.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 1em; }
 .about-title {
   font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.15em;
   color: var(--gold);
   text-transform: uppercase;
@@ -260,7 +263,7 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 </style>
 </head>
 <body>
-
+ 
 <div class="page-header">
   <div class="lang-toggle" id="langToggle">
     <button class="lang-btn active" id="btnEN">EN</button>
@@ -269,23 +272,23 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
   <div class="page-title" id="pageTitle">Composition Archive</div>
   <div class="page-subtitle en" id="pageSubtitle">A curated archive of original compositions in the Karnataka Sangeeta tradition</div>
 </div>
-
+ 
 <p class="intro" id="introText">Original compositions in the Karnataka Sangeeta tradition, spanning geete, varṇa, kriti, and related forms. Each entry includes notation and, where available, audio renderings.</p>
-
+ 
 <div class="tab-bar" id="tabBar"></div>
 <div id="archiveRoot"></div>
-
+ 
 <hr class="section-divider">
-
+ 
 <section class="about-section" id="aboutSection">
   <div class="about-title" id="aboutTitle">About the Composer</div>
   <p id="aboutP1">Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre. Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.</p>
   <p style="margin-top:10px;" id="aboutP2">This archive documents an evolving body of work, bringing together notated compositions and audio recordings to help those who would like to learn them. The notations are generally bilingual in English &amp; Kannada.</p>
   <p style="margin-top:12px;">Instagram: <a href="https://www.instagram.com/hamsanandi" target="_blank">@hamsanandi</a></p>
 </section>
-
+ 
 <footer id="footerEl">Hosted on GitHub Pages</footer>
-
+ 
 <script>
 /* ===================== STRINGS ===================== */
 const STR = {
@@ -326,7 +329,7 @@ const STR = {
     footer: "GitHub Pages ನಲ್ಲಿ ಪ್ರಕಾಶಿತ", footerClass: "kn"
   }
 };
-
+ 
 /* ===================== DATA ===================== */
 const DATA = [
   {
@@ -412,12 +415,12 @@ const DATA = [
     file: "udayaravichandrika_misrachapu.html"
   }
 ];
-
+ 
 /* ===================== STATE ===================== */
 const TYPES = ["geete", "swarajati", "varna", "kriti", "pada", "others"];
 let lang = 'en';
 let activeTab = 'all';
-
+ 
 /* ===================== HELPERS ===================== */
 function sortByRaga(arr, l) {
   return [...arr].sort((a, b) => {
@@ -427,7 +430,7 @@ function sortByRaga(arr, l) {
     return clean(a[l].raga || '').localeCompare(clean(b[l].raga || ''));
   });
 }
-
+ 
 function buildComp(c, l) {
   const s = STR[l];
   const wrap = document.createElement('div');
@@ -478,7 +481,7 @@ function buildComp(c, l) {
   }
   return wrap;
 }
-
+ 
 /* ===================== RENDER ===================== */
 function renderTabs(l) {
   const s = STR[l];
@@ -492,7 +495,7 @@ function renderTabs(l) {
     bar.appendChild(btn);
   });
 }
-
+ 
 function renderArchive(filter, l) {
   const s = STR[l];
   const root = document.getElementById('archiveRoot');
@@ -522,7 +525,7 @@ function renderArchive(filter, l) {
     root.appendChild(sec);
   }
 }
-
+ 
 function applyLang(l) {
   const s = STR[l];
   document.getElementById('pageTitle').textContent    = s.pageTitle;
@@ -543,7 +546,7 @@ function applyLang(l) {
   renderTabs(l);
   renderArchive(activeTab, l);
 }
-
+ 
 /* ===================== EVENTS ===================== */
 document.getElementById('langToggle').addEventListener('click', e => {
   const btn = e.target.closest('.lang-btn');
@@ -551,7 +554,7 @@ document.getElementById('langToggle').addEventListener('click', e => {
   lang = (btn.id === 'btnKN') ? 'kn' : 'en';
   applyLang(lang);
 });
-
+ 
 document.getElementById('tabBar').addEventListener('click', e => {
   const tab = e.target.closest('[data-tab]');
   if (!tab) return;
@@ -560,7 +563,7 @@ document.getElementById('tabBar').addEventListener('click', e => {
   tab.classList.add('active');
   renderArchive(activeTab, lang);
 });
-
+ 
 document.getElementById('archiveRoot').addEventListener('click', e => {
   if (e.target.classList.contains('raga-tag')) {
     const r = e.target.dataset.raga;
@@ -573,10 +576,10 @@ document.getElementById('archiveRoot').addEventListener('click', e => {
     }, 10);
   }
 });
-
+ 
 /* ===================== INIT ===================== */
 applyLang('en');
 </script>
-
+ 
 </body>
 </html>
