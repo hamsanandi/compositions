@@ -4,734 +4,578 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compositions</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
 <style>
-.audio-block {
-  margin-top: 10px;
-  padding: 10px;
-  background: #f8f2e8;
-  border-radius: 6px;
-}
-.audio-block p {
-  margin: 0 0 6px 0;
-  font-size: 0.9em;
-  color: var(--gold-light);
-}
-/* ✅ Shared design system from composition page */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --bg: #ffffff;
-  --border: #d4c5a9;
-  --border-light: #c0aa88;
   --gold: #8b5e1a;
   --gold-light: #6b4510;
   --gold-dim: #a0783a;
-  --text: #1a1208;
-  --meta: #8a7055;
+  --bg: #ffffff;
   --section-bg: #fdf9f3;
   --header-bg: #f5ede0;
+  --border: #d4c5a9;
+  --border-light: #c0aa88;
+  --text: #1a1208;
+  --meta: #8a7055;
 }
 
-/* Reset */
-* { box-sizing: border-box; }
-
 body {
+  font-family: 'EB Garamond', serif;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Noto Sans Kannada', system-ui, Arial, sans-serif;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 0 40px;
   font-size: 16px;
   line-height: 1.6;
 }
 
-/* ✅ TITLE BLOCK (matches composition page feel) */
-.title-area {
-  max-width:700px;
-  margin: 0 auto 12px;
-  padding-bottom: 12px;
+/* Header */
+.page-header {
+  text-align: center;
+  padding: 28px 20px 20px;
   border-bottom: 1px solid var(--border);
   position: relative;
 }
-
-.title-area::after {
+.page-header::after {
   content: '';
+  display: block;
+  height: 2px;
+  width: 120px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
   position: absolute;
   bottom: -1px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
 .page-title {
   font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  letter-spacing: 0.2em;
+  font-size: 1.1rem;
+  letter-spacing: 0.22em;
   color: var(--gold);
   text-transform: uppercase;
 }
-
-.page-subtitle {
+.page-title.kn {
   font-family: 'Noto Serif Kannada', serif;
-  font-size: 0.9em;
-  color: var(--gold-dim);
-  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 1.2rem;
 }
+.page-subtitle {
+  font-size: 0.85em;
+  color: var(--gold-dim);
+  margin-top: 5px;
+}
+.page-subtitle.en { font-family: 'EB Garamond', serif; font-style: italic; }
+.page-subtitle.kn { font-family: 'Noto Sans Kannada', sans-serif; }
+
+/* Language toggle */
+.lang-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--header-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 5px 4px;
+  display: flex;
+  gap: 3px;
+  cursor: pointer;
+}
+.lang-btn {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--meta);
+  font-family: 'EB Garamond', serif;
+  transition: all 0.18s;
+}
+.lang-btn.active { background: var(--gold); color: #fff; font-weight: 600; }
+.lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.75rem; }
 
 /* Intro */
 .intro {
-  max-width:700px;
-  margin: 15px auto 20px;
+  max-width: 680px;
+  margin: 18px auto 0;
+  font-size: 0.95em;
+  line-height: 1.75;
+  padding: 0 20px;
   color: var(--text);
-  text-align:left;
-  line-height: 1.7;
 }
+.intro.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.9em; }
 
-/* Label */
-.helper-text {
-  font-size:0.8em;
-  color: var(--meta);
-  max-width:700px;
-  margin: 0 auto 8px;
+/* Tab bar */
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin: 24px 20px 0;
+  overflow-x: auto;
 }
-
-/* Controls */
-.controls {
-  max-width:700px;
-  margin: 10px auto 25px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--section-bg);
-}
-
-/* Inputs */
-input, select {
-  padding:8px 10px;
-  margin-right:8px;
-  font-size: 0.9em;
-  border:1px solid var(--border-light);
-  background:white;
-}
-
-/* Search width */
-#search {
-  width: 55%;
-  max-width: 260px;
-}
-
-/* Button */
-button {
-  padding:8px 10px;
-  border:1px solid var(--border-light);
-  background:white;
-  cursor:pointer;
-  border-radius:4px;
-}
-button:hover {
-  background:#f8f2e8;
-}
-
-/* Sections */
-details {
-  margin:20px 0;
-  border:1px solid var(--border);
-  border-radius:6px;
-  background: var(--section-bg);
-  overflow:hidden;
-}
-
-/* ✅ Section header styling */
-summary {
+.tab-bar::-webkit-scrollbar { height: 3px; }
+.tab-bar::-webkit-scrollbar-thumb { background: var(--border); }
+.tab {
   font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.35em;
-  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  background: var(--header-bg);
-  padding: 8px 10px;
-  cursor: pointer;
-  position: relative;
-}
-
-/* ✅ Gold accent underline */
-summary::after {
-  content:"";
-  display:block;
-  height:2px;
-  margin-top:6px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-details summary:hover {
-  color: var(--gold-light);
-}
-
-/* Items */
-.comp {
-  margin:10px 0;
-  padding:10px 12px;
-  border-radius:6px;
-}
-
-.comp:hover {
-  background:#f8f2e8;
-}
-
-.meta {
-  font-size:0.85em;
   color: var(--meta);
+  padding: 9px 16px 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  transition: color 0.18s;
 }
+.tab.kn {
+  font-family: 'Noto Sans Kannada', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+.tab:hover { color: var(--gold-dim); }
+.tab.active { color: var(--gold); border-bottom: 2px solid var(--gold); font-weight: 600; }
+
+/* Section labels */
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin: 22px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.section-label.kn {
+  font-family: 'Noto Sans Kannada', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 0.8rem;
+}
+
+/* Archive root padding */
+#archiveRoot { padding: 0 20px; }
+
+/* Composition entries */
+.comp {
+  padding: 12px 14px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  margin: 2px 0;
+}
+.comp:hover { background: var(--header-bg); }
+.comp-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  text-decoration: none;
+}
+.comp-title.kn { font-family: 'Noto Serif Kannada', serif; font-size: 0.95rem; }
+.comp-title:hover { text-decoration: underline; }
+.comp-meta { font-size: 0.83em; color: var(--meta); margin-top: 3px; }
+.comp-meta.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78em; }
 
 .raga-tag {
-  display:inline-block;
-  margin-top:6px;
-  padding:2px 8px;
-  font-size:0.75em;
-  border:1px solid var(--border-light);
-  border-radius:4px;
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 9px;
+  font-size: 0.73em;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
   color: var(--gold-light);
-  background:#fdf6ec;
-  cursor:pointer;
+  background: #fdf6ec;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
 }
+.raga-tag.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.7rem; }
+.raga-tag:hover { background: var(--header-bg); }
 
-.raga-tag.active {
-  background: #efe4d3;      /* soft beige highlight */
-  border: 1px solid var(--gold);
-  color: var(--gold);
-}
-
-/* Links */
-a {
-  text-decoration:none;
-  color: var(--gold-light);
-}
-a:hover {
-  text-decoration:underline;
-}
-
-/* Audio */
+/* Play buttons */
 .play-btn {
-  margin-top:5px;
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 6px;
+  padding: 4px 10px;
+  font-size: 0.78em;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  color: var(--gold-light);
 }
+.play-btn.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.72rem; }
+.play-btn:hover { background: var(--header-bg); }
+.audio-embed { display: none; margin-top: 10px; }
+.audio-embed iframe { width: 100%; max-width: 480px; height: 260px; border: none; border-radius: 6px; }
 
-.audio {
-  display:none;
-  margin-top:10px;
+/* Audio blocks (mp3) */
+.audio-block { margin-top: 10px; padding: 10px; background: #f8f2e8; border-radius: 6px; }
+.audio-block p { margin: 0 0 6px 0; font-size: 0.9em; color: var(--gold-light); }
+
+/* About & footer */
+.about-section {
+  max-width: 680px;
+  margin: 36px auto 0;
+  padding: 0 20px;
+  line-height: 1.8;
+  font-size: 0.95em;
 }
-
-iframe {
-  width:100%;
-  max-width:500px;
-  height:280px;
+.about-section.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88em; }
+.about-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
 }
-
-/* About */
-.about {
-  max-width:700px;
-  margin: 30px auto 10px;
-  color: var(--text);
-  line-height:1.7;
-  text-align:left;
+.about-title.kn {
+  font-family: 'Noto Serif Kannada', serif;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 1rem;
 }
-
-/* Divider */
+a { text-decoration: none; color: var(--gold-light); }
+a:hover { text-decoration: underline; }
 .section-divider {
-  height:1px;
+  height: 1px;
   background: linear-gradient(90deg, transparent, var(--border), transparent);
-  margin:40px 0;
+  margin: 32px 20px 0;
 }
-
-footer {
-  text-align:center;
-  color: var(--meta);
-  margin-top:30px;
-  font-size:0.85em;
-}
+footer { text-align: center; color: var(--meta); margin-top: 20px; font-size: 0.82em; }
+footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 </style>
 </head>
-
 <body>
 
-<!-- ✅ Title Area -->
-<div class="title-area">
-  <div class="page-title">Composition Archive</div>
-  <div class="page-subtitle">
-    A curated archive of original compositions in the Karnataka Sangeeta tradition
+<div class="page-header">
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" id="btnEN">EN</button>
+    <button class="lang-btn kn-btn" id="btnKN">ಕನ್ನಡ</button>
   </div>
+  <div class="page-title" id="pageTitle">Composition Archive</div>
+  <div class="page-subtitle en" id="pageSubtitle">A curated archive of original compositions in the Karnataka Sangeeta tradition</div>
 </div>
 
-<p class="intro">
-This archive presents a collection of contemporary original compositions in the Karnataka Sangeeta (also called Carnatic) tradition. Each composition includes the notation in two scripts (Kannada and English), and where available, audio or video rendition of the composition.
-</p>
+<p class="intro" id="introText">Original compositions in the Karnataka Sangeeta tradition, spanning geete, varṇa, kriti, and related forms. Each entry includes notation and, where available, audio renderings.</p>
 
-<p class="helper-text">
-Browse the collection:
-</p>
-
-<div class="controls">
-
-  <select id="typeFilter">
-    <option value="all">All</option>
-    <option value="geete">Geete</option>
-    <option value="swarajati">Swarajati</option>
-    <option value="varna">Varna</option>
-    <option value="kriti">Kriti</option>
-    <option value="pada">Pada</option>
-    <option value="others">Others</option>
-  </select>
-
-  <button id="clearBtn">Clear</button>
-</div>
-
-<div id="archive"></div>
+<div class="tab-bar" id="tabBar"></div>
+<div id="archiveRoot"></div>
 
 <hr class="section-divider">
 
-<section class="about">
-<h3 style="text-align:center; margin-bottom:15px;">About the Composer</h3>
-
-<p>
-Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre.
-Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.
-</p>
-
-<p>
-This archive documents an evolving body of work, bringing together notated compositions
-and audio recordings to help those who would like to learn them. The notations are generally bilingual in English &amp; Kannada.
-</p>
-
-<p style="margin-top:12px;">
-Instagram:
-<a href="https://www.instagram.com/hamsanandi" target="_blank">
-@hamsanandi
-</a>
-</p>
+<section class="about-section" id="aboutSection">
+  <div class="about-title" id="aboutTitle">About the Composer</div>
+  <p id="aboutP1">Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre. Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.</p>
+  <p style="margin-top:10px;" id="aboutP2">This archive documents an evolving body of work, bringing together notated compositions and audio recordings to help those who would like to learn them. The notations are generally bilingual in English &amp; Kannada.</p>
+  <p style="margin-top:12px;">Instagram: <a href="https://www.instagram.com/hamsanandi" target="_blank">@hamsanandi</a></p>
 </section>
 
-<footer>Hosted on GitHub Pages</footer>
+<footer id="footerEl">Hosted on GitHub Pages</footer>
 
 <script>
+/* ===================== STRINGS ===================== */
+const STR = {
+  en: {
+    pageTitle: "Composition Archive",
+    pageSubtitle: "A curated archive of original compositions in the Karnataka Sangeeta tradition",
+    pageTitleClass: "page-title",
+    pageSubtitleClass: "page-subtitle en",
+    intro: "Original compositions in the Karnataka Sangeeta tradition, spanning geete, varṇa, kriti, and related forms. Each entry includes notation and, where available, audio renderings.",
+    introClass: "intro",
+    tabs: { all:"All", geete:"Geete", swarajati:"Swarajati", varna:"Varṇa", kriti:"Kriti", pada:"Pada", others:"Others" },
+    tabClass: "tab",
+    sectionClass: "section-label",
+    ragaLabel: "Rāga:", talaLabel: "Tāla:",
+    empty: "No compositions in this category yet.",
+    aboutTitle: "About the Composer", aboutTitleClass: "about-title",
+    aboutSectionClass: "about-section",
+    aboutP1: "Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre. Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.",
+    aboutP2: "This archive documents an evolving body of work, bringing together notated compositions and audio recordings to help those who would like to learn them. The notations are generally bilingual in English & Kannada.",
+    footer: "Hosted on GitHub Pages", footerClass: ""
+  },
+  kn: {
+    pageTitle: "ರಚನೆಗಳ ಸಂಗ್ರಹ",
+    pageSubtitle: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯ ಮೂಲ ರಚನೆಗಳ ಸಂಗ್ರಹ",
+    pageTitleClass: "page-title kn",
+    pageSubtitleClass: "page-subtitle kn",
+    intro: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯಲ್ಲಿ ರಚಿತವಾದ ಮೂಲ ಕೃತಿಗಳ ಸಂಗ್ರಹ — ಗೀತೆ, ವರ್ಣ, ಕೃತಿ ಮತ್ತು ಇತರ ರೂಪಗಳನ್ನು ಒಳಗೊಂಡಿದೆ. ಪ್ರತಿ ರಚನೆಯಲ್ಲಿ ಸ್ವರ ಲಿಪಿ ಮತ್ತು ಲಭ್ಯವಿರುವಲ್ಲಿ ಧ್ವನಿ ಮುದ್ರಣ ಸಹ ಇದೆ.",
+    introClass: "intro kn",
+    tabs: { all:"ಎಲ್ಲ", geete:"ಗೀತೆ", swarajati:"ಸ್ವರಜತಿ", varna:"ವರ್ಣ", kriti:"ಕೃತಿ", pada:"ಪದ", others:"ಇತರ" },
+    tabClass: "tab kn",
+    sectionClass: "section-label kn",
+    ragaLabel: "ರಾಗ:", talaLabel: "ತಾಳ:",
+    empty: "ಈ ವಿಭಾಗದಲ್ಲಿ ಇನ್ನೂ ರಚನೆಗಳಿಲ್ಲ.",
+    aboutTitle: "ರಚನಕಾರರ ಕುರಿತು", aboutTitleClass: "about-title kn",
+    aboutSectionClass: "about-section kn",
+    aboutP1: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯಲ್ಲಿ ಕೆಲಸ ಮಾಡುವ ವಾಗ್ಗೇಯಕಾರರು; ಅವರ ಸುಮಾರು ನೂರು ಮೂಲ ರಚನೆಗಳಿವೆ. ಅವರ ಅನೇಕ ರಚನೆಗಳು ಸಂಗೀತ ಮತ್ತು ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಪ್ರಸ್ತುತಗೊಂಡಿವೆ. ಅವರು ನಾಲ್ಕು ಕನ್ನಡ ಪುಸ್ತಕಗಳ ಪ್ರಕಾಶಿತ ಲೇಖಕರೂ ಆಗಿದ್ದಾರೆ.",
+    aboutP2: "ಈ ಸಂಗ್ರಹವು ಸ್ವರ ಲಿಪಿಗಳು ಮತ್ತು ಧ್ವನಿ ಮುದ್ರಣಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಿ, ಕಲಿಯಲು ಬಯಸುವವರಿಗೆ ಸಹಾಯ ಮಾಡಲು ರಚಿಸಲಾಗಿದೆ. ಸ್ವರ ಲಿಪಿಗಳು ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ ಎರಡರಲ್ಲೂ ಇವೆ.",
+    footer: "GitHub Pages ನಲ್ಲಿ ಪ್ರಕಾಶಿತ", footerClass: "kn"
+  }
+};
 
-/* unchanged JS */
-
+/* ===================== DATA ===================== */
 const DATA = [
-{
-  type:"geete",
-  title:"Sanchāri Geete — Vasanta",
-  file:"vasanta_geete_1.html",
-  raga:"Vasanta",
-  tala:"Trisra Triputa",
-  youtube: [
-    { label: "Vocal Version", id: "uLIQ2RrxBhg" }
-  ]
-},
-
-
-
   {
-    type:"geete",
-    title:"Sanchāri Geete — Kīravāni",
-    file:"keeravani_geete_2.html",
-    raga:"Kīravāni",
-    tala:"Rupaka",
- youtube: [
-      { label: "Student Rendition", id: "3DaA4meOG7U" }
-      ]
-  },
-
-    {
-    type:"geete",
-    title:"Sanchāri Geete — Shankarābharana",
-    file:"shankarabharana_geete_2.html",
-    raga:"Shankarābharana",
-    tala:"Trishra Triputa",
-      youtube: [
-      { label: "Student Rendition", id: "YN48t9ObHeg" }
-      ]
-
-  },
-    {
-    type:"geete",
-    title:"Sanchāri Geete — Amrtavarshnini",
-    file:"sarasijasane_geete.html",
-    raga:"Amrtavarshini",
-    tala:"Trishra Triputa",
-      youtube: [
-      { label: "Vidushi Ragini Sanath", id: "KUzJLs60Mhw" },
-      { label: "Vocal Rendition", id: "TlV9wFsc6kE" },   
-      ]
+    type: "geete",
+    en: { title: "Sanchāri Geete — Vasanta", raga: "Vasanta", tala: "Trisra Triputa" },
+    kn: { title: "ಸಂಚಾರಿ ಗೀತೆ — ವಸಂತ", raga: "ವಸಂತ", tala: "ತ್ರಿಶ್ರ ತ್ರಿಪುಟ" },
+    file: "vasanta_geete_1.html",
+    youtube: [{ en: "Vocal Version", kn: "ಗಾಯನ", id: "uLIQ2RrxBhg" }]
   },
   {
-    type:"varna",
-    title:"Pada Varṇa — Hindola",
-    file:"pada_varna_hindola_RamaprasadKV_Final.html",
-    raga:"Hindola",
-    tala:"Adi"
+    type: "geete",
+    en: { title: "Sanchāri Geete — Kīravāni", raga: "Kīravāni", tala: "Rupaka" },
+    kn: { title: "ಸಂಚಾರಿ ಗೀತೆ — ಕೀರವಾಣಿ", raga: "ಕೀರವಾಣಿ", tala: "ರೂಪಕ" },
+    file: "keeravani_geete_2.html"
   },
-
   {
-    type:"varna",
-    title:"Navaraga Malika Tāna Varṇa",
-    file:"tyagaraja_navaraga_malika_varna_8.html",
-    raga:"Ragamalika",
-    tala:"Adi",
+    type: "geete",
+    en: { title: "Sanchāri Geete — Shankarābharana", raga: "Shankarābharana", tala: "Trishra Triputa" },
+    kn: { title: "ಸಂಚಾರಿ ಗೀತೆ — ಶಂಕರಾಭರಣ", raga: "ಶಂಕರಾಭರಣ", tala: "ತ್ರಿಶ್ರ ತ್ರಿಪುಟ" },
+    file: "shankarabharana_geete_2.html",
+    youtube: [{ en: "Student Rendition", kn: "ವಿದ್ಯಾರ್ಥಿ ಗಾಯನ", id: "YN48t9ObHeg" }]
+  },
+  {
+    type: "varna",
+    en: { title: "Pada Varṇa — Hindola", raga: "Hindola", tala: "Adi" },
+    kn: { title: "ಪದ ವರ್ಣ — ಹಿಂದೋಳ", raga: "ಹಿಂದೋಳ", tala: "ಆದಿ" },
+    file: "pada_varna_hindola_RamaprasadKV_Final.html"
+  },
+  {
+    type: "varna",
+    en: { title: "Tana Varṇa — Navaraga Malika", raga: "Ragamalika", tala: "Adi" },
+    kn: { title: "ತಾನ ವರ್ಣ — ನವರಾಗ ಮಾಲಿಕೆ", raga: "ರಾಗಮಾಲಿಕೆ", tala: "ಆದಿ" },
+    file: "tyagaraja_navaraga_malika_varna_8.html",
     youtube: [
-      { label: "Vidushi Bhama Krishnan", id: "uLIQ2RrxBhg" },
-      { label: "Vidushi Ragini Sanath", id: "bIs4xYKd_zM" },
-      { label: "Vidushi Uma Kumar", id: "z6wMjn4AEyE" },
-      { label: "Full Lesson Version", id: "fY4aq7DfFaM" }
+      { en: "Vidushi Bhama Krishnan",   kn: "ವಿದುಷಿ ಭಾಮಾ ಕೃಷ್ಣನ್",    id: "uLIQ2RrxBhg" },
+      { en: "Vidushi Ragini Sanath",    kn: "ವಿದುಷಿ ರಾಗಿಣಿ ಸನತ್",     id: "bIs4xYKd_zM" },
+      { en: "Vidushi Uma Kumar",        kn: "ವಿದುಷಿ ಉಮಾ ಕುಮಾರ್",      id: "z6wMjn4AEyE" },
+      { en: "Full Lesson Version",      kn: "ಪಾಠದ ಆವೃತ್ತಿ",            id: "fY4aq7DfFaM" }
     ]
   },
- {
-    type:"varna",
-    title:"Todi Tāna Varṇa",
-    file:"baraneke_todi_varna.html",
-    raga:"Todi",
-    tala:"Adi",
+  {
+    type: "varna",
+    en: { title: "Rāgamālikā Tāna Varṇa", raga: "Rāgamālikā", tala: "Adi" },
+    kn: { title: "ರಾಗಮಾಲಿಕಾ ತಾನ ವರ್ಣ", raga: "ರಾಗಮಾಲಿಕಾ", tala: "ಆದಿ" },
+    file: "kalyanimalikavarnam_final.html",
     youtube: [
-      { label: "Vidushi Ragini Sanath", id: "xJdBNwI-RKs" }
+      { en: "Class recording",              kn: "ತರಗತಿ ರೆಕಾರ್ಡಿಂಗ್",           id: "PKdSBS_cGSk" },
+      { en: "Vid. Vijay Kannan (Flute)",     kn: "ವಿ. ವಿಜಯ್ ಕಣ್ಣನ್ (ಕೊಳಲು)",   id: "TJWSctBE2ug" },
+      { en: "Vocal version",                kn: "ಗಾಯನ",                        id: "VGFLE6lyL3M" }
     ]
   },
-
-   {
-    type:"varna",
-    title:"Sapta Ragamalika Tāna Varṇa",
-    file:"saptaraga_malika.html",
-    raga:"Ragamalika ",
-    tala:"Adi",
-    youtube: [
-      { label: "Vocal Rendition", id: "nWAg1180EKA" }
-    ]
-  },
-  
   {
-    type:"varna",
-    title:"Kalyānimālikā Tāna Varṇa",
-    file:"kalyanimalikavarnam_final.html",
-    raga:"Rāgamālikā",
-    tala:"Adi",
-    youtube: [
-      { label: "Class recording", id:"PKdSBS_cGSk"},
-      { label: "Vid. Vijay Kannan (Flute)", id:"TJWSctBE2ug"},
-      { label: "Vocal version", id:"VGFLE6lyL3M"}
-      ]
+    type: "swarajati",
+    en: { title: "Mohana Swarajati", raga: "Mohana", tala: "Adi" },
+    kn: { title: "ಮೋಹನ ಸ್ವರಜತಿ", raga: "ಮೋಹನ", tala: "ಆದಿ" },
+    file: "mohana_swarajati.html",
+    youtube: [{ en: "Vidushi Jyothi Chetan", kn: "ವಿದುಷಿ ಜ್ಯೋತಿ ಚೇತನ್", id: "uzZKlfuSuAQ" }]
   },
-
   {
-    type:"swarajati",
-    title:"Mohana Swarajati",
-    file:"mohana_swarajati.html",
-    raga:"Mohana",
-    tala:"Adi",
-    youtube: [
-      { label: "Vidushi Jyothi Chetan on Veena", id: "uzZKlfuSuAQ" },
-      { label: "Vid.Krishna Prasad, on Flute", id: "dI5ZgWnHLMg" }
-      ]
+    type: "varna",
+    en: { title: "Rāgeshri Tāna Varṇa", raga: "Rāgeshri", tala: "Adi" },
+    kn: { title: "ರಾಗೇಶ್ರಿ ತಾನ ವರ್ಣ", raga: "ರಾಗೇಶ್ರಿ", tala: "ಆದಿ" },
+    file: "rageshri_varna_8.html",
+    youtube: [{ en: "Vidushi Jayanthi Umesh", kn: "ವಿದುಷಿ ಜಯಂತಿ ಉಮೇಶ್", id: "soUIyuwXs9Y" }]
   },
-
-   {
-    type:"swarajati",
-    title:"Bindumalini Swarajati",
-    file:"bindumalini_swarajati_10.html",
-    raga:"Mohana",
-    tala:"Adi",
-    youtube: [
-      { label: "Vid.Vijay Kannan on Flute", id: "qP411MSZDYE" },
-      { label: "Vocal Rendition", id: "P-KoK7eWvOM" }
-      ]
-  },
-   {
-    type:"swarajati",
-    title:"Shuddhasaveri Swarajati",
-    file:"shuddhasaveri_swarajati_1.html",
-    raga:"Mohana",
-    tala:"Adi",
-    youtube: [
-      { label: "Vid.Tejasvi Raghunath on Flute", id: "a1OAUw8tPl8" }
-      ]
-  },
-
-     {
-    type:"swarajati",
-    title:"Arabhi Swarajati",
-    file:"arabhi_swarajati.html",
-    raga:"Arabhi",
-    tala:"Adi",
-    youtube: [
-      { label: "Vocal Rendition", id: "egplDs1kW8" }
-      ]
-  }, 
-  
   {
-    type:"swarajati",
-    title:"Nasamani Swarajati",
-    file:"nasamani_swarajati.html",
-    raga:"Nasamani",
-    tala:"Adi",
-    youtube: [
-      { label: "Vidushi Nandita Padmanabhan", id: "4FqEmzllD-w" },
-      { label: "Vid.Sathya Prakash Kattepura, on Violin", id: "JTMCnZS7F8o" },
-      { label: "Vocal Rendition", id: "T-2bJiliJdc" }
-      ]
+    type: "kriti",
+    en: { title: "Kriti — Mohanāngi", raga: "Mohanāngi", tala: "Misra Chapu" },
+    kn: { title: "ಕೃತಿ — ಮೋಹನಾಂಗಿ", raga: "ಮೋಹನಾಂಗಿ", tala: "ಮಿಶ್ರ ಚಾಪು" },
+    file: "hottu_muluguta_mohanagi_4.html"
   },
-  
   {
-    type:"swarajati",
-    title:"Amrtavarshini Swarajati",
-    file:"amrtavarshini_swarajati.html",
-    raga:"Amrtavarshini",
-    tala:"Adi",
-    youtube: [
-      { label: "Vocal Rendition", id: "gOmexcH9Eag" }
-      ]
+    type: "others",
+    en: { title: "Rāgamālikā Puṣpāñjali", raga: "Ragamalika", tala: "Adi" },
+    kn: { title: "ರಾಗಮಾಲಿಕಾ ಪುಷ್ಪಾಂಜಲಿ", raga: "ರಾಗಮಾಲಿಕೆ", tala: "ಆದಿ" },
+    file: "ragamalika_pushpanjali_3.html",
+    youtube: [{ en: "Recording from a dance concert", kn: "ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮದ ರೆಕಾರ್ಡಿಂಗ್", id: "jzSKVZgP-HQ" }]
   },
-
   {
-    type:"swarajati",
-    title:"Begade Swarajati",
-    file:"begade_swarajati.html",
-    raga:"Begade",
-    tala:"Adi",
-    youtube: [
-      { label: "Vocal Rendition", id: "UvRbz6DQpz0" }
-      ]
-  },
-  
-  {
-    type:"swarajati",
-    title:"Ranjani Swarajati",
-    file:"ranjani_swarajati.html",
-    raga:"Ranjani",
-    tala:"Adi",
-    youtube: [
-      { label: "Vocal Rendition", id: "gOmexcH9Eag" }
-      ]
-  },  
- {
-    type:"swarajati",
-    title:"Shuddha Todi Swarajati",
-    file:"shuddhatodi_swarajati_2l.html",
-    raga:"Shuddh Todi",
-    tala:"Misra Chapu",
-   youtube: [
-      { label: "Vocal Rendition", id: "fLHoEmn_okc" }
-      ]
-  },
-  
-  {
-    type:"varna",
-    title:"Rāgeshri Tāna Varṇa",
-    file:"rageshri_varna_8.html",
-    raga:"Rāgeshri",
-    tala:"Adi",
-    youtube: [
-      { label: "Vidushi Jayanthi Umesh", id: "soUIyuwXs9Y" }
-      ]
-  },
-
-  {
-    type:"kriti",
-    title:"Kriti — Mohanāngi",
-    file:"hottu_muluguta_mohanagi_4.html",
-    raga:"Mohanāngi",
-    tala:"Misra Chapu"
-  },
-
-  {
-    type:"others",
-    title:"Rāgamālikā Puṣpāñjali",
-    file:"ragamalika_pushpanjali_3.html",
-    raga:"Ragamalika",
-    tala:"Adi",
-    youtube: [
-      { label: "Recording from a dance concert", id: "jzSKVZgP-HQ" }
-      ]
-  },
-
-{
-  type: "kriti",
-  title: "Kriti — Udayaravichandrika",
-  file: "udayaravichandrika_misrachapu.html",
-  raga: "Udayaravichandrika",
-  tala: "Misra Chapu"
-}
-
-
+    type: "kriti",
+    en: { title: "Kriti — Udayaravichandrika", raga: "Udayaravichandrika", tala: "Misra Chapu" },
+    kn: { title: "ಕೃತಿ — ಉದಯರವಿಚಂದ್ರಿಕಾ", raga: "ಉದಯರವಿಚಂದ್ರಿಕಾ", tala: "ಮಿಶ್ರ ಚಾಪು" },
+    file: "udayaravichandrika_misrachapu.html"
+  }
 ];
 
-const TYPES = ["geete","swarajati","varna","kriti","pada","others"];
+/* ===================== STATE ===================== */
+const TYPES = ["geete", "swarajati", "varna", "kriti", "pada", "others"];
+let lang = 'en';
+let activeTab = 'all';
 
-// ✅ NEW: keep selected rāga so type + rāga can combine
-let selectedRaga = null;
-
-function render() {
-  let container = document.getElementById("archive");
-  container.innerHTML = "";
-
-  TYPES.forEach(type => {
-    let section = document.createElement("details");
-    if (type === "varna") section.open = true;
-
-    let summary = document.createElement("summary");
-    summary.textContent = type.charAt(0).toUpperCase() + type.slice(1);
-    section.appendChild(summary);
-
-    let filtered = DATA.filter(c => c.type === type);
-
-    filtered.forEach(c => {
-      let div = document.createElement("div");
-      div.className = "comp";
-      div.dataset.text = (c.title + " " + (c.raga||"") + " " + (c.tala||"")).toLowerCase();
-      div.dataset.type = c.type;
-      div.dataset.raga = (c.raga || "").toLowerCase();
-
-      div.innerHTML = `
-        <a href="${c.file}">${c.title}</a>
-
-<div class="meta">
-  ${c.raga ? "Rāga: " + c.raga : ""}
-  ${c.tala ? " | Tāla: " + c.tala : ""}
-</div>
-${c.raga ? `<div class="raga-tag" data-raga="${c.raga.toLowerCase()}">${c.raga}</div>` : ""}
-
-      `;
-
-// Multiple YouTube versions
-if (c.youtube) {
-  c.youtube.forEach(v => {
-    let btn = document.createElement("button");
-    btn.className = "play-btn";
-    btn.textContent = "▶ " + v.label;
-
-    let audio = document.createElement("div");
-    audio.className = "audio";
-
-    let iframe = document.createElement("iframe");
-    iframe.dataset.src = "https://www.youtube.com/embed/" + v.id;
-    audio.appendChild(iframe);
-
-    btn.onclick = () => {
-      document.querySelectorAll(".audio").forEach(a => {
-        a.style.display = "none";
-        let f = a.querySelector("iframe");
-        if (f) f.src = "";
-      });
-
-      audio.style.display = "block";
-      iframe.src = iframe.dataset.src;
-    };
-
-    div.appendChild(btn);
-    div.appendChild(audio);
-  });
-}
-// Multiple audio versions
-if (c.audio) {
-  c.audio.forEach(a => {
-    let block = document.createElement("div");
-    block.className = "audio-block";
-    block.innerHTML = `
-      <p>${a.label}</p>
-      <audio controls>
-        <source src="${a.url}" type="audio/mpeg">
-      </audio>
-    `;
-    div.appendChild(block);
+/* ===================== HELPERS ===================== */
+function sortByRaga(arr, l) {
+  return [...arr].sort((a, b) => {
+    const clean = s => s
+      .replace(/[āīūṛēōśṣṭḍṇṁḥ]/g, c => ({ ā:'a',ī:'i',ū:'u',ṛ:'r',ē:'e',ō:'o',ś:'s',ṣ:'s',ṭ:'t',ḍ:'d',ṇ:'n',ṁ:'m',ḥ:'h' }[c] || c))
+      .toLowerCase();
+    return clean(a[l].raga || '').localeCompare(clean(b[l].raga || ''));
   });
 }
 
-      section.appendChild(div);
+function buildComp(c, l) {
+  const s = STR[l];
+  const wrap = document.createElement('div');
+  wrap.className = 'comp';
+  wrap.dataset.type = c.type;
+  wrap.dataset.raga = (c[l].raga || '').toLowerCase();
+  const titleClass = 'comp-title' + (l === 'kn' ? ' kn' : '');
+  const metaClass  = 'comp-meta'  + (l === 'kn' ? ' kn' : '');
+  const tagClass   = 'raga-tag'   + (l === 'kn' ? ' kn' : '');
+  wrap.innerHTML = `
+    <a class="${titleClass}" href="${c.file}">${c[l].title}</a>
+    <div class="${metaClass}">
+      ${c[l].raga ? s.ragaLabel + ' ' + c[l].raga : ''}
+      ${c[l].tala ? ' &nbsp;|&nbsp; ' + s.talaLabel + ' ' + c[l].tala : ''}
+    </div>
+    ${c[l].raga ? `<span class="${tagClass}" data-raga="${c[l].raga.toLowerCase()}">${c[l].raga}</span>` : ''}
+  `;
+  if (c.youtube) {
+    c.youtube.forEach(v => {
+      const btn = document.createElement('button');
+      btn.className = 'play-btn' + (l === 'kn' ? ' kn' : '');
+      btn.textContent = '▶ ' + v[l];
+      const embed = document.createElement('div');
+      embed.className = 'audio-embed';
+      const iframe = document.createElement('iframe');
+      iframe.dataset.src = 'https://www.youtube.com/embed/' + v.id;
+      embed.appendChild(iframe);
+      btn.onclick = () => {
+        document.querySelectorAll('.audio-embed').forEach(a => {
+          a.style.display = 'none';
+          const f = a.querySelector('iframe');
+          if (f) f.src = '';
+        });
+        embed.style.display = 'block';
+        iframe.src = iframe.dataset.src;
+      };
+      wrap.appendChild(btn);
+      wrap.appendChild(embed);
     });
-
-    container.appendChild(section);
-  });
-}
-
-render();
-
-// ✅ NEW: unified filter applying BOTH type + selectedRaga
-function applyFilters() {
-  let t = document.getElementById("typeFilter").value;
-
-  document.querySelectorAll(".comp").forEach(c => {
-    let matchType = (t === "all" || c.dataset.type === t);
-    let matchRaga = (!selectedRaga || c.dataset.raga === selectedRaga);
-    let show = matchType && matchRaga;
-
-    c.style.display = show ? "block" : "none";
-  });
-
-  document.querySelectorAll("details").forEach(section => {
-    let visibleItems = Array.from(section.querySelectorAll(".comp"))
-      .filter(c => c.style.display !== "none");
-
-    let hasVisible = visibleItems.length > 0;
-
-    section.style.display = hasVisible ? "block" : "none";
-
-    if (hasVisible) {
-      section.open = true;
-    }
-  });
-}
-
-// Keep your existing event wiring, but now it uses the unified logic
-document.getElementById("typeFilter").addEventListener("change", applyFilters);
-
-// Keep function name "filter" for compatibility (if anything calls it)
-function filter() {
-  applyFilters();
-}
-
-// ✅ UPDATED: clicking rāga now combines with type (no forced dropdown reset)
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("raga-tag")) {
-
-    let r = e.target.dataset.raga;
-
-    // Clear previous highlights
-    document.querySelectorAll(".raga-tag").forEach(tag => {
-      tag.classList.remove("active");
+  }
+  if (c.audio) {
+    c.audio.forEach(a => {
+      const block = document.createElement('div');
+      block.className = 'audio-block';
+      block.innerHTML = `<p>${a.label}</p><audio controls><source src="${a.url}" type="audio/mpeg"></audio>`;
+      wrap.appendChild(block);
     });
+  }
+  return wrap;
+}
 
-    // Toggle selection
-    if (selectedRaga === r) {
-      selectedRaga = null;
-      // no tag stays active
+/* ===================== RENDER ===================== */
+function renderTabs(l) {
+  const s = STR[l];
+  const bar = document.getElementById('tabBar');
+  bar.innerHTML = '';
+  ['all', ...TYPES].forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = s.tabClass + (t === activeTab ? ' active' : '');
+    btn.dataset.tab = t;
+    btn.textContent = s.tabs[t] || t;
+    bar.appendChild(btn);
+  });
+}
+
+function renderArchive(filter, l) {
+  const s = STR[l];
+  const root = document.getElementById('archiveRoot');
+  root.innerHTML = '';
+  if (filter === 'all') {
+    TYPES.forEach(type => {
+      const items = sortByRaga(DATA.filter(c => c.type === type), l);
+      if (!items.length) return;
+      const label = document.createElement('div');
+      label.className = s.sectionClass;
+      label.textContent = s.tabs[type] || type;
+      root.appendChild(label);
+      const sec = document.createElement('div');
+      sec.style.cssText = 'padding: 0 0 8px;';
+      items.forEach(c => sec.appendChild(buildComp(c, l)));
+      root.appendChild(sec);
+    });
+  } else {
+    const items = sortByRaga(DATA.filter(c => c.type === filter), l);
+    const sec = document.createElement('div');
+    sec.style.cssText = 'padding: 16px 0 8px;';
+    if (!items.length) {
+      sec.innerHTML = `<p style="color:var(--meta);font-style:italic;padding:20px 0;">${s.empty}</p>`;
     } else {
-      selectedRaga = r;
-      e.target.classList.add("active");
+      items.forEach(c => sec.appendChild(buildComp(c, l)));
     }
+    root.appendChild(sec);
+  }
+}
 
-    applyFilters();
+function applyLang(l) {
+  const s = STR[l];
+  document.getElementById('pageTitle').textContent    = s.pageTitle;
+  document.getElementById('pageTitle').className      = s.pageTitleClass;
+  document.getElementById('pageSubtitle').textContent = s.pageSubtitle;
+  document.getElementById('pageSubtitle').className   = s.pageSubtitleClass;
+  document.getElementById('introText').textContent    = s.intro;
+  document.getElementById('introText').className      = s.introClass;
+  document.getElementById('aboutTitle').textContent   = s.aboutTitle;
+  document.getElementById('aboutTitle').className     = s.aboutTitleClass;
+  document.getElementById('aboutSection').className   = s.aboutSectionClass;
+  document.getElementById('aboutP1').textContent      = s.aboutP1;
+  document.getElementById('aboutP2').textContent      = s.aboutP2;
+  document.getElementById('footerEl').textContent     = s.footer;
+  document.getElementById('footerEl').className       = 'footer ' + (s.footerClass || '');
+  document.getElementById('btnEN').classList.toggle('active', l === 'en');
+  document.getElementById('btnKN').classList.toggle('active', l === 'kn');
+  renderTabs(l);
+  renderArchive(activeTab, l);
+}
+
+/* ===================== EVENTS ===================== */
+document.getElementById('langToggle').addEventListener('click', e => {
+  const btn = e.target.closest('.lang-btn');
+  if (!btn) return;
+  lang = (btn.id === 'btnKN') ? 'kn' : 'en';
+  applyLang(lang);
+});
+
+document.getElementById('tabBar').addEventListener('click', e => {
+  const tab = e.target.closest('[data-tab]');
+  if (!tab) return;
+  activeTab = tab.dataset.tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  renderArchive(activeTab, lang);
+});
+
+document.getElementById('archiveRoot').addEventListener('click', e => {
+  if (e.target.classList.contains('raga-tag')) {
+    const r = e.target.dataset.raga;
+    activeTab = 'all';
+    applyLang(lang);
+    setTimeout(() => {
+      document.querySelectorAll('.comp').forEach(c => {
+        c.style.display = c.dataset.raga === r ? 'block' : 'none';
+      });
+    }, 10);
   }
 });
 
-// ✅ UPDATED: Clear resets BOTH filters and keeps your original “Varna open” default
-document.getElementById("clearBtn").onclick = () => {
-  selectedRaga = null;
-
-  // ✅ ADD THIS
-  document.querySelectorAll(".raga-tag").forEach(tag => {
-    tag.classList.remove("active");
-  });
-
-  
-  document.getElementById("typeFilter").value = "all";
-
-  document.querySelectorAll(".comp").forEach(c => {
-    c.style.display = "block";
-  });
-
-  document.querySelectorAll("details").forEach(section => {
-    section.style.display = "block";
-    section.open = (section.querySelector("summary").textContent.toLowerCase() === "varna");
-  });
-};
-
+/* ===================== INIT ===================== */
+applyLang('en');
 </script>
 
 </body>
