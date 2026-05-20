@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 :root {
   --gold: #8b5e1a;
   --gold-light: #6b4510;
@@ -20,7 +20,7 @@
   --text: #1a1208;
   --meta: #8a7055;
 }
- 
+
 body {
   font-family: 'EB Garamond', serif;
   background: var(--bg);
@@ -31,7 +31,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
 }
- 
+
 /* Header */
 .page-header {
   text-align: center;
@@ -71,7 +71,7 @@ body {
 }
 .page-subtitle.en { font-family: 'EB Garamond', serif; font-style: italic; }
 .page-subtitle.kn { font-family: 'Noto Sans Kannada', sans-serif; }
- 
+
 /* Language toggle */
 .lang-toggle {
   position: absolute;
@@ -98,7 +98,7 @@ body {
 }
 .lang-btn.active { background: var(--gold); color: #fff; font-weight: 600; }
 .lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.8rem; }
- 
+
 /* Intro */
 .intro {
   max-width: 680px;
@@ -109,7 +109,7 @@ body {
   color: var(--text);
 }
 .intro.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 1em; }
- 
+
 /* Tab bar */
 .tab-bar {
   display: flex;
@@ -146,7 +146,7 @@ body {
 }
 .tab:hover { color: var(--gold-dim); }
 .tab.active { color: var(--gold); border-bottom: 2px solid var(--gold); font-weight: 600; }
- 
+
 /* Section labels */
 .section-label {
   font-family: 'Cinzel', serif;
@@ -162,12 +162,12 @@ body {
   font-family: 'Noto Sans Kannada', sans-serif;
   letter-spacing: 0.05em;
   text-transform: none;
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
- 
+
 /* Archive root padding */
 #archiveRoot { padding: 0 20px; }
- 
+
 /* Composition entries */
 .comp {
   padding: 12px 14px;
@@ -187,7 +187,7 @@ body {
 .comp-title:hover { text-decoration: underline; }
 .comp-meta { font-size: 0.88em; color: var(--meta); margin-top: 3px; }
 .comp-meta.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88em; }
- 
+
 .raga-tag {
   display: inline-block;
   margin-top: 6px;
@@ -202,7 +202,7 @@ body {
 }
 .raga-tag.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78rem; }
 .raga-tag:hover { background: var(--header-bg); }
- 
+
 /* Play buttons */
 .play-btn {
   display: inline-block;
@@ -219,13 +219,20 @@ body {
 }
 .play-btn.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.85rem; }
 .play-btn:hover { background: var(--header-bg); }
+.notation-btn {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  font-weight: 600;
+}
+.notation-btn:hover { background: var(--gold-light); border-color: var(--gold-light); }
 .audio-embed { display: none; margin-top: 10px; }
 .audio-embed iframe { width: 100%; max-width: 480px; height: 260px; border: none; border-radius: 6px; }
- 
+
 /* Audio blocks (mp3) */
 .audio-block { margin-top: 10px; padding: 10px; background: #f8f2e8; border-radius: 6px; }
 .audio-block p { margin: 0 0 6px 0; font-size: 0.9em; color: var(--gold-light); }
- 
+
 /* About & footer */
 .about-section {
   max-width: 680px;
@@ -262,7 +269,7 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 </style>
 </head>
 <body>
- 
+
 <div class="page-header">
   <div class="lang-toggle" id="langToggle">
     <button class="lang-btn active" id="btnEN">EN</button>
@@ -271,23 +278,23 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
   <div class="page-title" id="pageTitle">Composition Archive</div>
   <div class="page-subtitle en" id="pageSubtitle">A curated archive of original compositions in the Karnataka Sangeeta tradition</div>
 </div>
- 
+
 <p class="intro" id="introText">Original compositions in the Karnataka Sangeeta tradition, spanning geete, varṇa, kriti, and related forms. Each entry includes notation and, where available, audio renderings.</p>
- 
+
 <div class="tab-bar" id="tabBar"></div>
 <div id="archiveRoot"></div>
- 
+
 <hr class="section-divider">
- 
+
 <section class="about-section" id="aboutSection">
   <div class="about-title" id="aboutTitle">About the Composer</div>
   <p id="aboutP1">Ramaprasad KV is a vaggeyakara working within the Karnataka Sangeeta tradition with about one hundred original compositions in this genre. Many of his compositions have been featured in music and dance concerts. He is a published author with four Kannada books to his credit.</p>
   <p style="margin-top:10px;" id="aboutP2">This archive documents an evolving body of work, bringing together notated compositions and audio recordings to help those who would like to learn them. The notations are generally bilingual in English &amp; Kannada.</p>
   <p style="margin-top:12px;">Instagram: <a href="https://www.instagram.com/hamsanandi" target="_blank">@hamsanandi</a></p>
 </section>
- 
+
 <footer id="footerEl">Hosted on GitHub Pages</footer>
- 
+
 <script>
 /* ===================== STRINGS ===================== */
 const STR = {
@@ -301,7 +308,7 @@ const STR = {
     tabs: { all:"All", geete:"Geete", swarajati:"Swarajati", varna:"Varṇa", kriti:"Kriti", pada:"Pada", others:"Others" },
     tabClass: "tab",
     sectionClass: "section-label",
-    ragaLabel: "Rāga:", talaLabel: "Tāla:",
+    ragaLabel: "Rāga:", talaLabel: "Tāla:", notationBtn: "Notation",
     empty: "No compositions in this category yet.",
     aboutTitle: "About the Composer", aboutTitleClass: "about-title",
     aboutSectionClass: "about-section",
@@ -311,24 +318,24 @@ const STR = {
   },
   kn: {
     pageTitle: "ರಚನೆಗಳ ಸಂಗ್ರಹ",
-    pageSubtitle: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯ ಸ್ವಂತ  ರಚನೆಗಳ ಸಂಗ್ರಹ",
+    pageSubtitle: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯ ಮೂಲ ರಚನೆಗಳ ಸಂಗ್ರಹ",
     pageTitleClass: "page-title kn",
     pageSubtitleClass: "page-subtitle kn",
-    intro: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯಲ್ಲಿ ರಚಿತವಾದ ಸ್ವಂತ  ಕೃತಿಗಳ ಸಂಗ್ರಹ. ಪ್ರತಿ ರಚನೆಗೂ ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲೀಷ್ ನಲ್ಲಿ ಸ್ವರಲಿಪಿ, ಮತ್ತು ಲಭ್ಯವಿರುವೆಡೆ ಧ್ವನಿಮುದ್ರಿಕೆಗಳನ್ನು ನೀಡಲಾಗಿದೆ.",
+    intro: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯಲ್ಲಿ ರಚಿತವಾದ ಮೂಲ ಕೃತಿಗಳ ಸಂಗ್ರಹ — ಗೀತೆ, ವರ್ಣ, ಕೃತಿ ಮತ್ತು ಇತರ ರೂಪಗಳನ್ನು ಒಳಗೊಂಡಿದೆ. ಪ್ರತಿ ರಚನೆಯಲ್ಲಿ ಸ್ವರ ಲಿಪಿ ಮತ್ತು ಲಭ್ಯವಿರುವಲ್ಲಿ ಧ್ವನಿ ಮುದ್ರಣ ಸಹ ಇದೆ.",
     introClass: "intro kn",
     tabs: { all:"ಎಲ್ಲ", geete:"ಗೀತೆ", swarajati:"ಸ್ವರಜತಿ", varna:"ವರ್ಣ", kriti:"ಕೃತಿ", pada:"ಪದ", others:"ಇತರ" },
     tabClass: "tab kn",
     sectionClass: "section-label kn",
-    ragaLabel: "ರಾಗ:", talaLabel: "ತಾಳ:",
+    ragaLabel: "ರಾಗ:", talaLabel: "ತಾಳ:", notationBtn: "ಸ್ವರಲಿಪಿ",
     empty: "ಈ ವಿಭಾಗದಲ್ಲಿ ಇನ್ನೂ ರಚನೆಗಳಿಲ್ಲ.",
     aboutTitle: "ರಚನಕಾರರ ಕುರಿತು", aboutTitleClass: "about-title kn",
     aboutSectionClass: "about-section kn",
-    aboutP1: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯ ಸಮಕಾಲೀನ ವಾಗ್ಗೇಯಕಾರರು; ಈ ಪ್ರಕಾರದಲ್ಲಿ ಸುಮಾರು ಒಂದು ನೂರು ಸಂಗೀತ ರಚನೆಗಳನ್ನು ಮಾಡಿದ್ದಾರೆ. ಇವುಗಳಲ್ಲಿ ಹಲವು ಸಂಗೀತ ಮತ್ತು ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಪ್ರಸ್ತುತಗೊಂಡಿವೆ.ಈ ಸಂಗ್ರಹದಲ್ಲಿ ಅವರ ರಚನೆಗಳ ಸ್ವರಲಿಪಿ ಮತ್ತು ಧ್ವನಿಮುದ್ರಣಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಿ, ಆಸಕ್ತರಿಗೆ ಕಲಿಯಲು ಸಹಾಯವಾಗುವಂತೆ ಕೊಡಲಾಗಿದೆ.",
-    aboutP2: "ಅವರ ನಾಲ್ಕು ಕನ್ನಡ ಪುಸ್ತಕಗಳು ಕೂಡ (ಹಂಸನಾದ, ಅಮರುಶತಕ, ಮುದ್ದುರಂಗನ ಚೌಪದಿಗಳು, ಮೂರು ರೋಚಕ ನಾಟಕಗಳು) ಪ್ರಕಟವಾಗಿದ್ಡು, ಓದುಗರ ಮೆಚ್ಚುಗೆಯನ್ನು ಪಡೆದಿವೆ.",
+    aboutP1: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಪರಂಪರೆಯಲ್ಲಿ ಕೆಲಸ ಮಾಡುವ ವಾಗ್ಗೇಯಕಾರರು; ಅವರ ಸುಮಾರು ನೂರು ಮೂಲ ರಚನೆಗಳಿವೆ. ಅವರ ಅನೇಕ ರಚನೆಗಳು ಸಂಗೀತ ಮತ್ತು ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಪ್ರಸ್ತುತಗೊಂಡಿವೆ. ಅವರು ನಾಲ್ಕು ಕನ್ನಡ ಪುಸ್ತಕಗಳ ಪ್ರಕಾಶಿತ ಲೇಖಕರೂ ಆಗಿದ್ದಾರೆ.",
+    aboutP2: "ಈ ಸಂಗ್ರಹವು ಸ್ವರ ಲಿಪಿಗಳು ಮತ್ತು ಧ್ವನಿ ಮುದ್ರಣಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಿ, ಕಲಿಯಲು ಬಯಸುವವರಿಗೆ ಸಹಾಯ ಮಾಡಲು ರಚಿಸಲಾಗಿದೆ. ಸ್ವರ ಲಿಪಿಗಳು ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ ಎರಡರಲ್ಲೂ ಇವೆ.",
     footer: "GitHub Pages ನಲ್ಲಿ ಪ್ರಕಾಶಿತ", footerClass: "kn"
   }
 };
- 
+
 /* ===================== DATA ===================== */
 const DATA = [
   /* ---- Geete ---- */
@@ -363,7 +370,7 @@ const DATA = [
     file: "vasanta_geete_1.html",
     youtube: [{ en: "Vocal Version", kn: "ಗಾಯನ", id: "uLIQ2RrxBhg" }]
   },
- 
+
   /* ---- Swarajati ---- */
   {
     type: "swarajati",
@@ -409,7 +416,7 @@ const DATA = [
   {
     type: "swarajati",
     en: { title: "Nasamani Swarajati", raga: "Nasamani", tala: "Adi" },
-    kn: { title: "ನಾಸಾಮಣಿ ಸ್ವರಜತಿ", raga: "ನಾಸಾಮಣಿ", tala: "ಆದಿ" },
+    kn: { title: "ನಾಸಮಾನಿ ಸ್ವರಜತಿ", raga: "ನಾಸಮಾನಿ", tala: "ಆದಿ" },
     file: "nasamani_swarajati.html",
     youtube: [
       { en: "Vidushi Nandita Padmanabhan",          kn: "ವಿದುಷಿ ನಂದಿತಾ ಪದ್ಮನಾಭನ್",       id: "4FqEmzllD-w" },
@@ -438,7 +445,7 @@ const DATA = [
     file: "shuddhasaveri_swarajati_1.html",
     youtube: [{ en: "Vid. Tejasvi Raghunath on Flute", kn: "ವಿ. ತೇಜಸ್ವಿ ರಘುನಾಥ್, ಕೊಳಲು", id: "a1OAUw8tPl8" }]
   },
- 
+
   /* ---- Varna ---- */
   {
     type: "varna",
@@ -490,7 +497,7 @@ const DATA = [
     file: "baraneke_todi_varna.html",
     youtube: [{ en: "Vidushi Ragini Sanath", kn: "ವಿದುಷಿ ರಾಗಿಣಿ ಸನತ್", id: "xJdBNwI-RKs" }]
   },
- 
+
   /* ---- Kriti ---- */
   {
     type: "kriti",
@@ -504,7 +511,7 @@ const DATA = [
     kn: { title: "ಕೃತಿ — ಉದಯರವಿಚಂದ್ರಿಕಾ", raga: "ಉದಯರವಿಚಂದ್ರಿಕಾ", tala: "ಮಿಶ್ರ ಚಾಪು" },
     file: "udayaravichandrika_misrachapu.html"
   },
- 
+
   /* ---- Others ---- */
   {
     type: "others",
@@ -514,12 +521,12 @@ const DATA = [
     youtube: [{ en: "Recording from a dance concert", kn: "ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮದ ರೆಕಾರ್ಡಿಂಗ್", id: "jzSKVZgP-HQ" }]
   }
 ];
- 
+
 /* ===================== STATE ===================== */
 const TYPES = ["geete", "swarajati", "varna", "kriti", "pada", "others"];
 let lang = 'en';
 let activeTab = 'all';
- 
+
 /* ===================== HELPERS ===================== */
 function sortByRaga(arr, l) {
   return [...arr].sort((a, b) => {
@@ -529,7 +536,7 @@ function sortByRaga(arr, l) {
     return clean(a[l].raga || '').localeCompare(clean(b[l].raga || ''));
   });
 }
- 
+
 function buildComp(c, l) {
   const s = STR[l];
   const wrap = document.createElement('div');
@@ -540,13 +547,22 @@ function buildComp(c, l) {
   const metaClass  = 'comp-meta'  + (l === 'kn' ? ' kn' : '');
   const tagClass   = 'raga-tag'   + (l === 'kn' ? ' kn' : '');
   wrap.innerHTML = `
-    <a class="${titleClass}" href="${c.file}">${c[l].title}</a>
+    <span class="${titleClass}">${c[l].title}</span>
     <div class="${metaClass}">
       ${c[l].raga ? s.ragaLabel + ' ' + c[l].raga : ''}
       ${c[l].tala ? ' &nbsp;|&nbsp; ' + s.talaLabel + ' ' + c[l].tala : ''}
     </div>
-    ${c[l].raga ? `<span class="${tagClass}" data-raga="${c[l].raga.toLowerCase()}">${c[l].raga}</span>` : ''}
   `;
+
+  // Notation button — always present, navigates to the notation file
+  const notBtn = document.createElement('a');
+  notBtn.href = c.file;
+  notBtn.className = 'play-btn notation-btn' + (l === 'kn' ? ' kn' : '');
+  notBtn.style.cssText = 'display:inline-block; margin-top:6px; margin-right:6px;';
+  notBtn.textContent = s.notationBtn;
+  wrap.appendChild(notBtn);
+
+  // YouTube buttons
   if (c.youtube) {
     c.youtube.forEach(v => {
       const btn = document.createElement('button');
@@ -570,6 +586,8 @@ function buildComp(c, l) {
       wrap.appendChild(embed);
     });
   }
+
+  // Audio blocks (mp3)
   if (c.audio) {
     c.audio.forEach(a => {
       const block = document.createElement('div');
@@ -578,9 +596,22 @@ function buildComp(c, l) {
       wrap.appendChild(block);
     });
   }
+
+  // Raga tag — moved below the button row
+  if (c[l].raga) {
+    const tagWrap = document.createElement('div');
+    tagWrap.style.cssText = 'margin-top:6px;';
+    const tag = document.createElement('span');
+    tag.className = tagClass;
+    tag.dataset.raga = c[l].raga.toLowerCase();
+    tag.textContent = c[l].raga;
+    tagWrap.appendChild(tag);
+    wrap.appendChild(tagWrap);
+  }
+
   return wrap;
 }
- 
+
 /* ===================== RENDER ===================== */
 function renderTabs(l) {
   const s = STR[l];
@@ -594,7 +625,7 @@ function renderTabs(l) {
     bar.appendChild(btn);
   });
 }
- 
+
 function renderArchive(filter, l) {
   const s = STR[l];
   const root = document.getElementById('archiveRoot');
@@ -624,7 +655,7 @@ function renderArchive(filter, l) {
     root.appendChild(sec);
   }
 }
- 
+
 function applyLang(l) {
   const s = STR[l];
   document.getElementById('pageTitle').textContent    = s.pageTitle;
@@ -645,7 +676,7 @@ function applyLang(l) {
   renderTabs(l);
   renderArchive(activeTab, l);
 }
- 
+
 /* ===================== EVENTS ===================== */
 document.getElementById('langToggle').addEventListener('click', e => {
   const btn = e.target.closest('.lang-btn');
@@ -653,7 +684,7 @@ document.getElementById('langToggle').addEventListener('click', e => {
   lang = (btn.id === 'btnKN') ? 'kn' : 'en';
   applyLang(lang);
 });
- 
+
 document.getElementById('tabBar').addEventListener('click', e => {
   const tab = e.target.closest('[data-tab]');
   if (!tab) return;
@@ -662,7 +693,7 @@ document.getElementById('tabBar').addEventListener('click', e => {
   tab.classList.add('active');
   renderArchive(activeTab, lang);
 });
- 
+
 document.getElementById('archiveRoot').addEventListener('click', e => {
   if (e.target.classList.contains('raga-tag')) {
     const r = e.target.dataset.raga;
@@ -675,10 +706,10 @@ document.getElementById('archiveRoot').addEventListener('click', e => {
     }, 10);
   }
 });
- 
+
 /* ===================== INIT ===================== */
 applyLang('en');
 </script>
- 
+
 </body>
 </html>
