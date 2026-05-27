@@ -35,8 +35,6 @@ body { font-family:'EB Garamond',serif; background:var(--bg); color:var(--text);
 .tab.active { color:var(--gold); border-bottom:2px solid var(--gold); font-weight:600; }
 .section-label { font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--meta); margin:22px 0 0; padding-bottom:6px; border-bottom:1px solid var(--border); }
 .section-label.kn { font-family:'Noto Sans Kannada',sans-serif; letter-spacing:0.05em; text-transform:none; font-size:1rem; }
-
-/* ── Summary table ── */
 .summary-table-wrap { margin:10px 0 4px; background:var(--section-bg); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
 .summary-table { width:100%; border-collapse:collapse; font-size:0.86em; }
 .summary-table thead tr { background:var(--header-bg); }
@@ -55,8 +53,6 @@ body { font-family:'EB Garamond',serif; background:var(--bg); color:var(--text);
 .st-badge { display:inline-block; padding:1px 7px; font-size:0.72em; border-radius:3px; font-family:'EB Garamond',serif; letter-spacing:0.04em; margin-right:3px; white-space:nowrap; }
 .badge-notation { background:var(--gold); color:#fff; }
 .badge-audio { background:#e8f0e0; border:1px solid #a8c890; color:#3a6020; }
-
-/* ── Coming soon table ── */
 .cs-wrap { margin:14px 0 4px; border:1px dashed var(--border-light); border-radius:6px; overflow:hidden; background:var(--bg); }
 .cs-header { display:flex; align-items:center; gap:8px; background:var(--header-bg); padding:7px 12px; cursor:pointer; user-select:none; border-bottom:1px dashed var(--border); }
 .cs-header-text { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--meta); }
@@ -75,16 +71,12 @@ body { font-family:'EB Garamond',serif; background:var(--bg); color:var(--text);
 .cs-tala { font-size:0.85em; white-space:nowrap; }
 .cs-tala.kn { font-family:'Noto Sans Kannada',sans-serif; font-size:0.8rem; }
 .badge-soon { background:#fef3cd; border:1px solid #e8c84a; color:#7a6000; padding:1px 7px; font-size:0.72em; border-radius:3px; font-family:'EB Garamond',serif; white-space:nowrap; }
-
-/* ── Detail toggle ── */
 .section-toggle { display:flex; align-items:center; gap:8px; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-light); cursor:pointer; padding:6px 0 4px; user-select:none; margin-top:8px; }
 .section-toggle.kn { font-family:'Noto Sans Kannada',sans-serif; font-size:0.88rem; letter-spacing:0.05em; text-transform:none; }
 .section-toggle:hover { color:var(--gold); }
 .toggle-arrow { font-size:0.7rem; transition:transform 0.2s; }
 .toggle-arrow.open { transform:rotate(90deg); }
 .detail-section { overflow:hidden; }
-
-/* ── Archive root & comp entries ── */
 #archiveRoot { padding:0 20px; }
 .comp { padding:12px 14px; border-radius:6px; transition:background 0.15s; margin:2px 0; }
 .comp:hover { background:var(--header-bg); }
@@ -105,8 +97,6 @@ body { font-family:'EB Garamond',serif; background:var(--bg); color:var(--text);
 .audio-embed iframe { width:100%; max-width:480px; height:260px; border:none; border-radius:6px; }
 .audio-block { margin-top:10px; padding:10px; background:#f8f2e8; border-radius:6px; }
 .audio-block p { margin:0 0 6px; font-size:0.9em; color:var(--gold-light); }
-
-/* ── About & footer ── */
 .about-section { max-width:680px; margin:36px auto 0; padding:0 20px; line-height:1.8; font-size:1em; }
 .about-section.kn { font-family:'Noto Sans Kannada',sans-serif; }
 .about-title { font-family:'Cinzel',serif; font-size:1rem; letter-spacing:0.15em; color:var(--gold); text-transform:uppercase; margin-bottom:14px; text-align:center; }
@@ -184,188 +174,170 @@ const STR = {
   }
 };
 
-/* ===================== DATA =====================
-   Each entry has:
-     status: "live" | "coming-soon"
-     type:   "geete" | "swarajati" | "varna" | "kriti" | "pada" | "others"
-     en/kn:  { title, raga, tala }
-     file:   filename (live only)
-     youtube: [ { en, kn, id } ]  (live only, optional)
-
-   TO ADD A COMING-SOON ENTRY — paste a block like:
-     { status:"coming-soon", type:"swarajati",
-       en:{ title:"My Next Swarajati", raga:"Todi", tala:"Adi" },
-       kn:{ title:"ನನ್ನ ಮುಂದಿನ ಸ್ವರಜತಿ", raga:"ತೋಡಿ", tala:"ಆದಿ" } },
-
-   TO PROMOTE TO LIVE — change status to "live" and add file: and youtube: fields.
-*/
 const DATA = [
 
   /* ════ GEETE — live ════ */
   { status:"live", type:"geete",
-    en:{ title:"Sarasijāsane", raga:"Amrtavarshiṇi", tala:"Trishra Triputa" },
+    en:{ title:"Sarasijāsane", raga:"Amṛtavarṣiṇī", tala:"Trishra Triputa" },
     kn:{ title:"ಸರಸಿಜಾಸನೆ", raga:"ಅಮೃತವರ್ಷಿಣಿ", tala:"ತ್ರಿಶ್ರ ತ್ರಿಪುಟ" },
     file:"sarasijasane_geete.html",
-    youtube:[{ en:"Vidushi Ragiṇi Sanath", kn:"ವಿದುಷಿ ರಾಗಿಣಿ ಸನತ್", id:"KUzJLs60Mhw" },
+    youtube:[{ en:"Vidushi Rāgiṇī Sanath", kn:"ವಿದುಷಿ ರಾಗಿಣಿ ಸನತ್", id:"KUzJLs60Mhw" },
              { en:"Vocal Rendition", kn:"ಗಾಯನ", id:"TlV9wFsc6kE" }] },
   { status:"live", type:"geete",
-    en:{ title:"Veenāpāni Vaṇi", raga:"Kīravāṇi", tala:"Rupaka" },
+    en:{ title:"Vīṇāpāṇi Vāṇī", raga:"Kīravāṇī", tala:"Rupaka" },
     kn:{ title:"ವೀಣಾಪಾಣಿ ವಾಣಿ", raga:"ಕೀರವಾಣಿ", tala:"ರೂಪಕ" },
     file:"keeravani_geete_2.html",
     youtube:[{ en:"Student Rendition", kn:"ವಿದ್ಯಾರ್ಥಿ ಗಾಯನ", id:"3DaA4meOG7U" }] },
-  
   { status:"live", type:"geete",
-    en:{ title:"Jayajaya Karuṇālu ", raga:"Shankarābharaṇa", tala:"Trishra Triputa" },
+    en:{ title:"Jayajaya Karuṇāḷu", raga:"Śaṅkarābharaṇa", tala:"Trishra Triputa" },
     kn:{ title:"ಜಯಜಯ ಕರುಣಾಳು", raga:"ಶಂಕರಾಭರಣ", tala:"ತ್ರಿಶ್ರ ತ್ರಿಪುಟ" },
     file:"shankarabharana_geete_2.html",
     youtube:[{ en:"Student Rendition", kn:"ವಿದ್ಯಾರ್ಥಿ ಗಾಯನ", id:"YN48t9ObHeg" }] },
-  
   { status:"live", type:"geete",
-    en:{ title:"Velāpuradarasa", raga:"Vasanta", tala:"Trisra Triputa" },
+    en:{ title:"Vēlāpuradarasa", raga:"Vasanta", tala:"Trisra Triputa" },
     kn:{ title:"ವೇಲಾಪುರದರಸ", raga:"ವಸಂತ", tala:"ತ್ರಿಶ್ರ ತ್ರಿಪುಟ" },
     file:"vasanta_geete_1.html",
     youtube:[{ en:"Vocal Version", kn:"ಗಾಯನ", id:"uLIQ2RrxBhg" }] },
 
   /* ════ GEETE — coming soon ════ */
   { status:"coming-soon", type:"geete",
-    en:{ title:"Sanchāri Geete — Saveri", raga:"Saveri", tala:"Triputa" },
+    en:{ title:"Sanchāri Geete — Sāvēri", raga:"Sāvēri", tala:"Triputa" },
     kn:{ title:"ಸಂಚಾರಿ ಗೀತೆ — ಸಾವೇರಿ", raga:"ಸಾವೇರಿ", tala:"ತ್ರಿಪುಟ" } },
   { status:"coming-soon", type:"geete",
-    en:{ title:"Sanchāri Geete — Saraswati", raga:"Saraswati", tala:"Triputa" },
+    en:{ title:"Sanchāri Geete — Sarasvatī", raga:"Sarasvatī", tala:"Triputa" },
     kn:{ title:"ಸಂಚಾರಿ ಗೀತೆ — ಸರಸ್ವತಿ", raga:"ಸರಸ್ವತಿ", tala:"ತ್ರಿಪುಟ" } },
   { status:"coming-soon", type:"geete",
-    en:{ title:"Sanchāri Geete — Hamsadhwani", raga:"Hamsadhwani", tala:"Triputa" },
+    en:{ title:"Sanchāri Geete — Haṃsadhvanī", raga:"Haṃsadhvanī", tala:"Triputa" },
     kn:{ title:"ಸಂಚಾರಿ ಗೀತೆ — ಹಂಸಧ್ವನಿ", raga:"ಹಂಸಧ್ವನಿ", tala:"ತ್ರಿಪುಟ" } },
   { status:"coming-soon", type:"geete",
-    en:{ title:"Sanchāri Geete — Vasantabhairavi", raga:"Vasantabhairavi", tala:"Khanda Eka" },
+    en:{ title:"Sanchāri Geete — Vasantabhairavī", raga:"Vasantabhairavī", tala:"Khanda Eka" },
     kn:{ title:"ಸಂಚಾರಿ ಗೀತೆ — ವಸಂತಭೈರವಿ", raga:"ವಸಂತಭೈರವಿ", tala:"ಖಂಡ ಏಕ" } },
-
 
   /* ════ SWARAJATI — live ════ */
   { status:"live", type:"swarajati",
-    en:{ title:"Amrtavarshiṇi Swarajati", raga:"Amrtavarshiṇi", tala:"Adi" },
+    en:{ title:"Amṛtavarṣiṇī Swarajati", raga:"Amṛtavarṣiṇī", tala:"Ādi" },
     kn:{ title:"ಅಮೃತವರ್ಷಿಣಿ ಸ್ವರಜತಿ", raga:"ಅಮೃತವರ್ಷಿಣಿ", tala:"ಆದಿ" },
     file:"amrtavarshini_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"gOmexcH9Eag" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Arabhi Swarajati", raga:"Arabhi", tala:"Adi" },
+    en:{ title:"Ārabhī Swarajati", raga:"Ārabhī", tala:"Ādi" },
     kn:{ title:"ಅರಭಿ ಸ್ವರಜತಿ", raga:"ಅರಭಿ", tala:"ಆದಿ" },
     file:"arabhi_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"egplDs1kW8" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Begade Swarajati", raga:"Begade", tala:"Adi" },
+    en:{ title:"Bēgaḍe Swarajati", raga:"Bēgaḍe", tala:"Ādi" },
     kn:{ title:"ಬೇಗಡೆ ಸ್ವರಜತಿ", raga:"ಬೇಗಡೆ", tala:"ಆದಿ" },
     file:"begade_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"UvRbz6DQpz0" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Bindumalini Swarajati", raga:"Bindumalini", tala:"Adi" },
+    en:{ title:"Bindumālinī Swarajati", raga:"Bindumālinī", tala:"Ādi" },
     kn:{ title:"ಬಿಂದುಮಾಲಿನಿ ಸ್ವರಜತಿ", raga:"ಬಿಂದುಮಾಲಿನಿ", tala:"ಆದಿ" },
     file:"bindumalini_swarajati_10.html",
     youtube:[{ en:"Vid. Vijay Kannan on Flute", kn:"ವಿ. ವಿಜಯ್ ಕಣ್ಣನ್, ಕೊಳಲು", id:"qP411MSZDYE" },
              { en:"Vocal Rendition", kn:"ಗಾಯನ", id:"P-KoK7eWvOM" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Ghanaragamalika Swarajati", raga:"Ragamalika", tala:"Adi" },
+    en:{ title:"Ghanaragamalika Swarajati", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ಘನರಾಗಮಾಲಿಕಾ ಸ್ವರಜತಿ", raga:"ರಾಗಮಾಲಿಕಾ", tala:"ಆದಿ" },
     file:"ghanaragamalika_swarajati.html" },
   { status:"live", type:"swarajati",
-    en:{ title:"Keeravaṇi Swarajati", raga:"Kīravāṇi", tala:"Adi" },
+    en:{ title:"Kīravāṇī Swarajati", raga:"Kīravāṇī", tala:"Ādi" },
     kn:{ title:"ಕೀರವಾಣಿ ಸ್ವರಜತಿ", raga:"ಕೀರವಾಣಿ", tala:"ಆದಿ" },
     file:"keeravani_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"-cLFKVDDODY" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Kokilarava Grahabheda Swarajati", raga:"Kokilarava", tala:"Adi" },
+    en:{ title:"Kokilārava Grahabhēda Swarajati", raga:"Kokilārava", tala:"Ādi" },
     kn:{ title:"ಕೋಕಿಲಾರವ ಗ್ರಹಭೇದ ಸ್ವರಜತಿ", raga:"ಕೋಕಿಲಾರವ", tala:"ಆದಿ" },
     file:"kokilarava_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"kCTGksB5BsA" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Mohana Grahabheda Swarajati", raga:"Mohana", tala:"Adi" },
+    en:{ title:"Mohana Grahabhēda Swarajati", raga:"Mohana", tala:"Ādi" },
     kn:{ title:"ಮೋಹನ ಗ್ರಹಭೇದ ಸ್ವರಜತಿ", raga:"ಮೋಹನ", tala:"ಆದಿ" },
     file:"mana_mohana_swarajati.html" },
   { status:"live", type:"swarajati",
-    en:{ title:"Mohana Swarajati", raga:"Mohana", tala:"Adi" },
+    en:{ title:"Mohana Swarajati", raga:"Mohana", tala:"Ādi" },
     kn:{ title:"ಮೋಹನ ಸ್ವರಜತಿ", raga:"ಮೋಹನ", tala:"ಆದಿ" },
     file:"mohana_swarajati.html",
     youtube:[{ en:"Vidushi Jyothi Chetan on Veena", kn:"ವಿದುಷಿ ಜ್ಯೋತಿ ಚೇತನ್, ವೀಣೆ", id:"uzZKlfuSuAQ" },
              { en:"Vid. Krishna Prasad on Flute", kn:"ವಿ. ಕೃಷ್ಣ ಪ್ರಸಾದ್, ಕೊಳಲು", id:"dI5ZgWnHLMg" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Nasamaṇi Swarajati", raga:"Nasamaṇi", tala:"Adi" },
+    en:{ title:"Nāsamaṇī Swarajati", raga:"Nāsamaṇī", tala:"Ādi" },
     kn:{ title:"ನಾಸಾಮಣಿ ಸ್ವರಜತಿ", raga:"ನಾಸಾಮಣಿ", tala:"ಆದಿ" },
     file:"nasamani_swarajati.html",
     youtube:[{ en:"Vidushi Nandita Padmanabhan", kn:"ವಿದುಷಿ ನಂದಿತಾ ಪದ್ಮನಾಭನ್", id:"4FqEmzllD-w" },
              { en:"Vid. Sathya Prakash Kattepura, Violin", kn:"ವಿ. ಸತ್ಯಪ್ರಕಾಶ್ ಕಟ್ಟೇಪುರ, ವಯಲಿನ್", id:"JTMCnZS7F8o" },
              { en:"Vocal Rendition", kn:"ಗಾಯನ", id:"T-2bJiliJdc" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Ranjani Swarajati", raga:"Ranjani", tala:"Adi" },
+    en:{ title:"Rañjanī Swarajati", raga:"Rañjanī", tala:"Ādi" },
     kn:{ title:"ರಂಜನಿ ಸ್ವರಜತಿ", raga:"ರಂಜನಿ", tala:"ಆದಿ" },
     file:"ranjani_swarajati.html",
     youtube:[{ en:"Vid. Tejasvi Raghunath, Flute", kn:"ವಿ. ತೇಜಸ್ವಿ ರಘುನಾಥ್, ಕೊಳಲ", id:"6DecsDp2YMo" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Saamanta Swarajati", raga:"Saamanta", tala:"Adi" },
+    en:{ title:"Sāmanta Swarajati", raga:"Sāmanta", tala:"Ādi" },
     kn:{ title:"ಸಾಮಂತ ಸ್ವರಜತಿ", raga:"ಸಾಮಂತ", tala:"ಆದಿ" },
     file:"saamanta.html",
     youtube:[{ en:"Vid. Vijay Kannan on Flute", kn:"ವಿ. ವಿಜಯ್ ಕಣ್ಣನ್, ಕೊಳಲು", id:"fU1VSQAmeAA" },
              { en:"Vocal Rendition", kn:"ಗಾಯನ", id:"sXPWoEDPnUA" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Saurasena (Sarasangi) Swarajati", raga:"Saurasena (Sarasangi)", tala:"Misra Chapu" },
+    en:{ title:"Saurasēna (Sārasāṅgī) Swarajati", raga:"Saurasēna (Sārasāṅgī)", tala:"Miśra Cāpu" },
     kn:{ title:"ಸೌರಸೇನ (ಸರಸಾಂಗಿ) ಸ್ವರಜತಿ", raga:"ಸೌರಸೇನ (ಸರಸಾಂಗಿ)", tala:"ಮಿಶ್ರ ಛಾಪು" },
     file:"saurasena_sarasangi_swarajati.html",
     youtube:[{ en:"Vid. Vijay Kannan, Vocal", kn:"ವಿ.ವಿಜಯ್ ಕಣ್ಣನ್, ಗಾಯನ", id:"4Khw4A96CK4" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Shuddha Saveri Swarajati", raga:"Shuddha Saveri", tala:"Adi" },
+    en:{ title:"Śuddha Sāvēri Swarajati", raga:"Śuddha Sāvēri", tala:"Ādi" },
     kn:{ title:"ಶುದ್ಧ ಸಾವೇರಿ ಸ್ವರಜತಿ", raga:"ಶುದ್ಧ ಸಾವೇರಿ", tala:"ಆದಿ" },
     file:"shuddhasaveri_swarajati_1.html",
     youtube:[{ en:"Vid. Tejasvi Raghunath on Flute", kn:"ವಿ. ತೇಜಸ್ವಿ ರಘುನಾಥ್, ಕೊಳಲು", id:"a1OAUw8tPl8" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Shuddha Todi Swarajati", raga:"Shuddha Todi", tala:"Misra Chapu" },
+    en:{ title:"Śuddha Tōḍī Swarajati", raga:"Śuddha Tōḍī", tala:"Miśra Cāpu" },
     kn:{ title:"ಶುದ್ಧ ತೋಡಿ ಸ್ವರಜತಿ", raga:"ಶುದ್ಧ ತೋಡಿ", tala:"ಮಿಶ್ರ ಚಾಪು" },
     file:"shuddhatodi_swarajati_2l.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"fLHoEmn_okc" }] },
   { status:"live", type:"swarajati",
-    en:{ title:"Sunada Vinodini Swarajati", raga:"Sunada Vinodini", tala:"Adi" },
+    en:{ title:"Sunāda Vinōdinī Swarajati", raga:"Sunāda Vinōdinī", tala:"Ādi" },
     kn:{ title:"ಸುನಾದ ವಿನೋದಿನಿ ಸ್ವರಜತಿ", raga:"ಸುನಾದ ವಿನೋದಿನಿ", tala:"ಆದಿ" },
     file:"sunadavinodini_swarajati.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"EnAFbuQruNI" }] },
 
   /* ════ SWARAJATI — coming soon ════ */
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Jyothi Swarajati", raga:"Jyothi", tala:"Adi" },
+    en:{ title:"Jyōti Swarajati", raga:"Jyōti", tala:"Ādi" },
     kn:{ title:"ಜ್ಯೋತಿ ಸ್ವರಜತಿ", raga:"ಜ್ಯೋತಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Shivashakti Swarajati", raga:"Shivashakti", tala:"Adi" },
+    en:{ title:"Śivāśakti Swarajati", raga:"Śivāśakti", tala:"Ādi" },
     kn:{ title:"ಶಿವಶಕ್ತಿ ಸ್ವರಜತಿ", raga:"ಶಿವಶಕ್ತಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Deshakshi Swarajati", raga:"Deshakshi", tala:"Adi" },
+    en:{ title:"Dēśākṣī Swarajati", raga:"Dēśākṣī", tala:"Ādi" },
     kn:{ title:"ದೇಶಾಕ್ಷಿ ಸ್ವರಜತಿ", raga:"ದೇಶಾಕ್ಷಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Rohini Swarajati", raga:"Rohini", tala:"Adi" },
+    en:{ title:"Rōhiṇī Swarajati", raga:"Rōhiṇī", tala:"Ādi" },
     kn:{ title:"ರೋಹಿಣಿ ಸ್ವರಜತಿ", raga:"ರೋಹಿಣಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Kedaragaula Swarajati", raga:"Kedaragaula", tala:"Adi" },
+    en:{ title:"Kēdāragauḷa Swarajati", raga:"Kēdāragauḷa", tala:"Ādi" },
     kn:{ title:"ಕೇದಾರಗೌಳ ಸ್ವರಜತಿ", raga:"ಕೇದಾರಗೌಳ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Sumukham Swarajati", raga:"Sumukham", tala:"Adi" },
+    en:{ title:"Sumukham Swarajati", raga:"Sumukham", tala:"Ādi" },
     kn:{ title:"ಸುಮುಖಂ ಸ್ವರಜತಿ", raga:"ಸುಮುಖಂ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Brindavana Saranga Swarajati", raga:"Brindavana Saranga", tala:"Adi" },
+    en:{ title:"Bṛndāvana Sāraṅga Swarajati", raga:"Bṛndāvana Sāraṅga", tala:"Ādi" },
     kn:{ title:"ಬೃಂದಾವನ ಸಾರಂಗ ಸ್ವರಜತಿ", raga:"ಬೃಂದಾವನ ಸಾರಂಗ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"swarajati",
-    en:{ title:"Kamavardhani/Ramakrita Swarajati", raga:"Kamavardhani/Ramakriya", tala:"Adi" },
+    en:{ title:"Kāmavardhani/Rāmakriyā Swarajati", raga:"Kāmavardhani/Rāmakriyā", tala:"Ādi" },
     kn:{ title:"ಕಾಮವರ್ಧನಿ/ರಾಮಕ್ರಿಯಾ ಸ್ವರಜತಿ", raga:"ಕಾಮವರ್ಧನಿ/ರಾಮಕ್ರಿಯಾ", tala:"ಆದಿ" } },
 
   /* ════ VARNA — live ════ */
   { status:"live", type:"varna",
-    en:{ title:"Pada Varṇa — Hindola", raga:"Hindola", tala:"Adi" },
+    en:{ title:"Pada Varṇa — Hindōḷa", raga:"Hindōḷa", tala:"Ādi" },
     kn:{ title:"ಹಿಂದೋಳ ಪದ ವರ್ಣ", raga:"ಹಿಂದೋಳ", tala:"ಆದಿ" },
     file:"pada_varna_hindola_RamaprasadKV_Final.html" },
   { status:"live", type:"varna",
-    en:{ title:"Kalyānimālikā Tāna Varṇa", raga:"Rāgamālikā", tala:"Adi" },
+    en:{ title:"Kalyāṇimālikā Tāna Varṇa", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ಕಲ್ಯಾಣಿಮಾಲಿಕಾ ತಾನ ವರ್ಣ", raga:"ರಾಗಮಾಲಿಕಾ", tala:"ಆದಿ" },
     file:"kalyanimalikavarnam_final.html",
     youtube:[{ en:"Class recording", kn:"ತರಗತಿ ರೆಕಾರ್ಡಿಂಗ್", id:"PKdSBS_cGSk" },
              { en:"Vid. Vijay Kannan (Flute)", kn:"ವಿ. ವಿಜಯ್ ಕಣ್ಣನ್ (ಕೊಳಲು)", id:"TJWSctBE2ug" },
              { en:"Vocal version", kn:"ಗಾಯನ", id:"VGFLE6lyL3M" }] },
   { status:"live", type:"varna",
-    en:{ title:"Navaraga Malika Tāna Varṇa", raga:"Ragamalika", tala:"Adi" },
+    en:{ title:"Navarāga Mālikā Tāna Varṇa", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ನವರಾಗ ಮಾಲಿಕಾ ತಾನ ವರ್ಣ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಆದಿ" },
     file:"tyagaraja_navaraga_malika_varna_8.html",
     youtube:[{ en:"Vidushi Bhama Krishnan", kn:"ವಿದುಷಿ ಭಾಮಾ ಕೃಷ್ಣನ್", id:"uLIQ2RrxBhg" },
@@ -373,174 +345,163 @@ const DATA = [
              { en:"Vidushi Uma Kumar", kn:"ವಿದುಷಿ ಉಮಾ ಕುಮಾರ್", id:"z6wMjn4AEyE" },
              { en:"Full Lesson Version", kn:"ಪಾಠದ ಆವೃತ್ತಿ", id:"fY4aq7DfFaM" }] },
   { status:"live", type:"varna",
-    en:{ title:"Rāgeshri Tāna Varṇa", raga:"Rāgeshri", tala:"Adi" },
+    en:{ title:"Rāgēśrī Tāna Varṇa", raga:"Rāgēśrī", tala:"Ādi" },
     kn:{ title:"ರಾಗೇಶ್ರೀ ತಾನ ವರ್ಣ", raga:"ರಾಗೇಶ್ರೀ", tala:"ಆದಿ" },
     file:"rageshri_varna_8.html",
     youtube:[{ en:"Vidushi Jayanthi Umesh", kn:"ವಿದುಷಿ ಜಯಂತಿ ಉಮೇಶ್", id:"soUIyuwXs9Y" }] },
   { status:"live", type:"varna",
-    en:{ title:"Sapta Ragamalika Tāna Varṇa", raga:"Ragamalika", tala:"Adi" },
+    en:{ title:"Sapta Rāgamālikā Tāna Varṇa", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ಸಪ್ತ ರಾಗಮಾಲಿಕಾ ತಾನ ವರ್ಣ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಆದಿ" },
     file:"saptaraga_malika.html",
     youtube:[{ en:"Vocal Rendition", kn:"ಗಾಯನ", id:"nWAg1180EKA" }] },
   { status:"live", type:"varna",
-    en:{ title:"Todi Tāna Varṇa", raga:"Todi", tala:"Adi" },
+    en:{ title:"Tōḍī Tāna Varṇa", raga:"Tōḍī", tala:"Ādi" },
     kn:{ title:"ತೋಡಿ ತಾನ ವರ್ಣ", raga:"ತೋಡಿ", tala:"ಆದಿ" },
     file:"baraneke_todi_varna.html",
     youtube:[{ en:"Vidushi Ragini Sanath", kn:"ವಿದುಷಿ ರಾಗಿಣಿ ಸನತ್", id:"xJdBNwI-RKs" }] },
 
   /* ════ VARNA — coming soon ════ */
   { status:"coming-soon", type:"varna",
-    en:{ title:"Yaman Tāna Varṇa", raga:"Yaman", tala:"Adi" },
+    en:{ title:"Yaman Tāna Varṇa", raga:"Yaman", tala:"Ādi" },
     kn:{ title:"ಯಮನ್ ತಾನ ವರ್ಣ", raga:"ಯಮನ್", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Nagaswaravali Tāna Varṇa", raga:"Nagaswaravali", tala:"Adi" },
+    en:{ title:"Nāgasvarāvaḷī Tāna Varṇa", raga:"Nāgasvarāvaḷī", tala:"Ādi" },
     kn:{ title:"ನಾಗಸ್ವರಾವಳಿ ತಾನ ವರ್ಣ", raga:"ನಾಗಸ್ವರಾವಳಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Madhuvanti Tāna Varṇa", raga:"Madhuvanti", tala:"Adi" },
+    en:{ title:"Madhuvantī Tāna Varṇa", raga:"Madhuvantī", tala:"Ādi" },
     kn:{ title:"ಮಧುವಂತಿ ತಾನ ವರ್ಣ", raga:"ಮಧುವಂತಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Natakuranji Tāna Varṇa", raga:"Natakuranji", tala:"Adi" },
+    en:{ title:"Nāṭakurañjī Tāna Varṇa", raga:"Nāṭakurañjī", tala:"Ādi" },
     kn:{ title:"ನಾಟಕುರಂಜಿ ತಾನ ವರ್ಣ", raga:"ನಾಟಕುರಂಜಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Hamir Kalyani Tāna Varṇa", raga:"Hamir Kalyani", tala:"Adi" },
+    en:{ title:"Hamīr Kalyāṇī Tāna Varṇa", raga:"Hamīr Kalyāṇī", tala:"Ādi" },
     kn:{ title:"ಹಮೀರ್ ಕಲ್ಯಾಣಿ ತಾನ ವರ್ಣ", raga:"ಹಮೀರ್ ಕಲ್ಯಾಣಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Jog Tāna Varṇa", raga:"Jog", tala:"Adi" },
+    en:{ title:"Jog Tāna Varṇa", raga:"Jog", tala:"Ādi" },
     kn:{ title:"ಜೋಗ್ ತಾನ ವರ್ಣ", raga:"ಜೋಗ್", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Revagupti Tāna Varṇa", raga:"Revagupti", tala:"Adi" },
+    en:{ title:"Rēvagupti Tāna Varṇa", raga:"Rēvagupti", tala:"Ādi" },
     kn:{ title:"ರೇವಗುಪ್ತಿ ತಾನ ವರ್ಣ", raga:"ರೇವಗುಪ್ತಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Dvimukhi Tāna Varṇa", raga:"Sunada Vinodini / Hindola", tala:"Adi" },
+    en:{ title:"Dvimukhi Tāna Varṇa", raga:"Sunāda Vinōdinī / Hindōḷa", tala:"Ādi" },
     kn:{ title:"ದ್ವಿಮುಖಿ ತಾನ ವರ್ಣ", raga:"ಸುನಾದವಿನೋದಿನಿ / ಜೋಗ್", tala:"ಆದಿ" } },
-
   { status:"coming-soon", type:"varna",
-    en:{ title:"Hamsanandi Tāna Varṇa", raga:"Hamsanandi", tala:"Adi" },
+    en:{ title:"Haṃsānandī Tāna Varṇa", raga:"Haṃsānandī", tala:"Ādi" },
     kn:{ title:"ಹಂಸಾನಂದಿ ತಾನ ವರ್ಣ", raga:"ಹಂಸಾನಂದಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Kannada Tāna Varṇa", raga:"Kannada", tala:"Adi" },
+    en:{ title:"Kannada Tāna Varṇa", raga:"Kannada", tala:"Ādi" },
     kn:{ title:"ಕನ್ನಡ ತಾನ ವರ್ಣ", raga:"ಕನ್ನಡ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Vasantabhairavi Tāna Varṇa", raga:"Vasantabhairavi", tala:"Adi" },
+    en:{ title:"Vasantabhairavī Tāna Varṇa", raga:"Vasantabhairavī", tala:"Ādi" },
     kn:{ title:"ವಸಂತಭೈರವಿ ತಾನ ವರ್ಣ", raga:"ವಸಂತಭೈರವಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Brindavani Tāna Varṇa", raga:"Brindavani", tala:"Adi" },
+    en:{ title:"Bṛndāvanī Tāna Varṇa", raga:"Bṛndāvanī", tala:"Ādi" },
     kn:{ title:"ಬೃಂದಾವನಿ ತಾನ ವರ್ಣ", raga:"ಬೃಂದಾವನಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Kamalamanohari Tāna Varṇa", raga:"Kamalamanohari", tala:"Adi" },
+    en:{ title:"Kamalāmanōhārī Tāna Varṇa", raga:"Kamalāmanōhārī", tala:"Ādi" },
     kn:{ title:"ಕಮಲಾಮನೋಹರಿ ತಾನ ವರ್ಣ", raga:"ಕಮಲಾಮನೋಹರಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Pada Varṇa — Behag", raga:"Behag", tala:"Adi" },
+    en:{ title:"Pada Varṇa — Behāg", raga:"Behāg", tala:"Ādi" },
     kn:{ title:"ಬೇಹಾಗ್ ಪದ ವರ್ಣ", raga:"ಬೇಹಾಗ್", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"varna",
-    en:{ title:"Pada Varṇa — Nilambari", raga:"Nilambari", tala:"Adi" },
+    en:{ title:"Pada Varṇa — Nīlāmbarī", raga:"Nīlāmbarī", tala:"Ādi" },
     kn:{ title:"ನೀಲಾಂಬರಿ ಪದ ವರ್ಣ", raga:"ನೀಲಾಂಬರಿ", tala:"ಆದಿ" } },
 
   /* ════ KRITI — live ════ */
   { status:"live", type:"kriti",
-    en:{ title:"Kriti — etta hodane ", raga:"Udayaravichandrika", tala:"Misra Chapu" },
+    en:{ title:"Etta hōdanē", raga:"Udayaravicandrikā", tala:"Miśra Cāpu" },
     kn:{ title:"ಕೃತಿ — ಎತ್ತ ಹೋದನೇ", raga:"ಉದಯರವಿಚಂದ್ರಿಕಾ", tala:"ಮಿಶ್ರ ಚಾಪು" },
     file:"udayaravichandrika_misrachapu.html" },
 
   /* ════ KRITI — coming soon ════ */
   { status:"coming-soon", type:"kriti",
-    en:{ title:"edeyoLu nele", raga:"Mukhari", tala:"Adi" },
+    en:{ title:"Edeyoḷu nele ninteyē", raga:"Mukhāri", tala:"Ādi" },
     kn:{ title:"ಎದೆಯೊಳು ನೆಲೆ ನಿಂತೆಯೇ", raga:"ಮುಖಾರಿ", tala:"ಆದಿ" } },
-
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"ānanda tanditta  ", raga:"ānanda Bhairavi  ", tala:"ādi" },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Ānanda tandita", raga:"Ānanda Bhairavī", tala:"Ādi" },
     kn:{ title:"ಆನಂದ ತಂದಿತ್ತ", raga:"ಆನಂದ ಭೈರವಿ", tala:"ಆದಿ" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Endu kāmbeno", raga:"Vāgadhīśvarī", tala:"Khanda Chapu" },
+    kn:{ title:"ಎಂದು ಕಾಂಬೆನೋ", raga:"ವಾಗಧೀಶ್ವರಿ", tala:"ಖಂಡ ಛಾಪು" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Mogadalenu", raga:"Mohana", tala:"Trishra Ādi" },
+    kn:{ title:"ಮೊಗದಲೇನು", raga:"ಮೋಹನ", tala:"ತ್ರಿಶ್ರ ಆದಿ" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Rāma baruva nōḍirē", raga:"Haṃsanāda", tala:"Ādi" },
+    kn:{ title:"ರಾಮ ಬರುವ ನೋಡಿರೇ", raga:"ಹಂಸನಾದ", tala:"ಆದಿ" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Bandanēnē sakhi", raga:"Kokilārava", tala:"Rupaka" },
+    kn:{ title:"ಬಂದನೇನೇ ಸಖಿ", raga:"ಕೋಕಿಲಾರವ", tala:"ರೂಪಕ" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Pālaya mām", raga:"Citrāmbari", tala:"Rupaka" },
+    kn:{ title:"ಪಾಲಯ ಮಾಂ", raga:"ಚಿತ್ರಾಂಬರಿ", tala:"ರೂಪಕ" } },
+  { status:"coming-soon", type:"kriti",
+    en:{ title:"Pādava tōrō", raga:"Bilahārī", tala:"Miśra Cāpu" },
+    kn:{ title:"ಪಾದವ ತೋರೋ", raga:"ಬಿಲಹರಿ", tala:"ಮಿಶ್ರ ಛಾಪು" } },
 
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"endu kāmbeno ", raga:"Vagadhishwari", tala:"Khanda  Chapu " },
-    kn:{ title:"ಎಂದು ಕಾಂಬೆನೋ", raga:"ವಾಗಧೀಶ್ವರಿ", tala:"ಖಂಡ ಛಾಪು " } },
-
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"mogadalenu ", raga:"Mohana", tala:"Trishra ādi " },
-    kn:{ title:"ಮೊಗದಲೇನು ", raga: "ಮೋಹನ ", tala:"ತ್ರಿಶ್ರ ಆದಿ" } },
-  
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"Rāma baruva nodire", raga:"Hamsanada", tala:"ādi " },
-    kn:{ title: "ರಾಮ ಬರುವ ನೋಡಿರೇ ", raga: " ಹಂಸನಾದ", tala:"ಆದಿ" } },
-  
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"bandanene sakhi", raga:"Kokilarava", tala:"Rupaka" },
-    kn:{ title:"ಬಂದನೇನೇ ಸಖಿ", raga: "ಕೋಕಿಲಾರವ", tala:"ರೂಪಕ" } },
-
-      { status:"coming-soon", type:"kriti",
-    en:{ title:"Pālaya mām", raga:"Chitrambari", tala:"Rupaka" },
-    kn:{ title:"ಪಾಲಯ ಮಾಂ", raga: "ಚಿತ್ರಾಂಬರಿ", tala:"ರೂಪಕ" } },
-
-    { status:"coming-soon", type:"kriti",
-    en:{ title:"Pādava toro", raga:"Bilahari  ", tala:"Misra Chapu " },
-    kn:{ title:"ಪಾದವ ತೋರೋ", raga:"ಬಿಲಹರಿ ", tala:"ಮಿಶ್ರ ಛಾಪು " } },
-  
-   /* ════ Pada/Javali — live ════ */
+  /* ════ PADA / JAVALI — live ════ */
   { status:"live", type:"pada",
-    en:{ title:"hottu muḷugutaliralu", raga:"Mohanāngi", tala:"Misra Chapu" },
+    en:{ title:"Hottu muḷugutaliralu", raga:"Mohanāṅgī", tala:"Miśra Cāpu" },
     kn:{ title:"ಹೊತ್ತು ಮುಳುಗುತಲಿರಲು", raga:"ಮೋಹನಾಂಗಿ", tala:"ಮಿಶ್ರ ಚಾಪು" },
-    file:"hottu_muluguta_mohanagi_4.html" }, 
+    file:"hottu_muluguta_mohanagi_4.html" },
 
-  /* ════ PADA — coming soon ════ */
+  /* ════ PADA / JAVALI — coming soon ════ */
   { status:"coming-soon", type:"pada",
-    en:{ title:"muraliya kareyadu", raga:"Kāmavardhani", tala:"ādi" },
+    en:{ title:"Muraḷiya kareyadu", raga:"Kāmavardhani", tala:"Ādi" },
     kn:{ title:"ಮುರಳಿಯ ಕರೆಯದು", raga:"ಕಾಮವರ್ಧನಿ", tala:"ಆದಿ" } },
-
   { status:"coming-soon", type:"pada",
-    en:{ title:"innee mane", raga:"Gorakh Kalyan", tala:"ādi" },
-    kn:{ title:"ಇನ್ನೀ ಮನೆ", raga:"ಗೋರಖ್ ಕಲ್ಯಾಣ್ ", tala:"ಆದಿ" } },
-
-    { status:"coming-soon", type:"pada",
-    en:{ title:"karedide kolalina", raga:"Hamsanandi ", tala:"ādi" },
+    en:{ title:"Innī mane", raga:"Gorakh Kalyan", tala:"Ādi" },
+    kn:{ title:"ಇನ್ನೀ ಮನೆ", raga:"ಗೋರಖ್ ಕಲ್ಯಾಣ್", tala:"ಆದಿ" } },
+  { status:"coming-soon", type:"pada",
+    en:{ title:"Karedide koḷalina", raga:"Haṃsānandī", tala:"Ādi" },
     kn:{ title:"ಕರೆದಿದೆ ಕೊಳಲಿನ", raga:"ಹಂಸಾನಂದಿ", tala:"ಆದಿ" } },
-
   { status:"coming-soon", type:"pada",
-    en:{ title:"Javali — yara kaLuhidane ", raga:"Behag", tala:"Misra Chapu" },
+    en:{ title:"Javali — Yāra kaḷuhidanē", raga:"Behāg", tala:"Miśra Cāpu" },
     kn:{ title:"ಜಾವಳಿ — ಯಾರ ಕಳುಹಿದನೇ", raga:"ಬೇಹಾಗ್", tala:"ಮಿಶ್ರ ಚಾಪು" } },
 
   /* ════ OTHERS — live ════ */
   { status:"live", type:"others",
-    en:{ title:"Rāgamālikā Puṣpāñjali", raga:"Ragamalika", tala:"Adi" },
+    en:{ title:"Rāgamālikā Puṣpāñjali", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ರಾಗಮಾಲಿಕಾ ಪುಷ್ಪಾಂಜಲಿ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಆದಿ" },
     file:"ragamalika_pushpanjali_3.html",
     youtube:[{ en:"Recording from a dance concert", kn:"ನೃತ್ಯ ಕಾರ್ಯಕ್ರಮದ ರೆಕಾರ್ಡಿಂಗ್", id:"jzSKVZgP-HQ" }] },
 
   /* ════ OTHERS — coming soon ════ */
   { status:"coming-soon", type:"others",
-    en:{ title:"Soorya Kautuva", raga:"Ragamalika", tala:"Rupaka" },
+    en:{ title:"Sūrya Kautuva", raga:"Rāgamālikā", tala:"Rupaka" },
     kn:{ title:"ಸೂರ್ಯ ಕೌತುವ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ರೂಪಕ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Gokarna Kautuva", raga:"Ragamalika", tala:"Khanda Chapu" },
+    en:{ title:"Gokarṇa Kautuva", raga:"Rāgamālikā", tala:"Khanda Chapu" },
     kn:{ title:"ಗೋಕರ್ಣ ಕೌತುವ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಖಂಡ ಚಾಪು" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Ragamalika Pushpanjali", raga:"Ragamalika", tala:"Misra Chapu" },
+    en:{ title:"Rāgamālikā Puṣpāñjali (2)", raga:"Rāgamālikā", tala:"Miśra Cāpu" },
     kn:{ title:"ರಾಗಮಾಲಿಕಾ ಪುಷ್ಪಾಂಜಲಿ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಮಿಶ್ರ ಚಾಪು" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Krishna Ashtaragamalika", raga:"Ragamalika", tala:"Adi" },
+    en:{ title:"Kṛṣṇa Aṣṭarāgamālikā", raga:"Rāgamālikā", tala:"Ādi" },
     kn:{ title:"ಕೃಷ್ಣ ಅಷ್ಟರಾಗಮಾಲಿಕ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Kausalya Ragamalika", raga:"Ragamalika", tala:"Misra Chapu" },
+    en:{ title:"Kausalyā Rāgamālikā", raga:"Rāgamālikā", tala:"Miśra Cāpu" },
     kn:{ title:"ಕೌಸಲ್ಯಾ ರಾಗಮಾಲಿಕ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಮಿಶ್ರ ಚಾಪು" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Ardhanarishwara Ragamalika", raga:"Ragamalika", tala:"Khanda Chapu" },
+    en:{ title:"Ardhanārīśvara Rāgamālikā", raga:"Rāgamālikā", tala:"Khanda Chapu" },
     kn:{ title:"ಅರ್ಧನಾರೀಶ್ವರ ರಾಗಮಾಲಿಕೆ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ಖಂಡ ಚಾಪು" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Ashtadasha Ragamalika", raga:"Ragamalika", tala:"Rupaka" },
+    en:{ title:"Aṣṭādaśa Rāgamālikā", raga:"Rāgamālikā", tala:"Rupaka" },
     kn:{ title:"ಅಷ್ಟಾದಶ ರಾಗಮಾಲಿಕೆ", raga:"ರಾಗಮಾಲಿಕೆ", tala:"ರೂಪಕ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Tillana — Gorakh Kalyan", raga:"Gorakh Kalyan", tala:"Adi" },
+    en:{ title:"Tillāna — Gorakh Kalyan", raga:"Gorakh Kalyan", tala:"Ādi" },
     kn:{ title:"ತಿಲ್ಲಾನ — ಗೋರಖ್ ಕಲ್ಯಾಣ್", raga:"ಗೋರಖ್ ಕಲ್ಯಾಣ್", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Ela Prabandha — Mohana", raga:"Mohana", tala:"Adi" },
+    en:{ title:"Ēlā Prabandha — Mohana", raga:"Mohana", tala:"Ādi" },
     kn:{ title:"ಏಲಾ ಪ್ರಬಂಧ — ಮೋಹನ", raga:"ಮೋಹನ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Prakriti Dhruva", raga:"Amrtavarshini", tala:"Misra Chapu" },
+    en:{ title:"Prakṛti Dhruva", raga:"Amṛtavarṣiṇī", tala:"Miśra Cāpu" },
     kn:{ title:"ಪ್ರಕೃತಿ ಧ್ರುವ", raga:"ಅಮೃತವರ್ಷಿಣಿ", tala:"ಮಿಶ್ರ ಚಾಪು" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Pravesha Dhruva", raga:"Arabhi", tala:"Adi" },
+    en:{ title:"Pravēśa Dhruva", raga:"Ārabhī", tala:"Ādi" },
     kn:{ title:"ಪ್ರವೇಶ ಧ್ರುವ", raga:"ಅರಭಿ", tala:"ಆದಿ" } },
   { status:"coming-soon", type:"others",
-    en:{ title:"Tillana — Brindavana Saranga", raga:"Brindavana Saranga", tala:"Adi" },
+    en:{ title:"Tillāna — Bṛndāvana Sāraṅga", raga:"Bṛndāvana Sāraṅga", tala:"Ādi" },
     kn:{ title:"ತಿಲ್ಲಾನ — ಬೃಂದಾವನ ಸಾರಂಗ", raga:"ಬೃಂದಾವನ ಸಾರಂಗ", tala:"ಆದಿ" } }
 ];
 
@@ -549,12 +510,11 @@ let lang = 'en', activeTab = 'all';
 
 function sortByRaga(arr, l) {
   return [...arr].sort((a,b) => {
-    const clean = s => s.replace(/[āīūṛēōśṣṭḍṇṁḥ]/g, c=>({ā:'a',ī:'i',ū:'u',ṛ:'r',ē:'e',ō:'o',ś:'s',ṣ:'s',ṭ:'t',ḍ:'d',ṇ:'n',ṁ:'m',ḥ:'h'}[c]||c)).toLowerCase();
+    const clean = s => s.replace(/[āīūṛēōśṣṭḍṇṁḥṅñḷ]/g, c=>({ā:'a',ī:'i',ū:'u',ṛ:'r',ē:'e',ō:'o',ś:'s',ṣ:'s',ṭ:'t',ḍ:'d',ṇ:'n',ṁ:'m',ḥ:'h',ṅ:'n',ñ:'n',ḷ:'l'}[c]||c)).toLowerCase();
     return clean(a[l].raga||'').localeCompare(clean(b[l].raga||''));
   });
 }
 
-/* ── Build live summary table ── */
 function buildSummaryTable(items, l, sectionId) {
   const s = STR[l], kn = l==='kn';
   const wrap = document.createElement('div');
@@ -613,7 +573,6 @@ function buildSummaryTable(items, l, sectionId) {
   return wrap;
 }
 
-/* ── Build coming-soon table ── */
 function buildComingSoonTable(items, l) {
   const s = STR[l], kn = l==='kn';
   const wrap = document.createElement('div');
@@ -650,7 +609,6 @@ function buildComingSoonTable(items, l) {
   return wrap;
 }
 
-/* ── Build full comp entry ── */
 function buildComp(c, l, itemId) {
   const s = STR[l], kn = l==='kn';
   const wrap = document.createElement('div');
@@ -700,7 +658,6 @@ function buildComp(c, l, itemId) {
   return wrap;
 }
 
-/* ── Render tabs ── */
 function renderTabs(l) {
   const s = STR[l], bar = document.getElementById('tabBar');
   bar.innerHTML = '';
@@ -712,7 +669,6 @@ function renderTabs(l) {
   });
 }
 
-/* ── Render archive ── */
 function renderArchive(filter, l) {
   const s = STR[l], root = document.getElementById('archiveRoot');
   root.innerHTML = '';
@@ -728,11 +684,8 @@ function renderArchive(filter, l) {
       label.textContent = s.tabs[type]||type;
       root.appendChild(label);
     }
-    // Live summary table
     if (liveItems.length) root.appendChild(buildSummaryTable(liveItems, l, sectionId));
-    // Coming-soon table
     if (csItems.length) root.appendChild(buildComingSoonTable(csItems, l));
-    // Detail toggle + full entries
     if (liveItems.length) {
       const toggle = document.createElement('div');
       toggle.className = s.toggleClass;
@@ -757,7 +710,6 @@ function renderArchive(filter, l) {
   });
 }
 
-/* ── Filter by raga ── */
 function filterByRaga(raga) {
   activeTab = 'all'; renderTabs(lang); renderArchive('all', lang);
   setTimeout(() => {
@@ -794,7 +746,6 @@ function filterByRaga(raga) {
   }, 10);
 }
 
-/* ── Apply language ── */
 function applyLang(l) {
   const s = STR[l];
   document.getElementById('pageTitle').textContent    = s.pageTitle;
@@ -815,7 +766,6 @@ function applyLang(l) {
   renderTabs(l); renderArchive(activeTab, l);
 }
 
-/* ── Events ── */
 document.getElementById('langToggle').addEventListener('click', e => {
   const btn = e.target.closest('.lang-btn');
   if (!btn) return;
