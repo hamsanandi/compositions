@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deshaakshi Swarajati — @hamsanandi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.25;
+            color: #333333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #faf7f2;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 6px;
+            border-bottom: 2px solid #e6dfd3;
+            padding-bottom: 12px;
+        }
+        h1 .title-kn {
+            display: block;
+            font-family: 'Noto Serif Kannada', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5c3a21;
+            line-height: 1.3;
+        }
+        h1 .title-type {
+            display: block;
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #8c583a;
+            margin-top: 4px;
+        }
+        h1 .title-en {
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #aaa;
+            margin-top: 2px;
+            letter-spacing: 0.05em;
+        }
+        /* Raga/tala line — KN left, EN right */
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 12px;
+            gap: 16px;
+        }
+        .meta-info .meta-en {
+            font-size: 13px;
+            color: #888888;
+        }
+        .meta-info .meta-kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 13px;
+            color: #666666;
+            text-align: right;
+        }
+        .sanchara-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 25px;
+            gap: 20px;
+        }
+        .sanchara-line .kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 13px;
+            color: #888888;
+            text-align: right;
+        }
+        .notation-guide .guide-kn {
+            display: block;
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 12px;
+            color: #7a5c20;
+            margin-top: 8px;
+            line-height: 1.7;
+        }
+        .notation-guide {
+            background-color: #f2ebd9;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+        .notation-guide h3 {
+            margin: 0 0 5px 0;
+            color: #5c3a21;
+            font-size: 14px;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #8c583a;
+            margin: 28px 0 2px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title-kn {
+            font-family: 'Noto Serif Kannada', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #5c3a21;
+            margin: 0 0 10px 0;
+            letter-spacing: 0;
+            text-transform: none;
+            line-height: 1.3;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+        }
+        /* All 8 columns equal width */
+        col { width: 12.5%; }
+        th, td {
+            border: 1px solid #e6dfd3;
+            padding: 10px 8px;
+            text-align: center;
+            font-size: 14px;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+        th {
+            background-color: #f7f3eb;
+            color: #5c3a21;
+            font-weight: bold;
+            padding: 12px 10px;
+        }
+        tr:nth-child(even) td {
+            background-color: #fdfbfa;
+        }
+        /* Darker right border after col 4 (Laghu | Druta 1) and col 6 (Druta 1 | Druta 2) */
+        td:nth-child(4),
+        td:nth-child(6) {
+            border-right: 2px solid #b8a070;
+        }
+        /* Header row: th 1 = Laghu (cols 1-4), th 2 = Druta1 (cols 5-6) */
+        thead th:nth-child(1) { border-right: 2px solid #b8a070; }
+        thead th:nth-child(2) { border-right: 2px solid #b8a070; }
+
+        /*
+         * Slur / arc container
+         *
+         * HOW IT WORKS:
+         * - .slur-container is inline-block with padding-top to make room for the arc
+         * - The SVG uses viewBox="0 0 100 14" and width="100%" so it stretches
+         *   to match the text width automatically regardless of content length
+         * - The arc path is drawn in viewBox coordinates (0–100 wide, 0–14 tall)
+         *   curving from (2,13) through apex (50,2) to (98,13)
+         * - SVG overflow:visible ensures the arc is never clipped
+         * - The td/th cells must NOT have overflow:hidden (browser default is visible)
+         */
+        .slur-container {
+            display: inline-block;
+            position: relative;
+            padding-top: 14px;   /* room above text for the arc */
+            white-space: nowrap;
+        }
+        .slur-container svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            overflow: visible;
+        }
+        /* When slur-container holds stacked spans, align them */
+        .slur-container .cell-kn,
+        .slur-container .cell-en {
+            display: block;
+            text-align: center;
+        }
+        .slur-container span:not(.cell-kn):not(.cell-en):not(.mandra) {
+            display: inline-block;
+            line-height: 1;
+        }
+
+        /* Mandra sthāyi (lowercase) — green, single dot below */
+        .mandra {
+            color: #2a7a2a;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+        .mandra::after {
+            content: '·';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            line-height: 1;
+            color: #2a7a2a;
+        }
+
+        /* Tāra sthāyi — red, single dot above */
+        .tara {
+            color: #b22020;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-top: 8px;
+        }
+        .tara::before {
+            content: '·';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            line-height: 1;
+            color: #b22020;
+        }
+
+        /* Stacked bilingual cell */
+        .cell-kn {
+            display: block;
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 13px;
+            color: #1a1208;
+            line-height: 1.5;
+        }
+        .cell-en {
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            color: #888888;
+            line-height: 1.4;
+            margin-top: 3px;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #888888;
+            text-align: right;
+            border-top: 1px solid #e6dfd3;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <span class="title-kn">ದೇಶಾಕ್ಷಿ ಸ್ವರಜತಿ</span>
+        <span class="title-type">ಸ್ವರಜತಿ &nbsp;·&nbsp; Swarajati</span>
+        <span class="title-en">Deshaakshi Swarajati</span>
+    </h1>
+    <div class="meta-info">
+        <span class="meta-kn"><strong>ರಾಗ:</strong> ದೇಶಾಕ್ಷಿ &nbsp;|&nbsp; <strong>ತಾಳ:</strong> ಆದಿ (1 ಕಳೆ, ವಿಳಂಬ ಗತಿ)</span>
+        <span class="meta-en"><strong>Rāga:</strong> Deśākṣī &nbsp;|&nbsp; <strong>Tāḷa:</strong> Ādi (1 kāle, viḷamba gati)</span>
+    </div>
+
+    <div class="notation-guide">
+        <h3>Notation Guide / ಸ್ವರಲಿಪಿ ಸೂಚಿ</h3>
+        •
+        <span class="slur-container" style="margin: 0 6px;">
+            <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+            <span>S R</span>
+        </span>
+        Jāru gamaka |
+        • <code>^</code> Nokku gamaka |
+        • <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">p<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">d<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">n<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> — mandra sthāyi |
+        • <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">S<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">R<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">G<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> — tāra sthāyi
+        <span class="guide-kn">
+        •
+        <span class="slur-container" style="margin: 0 6px;">
+            <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+            <span>ಸ ರಿ</span>
+        </span>
+        ಜಾರು ಗಮಕ |
+        • <code>^</code> ನೊಕ್ಕು ಗಮಕ |
+        • <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ಪ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ದ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ನಿ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> — ಮಂದ್ರ ಸ್ಥಾಯಿ |
+        • <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ಸ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ರಿ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ಗ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> — ತಾರ ಸ್ಥಾಯಿ
+        </span>
+    </div>
+
+    <div class="sanchara-line">
+        <span><strong>S R₂ G₃ P D₂ S — S N₂ D₂ P M₁ G₃ R₂ S</strong> &nbsp;(From 28th mela)</span>
+        <span class="kn"><strong>ಸ ರಿ₂ ಗ₃ ಪ ದ₂ ಸ — ಸ ನಿ₂ ದ₂ ಪ ಮ₁ ಗ₃ ರಿ₂ ಸ</strong> &nbsp;(28ನೇ ಮೇಳದಿಂದ)</span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SLUR MACRO — every arc in the score uses this pattern:
+         <span class="slur-container">
+           <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+           <span>X Y</span>
+         </span>
+         The SVG stretches to 100% of the span width automatically.
+         ═══════════════════════════════════════════════════ -->
+
+    <div class="section-title">Pallavi</div>
+    <div class="section-title-kn">ಪಲ್ಲವಿ</div>
+    <table>
+        <colgroup>
+            <col/><col/><col/><col/>
+            <col/><col/><col/><col/>
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="4">Laghu / ಲಘು (4 akshara)</th>
+                <th colspan="2">Druta / ದ್ರುತ (2 akshara)</th>
+                <th colspan="2">Druta / ದ್ರುತ (2 akshara)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>N ,</td>
+                <td>D</td>
+                <td>, ,</td>
+                <td>P ,</td>
+                <td>, M</td>
+                <td>, G</td>
+                <td>, R</td>
+                <td>S n</td>
+            </tr>
+            <tr>
+                <td>d ,</td>
+                <td>, p</td>
+                <td>, ,</td>
+                <td>S ,</td>
+                <td>, R</td>
+                <td>, G</td>
+                <td>, P</td>
+                <td>, D</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">Anupallavi</div>
+    <div class="section-title-kn">ಅನುಪಲ್ಲವಿ</div>
+    <table>
+        <colgroup>
+            <col/><col/><col/><col/>
+            <col/><col/><col/><col/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>N ,</td>
+                <td>D P</td>
+                <td>, M</td>
+                <td>G R</td>
+                <td>M ,</td>
+                <td>G R</td>
+                <td>, S</td>
+                <td>n d</td>
+            </tr>
+            <tr>
+                <td>p ,</td>
+                <td>D S</td>
+                <td>, R</td>
+                <td>G R</td>
+                <td>G P</td>
+                <td>D <t>S</t></td>
+                <td>P D</td>
+                <td><t>S</t> <t>R</t></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">Charana 1</div>
+    <div class="section-title-kn">ಚರಣ 1</div>
+    <table>
+        <colgroup>
+            <col/><col/><col/><col/>
+            <col/><col/><col/><col/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>P D</td>
+                <td><t>S</t> <t>R</t></td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span><t>G</t> <t>S</t></span>
+                    </span>
+                </td>
+                <td>, ,</td>
+                <td>N D</td>
+                <td><t>S</t> N</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>D P</span>
+                    </span>
+                </td>
+                <td>, ,</td>
+            </tr>
+            <tr>
+                <td>M G</td>
+                <td>R ,</td>
+                <td>G S</td>
+                <td>, ,</td>
+                <td>n d</td>
+                <td>p S</td>
+                <td>R G</td>
+                <td>P D</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">Charana 2</div>
+    <div class="section-title-kn">ಚರಣ 2</div>
+    <table>
+        <colgroup>
+            <col/><col/><col/><col/>
+            <col/><col/><col/><col/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>P D^</td>
+                <td>M G</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>, R</span>
+                    </span>
+                </td>
+                <td>G P</td>
+                <td>D^ M</td>
+                <td>G ,</td>
+                <td>, R</td>
+                <td>G R</td>
+            </tr>
+            <tr>
+                <td>S R^</td>
+                <td>n d</td>
+                <td>, S</td>
+                <td>, R</td>
+                <td>G P</td>
+                <td>D^ M</td>
+                <td>G P</td>
+                <td>D <t>S</t></td>
+            </tr>
+            <tr>
+                <td>D <t>S</t></td>
+                <td><t>R</t> <t>G</t></td>
+                <td>, <t>S</t></td>
+                <td><t>R</t> <t>S</t></td>
+                <td><t>R</t> N</td>
+                <td>D P</td>
+                <td>, D^</td>
+                <td>M G</td>
+            </tr>
+            <tr>
+                <td>P D</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span><t>S</t> G</span>
+                    </span>
+                </td>
+                <td>P D</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span><t>S</t> R</span>
+                    </span>
+                </td>
+                <td>G P</td>
+                <td>D <t>S</t></td>
+                <td>N D</td>
+                <td><t>S</t> <t>R</t></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">Charana 3</div>
+    <div class="section-title-kn">ಚರಣ 3</div>
+    <table>
+        <colgroup>
+            <col/><col/><col/><col/>
+            <col/><col/><col/><col/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>G P</td>
+                <td>D <t>S</t></td>
+                <td>N ,</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>, <t>S</t></span>
+                    </span>
+                </td>
+                <td>N D</td>
+                <td>P D</td>
+                <td><t>S</t> ,</td>
+                <td>, <t>R</t></td>
+            </tr>
+            <tr>
+                <td>N D</td>
+                <td><t>S</t> <t>R</t></td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span><t>G</t> ,</span>
+                    </span>
+                </td>
+                <td>, <t>S</t></td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>N N</span>
+                    </span>
+                </td>
+                <td>D P</td>
+                <td>M ,</td>
+                <td>G R</td>
+            </tr>
+            <tr>
+                <td>G P</td>
+                <td>M G</td>
+                <td>M G</td>
+                <td>R S</td>
+                <td>R n</td>
+                <td>, d</td>
+                <td>p d</td>
+                <td>S ,</td>
+            </tr>
+            <tr>
+                <td>d s</td>
+                <td>R ,</td>
+                <td>S R</td>
+                <td>G ,</td>
+                <td>P D^</td>
+                <td>M G</td>
+                <td>P <t>S</t></td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>N ,</span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>D D</td>
+                <td>P <t>S</t></td>
+                <td>, <t>S</t></td>
+                <td>, <t>S</t></td>
+                <td>D <t>S</t></td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span><t>G</t> ,</span>
+                    </span>
+                </td>
+                <td>, <t>S</t></td>
+                <td>N D</td>
+            </tr>
+            <tr>
+                <td><t>S</t> <t>R</t></td>
+                <td><t>S</t> ,</td>
+                <td>N D</td>
+                <td>P ,</td>
+                <td>M G</td>
+                <td>R ,</td>
+                <td>R G</td>
+                <td>D P</td>
+            </tr>
+            <tr>
+                <td><t>S</t> ,</td>
+                <td>, N</td>
+                <td>D P</td>
+                <td>M ,</td>
+                <td>, G</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>R S</span>
+                    </span>
+                </td>
+                <td>N D</td>
+                <td>P M</td>
+            </tr>
+            <tr>
+                <td>, G</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>R S</span>
+                    </span>
+                </td>
+                <td>D P</td>
+                <td>M ,</td>
+                <td>
+                    <span class="slur-container">
+                        <svg viewBox="0 0 100 14"><path d="M 2,13 Q 50,2 98,13" fill="none" stroke="#5c3a21" stroke-width="3"/></svg>
+                        <span>G R</span>
+                    </span>
+                </td>
+                <td>G P</td>
+                <td>D <t>S</t></td>
+                <td><t>R</t> <t>G</t></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="signature">
+        Composed by @hamsanandi
+    </div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   SWARA RENDERING ENGINE
+   Each <td> is transformed to show Kannada (primary) on top
+   and English (secondary, smaller grey) below — same cell,
+   matching the Amrtavarshini notation style.
+
+   EN→KN: S=ಸ R=ರಿ G=ಗ M=ಮ P=ಪ D=ದ N=ನಿ
+   Mandra (lowercase) → green with single dot below (.mandra)
+   Tāra sthāyi → mark in source HTML as <t>S</t> or <t>S R</t>
+                 JS converts to red dot-above (.tara) in both scripts
+   ═══════════════════════════════════════════════════════════════ */
+
+const EN_TO_KN = {
+  'S':'ಸ',  'R':'ರಿ', 'G':'ಗ',  'M':'ಮ',
+  'P':'ಪ',  'D':'ದ',  'N':'ನಿ',
+  's':'ಸ',  'r':'ರಿ', 'g':'ಗ',  'm':'ಮ',
+  'p':'ಪ',  'd':'ದ',  'n':'ನಿ',
+  ',':',',  '^':'^',  ' ':' ', '-':'-'
+};
+
+function isSwaraLetter(ch) {
+  return /[SRGMPDNsrgmpdnp]/.test(ch);
+}
+
+/* Wrap a rendered swara in the tara span */
+function taraWrap(html) {
+  return `<span class="tara">${html}</span>`;
+}
+
+/* Convert one token to styled HTML, with optional tara flag */
+function tokenHtml(token, forKn, isTara) {
+  if (!token) return '';
+  const letter  = token[0];
+  const suffix  = token.slice(1);
+  const isLower = isSwaraLetter(letter) && letter === letter.toLowerCase();
+
+  let inner;
+  if (forKn) {
+    const kn = EN_TO_KN[letter] !== undefined ? EN_TO_KN[letter] : letter;
+    inner = isLower ? `<span class="mandra">${kn}</span>` : kn;
+  } else {
+    inner = isLower ? `<span class="mandra">${letter}</span>` : letter;
+  }
+  const result = inner + suffix;
+  return isTara ? taraWrap(result) : result;
+}
+
+/* Convert text or structured token list to HTML.
+   taraSet: Set of token indices that are tāra. */
+function toHtml(text, forKn, taraSet) {
+  const tokens = text.trim().split(/\s+/);
+  return tokens.map((t, i) => tokenHtml(t, forKn, taraSet && taraSet.has(i))).join(' ');
+}
+
+/* Parse a td's content, respecting <t>…</t> tara markers.
+   Returns { text, taraSet } where taraSet is a Set of token indices. */
+function parseTd(td) {
+  /* Clone so we can manipulate safely */
+  const clone = td.cloneNode(true);
+  /* Remove slur containers from text parsing path */
+  clone.querySelectorAll('.slur-container').forEach(el => el.remove());
+
+  /* Walk child nodes, collecting tokens and noting which are tara */
+  const tokens = [];
+  const taraIndices = new Set();
+
+  clone.childNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t => tokens.push({ t, tara: false }));
+    } else if (node.nodeName === 'T') {
+      node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t => tokens.push({ t, tara: true }));
+    }
+  });
+
+  const taraSet = new Set();
+  tokens.forEach((item, i) => { if (item.tara) taraSet.add(i); });
+  return { text: tokens.map(item => item.t).join(' '), taraSet };
+}
+
+/* Build stacked cell */
+function stackedCell(text, taraSet) {
+  const knHtml = toHtml(text, true,  taraSet);
+  const enHtml = toHtml(text, false, taraSet);
+  return `<span class="cell-kn">${knHtml}</span><span class="cell-en">${enHtml}</span>`;
+}
+
+/* Build stacked slur-arc cell, respecting <t> inside the span */
+function stackedSlurCell(td) {
+  const svg      = td.querySelector('svg').outerHTML;
+  const innerSpan = td.querySelector('.slur-container span:last-child');
+
+  /* Collect tokens and tara flags from inside the span */
+  const tokens = [];
+  innerSpan.childNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t => tokens.push({ t, tara: false }));
+    } else if (node.nodeName === 'T') {
+      node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t => tokens.push({ t, tara: true }));
+    }
+  });
+
+  const taraSet = new Set();
+  tokens.forEach((item, i) => { if (item.tara) taraSet.add(i); });
+  const text = tokens.map(item => item.t).join(' ');
+
+  const knHtml = toHtml(text, true,  taraSet);
+  const enHtml = toHtml(text, false, taraSet);
+  return `<span class="slur-container">
+      ${svg}
+      <span class="cell-kn">${knHtml}</span><span class="cell-en">${enHtml}</span>
+    </span>`;
+}
+
+/* Process all tbody tds */
+document.querySelectorAll('tbody tr td').forEach(td => {
+  if (td.querySelector('.slur-container')) {
+    td.innerHTML = stackedSlurCell(td);
+  } else {
+    const { text, taraSet } = parseTd(td);
+    td.innerHTML = stackedCell(text, taraSet);
+  }
+});
+</script>
+
+</body>
+</html>
