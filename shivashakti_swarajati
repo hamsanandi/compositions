@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Shakti Swarajati — @hamsanandi</title>
+    <style>
+        body { font-family:'Arial',sans-serif; line-height:1.25; color:#333; max-width:900px; margin:0 auto; padding:20px; background-color:#faf7f2; }
+        h1 { text-align:center; margin-bottom:6px; border-bottom:2px solid #e6dfd3; padding-bottom:12px; }
+        h1 .title-kn { display:block; font-family:'Noto Serif Kannada',serif; font-size:2rem; font-weight:700; color:#5c3a21; line-height:1.3; }
+        h1 .title-type { display:block; font-family:'Noto Sans Kannada',sans-serif; font-size:1rem; font-weight:400; color:#8c583a; margin-top:4px; }
+        h1 .title-en { display:block; font-family:'Arial',sans-serif; font-size:0.85rem; font-weight:400; color:#aaa; margin-top:2px; letter-spacing:0.05em; }
+        .meta-info { display:flex; justify-content:space-between; align-items:baseline; font-size:14px; color:#666; margin-bottom:12px; gap:16px; }
+        .meta-info .meta-en { font-size:13px; color:#888; }
+        .meta-info .meta-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:13px; color:#666; text-align:right; }
+        .raga-desc { margin-bottom:10px; font-size:13px; }
+        .raga-desc-en { display:block; color:#555; font-style:italic; margin-bottom:4px; }
+        .raga-desc-kn { display:block; font-family:'Noto Sans Kannada',sans-serif; font-size:12px; color:#777; }
+        .sanchara-line { display:flex; justify-content:space-between; align-items:baseline; font-size:13px; color:#666; margin-bottom:18px; gap:20px; }
+        .sanchara-line .kn { font-family:'Noto Sans Kannada',sans-serif; font-size:12px; color:#888; text-align:right; }
+        .notation-guide { background-color:#f2ebd9; padding:12px 15px; border-radius:4px; margin-bottom:25px; font-size:13px; }
+        .notation-guide h3 { margin:0 0 5px 0; color:#5c3a21; font-size:14px; }
+        .notation-guide .guide-kn { display:block; font-family:'Noto Sans Kannada',sans-serif; font-size:12px; color:#7a5c20; margin-top:8px; line-height:1.7; }
+        .section-title { font-size:13px; font-weight:bold; color:#8c583a; text-transform:uppercase; letter-spacing:1px; }
+        .section-title-kn { font-family:'Noto Serif Kannada',serif; font-size:20px; font-weight:700; color:#5c3a21; line-height:1.3; }
+        .section-title-row { display:flex; justify-content:space-between; align-items:baseline; margin:28px 0 10px 0; }
+        table { width:100%; table-layout:fixed; border-collapse:collapse; margin-bottom:15px; background-color:#fff; }
+        /* 6 equal columns for Roopaka (2 talas per row, 3 aksharas each) */
+        col { width:16.666%; }
+        th,td { border:1px solid #e6dfd3; padding:10px 8px; text-align:center; font-size:14px; vertical-align:middle; overflow:hidden; }
+        th { background-color:#f7f3eb; color:#5c3a21; font-weight:bold; padding:12px 10px; }
+        tr:nth-child(even) td { background-color:#fdfbfa; }
+        /* Darker divider after col 3 (between the two talas) */
+        td:nth-child(3) { border-right:2px solid #b8a070; }
+        thead th:nth-child(1) { border-right:2px solid #b8a070; }
+        .mandra { color:#2a7a2a; font-weight:600; position:relative; display:inline-block; padding-bottom:6px; }
+        .mandra::after { content:'·'; position:absolute; bottom:-2px; left:50%; transform:translateX(-50%); font-size:1.2em; line-height:1; color:#2a7a2a; }
+        .tara { color:#b22020; font-weight:600; position:relative; display:inline-block; padding-top:8px; }
+        .tara::before { content:'·'; position:absolute; top:-2px; left:50%; transform:translateX(-50%); font-size:1.2em; line-height:1; color:#b22020; }
+        .cell-kn { display:block; font-family:'Noto Sans Kannada',sans-serif; font-size:13px; color:#1a1208; line-height:1.5; }
+        .cell-en { display:block; font-family:'Arial',sans-serif; font-size:11px; color:#888; line-height:1.4; margin-top:3px; }
+        .signature { margin-top:40px; font-size:12px; color:#888; text-align:right; border-top:1px solid #e6dfd3; padding-top:10px; }
+    </style>
+</head>
+<body>
+
+<h1>
+    <span class="title-kn">ಶಿವಶಕ್ತಿ ಸ್ವರಜತಿ</span>
+    <span class="title-type">ಸ್ವರಜತಿ &nbsp;·&nbsp; Swarajati</span>
+    <span class="title-en">Shiva Shakti Swarajati</span>
+</h1>
+<div class="meta-info">
+    <span class="meta-kn"><strong>ರಾಗ:</strong> ಶಿವಶಕ್ತಿ &nbsp;|&nbsp; <strong>ತಾಳ:</strong> ರೂಪಕ</span>
+    <span class="meta-en"><strong>Rāga:</strong> Śiva Śakti &nbsp;|&nbsp; <strong>Tāḷa:</strong> Rūpaka</span>
+</div>
+
+<div class="sanchara-line">
+    <span><strong>S G<sub>2</sub> M<sub>1</sub> D<sub>2</sub> S — S N<sub>2</sub> D<sub>2</sub> M<sub>1</sub> G<sub>2</sub> S</strong> &nbsp;(From 22nd mēḷa)</span>
+    <span class="kn"><strong>ಸ ಗ<sub>2</sub> ಮ<sub>1</sub> ದ<sub>2</sub> ಸ — ಸ ನಿ<sub>2</sub> ದ<sub>2</sub> ಮ<sub>1</sub> ಗ<sub>2</sub> ಸ</strong></span>
+</div>
+
+<div class="notation-guide">
+    <h3>Notation Guide / ಸ್ವರಲಿಪಿ ಸೂಚಿ</h3>
+    • <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">m<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">d<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">n<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> — mandra sthāyi |
+    • <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">S<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">G<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">M<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> — tāra sthāyi
+    <span class="guide-kn">
+    • <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ಮ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ದ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#2a7a2a;font-weight:600;position:relative;display:inline-block;padding-bottom:6px;">ನಿ<span style="position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#2a7a2a;">·</span></span> — ಮಂದ್ರ ಸ್ಥಾಯಿ |
+    • <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ಸ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ಗ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> <span style="font-family:'Noto Sans Kannada',sans-serif;color:#b22020;font-weight:600;position:relative;display:inline-block;padding-top:8px;">ಮ<span style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:1.2em;line-height:1;color:#b22020;">·</span></span> — ತಾರ ಸ್ಥಾಯಿ
+    </span>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PALLAVI
+     Line 1: S , , | , , , , | , , , || S G M , | G S , N | D , , ||
+     Line 2: M D S , | N D M , || G , , || S M G M | G S -d S | , G M D ||
+     ═══════════════════════════════════════ -->
+<div class="section-title-row"><span class="section-title">Pallavi</span><span class="section-title-kn">ಪಲ್ಲವಿ</span></div>
+<table>
+    <colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+    <tbody>
+        <tr>
+            <td>S , ,</td>
+            <td>, , , ,</td>
+            <td>, , ,</td>
+            <td><t>S</t> <t>G</t> <t>M</t> ,</td>
+            <td><t>G</t> <t>S</t> , N</td>
+            <td>D , ,</td>
+        </tr>
+        <tr>
+            <td>M D <t>S</t> ,</td>
+            <td>N D M ,</td>
+            <td>G , ,</td>
+            <td>S M G M</td>
+            <td>G S - d S</td>
+            <td>, G M D</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════
+     ANUPALLAVI
+     Line 1: S , G M | G G S N | D S N , || M , D S | N N D M | G D M , ||
+     Line 2: d , S M | G S n n | d G S , || M G , M | D M - G M | , D S G ||
+     ═══════════════════════════════════════ -->
+<div class="section-title-row"><span class="section-title">Anupallavi</span><span class="section-title-kn">ಅನುಪಲ್ಲವಿ</span></div>
+<table>
+    <colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+    <tbody>
+        <tr>
+            <td><t>S</t> , <t>G</t> <t>M</t></td>
+            <td><t>G</t> <t>G</t> <t>S</t> N</td>
+            <td>D <t>S</t> N ,</td>
+            <td>M , D <t>S</t></td>
+            <td>N N D M</td>
+            <td>G D M ,</td>
+        </tr>
+        <tr>
+            <td>d , S M</td>
+            <td>G S n n</td>
+            <td>d G S ,</td>
+            <td>M G , M</td>
+            <td>D M - G M</td>
+            <td>, D <t>S</t> <t>G</t></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════
+     CHARANA 1
+     Line 1: D , , | D , , | M , D || M , , | M , , | G , M ||
+             | G , , | G , , | S , G ||  S , , | S , , | d , S ||
+     Line 2: n , , | n , , | d , S || G , S | , , G | M , D ||
+     ═══════════════════════════════════════ -->
+<div class="section-title-row"><span class="section-title">Charana 1</span><span class="section-title-kn">ಚರಣ 1</span></div>
+<table>
+    <colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+    <tbody>
+        <tr>
+            <td>D , ,</td>
+            <td>D , ,</td>
+            <td>M , D</td>
+            <td>M , ,</td>
+            <td>M , ,</td>
+            <td>G , M</td>
+        </tr>
+        <tr>
+            <td>G , ,</td>
+            <td>G , ,</td>
+            <td>S , G</td>
+            <td>S , ,</td>
+            <td>S , ,</td>
+            <td>d , S</td>
+        </tr>
+        <tr>
+            <td>n , ,</td>
+            <td>n , ,</td>
+            <td>d , S</td>
+            <td>G , S</td>
+            <td>, , G</td>
+            <td>M , D</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════
+     CHARANA 2
+     Line 1: S N , D | S N - G M | D S N D || D M , G | M D - M D | S N D M ||
+     Line 2: M G , S | G M - D S | N D M G || S , , M | G S - d s | M G S , ||
+     Line 3: S G , M | D M - G M | , D S G || M G , S | N D S , | S , S , ||
+     Line 4: S N , D | M G - N D | , M G S || d S , M | G S - G M | , D S G ||
+     ═══════════════════════════════════════ -->
+<div class="section-title-row"><span class="section-title">Charana 2</span><span class="section-title-kn">ಚರಣ 2</span></div>
+<table>
+    <colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+    <tbody>
+        <tr>
+            <td><t>S</t> N , D</td>
+            <td><t>S</t> N - G M</td>
+            <td>D <t>S</t> N D</td>
+            <td>D M , G</td>
+            <td>M D - M D</td>
+            <td><t>S</t> N D M</td>
+        </tr>
+        <tr>
+            <td>M G , S</td>
+            <td>G M - D <t>S</t></td>
+            <td>N D M G</td>
+            <td>S , , M</td>
+            <td>G S - d s</td>
+            <td>M G S ,</td>
+        </tr>
+        <tr>
+            <td>S G , M</td>
+            <td>D M - G M</td>
+            <td>, D <t>S</t> <t>G</t></td>
+            <td><t>M</t> <t>G</t> , <t>S</t></td>
+            <td>N D <t>S</t> ,</td>
+            <td><t>S</t> , <t>S</t> ,</td>
+        </tr>
+        <tr>
+            <td><t>S</t> N , D</td>
+            <td>M G - N D</td>
+            <td>, M G S</td>
+            <td>d S , M</td>
+            <td>G S - G M</td>
+            <td>, D <t>S</t> <t>G</t></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════
+     CHARANA 3
+     Line 1: D S N D | M G - D M | G S n d || S M G - D | M G - M D | S - N D , ||
+     Line 2: S , S M | G S - G , | S N , D || S , N D | , S M G | S N , , ||
+     Line 3: D S , - M | D S - G M | D - S G M || D D M - G | S n d - S | M G , , ||
+     Line 4: D M , N | D , S N | , G S , || M G S N | D - G S N | D - S N D ||
+     ═══════════════════════════════════════ -->
+<div class="section-title-row"><span class="section-title">Charana 3</span><span class="section-title-kn">ಚರಣ 3</span></div>
+<table>
+    <colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+    <tbody>
+        <tr>
+            <td>D <t>S</t> N D</td>
+            <td>M G - D M</td>
+            <td>G S n d</td>
+            <td>S M G - D</td>
+            <td>M G - M D</td>
+            <td><t>S</t> - N D ,</td>
+        </tr>
+        <tr>
+            <td><t>S</t> , <t>S</t> <t>M</t></td>
+            <td><t>G</t> <t>S</t> - <t>G</t> ,</td>
+            <td><t>S</t> N , D</td>
+            <td><t>S</t> , N D</td>
+            <td>, <t>S</t> <t>M</t> <t>G</t></td>
+            <td><t>S</t> N , ,</td>
+        </tr>
+        <tr>
+            <td>D <t>S</t> , - M</td>
+            <td>D <t>S</t> - G M</td>
+            <td>D - <t>S</t> G M</td>
+            <td>D D M - G</td>
+            <td>S n d - S</td>
+            <td>M G , ,</td>
+        </tr>
+        <tr>
+            <td>D M , N</td>
+            <td>D , <t>S</t> N</td>
+            <td>, <t>G</t> <t>S</t> ,</td>
+            <td><t>M</t> <t>G</t> <t>S</t> N</td>
+            <td>D - <t>G</t> <t>S</t> N</td>
+            <td>D - <t>S</t> N D</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="signature">Composed by @hamsanandi</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   SWARA RENDERING ENGINE
+   EN→KN: S=ಸ G=ಗ M=ಮ D=ದ N=ನಿ R=ರಿ P=ಪ
+   Mandra (lowercase) → green dot below  (.mandra)
+   Tāra → <t>S</t> in source → red dot above (.tara)
+   ═══════════════════════════════════════════════════════════════ */
+
+const EN_TO_KN = {
+  'S':'ಸ','R':'ರಿ','G':'ಗ','M':'ಮ','P':'ಪ','D':'ದ','N':'ನಿ',
+  's':'ಸ','r':'ರಿ','g':'ಗ','m':'ಮ','p':'ಪ','d':'ದ','n':'ನಿ',
+  ',':',','-':'-',' ':' ','.':"."
+};
+function isSwaraLetter(ch){return /[SRGMPDNsrgmpdnp]/.test(ch);}
+function taraWrap(h){return `<span class="tara">${h}</span>`;}
+function tokenHtml(token,forKn,isTara){
+  if(!token)return '';
+  const letter=token[0],suffix=token.slice(1);
+  const isLower=isSwaraLetter(letter)&&letter===letter.toLowerCase();
+  let inner;
+  if(forKn){const kn=EN_TO_KN[letter]!==undefined?EN_TO_KN[letter]:letter;inner=isLower?`<span class="mandra">${kn}</span>`:kn;}
+  else{inner=isLower?`<span class="mandra">${letter}</span>`:letter;}
+  const result=inner+suffix;
+  return isTara?taraWrap(result):result;
+}
+function toHtml(text,forKn,taraSet){
+  return text.trim().split(/\s+/).map((t,i)=>tokenHtml(t,forKn,taraSet&&taraSet.has(i))).join(' ');
+}
+function parseTd(td){
+  const clone=td.cloneNode(true);
+  const tokens=[];
+  clone.childNodes.forEach(node=>{
+    if(node.nodeType===Node.TEXT_NODE)node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t=>tokens.push({t,tara:false}));
+    else if(node.nodeName==='T')node.textContent.trim().split(/\s+/).filter(Boolean).forEach(t=>tokens.push({t,tara:true}));
+  });
+  const taraSet=new Set();tokens.forEach((item,i)=>{if(item.tara)taraSet.add(i);});
+  return{text:tokens.map(item=>item.t).join(' '),taraSet};
+}
+function stackedCell(text,taraSet){
+  return `<span class="cell-kn">${toHtml(text,true,taraSet)}</span><span class="cell-en">${toHtml(text,false,taraSet)}</span>`;
+}
+document.querySelectorAll('tbody tr td').forEach(td=>{
+  const{text,taraSet}=parseTd(td);
+  td.innerHTML=stackedCell(text,taraSet);
+});
+</script>
+</body>
+</html>
