@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ಶ್ರೀಕೃಷ್ಣಾಷ್ಟಕಂ — ರಾಗಮಾಲಿಕೆ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;600;700&family=Noto+Serif+Kannada:wght@400;600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --border: #d4c5a9; --border-light: #c0aa88;
+    --gold: #8b5e1a; --gold-light: #6b4510; --gold-dim: #a0783a;
+    --swara: #1a1208; --sahitya: #1a4a30;
+    --section-bg: #fdf9f3; --header-bg: #f5ede0; --beat-label: #8a7055;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--swara); font-family: 'Noto Sans Kannada', sans-serif; padding: 2rem 1rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  /* TITLE BLOCK */
+  .title-block { text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); position: relative; }
+  .title-block::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 160px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .raga-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .title-kn { font-family: 'Noto Serif Kannada', serif; font-size: 1.9rem; color: var(--gold-light); font-weight: 600; margin-bottom: 0.2rem; }
+  .title-roman { font-family: 'EB Garamond', serif; font-size: 1.15rem; color: var(--gold-dim); margin-bottom: 0.3rem; font-style: italic; letter-spacing: 0.04em; }
+  .title-sub { font-size: 0.78rem; color: var(--beat-label); margin-bottom: 0.2rem; }
+  .title-desc-en { font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--beat-label); font-style: italic; }
+
+  /* RAGA CHAIN */
+  .raga-chain { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; margin: 0.6rem 0 0.3rem; font-size: 0.65rem; font-family: 'Cinzel', serif; letter-spacing: 0.04em; }
+  .raga-chip { padding: 0.13rem 0.55rem; background: var(--header-bg); border: 1px solid var(--border); color: var(--gold-dim); white-space: nowrap; }
+  .raga-chip + .raga-chip { border-left: none; }
+  .raga-chip:first-child { border-radius: 3px 0 0 3px; }
+  .raga-chip:last-child { border-radius: 0 3px 3px 0; }
+
+  /* LEGEND */
+  .legend { display: flex; gap: 1.2rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; color: var(--beat-label); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* STANZA SECTIONS */
+  .stanza { margin-bottom: 2.5rem; }
+  .stanza-header { padding: 0.5rem 0.75rem; background: var(--header-bg); border-left: 3px solid var(--gold); margin-bottom: 0; display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+  .stanza-num { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; }
+  .stanza-raga-kn { font-family: 'Noto Serif Kannada', serif; font-size: 0.82rem; color: var(--gold-light); font-weight: 600; }
+  .stanza-raga-en { font-family: 'EB Garamond', serif; font-size: 0.82rem; font-style: italic; color: var(--gold-dim); }
+  .stanza-scale { font-family: 'EB Garamond', serif; font-size: 0.72rem; color: var(--beat-label); font-style: italic; margin-left: auto; }
+
+  /* NOTATION TABLE */
+  .varna-table { width: 100%; border-collapse: collapse; table-layout: fixed; background: var(--section-bg); border: 1px solid var(--border); }
+  .tala-group th { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.7rem; font-weight: 600; color: var(--gold); text-align: center; padding: 0.3rem 0.2rem; background: #e8d8b8; border: 1px solid var(--border-light); }
+  .akshar-header th { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.06em; color: var(--beat-label); text-align: center; padding: 0.22rem 0.15rem 0.3rem; border: 1px solid var(--border); background: #ede0cc; width: 12.5%; }
+  .varna-table td { border: 1px solid var(--border); padding: 0.4rem 0.28rem; vertical-align: top; width: 12.5%; }
+
+  /* SWARA DISPLAY */
+  .kn  { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.8rem; color: var(--swara); display: block; line-height: 2.0; padding-top: 0.7em; padding-bottom: 0.5em; }
+  .rom { font-family: 'EB Garamond', serif; font-size: 0.76rem; color: #555; display: block; line-height: 2.0; padding-top: 0.12em; padding-bottom: 0.18em; border-top: 1px dashed #a8ccb8; }
+  .sa  { font-family: 'Noto Serif Kannada', serif; font-size: 0.78rem; color: var(--sahitya); display: block; line-height: 1.5; margin-top: 0.28rem; padding-top: 0.28rem; border-top: 1px dotted #ccc; }
+  .sa-en { font-family: 'EB Garamond', serif; font-size: 0.76rem; color: #3a6a50; font-style: italic; display: block; line-height: 1.4; padding-top: 0.08rem; }
+
+  /* OCTAVE MARKS */
+  .t { color: #cc0000; display: inline-block; position: relative; }
+  .t::before { content: '•'; position: absolute; top: -0.82em; left: 50%; transform: translateX(-50%); font-size: 0.5em; line-height: 1; color: #cc0000; }
+  .m { color: #007700; display: inline-block; position: relative; }
+  .m::after { content: '•'; position: absolute; bottom: -0.35em; left: 50%; transform: translateX(-50%); font-size: 0.5em; line-height: 1; color: #007700; }
+
+  /* AVARTA DIVIDER */
+  .avarta-div td { height: 4px; background: linear-gradient(90deg, var(--border), var(--border-light), var(--border)); padding: 0; border: none; }
+
+  /* SWARA-ONLY rows (no sahitya) — chittaswara / ettugade */
+  .sw-row td { padding: 0.35rem 0.28rem; }
+  .kn-s { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.8rem; color: var(--swara); display: block; line-height: 2.0; }
+  .rom-s { font-family: 'EB Garamond', serif; font-size: 0.76rem; color: #555; display: block; line-height: 2.0; padding-top: 0.6em; border-top: 1px dotted #ccc; }
+
+  /* SUBSECTION RAGA LABELS (inside ettugade) */
+  .raga-row td { background: #f0e8d8; border: 1px solid var(--border-light); padding: 0.18rem 0.5rem; }
+  .raga-row-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
+  .raga-row-kn { font-family: 'Noto Serif Kannada', sans-serif; font-size: 0.7rem; color: var(--beat-label); margin-left: 0.35rem; }
+  .raga-row-en { font-family: 'EB Garamond', serif; font-size: 0.72rem; font-style: italic; color: var(--beat-label); margin-left: 0.25rem; }
+
+  .attr { text-align: right; margin-top: 2.5rem; padding-right: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--beat-label); opacity: 0.75; }
+
+  /* SHUDDHA SAHITYA (text-only intro) */
+  .sahitya-verses { max-width: 620px; margin: 1.6rem auto 0; }
+  .sahitya-verse { margin-bottom: 1.25rem; text-align: center; }
+  .sahitya-line { font-family: 'Noto Serif Kannada', serif; font-size: 1.04rem; color: var(--sahitya); line-height: 1.9; }
+  .sahitya-num { color: var(--gold); font-weight: 600; letter-spacing: 0.05em; }
+
+  /* PALLAVI BOX (end of Suruti) */
+  .pallavi-box { max-width: 460px; margin: 1.3rem auto 0.4rem; text-align: center; border: 1px solid var(--border); background: var(--section-bg); padding: 0.55rem 1rem; border-radius: 4px; }
+  .pallavi-label { display: block; font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
+  .pallavi-line { font-family: 'Noto Serif Kannada', serif; font-size: 1.05rem; color: var(--sahitya); }
+
+  /* 2nd-kala underline brackets */
+  .ul { display: inline-block; border-bottom: 1px solid currentColor; padding: 0 2px; }
+  .ul2 { display: inline-block; border-bottom: 3px double currentColor; padding: 0 2px; }
+</style>
+</head>
+<body>
+
+<!-- ══════ TITLE ══════ -->
+<div class="title-block">
+  <div class="raga-label">Rāgamālike · Ādi Tāḷa · Aṣṭaka</div>
+  <div class="title-kn">ಶ್ರೀಕೃಷ್ಣಾಷ್ಟಕಂ</div>
+  <div class="title-roman">Śrī Kṛṣṇāṣṭakam</div>
+  <div class="title-sub">ಸಾಹಿತ್ಯ: ಪ್ರಭುನಂದನ ಮೂರ್ತಿ &nbsp;·&nbsp; Sahitya: Prabhunandan Murthy</div>
+  <div class="raga-chain">
+    <span class="raga-chip">೧ ಅಮೃತವರ್ಷಿಣಿ</span>
+    <span class="raga-chip">೨ ಕಲ್ಯಾಣವಸಂತ</span>
+    <span class="raga-chip">೩ ರೇವಗುಪ್ತಿ</span>
+    <span class="raga-chip">೪ ಗಾಂಗೇಯಭೂಷಣಿ</span>
+    <span class="raga-chip">೫ ವಿಜಯನಾಗರಿ</span>
+    <span class="raga-chip">೬ ಮಧುಕೌಂಸ್</span>
+    <span class="raga-chip">೭ ಮೋಹನ</span>
+    <span class="raga-chip">೮ ಸುರುಟಿ</span>
+  </div>
+  <div class="raga-chain" style="margin-top:3px;">
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">1 Amṛtavarṣiṇi</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">2 Kalyāṇavasanta</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">3 Rēvagupti</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">4 Gāṅgēyabhūṣaṇi</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">5 Vijayanāgari</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">6 Madhukauṃs</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">7 Mōhana</span>
+    <span class="raga-chip" style="font-family:'EB Garamond',serif;font-style:italic;">8 Suruṭi</span>
+  </div>
+  <div class="title-desc-en">Tara sthayi in red · Mandra sthayi in green · Bold = emphasized/gamaka swaras per original</div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1a1208"></div>Madhyasthayi</div>
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#cc0000"></div>
+    <span style="display:inline-flex;gap:0.12rem;font-family:'Noto Sans Kannada',sans-serif;font-size:0.8rem;padding-top:0.55em;">
+      <span class="t">ಸ</span><span class="t">ರಿ</span><span class="t">ಗ</span>
+    </span>&nbsp; Tarasthayi
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#007700"></div>
+    <span style="display:inline-flex;gap:0.12rem;font-family:'Noto Sans Kannada',sans-serif;font-size:0.8rem;padding-bottom:0.45em;">
+      <span class="m">ಗ</span><span class="m">ಪ</span><span class="m">ದ</span>
+    </span>&nbsp; Mandrasthayi
+  </div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1a4a30"></div>ಸಾಹಿತ್ಯ / Sāhitya</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SHUDDHA SAHITYA — text only (no notation)
+════════════════════════════════════════════════ -->
+<div class="stanza shuddha">
+  <div class="stanza-header">
+    <span class="stanza-num">Shuddha Sahitya</span>
+    <span class="stanza-raga-kn">ಶುದ್ಧ ಸಾಹಿತ್ಯ</span>
+    <span class="stanza-raga-en">the text alone, without svara notation</span>
+  </div>
+  <div class="sahitya-verses">
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಗೋವಿಂದ ನಿಜಭಕ್ತಪಾಲ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಗೋಪಾಲ ನವನೀತಚೋರ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಗೋವರ್ಧನಮಹೀಧ್ರಧಾರಿನ್</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಗೀತಾಮೃತಮಹೋರ್ಮಿಮಾಲಿನ್ <span class="sahitya-num">|| ೧</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಕಲ್ಯಾಣಸುಗುಣೈಕಧಾಮ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಯೋಗೀಶ ಪರಿಪೂರ್ಣಕಾಮ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಸರ್ವೇಶ್ವರ ಜಗನ್ನಿವಾಸ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಸರ್ವಜ್ಞ ಸಕಲಾಗಮೇಡ್ಯ <span class="sahitya-num">|| ೨</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ನಾರಾಯಣ ನೃಸಿಂಹ ವಿಷ್ಣೋ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಸಂಕರ್ಷಣ ಸುಸರ್ವಜಿಷ್ಣೋ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ದಾಮೋದರ ಮುಕುಂದ ಶೌರೇ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ದೈತ್ಯಾಂತಕ ಹರೇ ಮುರಾರೇ <span class="sahitya-num">|| ೩</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಭಾಮಾರಮಣ ರುಕ್ಮಿಣೀಶ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಪೂತಾತ್ಮ ವಿದುರಾನ್ನತುಷ್ಟ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ವಾರ್ಷ್ಣೇಯನುತದಿವ್ಯಕಾಯ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಗಾಂಗೇಯನುತದಿವ್ಯನಾಮನ್ <span class="sahitya-num">|| ೪</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಕುಂತೀಸ್ತುತದೀನಬಂಧೋ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಕೌಂತೇಯವಿಜಯೈಕಹೇತೋ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಪಾಂಚಾಲತನಯಾರ್ತಿಹರ್ತಃ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣ ಸೌಭದ್ರಸುತಜೀವಗೋಪ್ತಃ <span class="sahitya-num">|| ೫</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ಮನಸಾ ಸ್ಮರಾಮಿ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ಶಿರಸಾ ನಮಾಮಿ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ಚ ಪದೇಪದೇಽಹಂ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಪಾದಾಬ್ಜಮಧುಪಾಯಿನೋsಸ್ಮಿ <span class="sahitya-num">|| ೬</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ವದನೇ ಸದೋಕ್ತಿಃ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ರಸನಪ್ರಸಕ್ತಿಃ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ಭವತು ಪ್ರವೃತ್ತಿಃ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಪಾದೋದಕಮಿಹೈಕ ಶಕ್ತಿಃ <span class="sahitya-num">|| ೭</span></div>
+    </div>
+    <div class="sahitya-verse">
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ದರಿತಾನ್ಯಘಾನಿ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ಭರಿತಾ ಚ ಭೂತಿಃ |</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಕೃಷ್ಣೇತಿ ತರಣಮ್‌ ಭವಾಬ್ದೇಃ</div>
+      <div class="sahitya-line">ಶ್ರೀಕೃಷ್ಣಪಾದೌ ಚ ಶರಣಂ ಪ್ರಪದ್ಯೇ <span class="sahitya-num">|| ೮</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 1 — AMRUTAVARSHINI
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>1</strong></span>
+    <span class="stanza-raga-kn">ಅಮೃತವರ್ಷಿಣಿ (೬೬ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Amṛtavarṣiṇi (From the 66th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ಗ೩ ಮ೨ ಪ ನಿ೩ · ಸ ನಿ೩ ಪ ಮ೨ ಗ೩ ಸ</span><span>S G3 M2 P N3 · S N3 P M2 G3 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group">
+        <th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th>
+      </tr>
+      <tr class="akshar-header">
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Line 1 -->
+      <tr>
+        <td><span class="kn">ನೀ</span><span class="sa">ಶ್ರೀ</span><span class="rom">N</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಪ</span></span><span class="sa">ಕೃ - ಷ್ಣ</span><span class="ul"><span class="rom">P , , P</span></span><span class="sa-en">kṛ - ṣṇa</span></td>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಗೋ</span><span class="rom">M ,</span><span class="sa-en">gō</span></td>
+        <td><span class="ul"><span class="kn">ಗಾ , ಸ</span></span><span class="sa">ವಿಂ ದ</span><span class="ul"><span class="rom">G , , S</span></span><span class="sa-en">viṃ da</span></td>
+        <td><span class="kn"><span class="m">ನಿ</span> <span class="m">ನಿ</span></span><span class="sa">ನಿಜ</span><span class="rom"><span class="m">N</span> <span class="m">N</span></span><span class="sa-en">nija</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಸ</span></span><span class="sa">ಭ - ಕ್ತ</span><span class="ul"><span class="rom">S , , S</span></span><span class="sa-en">bhak - ta</span></td>
+        <td><span class="ul"><span class="kn">ಸ ಸ ಪ ಮ</span></span><span class="sa">ಪಾ - - -</span><span class="ul"><span class="rom">S S P M</span></span><span class="sa-en">pā - - -</span></td>
+        <td><span class="ul"><span class="kn">ಮ ಗ ಗಾ</span></span><span class="sa">ಲ - -</span><span class="ul"><span class="rom">M G G ,</span></span><span class="sa-en">la - -</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 2 -->
+      <tr>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">M ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಪ</span></span><span class="sa">ಕೃ - ಷ್ಣ</span><span class="ul"><span class="rom">P , , P</span></span><span class="sa-en">kṛ - ṣṇa</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ಗೋ</span><span class="rom">P ,</span><span class="sa-en">gō</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , ಮ</span></span><span class="sa">ಪಾ ಲ</span><span class="ul"><span class="rom">N , , M</span></span><span class="sa-en">pā la</span></td>
+        <td><span class="kn">ಗ ಮ</span><span class="sa">ನವ</span><span class="rom">G M</span><span class="sa-en">nava</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ನಿ</span></span><span class="sa">ನೀ ತ</span><span class="ul"><span class="rom">P , , N</span></span><span class="sa-en">nīta</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸ</span> <span class="t">ಸ</span> <span class="t">ಗಾ</span></span></span><span class="sa">ಚೋ - -</span><span class="ul"><span class="rom"><span class="t">S</span> <span class="t">S</span> <span class="t">G</span> ,</span></span><span class="sa-en">cō - -</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ರ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">ra</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 3 -->
+      <tr>
+        <td><span class="kn">ಪಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">P ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , <span class="t">ಸ</span></span></span><span class="sa">ಕೃ - ಷ್ಣ</span><span class="ul"><span class="rom"><span class="t">S</span> , , <span class="t">S</span></span></span><span class="sa-en">kṛ - ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ಗಾ</span></span><span class="sa">ಗೋ</span><span class="rom"><span class="t">G</span> ,</span><span class="sa-en">gō</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , <span class="t">ಸ</span></span></span><span class="sa">ವರ್ಧ</span><span class="ul"><span class="rom"><span class="t">S</span> , , <span class="t">S</span></span></span><span class="sa-en">vardha</span></td>
+        <td><span class="kn">ನಿ ಮ</span><span class="sa">ನ ಮ</span><span class="rom">N M</span><span class="sa-en">na ma</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಮ</span></span><span class="sa">ಹೀ ಧ್ರ</span><span class="ul"><span class="rom">P , , M</span></span><span class="sa-en">hīdhra</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ಧಾ</span><span class="rom">N ,</span><span class="sa-en">dhā</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ರಿನ್</span><span class="rom">N ,</span><span class="sa-en">rin</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 4 -->
+      <tr>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">M ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ಮ</span></span><span class="sa">ಕೃ , ಷ್ಣ</span><span class="ul"><span class="rom">M , , M</span></span><span class="sa-en">kṛ , ṣṇa</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ಗೀ</span><span class="rom">G ,</span><span class="sa-en">gī</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಮ</span></span><span class="sa">ತಾ ಮೃ</span><span class="ul"><span class="rom">S , , M</span></span><span class="sa-en">tāmṛ</span></td>
+        <td><span class="kn">ಮ ಪ</span><span class="sa">ತ ಮ</span><span class="rom">M P</span><span class="sa-en">ta ma</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಮ</span></span><span class="sa">ಹೋ ರ್ಮಿ</span><span class="ul"><span class="rom">P , , M</span></span><span class="sa-en">hormi</span></td>
+        <td><span class="ul"><span class="kn">ಗ ಮ ನಿ ನಿ</span></span><span class="sa">ಮಾ - - -</span><span class="ul"><span class="rom">G M N N</span></span><span class="sa-en">mā - - -</span></td>
+        <td><span class="ul"><span class="kn">ಪ ಮ ಮ ಗ</span></span><span class="sa">ಲಿನ್ - -</span><span class="ul"><span class="rom">P M M G</span></span><span class="sa-en">lin - -</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 1 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Amṛtavarṣiṇi)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ಮ ಗ</span><span class="rom-s">M G</span></td>
+        <td><span class="kn-s">, ಪ</span><span class="rom-s">, P</span></td>
+        <td><span class="kn-s">ಮ-ನಿ</span><span class="rom-s">M-N</span></td>
+        <td><span class="kn-s">ಪ ಮ</span><span class="rom-s">P M</span></td>
+        <td><span class="kn-s">ಪ ಗ</span><span class="rom-s">P G</span></td>
+        <td><span class="kn-s">, ಮ</span><span class="rom-s">, M</span></td>
+        <td><span class="kn-s">ಗ ಸ</span><span class="rom-s">G S</span></td>
+        <td><span class="kn-s"><span class="m">ನಿ</span> ಸ</span><span class="rom-s"><span class="m">N</span> S</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="m">ಪ</span> <span class="m">ನಿ</span></span><span class="rom-s"><span class="m">P</span> <span class="m">N</span></span></td>
+        <td><span class="kn-s">, ಸ</span><span class="rom-s">, S</span></td>
+        <td><span class="kn-s">ಮ ಗ</span><span class="rom-s">M G</span></td>
+        <td><span class="kn-s">ಪ ಮ</span><span class="rom-s">P M</span></td>
+        <td><span class="kn-s"><span class="t">ಸ</span> ನಿ</span><span class="rom-s"><span class="t">S</span> N</span></td>
+        <td><span class="kn-s">, <span class="t">ಗ</span></span><span class="rom-s">, <span class="t">G</span></span></td>
+        <td><span class="kn-s"><span class="t">ಗ</span> <span class="t">ಸ</span></span><span class="rom-s"><span class="t">G</span> <span class="t">S</span></span></td>
+        <td><span class="kn-s">ನಿ <span class="t">ಸ</span></span><span class="rom-s">N <span class="t">S</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ಗಾ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">G</span> , <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನೀ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">N <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ಸಾ</span> ನಿ</span></span><span class="rom-s"><span class="ul">, <span class="t">S</span> , N</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಪಾ</span></span><span class="rom-s"><span class="ul">P M P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ನೀ ಪ</span></span><span class="rom-s"><span class="ul">N N P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮಾ ಪಾ</span></span><span class="rom-s"><span class="ul">M , P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಗಾ ಮ</span></span><span class="rom-s"><span class="ul">, G , M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ನಿ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P N <span class="t">S</span> ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ಗ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">G</span> <span class="t">S</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ಪ ಪ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> . P P</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ನಿ . ಮಾ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> N . M ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ನಿ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P N <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ಗ</span> ಸ . ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">G</span> S . N</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ಪ . <span class="t">ಸ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">N P . <span class="t">S</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ಪ ಪ ಮ</span></span><span class="rom-s"><span class="ul">N P P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ಪ ನಿ</span></span><span class="rom-s"><span class="ul">G M P N</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 2 — KALYANA VASANTA
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>2</strong></span>
+    <span class="stanza-raga-kn">ಕಲ್ಯಾಣವಸಂತ (೨೧ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Kalyāṇavasanta (From the 21st mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ಗ೨ ಮ೧ ದ೧ ನಿ೩ · ಸ ನಿ೩ ದ೧ ಪ ಮ೧ ಗ೨ ರಿ೨ ಸ</span><span>S G2 M1 D1 N3 · S N3 D1 P M1 G2 R2 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <!-- Line 1 -->
+      <tr>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಶ್ರೀ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , ದ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">N , , D</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ಕ</span><span class="rom">P ,</span><span class="sa-en">ka</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ಗ</span></span><span class="sa">ಲ್ಯಾ ಣ</span><span class="ul"><span class="rom">M , , G</span></span><span class="sa-en">lyā ṇa</span></td>
+        <td><span class="kn">ರಿ ರಿ</span><span class="sa">ಸುಗು</span><span class="rom">R R</span><span class="sa-en">sugu</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಸ</span></span><span class="sa">ಣೈ ಕ</span><span class="ul"><span class="rom">S , , S</span></span><span class="sa-en">ṇaika</span></td>
+        <td><span class="ul"><span class="kn"><span class="m">ನಿ</span> ಸ ಗ ಮ</span></span><span class="sa">ಧಾ - - -</span><span class="ul"><span class="rom"><span class="m">N</span> S G M</span></span><span class="sa-en">dhā - - -</span></td>
+        <td><span class="kn">ದಾ</span><span class="sa">ಮ</span><span class="rom">D ,</span><span class="sa-en">ma</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 2 -->
+      <tr>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">M ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ನಿ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">D , , N</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ಗಾ</span></span><span class="sa">ಯೋ</span><span class="rom"><span class="t">G</span> ,</span><span class="sa-en">yō</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರೀ</span> , <span class="t">ಸ</span></span></span><span class="sa">ಗೀ ಶ</span><span class="ul"><span class="rom"><span class="t">R</span> , , <span class="t">S</span></span></span><span class="sa-en">gīśa</span></td>
+        <td><span class="kn">ನಿ ನಿ</span><span class="sa">ಪ ರಿ</span><span class="rom">N N</span><span class="sa-en">pari</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ಪ</span></span><span class="sa">ಪೂ ರ್ಣ</span><span class="ul"><span class="rom">D , , P</span></span><span class="sa-en">pūrṇa</span></td>
+        <td><span class="ul"><span class="kn">ಮ ಗ ರಿ ಸ</span></span><span class="sa">ಕಾ - - -</span><span class="ul"><span class="rom">M G R S</span></span><span class="sa-en">kā - - -</span></td>
+        <td><span class="ul"><span class="kn">ಗ ಮ ದ ನಿ</span></span><span class="sa">ಮ - -</span><span class="ul"><span class="rom">G M D N</span></span><span class="sa-en">ma - -</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 3 -->
+      <tr>
+        <td><span class="kn">ದಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">D ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , <span class="t">ಸ</span></span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">N , , <span class="t">S</span></span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಸ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">sa</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಗಾ</span> , <span class="t">ಗ</span></span></span><span class="sa">ರ್ವೇ ಶ್ವ</span><span class="ul"><span class="rom"><span class="t">G</span> , , <span class="t">G</span></span></span><span class="sa-en">rvēśva</span></td>
+        <td><span class="kn"><span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="sa">ರ ಜ</span><span class="rom"><span class="t">R</span> <span class="t">S</span></span><span class="sa-en">ra ja</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , ನಿ</span></span><span class="sa">ಗ ನ್ನಿ</span><span class="ul"><span class="rom">N , , N</span></span><span class="sa-en">ganni</span></td>
+        <td><span class="kn"><span class="t">ಗಾ</span></span><span class="sa">ವಾ</span><span class="rom"><span class="t">G</span> ,</span><span class="sa-en">vā</span></td>
+        <td><span class="kn"><span class="t">ಗಾ</span></span><span class="sa">ಸ</span><span class="rom"><span class="t">G</span> ,</span><span class="sa-en">sa</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <!-- Line 4 -->
+      <tr>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಶ್ರೀ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , ನಿ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom"><span class="t">S</span> , , N</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ದಾ</span><span class="sa">ಸ</span><span class="rom">D ,</span><span class="sa-en">sa</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಮ</span></span><span class="sa">ರ್ವ ಜ್ಞ</span><span class="ul"><span class="rom">P , , M</span></span><span class="sa-en">rvajña</span></td>
+        <td><span class="kn">ಗ ರಿ</span><span class="sa">ಸ ಕ</span><span class="rom">G R</span><span class="sa-en">sa ka</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಸ</span></span><span class="sa">ಲಾ ಗ</span><span class="ul"><span class="rom">S , , S</span></span><span class="sa-en">lāga</span></td>
+        <td><span class="kn">ಗ ಮ</span><span class="sa">ಮೇ -</span><span class="rom">G M</span><span class="sa-en">mē -</span></td>
+        <td><span class="kn">ದ ನಿ</span><span class="sa">ಡ್ಯ -</span><span class="rom">D N</span><span class="sa-en">ḍya -</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 2 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Kalyāṇavasanta)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ದ ಪ</span><span class="rom-s">D P</span></td>
+        <td><span class="kn-s">ಮ ಗ</span><span class="rom-s">M G</span></td>
+        <td><span class="kn-s">ರಿ ಸ</span><span class="rom-s">R S</span></td>
+        <td><span class="kn-s"><span class="m">ನಿ</span> ಸ</span><span class="rom-s"><span class="m">N</span> S</span></td>
+        <td><span class="kn-s">ಗ ಮ</span><span class="rom-s">G M</span></td>
+        <td><span class="kn-s">ದ ನಿ</span><span class="rom-s">D N</span></td>
+        <td><span class="kn-s"><span class="t">ಗ</span> <span class="t">ರಿ</span></span><span class="rom-s"><span class="t">G</span> <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಸಾ</span></span><span class="rom-s"><span class="t">S</span> ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s">ನಿ ದ</span><span class="rom-s">N D</span></td>
+        <td><span class="kn-s">, ಪ</span><span class="rom-s">, P</span></td>
+        <td><span class="kn-s">, ಮ</span><span class="rom-s">, M</span></td>
+        <td><span class="kn-s">ಗ ರಿ</span><span class="rom-s">G R</span></td>
+        <td><span class="kn-s">ಗ ಮ</span><span class="rom-s">G M</span></td>
+        <td><span class="kn-s">ದ - ಮ</span><span class="rom-s">D - M</span></td>
+        <td><span class="kn-s">ದ ನಿ</span><span class="rom-s">D N</span></td>
+        <td><span class="kn-s"><span class="t">ಸಾ</span></span><span class="rom-s"><span class="t">S</span> ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ರಿ</span> ನೀ</span></span><span class="rom-s"><span class="ul">, <span class="t">R</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಮ . ಗ</span></span><span class="rom-s"><span class="ul">D P M . G</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಮ ದ ನಿ</span></span><span class="rom-s"><span class="ul">, M D N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> <span class="t">ಗಾ</span> . ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> <span class="t">G</span> , . N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ದ ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . D N</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಮ ದಾ</span></span><span class="rom-s"><span class="ul">, M D ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ದ ನಿ</span></span><span class="rom-s"><span class="ul">G M D N</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ದ ದ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . D D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ . ಪಾ</span></span><span class="rom-s"><span class="ul">P M . P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ರಿ ಸ <span class="m">ನಿ</span></span></span><span class="rom-s"><span class="ul">G R S <span class="m">N</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ಸ ಗ ಮ . ಗ</span></span><span class="rom-s"><span class="ul">S G M . G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ದ . ಮ ದ</span></span><span class="rom-s"><span class="ul">M D . M D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ . ದ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">N . D N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> N</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 3 — REVAGUPTA
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>3</strong></span>
+    <span class="stanza-raga-kn">ರೇವಗುಪ್ತಿ (೧೫ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Rēvagupti (From the 15th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ರಿ೧ ಗ೩ ಪ ದ೧ · ಸ ದ೨ ಪ ಗ೩ ರಿ೧ ಸ</span><span>S R1 G3 P D1 · S D2 P G3 R1 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="kn">ದಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">D ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಪ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">P , , P</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ನಾ</span><span class="rom">G ,</span><span class="sa-en">nā</span></td>
+        <td><span class="ul"><span class="kn">ಗಾ , ರಿ</span></span><span class="sa">ರಾ ಯ</span><span class="ul"><span class="rom">G , , R</span></span><span class="sa-en">rāya</span></td>
+        <td><span class="kn">ಸ <span class="m">ದ</span></span><span class="sa">ಣ ನೃ</span><span class="rom">S <span class="m">D</span></span><span class="sa-en">ṇa nṛ</span></td>
+        <td><span class="ul"><span class="kn"><span class="m">ದಾ</span> , ಸ</span></span><span class="sa">ಸಿಂ ಹ</span><span class="ul"><span class="rom"><span class="m">D</span> , , S</span></span><span class="sa-en">siṃha</span></td>
+        <td><span class="kn">ರೀ</span><span class="sa">ವಿ</span><span class="rom">R ,</span><span class="sa-en">vi</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ಷ್ಣೋ</span><span class="rom">G ,</span><span class="sa-en">ṣṇō</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn">ರೀ</span><span class="sa">ಶ್ರೀ</span><span class="rom">R ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಪ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">P , , P</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ಸಂ</span><span class="rom">G ,</span><span class="sa-en">saṃ</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ದ</span></span><span class="sa">ಕ ರ್ಷ</span><span class="ul"><span class="rom">D , , D</span></span><span class="sa-en">karṣa</span></td>
+        <td><span class="kn">ಪ ಪ</span><span class="sa">ಣ ಸು</span><span class="rom">P P</span><span class="sa-en">ṇa su</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ದ</span></span><span class="sa">ಸ ರ್ವ</span><span class="ul"><span class="rom">D , , D</span></span><span class="sa-en">sarva</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಜಿ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">ji</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಷ್ಣೋ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">ṣṇō</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn">ದಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">D ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸ</span> <span class="t">ರಿ</span> <span class="t">ಗಾ</span></span></span><span class="sa">ಕೃ - ಷ್ಣ</span><span class="ul"><span class="rom"><span class="t">S</span> <span class="t">R</span> <span class="t">G</span> ,</span></span><span class="sa-en">kṛ - ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ದಾ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">dā</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಮೋ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">mō</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸ</span> <span class="t">ಸ</span> ಪಾ</span></span><span class="sa">ದ ರ ಮು</span><span class="ul"><span class="rom"><span class="t">S</span> <span class="t">S</span> P ,</span></span><span class="sa-en">da ra mu</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ದ</span></span><span class="sa">ಕುಂ ದ</span><span class="ul"><span class="rom">D , , D</span></span><span class="sa-en">kuṃda</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಶೌ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">śau</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ರೇ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">rē</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn">ದಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">D ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , <span class="t">ಸ</span></span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom"><span class="t">S</span> , , <span class="t">S</span></span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ದೈ</span><span class="rom">G ,</span><span class="sa-en">dai</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ದ</span></span><span class="sa">ತ್ಯಾಂ ತ</span><span class="ul"><span class="rom">D , , D</span></span><span class="sa-en">tyāṃ ta</span></td>
+        <td><span class="kn">ಪ ಗ</span><span class="sa">ಕ ಹ</span><span class="rom">P G</span><span class="sa-en">ka ha</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ದ</span></span><span class="sa">ರೇ ಮು</span><span class="ul"><span class="rom">P , , D</span></span><span class="sa-en">rē mu</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸ</span> <span class="t">ರಿ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span></span></span><span class="sa">ರಾ - - -</span><span class="ul"><span class="rom"><span class="t">S</span> <span class="t">R</span> <span class="t">G</span> <span class="t">R</span></span></span><span class="sa-en">rā - - -</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ರೇ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">rē</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 3 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Rēvagupti)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ದ ಪ</span><span class="rom-s">D P</span></td>
+        <td><span class="kn-s">ದ ಗ</span><span class="rom-s">D G</span></td>
+        <td><span class="kn-s">ಪ ರಿ</span><span class="rom-s">P R</span></td>
+        <td><span class="kn-s">ಗ ರಿ</span><span class="rom-s">G R</span></td>
+        <td><span class="kn-s">ಸ <span class="m">ದ</span></span><span class="rom-s">S <span class="m">D</span></span></td>
+        <td><span class="kn-s">ಸ ರಿ</span><span class="rom-s">S R</span></td>
+        <td><span class="kn-s">ಗ ಪ</span><span class="rom-s">G P</span></td>
+        <td><span class="kn-s">ದಾ</span><span class="rom-s">D ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="t">ಸ</span> ದ</span><span class="rom-s"><span class="t">S</span> D</span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="rom-s"><span class="t">R</span> <span class="t">S</span></span></td>
+        <td><span class="kn-s"><span class="t">ಗ</span> <span class="t">ರಿ</span></span><span class="rom-s"><span class="t">G</span> <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಸ</span> ದ</span><span class="rom-s"><span class="t">S</span> D</span></td>
+        <td><span class="kn-s">ಪ ದ</span><span class="rom-s">P D</span></td>
+        <td><span class="kn-s"><span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="rom-s"><span class="t">S</span> <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಗ</span> <span class="t">ರಿ</span></span><span class="rom-s"><span class="t">G</span> <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಸಾ</span></span><span class="rom-s"><span class="t">S</span> ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಗಾ</span> . <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">G</span> , . <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಗಾ</span> . ದ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">G</span> , . D</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> <span class="t">ರಿ</span> <span class="t">ಗಾ</span></span></span><span class="rom-s"><span class="ul"><span class="t">S</span> <span class="t">R</span> <span class="t">G</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸ</span> <span class="t">ರಿ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> <span class="t">R</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ <span class="t">ಸಾ</span> . ಪ</span></span><span class="rom-s"><span class="ul">D <span class="t">S</span> , . P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ <span class="t">ಸಾ</span> . ಗ</span></span><span class="rom-s"><span class="ul">D <span class="t">S</span> , . G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ರಿ ಗ ಪ ದ</span></span><span class="rom-s"><span class="ul">R G P D</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ದ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> D</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> . <span class="t">ರಿ</span> <span class="t">ಸ</span> ದ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> . <span class="t">R</span> <span class="t">S</span> D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ . <span class="t">ಸ</span> ದ</span></span><span class="rom-s"><span class="ul">P D . <span class="t">S</span> D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಗ ಪಾ</span></span><span class="rom-s"><span class="ul">P G P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಸ</span> ದ ಪ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">S</span> D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ . <span class="t">ಸ</span> ದ ಪ</span></span><span class="rom-s"><span class="ul">G . <span class="t">S</span> D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ರಿ . ಸ</span></span><span class="rom-s"><span class="ul">G R . S</span></span></td>
+        <td><span class="kn-s"><span class="ul">ರಿ ಗ ಪ ದ</span></span><span class="rom-s"><span class="ul">R G P D</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 4 — GANGEYABHUSHANI
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>4</strong></span>
+    <span class="stanza-raga-kn">ಗಾಂಗೇಯಭೂಷಣಿ (೩೩ನೇ ಮೇಳರಾಗ)</span>
+    <span class="stanza-raga-en">Gāṅgēyabhūṣaṇi (33rd melaraga)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ರಿ೩ ಗ೩ ಮ೧ ಪ ದ೧ ನಿ೩ · ಸ ನಿ೩ ದ೧ ಪ ಮ೧ ಗ೩ ರಿ೩ ಸ</span><span>S R3 G3 M1 P D1 N3 · S N3 D1 P M1 G3 R3 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="kn">ನೀ</span><span class="sa">ಶ್ರೀ</span><span class="rom">N</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ಪ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">D , , P</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಭಾ</span><span class="rom">M ,</span><span class="sa-en">bhā</span></td>
+        <td><span class="ul"><span class="kn">ಗಾ , ರಿ</span></span><span class="sa">ಮಾ ರ</span><span class="ul"><span class="rom">G , , R</span></span><span class="sa-en">māra</span></td>
+        <td><span class="kn">ಸ ಸ</span><span class="sa">ಮ ಣ</span><span class="rom">S S</span><span class="sa-en">ma ṇa</span></td>
+        <td><span class="ul"><span class="kn">ರೀ , ಸ</span></span><span class="sa">ರು ಕ್ಮಿ</span><span class="ul"><span class="rom">R , , S</span></span><span class="sa-en">rukmi</span></td>
+        <td><span class="kn">ರೀ</span><span class="sa">ಣೀ</span><span class="rom">R ,</span><span class="sa-en">ṇī</span></td>
+        <td><span class="kn">ರೀ</span><span class="sa">ಶ</span><span class="rom">R ,</span><span class="sa-en">śa</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn"><span class="m">ನೀ</span></span><span class="sa">ಶ್ರೀ</span><span class="rom"><span class="m">N</span> ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="m">ದಾ</span> , <span class="m">ಪ</span></span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom"><span class="m">D</span> , , <span class="m">P</span></span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn"><span class="m">ಪಾ</span></span><span class="sa">ಪೂ</span><span class="rom"><span class="m">P</span> ,</span><span class="sa-en">pū</span></td>
+        <td><span class="ul"><span class="kn"><span class="m">ದಾ</span> <span class="m">ನಿ</span></span></span><span class="sa">ತಾ ತ್ಮ</span><span class="ul"><span class="rom"><span class="m">D</span> <span class="m">N</span></span></span><span class="sa-en">tātma</span></td>
+        <td><span class="kn">ರಿ ರಿ</span><span class="sa">ವಿ ದು</span><span class="rom">R R</span><span class="sa-en">vidu</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , <span class="m">ನಿ</span></span></span><span class="sa">ರಾ ನ್ನ</span><span class="ul"><span class="rom">S , , <span class="m">N</span></span></span><span class="sa-en">rānna</span></td>
+        <td><span class="kn">ರೀ</span><span class="sa">ತು</span><span class="rom">R ,</span><span class="sa-en">tu</span></td>
+        <td><span class="kn">ಸಾ</span><span class="sa">ಷ್ಟ</span><span class="rom">S ,</span><span class="sa-en">ṣṭa</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn">ಗಾ</span><span class="sa">ಶ್ರೀ</span><span class="rom">G ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn">ಗಾ , ಮ</span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom">G , , M</span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ವಾ</span><span class="rom">N ,</span><span class="sa-en">vā</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , ದ</span></span><span class="sa">ರ್ಷ್ಣೇ ಯ</span><span class="ul"><span class="rom">N , , D</span></span><span class="sa-en">rṣṇēya</span></td>
+        <td><span class="kn">ನಿ <span class="t">ಸ</span></span><span class="sa">ನು ತ</span><span class="rom">N <span class="t">S</span></span><span class="sa-en">nuta</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರೀ</span> , <span class="t">ಸ</span></span></span><span class="sa">ದಿ - ವ್ಯ</span><span class="ul"><span class="rom"><span class="t">R</span> , , <span class="t">S</span></span></span><span class="sa-en">di - vya</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಕಾ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">kā</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಯ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">ya</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn"><span class="t">ಮಾ</span></span><span class="sa">ಶ್ರೀ</span><span class="rom"><span class="t">M</span> ,</span><span class="sa-en">Śrī</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಮಾ</span> , <span class="t">ಗ</span></span></span><span class="sa">ಕೃ ಷ್ಣ</span><span class="ul"><span class="rom"><span class="t">M</span> , , <span class="t">G</span></span></span><span class="sa-en">kṛ ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಗಾಂ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">gāṃ</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , ನಿ</span></span><span class="sa">ಗೇ ಯ</span><span class="ul"><span class="rom"><span class="t">S</span> , , N</span></span><span class="sa-en">gēya</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರಿ</span> <span class="t">ಸ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="sa">ನು - ತ -</span><span class="ul"><span class="rom"><span class="t">R</span> <span class="t">S</span> <span class="t">S</span> N</span></span><span class="sa-en">nu - ta -</span></td>
+        <td><span class="ul"><span class="kn">ದ ಪ ಪ ಮ</span></span><span class="sa">ದಿ - ವ್ಯ -</span><span class="ul"><span class="rom">D P P M</span></span><span class="sa-en">di - vya -</span></td>
+        <td><span class="ul"><span class="kn">ಪ ದ ನೀ</span></span><span class="sa">ನಾ- -</span><span class="ul"><span class="rom">P D N ,</span></span><span class="sa-en">nā - -</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ಮನ್</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">man</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 4 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Gāṅgēyabhūṣaṇi)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ನಿ ದ</span><span class="rom-s">N D</span></td>
+        <td><span class="kn-s">ಪ ಮ</span><span class="rom-s">P M</span></td>
+        <td><span class="kn-s">ಗ ರಿ</span><span class="rom-s">G R</span></td>
+        <td><span class="kn-s">, ಸ</span><span class="rom-s">, S</span></td>
+        <td><span class="kn-s"><span class="m">ನೀ</span></span><span class="rom-s"><span class="m">N</span></span></td>
+        <td><span class="kn-s"><span class="m">ದ</span> <span class="m">ಪ</span></span><span class="rom-s"><span class="m">D</span> <span class="m">P</span></span></td>
+        <td><span class="kn-s"><span class="m">ದ</span> <span class="m">ನಿ</span></span><span class="rom-s"><span class="m">D</span> <span class="m">N</span></span></td>
+        <td><span class="kn-s">ಸಾ</span><span class="rom-s">S ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s">ರಿ ಸ</span><span class="rom-s">R S</span></td>
+        <td><span class="kn-s">, ರಿ</span><span class="rom-s">, R</span></td>
+        <td><span class="kn-s">ಗ . ಸ</span><span class="rom-s">G . S</span></td>
+        <td><span class="kn-s">ರಿ <span class="m">ನಿ</span></span><span class="rom-s">R <span class="m">N</span></span></td>
+        <td><span class="kn-s">ಸ ರಿ</span><span class="rom-s">S R</span></td>
+        <td><span class="kn-s">ಗ ಮ</span><span class="rom-s">G M</span></td>
+        <td><span class="kn-s">ಪ ದ</span><span class="rom-s">P D</span></td>
+        <td><span class="kn-s">ನಿ <span class="t">ಸ</span></span><span class="rom-s">N <span class="t">S</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> ನೀ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">P D N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">S</span> N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ . ಪ ದ ನಿ</span></span><span class="rom-s"><span class="ul">N . P D N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> <span class="t">ರೀ</span> . ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> <span class="t">R</span> , . N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ದ ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . D N</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಪ ದಾ</span></span><span class="rom-s"><span class="ul">, P D ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ದ ನಿ</span></span><span class="rom-s"><span class="ul">M P D N</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">R</span> <span class="t">S</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ನಿ ದ ದ</span></span><span class="rom-s"><span class="ul">N N D D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಪಾ</span></span><span class="rom-s"><span class="ul">P M P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಮ ಗ ಗ</span></span><span class="rom-s"><span class="ul">M M G G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ರಿ ರಿ ಸಾ</span></span><span class="rom-s"><span class="ul">R R S ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="m">ನಿ</span> ಸ ರಿ ಗ</span></span><span class="rom-s"><span class="ul"><span class="m">N</span> S R G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ದ ನಿ</span></span><span class="rom-s"><span class="ul">M P D N</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 5 — VIJAYANAGARI
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>5</strong></span>
+    <span class="stanza-raga-kn">ವಿಜಯನಾಗರಿ (೫೯ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Vijayanāgari (From the 59th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ರಿ೨ ಗ೨ ಮ೨ ಪ ದ೨ · ಸ ದ೨ ಪ ಮ೨ ಗ೨ ರಿ೨ ಸ</span><span>S R2 G2 M2 P D2 · S D2 P M2 G2 R2 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ul"><span class="kn">ದಾ , <span class="t">ಸ</span></span></span><span class="sa">ಶ್ರೀ ಕೃ</span><span class="ul"><span class="rom">D , , <span class="t">S</span></span></span><span class="sa-en">Śrī kṛ</span></td>
+        <td><span class="kn">ದ ಪ</span><span class="sa">, ಷ್ಣ</span><span class="rom">D P</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ದ</span></span><span class="sa">ಕುಂ ತೀ</span><span class="ul"><span class="rom">M , , D</span></span><span class="sa-en">kuṃ tī</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಸ್ತು</span><span class="rom">, P</span><span class="sa-en">, stu</span></td>
+        <td><span class="kn">ಪ ಪ</span><span class="sa">ತ ದೀ</span><span class="rom">P P</span><span class="sa-en">ta dī</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ಪ</span></span><span class="sa">, ನ</span><span class="ul"><span class="rom">D , , P</span></span><span class="sa-en">, na</span></td>
+        <td><span class="kn">ಮ ಗ</span><span class="sa">ಬಂ ,</span><span class="rom">M G</span><span class="sa-en">baṃ ,</span></td>
+        <td><span class="kn">ರೀ</span><span class="sa">ಧೋ</span><span class="rom">R ,</span><span class="sa-en">dhō</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn"><span class="m">ದಾ</span> , ಸ</span></span><span class="sa">ಶ್ರೀ ಕೃ</span><span class="ul"><span class="rom"><span class="m">D</span> , , S</span></span><span class="sa-en">Śrī kṛ</span></td>
+        <td><span class="kn">, ರಿ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, R</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಗ ಮ</span></span><span class="sa">ಕೌಂ -</span><span class="ul"><span class="rom">G M</span></span><span class="sa-en">kauṃ -</span></td>
+        <td><span class="kn">ಪ ಪ ದಾ</span><span class="sa">ತೇ ಯ</span><span class="rom">P P D ,</span><span class="sa-en">tēya</span></td>
+        <td><span class="kn">ದ <span class="t">ಸ</span></span><span class="sa">ವಿ ಜ</span><span class="rom">D <span class="t">S</span></span><span class="sa-en">vi ja</span></td>
+        <td><span class="ul2"><span class="kn">ದ <span class="t">ಸ</span> <span class="t">ರೀ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> <span class="t">ರಿ</span></span></span><span class="sa">ಯೈ - - - - ಕ</span><span class="ul2"><span class="rom">D <span class="t">S</span> <span class="t">R</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span> <span class="t">R</span></span></span><span class="sa-en">yai - - - - ka</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="sa">ಹೇ , ,</span><span class="ul"><span class="rom"><span class="t">G</span> <span class="t">R</span> <span class="t">R</span> <span class="t">S</span></span></span><span class="sa-en">hē , ,</span></td>
+        <td><span class="ul"><span class="kn">ದ ದ <span class="t">ಸಾ</span></span></span><span class="sa">ತೋ ,</span><span class="ul"><span class="rom">D D <span class="t">S</span> ,</span></span><span class="sa-en">tō ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ದಾ , <span class="t">ಸ</span></span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">D , , <span class="t">S</span></span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, <span class="t">ರಿ</span></span><span class="sa">ಷ್ಣ</span><span class="rom">, <span class="t">R</span></span><span class="sa-en">ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ದ</span></span><span class="sa">ಪಾಂ ಚಾ</span><span class="ul"><span class="rom">P , , D</span></span><span class="sa-en">pāṃ cā</span></td>
+        <td><span class="kn">, <span class="t">ಸ</span></span><span class="sa">, ಲ</span><span class="rom">, <span class="t">S</span></span><span class="sa-en">, la</span></td>
+        <td><span class="kn">ಮ ಮ</span><span class="sa">ತ ನ</span><span class="rom">M M</span><span class="sa-en">ta na</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ದ</span></span><span class="sa">ಯಾ ರ್ತಿ</span><span class="ul"><span class="rom">P , , D</span></span><span class="sa-en">yārti</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="sa">ಹ - - -</span><span class="ul"><span class="rom"><span class="t">G</span> <span class="t">R</span> <span class="t">R</span> <span class="t">S</span></span></span><span class="sa-en">ha - - -</span></td>
+        <td><span class="ul"><span class="kn">ದಾ</span></span><span class="sa">ರ್ತಃ</span><span class="ul"><span class="rom">D ,</span></span><span class="sa-en">rtaḥ</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ಪಾ , ದ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">P , , D</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, P</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span> , ದ</span><span class="sa">ಸೌ ಭ</span><span class="rom"><span class="t">S</span> , , D</span><span class="sa-en">sau bha</span></td>
+        <td><span class="kn">, ಮ</span><span class="sa">, ದ್ರ</span><span class="rom">, M</span><span class="sa-en">, dra</span></td>
+        <td><span class="kn">ಪ ಪ</span><span class="sa">ಸು ತ</span><span class="rom">P P</span><span class="sa-en">su ta</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ಗ</span></span><span class="sa">ಜೀ , ವ</span><span class="ul"><span class="rom">M , , G</span></span><span class="sa-en">jī , va</span></td>
+        <td><span class="kn">ರಿ ಗ ಮ ಗ</span><span class="sa">ಗೋ , -</span><span class="rom">R G M G</span><span class="sa-en">gō , -</span></td>
+        <td><span class="kn">ರಿ ರಿ ಸಾ</span><span class="sa">ಪ್ತಃ , ,</span><span class="rom">R R S ,</span><span class="sa-en">ptaḥ , ,</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 5 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Vijayanāgari)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="m">ದ</span> ಸ</span><span class="rom-s"><span class="m">D</span> S</span></td>
+        <td><span class="kn-s">ರಿ ಗ</span><span class="rom-s">R G</span></td>
+        <td><span class="kn-s">ಮ ಪ</span><span class="rom-s">M P</span></td>
+        <td><span class="kn-s">ದ <span class="t">ಸ</span></span><span class="rom-s">D <span class="t">S</span></span></td>
+        <td><span class="kn-s"><span class="t">ರೀ</span></span><span class="rom-s"><span class="t">R</span> ,</span></td>
+        <td><span class="kn-s">, <span class="t">ಗ</span></span><span class="rom-s">, <span class="t">G</span></span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> ಸ</span><span class="rom-s"><span class="t">R</span> S</span></td>
+        <td><span class="kn-s">ದಾ</span><span class="rom-s">D ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="rom-s"><span class="t">S</span> <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಗ</span> . <span class="t">ಸ</span></span><span class="rom-s"><span class="t">G</span> . <span class="t">S</span></span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="rom-s"><span class="t">R</span> <span class="t">S</span></span></td>
+        <td><span class="kn-s">ದ ಪ</span><span class="rom-s">D P</span></td>
+        <td><span class="kn-s">ಮ ಪ</span><span class="rom-s">M P</span></td>
+        <td><span class="kn-s">ದ ಪ</span><span class="rom-s">D P</span></td>
+        <td><span class="kn-s">ದ <span class="t">ರಿ</span></span><span class="rom-s">D <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಸಾ</span></span><span class="rom-s"><span class="t">S</span> ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಗಾ</span> . <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">G</span> , . <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಗಾ</span> . ದ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">G</span> , . D</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> <span class="t">ರಿ</span> <span class="t">ಗಾ</span></span></span><span class="rom-s"><span class="ul"><span class="t">S</span> <span class="t">R</span> <span class="t">G</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸ</span> <span class="t">ರಿ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> <span class="t">R</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ <span class="t">ಸಾ</span> . ಪ</span></span><span class="rom-s"><span class="ul">D <span class="t">S</span> , . P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ <span class="t">ಸಾ</span> . ಮ</span></span><span class="rom-s"><span class="ul">D <span class="t">S</span> , . M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ರಿ ಗ ಮ ಪ</span></span><span class="rom-s"><span class="ul">R G M P</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ದ ಪ . <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">D P . <span class="t">R</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಮ ಪ</span></span><span class="rom-s"><span class="ul">D P M P</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ರಿ</span> <span class="t">ಸ</span> ದ</span></span><span class="rom-s"><span class="ul">, <span class="t">R</span> <span class="t">S</span> D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಪಾ</span></span><span class="rom-s"><span class="ul">P M P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ದ ಪ</span></span><span class="rom-s"><span class="ul">P M D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಗ ರಿ ಸ</span></span><span class="rom-s"><span class="ul">M G R S</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ರಿ ಗ ಮ</span></span><span class="rom-s"><span class="ul">, R G M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> ,</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 6 — MADHUKAUAMS
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>6</strong></span>
+    <span class="stanza-raga-kn">ಮಧುಕೌಂಸ್ (೫೯ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Madhukauṃs (From the 59th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ಗ೨ ಮ೨ ಪ ನಿ೨ · ಸ ನಿ೨ ಪ ಮ೨ ಗ೨ ಸ</span><span>S G2 M2 P N2 · S N2 P M2 G2 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ul"><span class="kn">ನೀ , ಪ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">N , , P</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, P</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ಗ</span></span><span class="sa">ಕೃ , ಷ್ಣೇ</span><span class="ul"><span class="rom">M , , G</span></span><span class="sa-en">kṛ , ṣṇē</span></td>
+        <td><span class="kn">, ಗ</span><span class="sa">, ತಿ</span><span class="rom">, G</span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ಸ <span class="m">ನಿ</span></span><span class="sa">ಮ ನ</span><span class="rom">S <span class="m">N</span></span><span class="sa-en">ma na</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಸ</span></span><span class="sa">ಸಾ , ಸ್ಮ</span><span class="ul"><span class="rom">S , , S</span></span><span class="sa-en">sā , sma</span></td>
+        <td><span class="ul"><span class="kn">ಮ ಪ ನಿ ನಿ</span></span><span class="sa">ರಾ , , -</span><span class="ul"><span class="rom">M P N N</span></span><span class="sa-en">rā , , -</span></td>
+        <td><span class="ul"><span class="kn">ಪ ಪ ಮಾ</span></span><span class="sa">ಮಿ , -</span><span class="ul"><span class="rom">P P M ,</span></span><span class="sa-en">mi , -</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ಗಾ , ಮ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">G , , M</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, P</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ನೀ , ನಿ</span></span><span class="sa">ಕೃ , ಷ್ಣೇ</span><span class="ul"><span class="rom">N , , N</span></span><span class="sa-en">kṛ , ṣṇē</span></td>
+        <td><span class="kn">, <span class="t">ಸ</span></span><span class="sa">, ತಿ</span><span class="rom">, <span class="t">S</span></span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ನಿ <span class="t">ಸ</span></span><span class="sa">ಶಿ ರ</span><span class="rom">N <span class="t">S</span></span><span class="sa-en">śira</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಗಾ</span> , <span class="t">ಸ</span></span></span><span class="sa">ಸಾ ನ</span><span class="ul"><span class="rom"><span class="t">G</span> , , <span class="t">S</span></span></span><span class="sa-en">sāna</span></td>
+        <td><span class="ul"><span class="kn">ನಿ <span class="t">ಸ</span> <span class="t">ಪ</span> <span class="t">ಮ</span></span></span><span class="sa">ಮಾ , , -</span><span class="ul"><span class="rom">N <span class="t">S</span> <span class="t">P</span> <span class="t">M</span></span></span><span class="sa-en">mā , , -</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ಗಾ</span></span></span><span class="sa">ಮಿ , -</span><span class="ul"><span class="rom"><span class="t">M</span> <span class="t">G</span> <span class="t">G</span> ,</span></span><span class="sa-en">mi , -</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ನೀ , <span class="t">ಸ</span></span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">N , , <span class="t">S</span></span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, <span class="t">ಸ</span></span><span class="sa">, ಷ್ಣ</span><span class="rom">, <span class="t">S</span></span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ನಿ</span></span><span class="sa">ಕೃ , ಷ್ಣೇ</span><span class="ul"><span class="rom">P , , N</span></span><span class="sa-en">kṛ , ṣṇē</span></td>
+        <td><span class="kn">, ನಿ</span><span class="sa">, ತಿ</span><span class="rom">, N</span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ಮ ಮ</span><span class="sa">ಚ ಪ</span><span class="rom">M M</span><span class="sa-en">ca pa</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ಪ</span></span><span class="sa">ದೇ , ಪ</span><span class="ul"><span class="rom">P , , P</span></span><span class="sa-en">dē , pa</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ದೇಽ</span><span class="rom">P ,</span><span class="sa-en">dē'</span></td>
+        <td><span class="kn">ಮಾ</span><span class="sa">ಹಂ</span><span class="rom">M ,</span><span class="sa-en">haṃ</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ಪಾ , ಗ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">P , , G</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಗ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, G</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , <span class="m">ಪ</span></span></span><span class="sa">ಪಾ ದಾ</span><span class="ul"><span class="rom">S , , <span class="m">P</span></span></span><span class="sa-en">pādā</span></td>
+        <td><span class="kn">, <span class="m">ನಿ</span></span><span class="sa">, ಬ್ಜ</span><span class="rom">, <span class="m">N</span></span><span class="sa-en">, bja</span></td>
+        <td><span class="kn"><span class="m">ಪ</span> <span class="m">ನಿ</span></span><span class="sa">ಮಧು</span><span class="rom"><span class="m">P</span> <span class="m">N</span></span><span class="sa-en">madhu</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ಸ</span></span><span class="sa">ಪಾ ಯಿ</span><span class="ul"><span class="rom">S , , S</span></span><span class="sa-en">pāyi</span></td>
+        <td><span class="ul"><span class="kn"><span class="m">ನಿ</span> ಸ ಪ ಮ</span></span><span class="sa">ನೋs , -</span><span class="ul"><span class="rom"><span class="m">N</span> S P M</span></span><span class="sa-en">nō' , -</span></td>
+        <td><span class="ul"><span class="kn">ಮ ಗ ಗಾ</span></span><span class="sa">ಸ್ಮಿ , -</span><span class="ul"><span class="rom">M G G ,</span></span><span class="sa-en">smi , -</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 6 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Madhukauṃs)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ಮಾ</span><span class="rom-s">M ,</span></td>
+        <td><span class="kn-s">, ಪ</span><span class="rom-s">, P</span></td>
+        <td><span class="kn-s">, ಗ</span><span class="rom-s">, G</span></td>
+        <td><span class="kn-s">, ಮ</span><span class="rom-s">, M</span></td>
+        <td><span class="kn-s">ಸಾ</span><span class="rom-s">S ,</span></td>
+        <td><span class="kn-s">, ಗ</span><span class="rom-s">, G</span></td>
+        <td><span class="kn-s">, <span class="m">ನಿ</span></span><span class="rom-s">, <span class="m">N</span></span></td>
+        <td><span class="kn-s">, ಸ</span><span class="rom-s">, S</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="m">ಪಾ</span></span><span class="rom-s"><span class="m">P</span> ,</span></td>
+        <td><span class="kn-s">, <span class="m">ನಿ</span></span><span class="rom-s">, <span class="m">N</span></span></td>
+        <td><span class="kn-s">, ಸ</span><span class="rom-s">, S</span></td>
+        <td><span class="kn-s">ಗ ಸ</span><span class="rom-s">G S</span></td>
+        <td><span class="kn-s">ಮ ಗ</span><span class="rom-s">M G</span></td>
+        <td><span class="kn-s">ಪ ಮ</span><span class="rom-s">P M</span></td>
+        <td><span class="kn-s">ನಿ ಪ</span><span class="rom-s">N P</span></td>
+        <td><span class="kn-s"><span class="t">ಸಾ</span></span><span class="rom-s"><span class="t">S</span> ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ನಿ <span class="t">ಸ</span> <span class="t">ಗ</span> <span class="t">ಮ</span></span></span><span class="rom-s"><span class="ul">N <span class="t">S</span> <span class="t">G</span> <span class="t">M</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> <span class="t">ಸಾ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> <span class="t">S</span> , N</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ನಿ <span class="t">ಸ</span> <span class="t">ಗ</span></span></span><span class="rom-s"><span class="ul">P N <span class="t">S</span> <span class="t">G</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ನೀ ಪ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> N P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">M P N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ಪಾ ಮ</span></span><span class="rom-s"><span class="ul">N P , M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ಪ ನಿ</span></span><span class="rom-s"><span class="ul">G M P N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul"><span class="t">S</span> ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> <span class="t">ಗಾ</span> . ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> <span class="t">G</span> , . N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ಪ ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . P N</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಮ ಪಾ</span></span><span class="rom-s"><span class="ul">, M P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ಪಾ</span></span><span class="rom-s"><span class="ul">G M P ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ಪಾ . <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">N P , . <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನೀ . ಪ ಮ</span></span><span class="rom-s"><span class="ul">N . P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಗ ಸಾ</span></span><span class="rom-s"><span class="ul">, G S ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="m">ಪ</span> <span class="m">ನಿ</span> ಸ ಗ</span></span><span class="rom-s"><span class="ul"><span class="m">P</span> <span class="m">N</span> S G</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 7 — MOHANA
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>7</strong></span>
+    <span class="stanza-raga-kn">ಮೋಹನ (೨೮ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Mōhana (From the 28th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ರಿ೨ ಗ೩ ಪ ದ೨ · ಸ ದ೨ ಪ ಗ೩ ರಿ೨ ಸ</span><span>S R2 G3 P D2 · S D2 P G3 R2 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ul"><span class="kn">ರೀ , ರಿ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">R , , R</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಗ</span><span class="sa">ಷ್ಣ</span><span class="rom">, G</span><span class="sa-en">ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , <span class="m">ದ</span></span></span><span class="sa">ಕೃ ಷ್ಣೇ</span><span class="ul"><span class="rom">S , , <span class="m">D</span></span></span><span class="sa-en">kṛ ṣṇē</span></td>
+        <td><span class="kn">, <span class="m">ಪ</span></span><span class="sa">, ತಿ</span><span class="rom">, <span class="m">P</span></span><span class="sa-en">, ti</span></td>
+        <td><span class="kn"><span class="m">ಪ</span> <span class="m">ದ</span></span><span class="sa">ವ ದ</span><span class="rom"><span class="m">P</span> <span class="m">D</span></span><span class="sa-en">va da</span></td>
+        <td><span class="ul"><span class="kn">ಸಾ , ರಿ</span></span><span class="sa">ನೇ , ಸ</span><span class="ul"><span class="rom">S , , R</span></span><span class="sa-en">nē , sa</span></td>
+        <td><span class="ul"><span class="kn">ಸ ರಿ ಗ ಪ</span></span><span class="sa">ದೋ , -</span><span class="ul"><span class="rom">S R G P</span></span><span class="sa-en">dō , -</span></td>
+        <td><span class="kn">ಗಾ</span><span class="sa">ಕ್ತಿಃ</span><span class="rom">G ,</span><span class="sa-en">ktiḥ</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ಪಾ , ಗ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">P , , G</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಗ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, G</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ಪ</span></span><span class="sa">ಕೃ , ಷ್ಣೇ</span><span class="ul"><span class="rom">D , , P</span></span><span class="sa-en">kṛ , ṣṇē</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ತಿ</span><span class="rom">, P</span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ಗ ಪ</span><span class="sa">ರ ಸ</span><span class="rom">G P</span><span class="sa-en">ra sa</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , ಪ</span></span><span class="sa">ನ , ಪ್ರ</span><span class="ul"><span class="rom">D , , P</span></span><span class="sa-en">na , pra</span></td>
+        <td><span class="ul"><span class="kn">ಸ ರಿ ಗಾ</span></span><span class="sa">ಸ - -</span><span class="ul"><span class="rom">S R G ,</span></span><span class="sa-en">sa - -</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ಕ್ತಿಃ</span><span class="rom">P ,</span><span class="sa-en">ktiḥ</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ದಾ , <span class="t">ಸ</span></span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">D , , <span class="t">S</span></span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ದ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, D</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಪಾ , ದ</span></span><span class="sa">ಕೃ , ಷ್ಣೇ</span><span class="ul"><span class="rom">P , , D</span></span><span class="sa-en">kṛ , ṣṇē</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ತಿ</span><span class="rom">, P</span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ಗ ಪ</span><span class="sa">ಭ ವ</span><span class="rom">G P</span><span class="sa-en">bha va</span></td>
+        <td><span class="ul"><span class="kn">ದಾ , <span class="t">ಸ</span></span></span><span class="sa">ತು , ಪ್ರ</span><span class="ul"><span class="rom">D , , <span class="t">S</span></span></span><span class="sa-en">tu , pra</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರಿ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span> <span class="t">ರಿ</span></span></span><span class="sa">ವೃ , , -</span><span class="ul"><span class="rom"><span class="t">R</span> <span class="t">R</span> <span class="t">S</span> <span class="t">R</span></span></span><span class="sa-en">vṛ , , -</span></td>
+        <td><span class="kn"><span class="t">ಗಾ</span> , ,</span><span class="sa">ತ್ತಿಃ , ,</span><span class="rom"><span class="t">G</span> , ,</span><span class="sa-en">ttiḥ , ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn"><span class="t">ರೀ</span> , ದ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom"><span class="t">R</span> , , D</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ದ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, D</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಸಾ</span> , ಪ</span></span><span class="sa">ಪಾ ದೋ</span><span class="ul"><span class="rom"><span class="t">S</span> , , P</span></span><span class="sa-en">pādō</span></td>
+        <td><span class="kn">, ದ</span><span class="sa">, ದ</span><span class="rom">, D</span><span class="sa-en">, da</span></td>
+        <td><span class="kn">ದ <span class="t">ಸ</span></span><span class="sa">ಕ ಮಿ</span><span class="rom">D <span class="t">S</span></span><span class="sa-en">ka mi</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರೀ</span> , <span class="t">ರಿ</span></span></span><span class="sa">ಹೈ , ಕ</span><span class="ul"><span class="rom"><span class="t">R</span> , , <span class="t">R</span></span></span><span class="sa-en">hai , ka</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ಪ</span> <span class="t">ಗ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span></span></span><span class="sa">ಶ , , -</span><span class="ul"><span class="rom"><span class="t">P</span> <span class="t">G</span> <span class="t">G</span> <span class="t">R</span></span></span><span class="sa-en">śa , , -</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span> ,</span><span class="sa">ಕ್ತಿಃ ,</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">ktiḥ ,</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 7 -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Mōhana)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="t">ಸ</span> <span class="t">ದ</span></span><span class="rom-s"><span class="t">S</span> <span class="t">D</span></span></td>
+        <td><span class="kn-s">, ಪ</span><span class="rom-s">, P</span></td>
+        <td><span class="kn-s"><span class="t">ಗಾ</span></span><span class="rom-s"><span class="t">G</span> ,</span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> <span class="t">ಸ</span></span><span class="rom-s"><span class="t">R</span> <span class="t">S</span></span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> . <span class="m">ದ</span></span><span class="rom-s"><span class="t">R</span> . <span class="m">D</span></span></td>
+        <td><span class="kn-s">, ಸ</span><span class="rom-s">, S</span></td>
+        <td><span class="kn-s">ರಿ ಗ</span><span class="rom-s">R G</span></td>
+        <td><span class="kn-s">ಪ ದ</span><span class="rom-s">P D</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="t">ರೀ</span></span><span class="rom-s"><span class="t">R</span> ,</span></td>
+        <td><span class="kn-s">, <span class="t">ರಿ</span></span><span class="rom-s">, <span class="t">R</span></span></td>
+        <td><span class="kn-s"><span class="t">ಸ</span> ದ</span><span class="rom-s"><span class="t">S</span> D</span></td>
+        <td><span class="kn-s">, ಪ</span><span class="rom-s">, P</span></td>
+        <td><span class="kn-s">ಗ ರಿ</span><span class="rom-s">G R</span></td>
+        <td><span class="kn-s">ಸ <span class="m">ದ</span></span><span class="rom-s">S <span class="m">D</span></span></td>
+        <td><span class="kn-s"><span class="m">ಪ</span> <span class="m">ದ</span></span><span class="rom-s"><span class="m">P</span> <span class="m">D</span></span></td>
+        <td><span class="kn-s">ಸಾ</span><span class="rom-s">S ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ರೀ ಗ ರಿ</span></span><span class="rom-s"><span class="ul">R G R</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಪ ಗ ರಿ</span></span><span class="rom-s"><span class="ul">, P G R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದಾ ಪ . ಗ</span></span><span class="rom-s"><span class="ul">D , P . G</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ರಿ ಸ <span class="m">ದ</span></span></span><span class="rom-s"><span class="ul">, R S <span class="m">D</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="m">ಪಾ</span> <span class="m">ದ</span> ಸ</span></span><span class="rom-s"><span class="ul"><span class="m">P</span> , <span class="m">D</span> S</span></span></td>
+        <td><span class="kn-s"><span class="ul">ರಿ ಗ ಪ ದ</span></span><span class="rom-s"><span class="ul">R G P D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪಾ ದ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">P , D <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> D <span class="t">S</span> ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> ಗ ಸ ರಿ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> G S R</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗಾ</span> . ಪ ದ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> , . P D</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ರಿ ಗಾ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> R G ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> ಸ ದಾ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> S D ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸ</span> ರಿ</span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> R</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ಗ ಪ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . G P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಗಾ</span></span><span class="rom-s"><span class="ul">D P G ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P D <span class="t">S</span> ,</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STANZA 8 — SURUTI
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num"><strong>8</strong></span>
+    <span class="stanza-raga-kn">ಸುರುಟಿ (೨೮ನೇ ಮೇಳದಿಂದ)</span>
+    <span class="stanza-raga-en">Suruṭi (From the 28th mela)</span>
+    <span class="stanza-scale" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px;"><span>ಸ ರಿ೨ ಮ೧ ಪ ನಿ೨ · ಸ ನಿ೨ ದ೨ ಪ ಮ೧ ಗ೩ ಪ ಮ೧ ರಿ೨ ಸ</span><span>S R2 M1 P N2 · S N2 D2 P M1 G3 P M1 R2 S</span></span>
+  </div>
+  <table class="varna-table">
+    <thead>
+      <tr class="tala-group"><th colspan="4">ಲಘು</th><th colspan="2">ದ್ರುತ 1</th><th colspan="2">ದ್ರುತ 2</th></tr>
+      <tr class="akshar-header"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ul"><span class="kn">ನೀ , ದ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">N , , D</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, P</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="kn">ಮ ಗ</span><span class="sa">ಕೃ ,</span><span class="rom">M G</span><span class="sa-en">kṛ ,</span></td>
+        <td><span class="ul"><span class="kn">ಪ ಮ ರೀ</span></span><span class="sa">ಷ್ಣೇ , ತಿ</span><span class="ul"><span class="rom">P M R ,</span></span><span class="sa-en">ṣṇē , ti</span></td>
+        <td><span class="kn">ಸ ರಿ</span><span class="sa">ದ ರಿ</span><span class="rom">S R</span><span class="sa-en">da ri</span></td>
+        <td><span class="ul"><span class="kn">ಮಾ , ಪ</span></span><span class="sa">ತಾ , ನ್ಯ</span><span class="ul"><span class="rom">M , , P</span></span><span class="sa-en">tā , nya</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ಘಾ</span><span class="rom">N ,</span><span class="sa-en">ghā</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ನಿ ,</span><span class="rom">N ,</span><span class="sa-en">ni ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn">ಪಾ , ಮ</span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom">P , , M</span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">ಗ ರಿ</span><span class="sa">, ಷ್ಣ</span><span class="rom">G R</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ಪ ಮ ಮ ಗ</span></span><span class="sa">ಕೃ ಷ್ಣೇ</span><span class="ul"><span class="rom">P M M G</span></span><span class="sa-en">kṛ ṣṇē</span></td>
+        <td><span class="ul"><span class="kn">ರೀ ಸ</span></span><span class="sa">, ತಿ</span><span class="ul"><span class="rom">R S</span></span><span class="sa-en">, ti</span></td>
+        <td><span class="kn">ನಿ ಸ</span><span class="sa">ಭ ರಿ</span><span class="rom">N S</span><span class="sa-en">bha ri</span></td>
+        <td><span class="ul"><span class="kn">ಮ ರಿ ಮಾ</span></span><span class="sa">ತಾ , ಚ</span><span class="ul"><span class="rom">M R M ,</span></span><span class="sa-en">tā , ca</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ಭೂ</span><span class="rom">P ,</span><span class="sa-en">bhū</span></td>
+        <td><span class="kn">ಪಾ</span><span class="sa">ತಿಃ ,</span><span class="rom">P ,</span><span class="sa-en">tiḥ ,</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn">ಮಾ , ಪ</span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="rom">M , , P</span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ನಿ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, N</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn">ದ ನಿ</span></span><span class="sa">ಕೃ ಷ್ಣೇ</span><span class="ul"><span class="rom">D N</span></span><span class="sa-en">kṛ ṣṇē</span></td>
+        <td><span class="ul"><span class="kn">, <span class="t">ಸ</span></span></span><span class="sa">, ತಿ</span><span class="ul"><span class="rom">, <span class="t">S</span></span></span><span class="sa-en">, ti</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರಿ</span> <span class="t">ಮ</span></span></span><span class="sa">ತ ರ ,</span><span class="ul"><span class="rom"><span class="t">R</span> <span class="t">M</span></span></span><span class="sa-en">ta ra ,</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರೀ</span> , <span class="t">ಸ</span></span></span><span class="sa">ಣ ಮ್ ಭ</span><span class="ul"><span class="rom"><span class="t">R</span> , , <span class="t">S</span></span></span><span class="sa-en">ṇam bha</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ವಾ</span><span class="rom">N ,</span><span class="sa-en">vā</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ಬ್ದೇಃ</span><span class="rom">N ,</span><span class="sa-en">bdēḥ</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="ul"><span class="kn"><span class="t">ದಾ</span> , <span class="t">ನಿ</span></span></span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="ul"><span class="rom"><span class="t">D</span> , , <span class="t">N</span></span></span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn"><span class="t">ಸ</span> <span class="t">ರಿ</span></span><span class="sa">, ಷ್ಣ</span><span class="rom"><span class="t">S</span> <span class="t">R</span></span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="ul"><span class="kn"><span class="t">ರಿ</span> <span class="t">ಸ</span> <span class="t">ನೀ</span></span></span><span class="sa">ಪಾ , ದೌ</span><span class="ul"><span class="rom"><span class="t">R</span> <span class="t">S</span> <span class="t">N</span> ,</span></span><span class="sa-en">pā , dau</span></td>
+        <td><span class="kn">, <span class="t">ದ</span> <span class="t">ಪಾ</span></span><span class="sa">. ಚ</span><span class="rom">, <span class="t">D</span> <span class="t">P</span> ,</span><span class="sa-en">. ca</span></td>
+        <td><span class="ul"><span class="kn">ನಿ ನಿ ನೀ</span></span><span class="sa">ಶ ರ ಣಂ</span><span class="ul"><span class="rom">N N N ,</span></span><span class="sa-en">śa ra ṇaṃ</span></td>
+        <td><span class="kn">, <span class="t">ಸ</span></span><span class="sa">, ಪ್ರ</span><span class="rom">, <span class="t">S</span></span><span class="sa-en">, pra</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ಪ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">pa</span></td>
+        <td><span class="kn"><span class="t">ರೀ</span></span><span class="sa">ದ್ಯೇ</span><span class="rom"><span class="t">R</span> ,</span><span class="sa-en">dyē</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr>
+        <td><span class="kn"><span class="t">ಮ</span> ಗ ರಿ ,</span><span class="sa">ಶ್ರೀ , ಕೃ</span><span class="rom"><span class="t">M</span> G R ,</span><span class="sa-en">Śrī , kṛ</span></td>
+        <td><span class="kn">, ರಿ</span><span class="sa">, ಷ್ಣ</span><span class="rom">, R</span><span class="sa-en">, ṣṇa</span></td>
+        <td><span class="kn"><span class="t">ಮ</span> ರಿ ಸಾ</span><span class="sa">ಪಾ , ದೌ</span><span class="rom"><span class="t">M</span> R S ,</span><span class="sa-en">pā , dau</span></td>
+        <td><span class="kn">, <span class="t">ಸ</span></span><span class="sa">. ಚ</span><span class="rom">, <span class="t">S</span></span><span class="sa-en">. ca</span></td>
+        <td><span class="kn">ನಿ ನಿ ನೀ</span><span class="sa">ಶ ರ ಣಂ</span><span class="rom">N N N ,</span><span class="sa-en">śa ra ṇaṃ</span></td>
+        <td><span class="kn">, ಪ</span><span class="sa">, ಪ್ರ</span><span class="rom">, P</span><span class="sa-en">, pra</span></td>
+        <td><span class="kn">ನೀ</span><span class="sa">ಪ</span><span class="rom">N ,</span><span class="sa-en">pa</span></td>
+        <td><span class="kn"><span class="t">ಸಾ</span></span><span class="sa">ದ್ಯೇ</span><span class="rom"><span class="t">S</span> ,</span><span class="sa-en">dyē</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chittaswara 8 + Ettugade (multi-raga) -->
+  <table class="varna-table" style="margin-top:4px;">
+    <thead>
+      <tr class="tala-group"><th colspan="8">ಚಿಟ್ಟೆಸ್ವರ — Chittaswara (Suruṭi)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sw-row">
+        <td><span class="kn-s">ನಿ ದ</span><span class="rom-s">N D</span></td>
+        <td><span class="kn-s">ಪ ಮ</span><span class="rom-s">P M</span></td>
+        <td><span class="kn-s">ಗ ಪ</span><span class="rom-s">G P</span></td>
+        <td><span class="kn-s">ಮ ರಿ</span><span class="rom-s">M R</span></td>
+        <td><span class="kn-s">ಸ ರಿ</span><span class="rom-s">S R</span></td>
+        <td><span class="kn-s">ಮ ಪ</span><span class="rom-s">M P</span></td>
+        <td><span class="kn-s">ರಿ ಮ</span><span class="rom-s">R M</span></td>
+        <td><span class="kn-s">ಪ ನಿ</span><span class="rom-s">P N</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s">ದ ನಿ</span><span class="rom-s">D N</span></td>
+        <td><span class="kn-s">ಸ <span class="t">ರಿ</span></span><span class="rom-s">S <span class="t">R</span></span></td>
+        <td><span class="kn-s">ನೀ</span><span class="rom-s">N ,</span></td>
+        <td><span class="kn-s"><span class="t">ರಿ</span> ಸ</span><span class="rom-s"><span class="t">R</span> S</span></td>
+        <td><span class="kn-s">ನೀ</span><span class="rom-s">N ,</span></td>
+        <td><span class="kn-s">ದ ಪ</span><span class="rom-s">D P</span></td>
+        <td><span class="kn-s">, ಮ</span><span class="rom-s">, M</span></td>
+        <td><span class="kn-s">ಗ ರಿ</span><span class="rom-s">G R</span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ನಿ ದ</span></span><span class="rom-s"><span class="ul">M P N D</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ನಿ <span class="t">ಸ</span> <span class="t">ರಿ</span></span></span><span class="rom-s"><span class="ul">, N <span class="t">S</span> <span class="t">R</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ನಿ <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">, N <span class="t">R</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ , ದ ಪ</span></span><span class="rom-s"><span class="ul">N , D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಗ ಪ ಮ</span></span><span class="rom-s"><span class="ul">M G P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ರೀ ಸ</span></span><span class="rom-s"><span class="ul">G R , S</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="m">ನಿ</span> ಸ ರಿ ಮ</span></span><span class="rom-s"><span class="ul"><span class="m">N</span> S R M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ನಿ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">P N <span class="t">S</span> ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ನಿ <span class="t">ಸ</span> <span class="t">ರೀ</span></span></span><span class="rom-s"><span class="ul">N <span class="t">S</span> <span class="t">R</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಮ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">M</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ನಿ <span class="t">ರಿ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">, N <span class="t">R</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ , , ,</span></span><span class="rom-s"><span class="ul">N , , ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಮ ಗ</span></span><span class="rom-s"><span class="ul">D P M G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ರಿ ,</span></span><span class="rom-s"><span class="ul">P M R ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಸಾ ರಿ</span></span><span class="rom-s"><span class="ul">, S , R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ನೀ</span></span><span class="rom-s"><span class="ul">M P N ,</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     ETTUGADE SWARAS — MULTI-RAGA
+════════════════════════════════════════════════ -->
+<div class="stanza">
+  <div class="stanza-header">
+    <span class="stanza-num">Viloma Chittaswaras</span>
+    <span class="stanza-raga-kn">ವಿಲೋಮ ಚಿಟ್ಟೆಸ್ವರಗಳು</span>
+    <span class="stanza-raga-en">Reverse (viloma) cycle through the rāgas</span>
+  </div>
+  <table class="varna-table">
+    <tbody>
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ಮೋಹನ</span><span class="raga-row-en">Mōhana</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಗ ರಿ</span></span><span class="rom-s"><span class="ul">D P G R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಸ <span class="m">ದ</span> <span class="m">ಪ</span> <span class="m">ದ</span></span></span><span class="rom-s"><span class="ul">S <span class="m">D</span> <span class="m">P</span> <span class="m">D</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಗ ರಿ . ಪ</span></span><span class="rom-s"><span class="ul">, G R . P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಪ ದಾ</span></span><span class="rom-s"><span class="ul">G P D ,</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> ಸ . ಗ ರಿ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> S . G R</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ದ ಪ ದ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> D P D</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಪ ದ ಪ</span></span><span class="rom-s"><span class="ul">, P D P</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಗ</span> ರಿ ಸಾ</span></span><span class="rom-s"><span class="ul"><span class="t">G</span> R S ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ಮಧುಕೌಂಸ್</span><span class="raga-row-en">Madhukauṃs</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ನಿ ಪ ಮ ಗ</span></span><span class="rom-s"><span class="ul">N P M G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">M P N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಪ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">, P N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ನಿ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">, N <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ನಿ ಪ ಮ</span></span><span class="rom-s"><span class="ul">N N P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಪ ಗ ಮ</span></span><span class="rom-s"><span class="ul">, P G M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ ಪ ಮ</span></span><span class="rom-s"><span class="ul">N P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಗ ಸಾ</span></span><span class="rom-s"><span class="ul">G G S ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ವಿಜಯನಾಗರಿ</span><span class="raga-row-en">Vijayanāgari</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ದ ಪ ಮ ಪ</span></span><span class="rom-s"><span class="ul">D P M P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ <span class="t">ರಿ</span> <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">D <span class="t">R</span> <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ದ ಪ ಮ</span></span><span class="rom-s"><span class="ul">, D P M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಗ ರಿ</span></span><span class="rom-s"><span class="ul">P M G R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಗ ರಿ</span></span><span class="rom-s"><span class="ul">P M G R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಸ <span class="m">ದ</span> ಸಾ</span></span><span class="rom-s"><span class="ul">S <span class="m">D</span> S ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ರಿ ಗ ಮ</span></span><span class="rom-s"><span class="ul">, R G M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಮ ಪ ದ</span></span><span class="rom-s"><span class="ul">P M P D</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ಗಾಂಗೇಯಭೂಷಣಿ</span><span class="raga-row-en">Gāṅgēyabhūṣaṇi</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ನಿ ದ ಪ ದ</span></span><span class="rom-s"><span class="ul">N D P D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನಿ <span class="t">ಸ</span> ರೀ</span></span><span class="rom-s"><span class="ul">N <span class="t">S</span> R ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ರೀ</span> <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">, <span class="t">R</span> <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ನೀ ದ ಪ</span></span><span class="rom-s"><span class="ul">N D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪ ದ ನಿ</span></span><span class="rom-s"><span class="ul">M P D N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> . ಗ ಮ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , . G M</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ದ ನಿ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">P D N <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ನಿ ದ ಪ</span></span><span class="rom-s"><span class="ul">, N D P</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ರೇವಗುಪ್ತಿ</span><span class="raga-row-en">Rēvagupti</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ಗ ರಿ ಸ ರಿ</span></span><span class="rom-s"><span class="ul">G R S R</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಪ ದ <span class="t">ಸಾ</span></span></span><span class="rom-s"><span class="ul">G P D <span class="t">S</span> ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ರಿ</span> ಗ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul">, <span class="t">R</span> G <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಸ</span> ದ <span class="t">ಸ</span></span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">S</span> D <span class="t">S</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ರಿ</span> <span class="t">ಸ</span> ದ ಪ</span></span><span class="rom-s"><span class="ul"><span class="t">R</span> <span class="t">S</span> D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ದ . ಗ ದ ಪ</span></span><span class="rom-s"><span class="ul">D . G D P</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸಾ</span> , ದ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> , , D</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಪ ಗ ರಿ ಸ</span></span><span class="rom-s"><span class="ul">P G R S</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ಕಲ್ಯಾಣವಸಂತ</span><span class="raga-row-en">Kalyāṇavasanta</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ದ ಪ</span></span><span class="rom-s"><span class="ul">G M D P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಗ ರಿ ಸ</span></span><span class="rom-s"><span class="ul">M G R S</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ರಿ <span class="m">ಸ</span> <span class="m">ನಿ</span></span></span><span class="rom-s"><span class="ul">, R <span class="m">S</span> <span class="m">N</span></span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="m">ದಾ</span> <span class="m">ನಿ</span> ಸ</span></span><span class="rom-s"><span class="ul"><span class="m">D</span> , <span class="m">N</span> S</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಗ ಮ ದ ನಿ</span></span><span class="rom-s"><span class="ul">G M D N</span></span></td>
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ನಿ ದಾ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> N D ,</span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಗ ರಿ ಸ</span></span><span class="rom-s"><span class="ul">, G R S</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನೀ ದ ನಿ</span></span><span class="rom-s"><span class="ul">N D N ,</span></span></td>
+      </tr>
+      <tr class="avarta-div"><td colspan="8"></td></tr>
+
+      <tr class="raga-row"><td colspan="8"><span class="raga-row-label">Rāga</span><span class="raga-row-kn">ಅಮೃತವರ್ಷಿಣಿ</span><span class="raga-row-en">Amṛtavarṣiṇi — concluding cycle</span></td></tr>
+      <tr class="sw-row">
+        <td><span class="kn-s"><span class="ul"><span class="t">ಸ</span> ಗ <span class="t">ಸ</span> ನಿ</span></span><span class="rom-s"><span class="ul"><span class="t">S</span> G <span class="t">S</span> N</span></span></td>
+        <td><span class="kn-s"><span class="ul">, <span class="t">ಸ</span> . ಮ ಪ</span></span><span class="rom-s"><span class="ul">, <span class="t">S</span> . M P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ನೀ ನಿ ಗ</span></span><span class="rom-s"><span class="ul">N N G</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಪಾ ಪ</span></span><span class="rom-s"><span class="ul">M P , P</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಮ ಗ ಸ <span class="m">ನಿ</span></span></span><span class="rom-s"><span class="ul">M G S <span class="m">N</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">, ಸ . ಪ ನಿ</span></span><span class="rom-s"><span class="ul">, S . P N</span></span></td>
+        <td><span class="kn-s"><span class="ul">ಸಾ ಸ . <span class="m">ನಿ</span></span></span><span class="rom-s"><span class="ul">S , S . <span class="m">N</span></span></span></td>
+        <td><span class="kn-s"><span class="ul">ಸ ಗ ಮ ಪ</span></span><span class="rom-s"><span class="ul">S G M P</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pallavi-box">
+    <span class="pallavi-label">Pallavi</span>
+    <span class="pallavi-line">ಶ್ರೀಕೃಷ್ಣ ಗೋವಿಂದ ನಿಜಭಕ್ತಪಾಲ</span>
+  </div>
+</div>
+
+<div class="attr">Composed by Ramaprasad K V "Hamsanandi" · Sahitya: Prabhunandan Murthy</div>
+</body>
+</html>
