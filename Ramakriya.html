@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamavardhini / Ramakriya Composition - @hamsanandi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;600;700&family=Noto+Serif+Kannada:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --border: #d4c5a9; --gold: #8b5e1a; --swara: #1a1208;
+    --section-bg: #fdf9f3; --header-bg: #f5ede0; --tara: #cc0000; --mandra: #007700; --lyric: #4b3925;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--swara); font-family: 'Noto Sans Kannada', sans-serif; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; }
+  .title-block { text-align: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); width: 100%; max-width: 1200px; }
+  .title-main { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--gold); font-weight: 600; line-height: 1.35; }
+  .sub-title { font-size: 1rem; color: #5a4a30; margin-top: 0.5rem; line-height: 1.7; font-weight: 400; }
+  .raga-details { font-size: 0.95rem; color: #1a4a30; margin-top: 0.8rem; font-weight: 500; font-style: italic; line-height: 1.6; }
+  .note-text { font-size: 0.85rem; color: #666; margin-top: 0.5rem; max-width: 920px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .signature { text-align: right; width: 100%; max-width: 1200px; margin-top: 2rem; font-family: 'Cinzel', serif; font-size: 0.75rem; color: #8a7055; text-transform: none !important; font-variant: normal !important; }
+  .t { color: var(--tara); position: relative; display: inline-block; font-weight: 700; }
+  .t::before { content: '•'; position: absolute; top: -0.75em; left: 50%; transform: translateX(-50%); font-size: 0.6em; }
+  .m { color: var(--mandra); position: relative; display: inline-block; }
+  .m::after { content: '•'; position: absolute; bottom: -0.65em; left: 50%; transform: translateX(-50%); font-size: 0.6em; }
+  .varna-table { width: 100%; border-collapse: collapse; table-layout: fixed; background: var(--section-bg); border: 1px solid var(--border); max-width: 1200px; margin-bottom: 2.5rem; }
+  .varna-table td { border: 1px solid var(--border); padding: 0.75rem 0.35rem; text-align: center; vertical-align: middle; width: 12.5%; line-height: 1.45; }
+  .varna-table td:nth-child(4), .varna-table td:nth-child(6) { border-right: 3px solid var(--gold); }
+  .kn { font-size: 1.03rem; color: var(--swara); display: block; font-weight: 500; }
+  .swara-line { color: #1a1208; }
+  .lyric-kn { color: var(--lyric); font-size: 0.94rem; border-top: 1px dotted #e2d6c3; margin-top: 0.35rem; padding-top: 0.25rem; font-weight: 400; line-height: 1.45; }
+  .en-swara { font-family: 'EB Garamond', serif; font-size: 1.20rem; font-weight: 500; color: #5a4a30; display: block; border-top: 1px dotted #ccc; margin-top: 0.35rem; padding-top: 0.25rem; line-height: 1.25; }
+  .lyric-en { font-family: 'EB Garamond', serif; font-size: 1.18rem; color: #6a563c; display: block; margin-top: 0.15rem; font-style: italic; line-height: 1.35; }
+  .section-title { font-family: 'Cinzel', 'Noto Sans Kannada', serif; font-size: 0.95rem; color: var(--gold); letter-spacing: 0.12em; margin: 2rem 0 0.8rem; width: 100%; max-width: 1200px; text-align: left; border-left: 4px solid var(--gold); padding-left: 12px; }
+  .avarta-div td { height: 4px; background: linear-gradient(90deg, var(--border), #ede2cb, var(--border)); border: none; padding: 0; }
+  .sahitya-card { width: 100%; max-width: 1200px; background: #fffdf8; border: 1px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 1.5rem; line-height: 1.8; }
+  .sahitya-card h3 { color: var(--gold); font-size: 1rem; margin: 0.8rem 0 0.25rem; }
+  .sahitya-card p { margin: 0.15rem 0; }
+  .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
+  @media (max-width: 900px) {
+    body { padding: 1rem 0.5rem; }
+    .varna-table { font-size: 0.85rem; }
+    .varna-table td { padding: 0.55rem 0.2rem; }
+    .kn { font-size: 0.88rem; }
+    .en-swara { font-size: 1.08rem; }
+    .lyric-en { font-size: 1.06rem; }
+  }
+</style>
+</head>
+<body>
+<div class="title-block">
+  <div class="title-main">ಕಾಮವರ್ಧಿನಿ / ರಾಮಕ್ರಿಯಾ <br> Kamavardhini / Ramakriya</div>
+  <div class="sub-title">A composition in raga Kamavardhini, also known as Ramakriya <br> Sahitya by Mahesh Bhat</div>
+  <div class="raga-details">
+    Nominal Sanchara: S G3 R1 G3 M2 P D1 N3 S &nbsp;—&nbsp; S N3 D1 P M2 G3 R1 S
+  </div>
+  <div class="note-text">
+    Green dotted notes indicate mandra sthayi; red dotted notes indicate tara sthayi.
+  </div>
+</div>
+<div class="section-title">ಪಲ್ಲವಿ • Pallavi</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಪ  ಮ</span>
+  <span class="kn lyric-kn">ತ ವ ಮೃ ದು</span>
+  <span class="en-swara">p  m  p   m</span>
+  <span class="lyric-en">ta va mr du</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗಾ , , ,</span>
+  <span class="kn lyric-kn">ಲಮ್ , ,</span>
+  <span class="en-swara">g, , ,</span>
+  <span class="lyric-en">lam ---</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ಮ  ಗ</span>
+  <span class="kn lyric-kn">ಪ ದ ಯು ಗ</span>
+  <span class="en-swara">m   g   m  g</span>
+  <span class="lyric-en">pa da yu ga</span>
+</td>
+<td>
+  <span class="kn swara-line">ರಿ, ,  ,</span>
+  <span class="kn lyric-kn">ಲಮ್  , ,</span>
+  <span class="en-swara">r , , ,</span>
+  <span class="lyric-en">lam - - -</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ   ರಿ   ಗ ರಿ</span>
+  <span class="kn lyric-kn">ಮ ಮ  ಶ  ರ</span>
+  <span class="en-swara">g    r     g    r</span>
+  <span class="lyric-en">ma ma sha ra</span>
+</td>
+<td>
+  <span class="kn swara-line">ಸ ,  ,  ,</span>
+  <span class="kn lyric-kn">ಣಮ್ , ,</span>
+  <span class="en-swara">s , , ,</span>
+  <span class="lyric-en">Nam ---</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ,  ಮ ಪ</span>
+  <span class="kn lyric-kn">,  , ಶಿ ವೇ</span>
+  <span class="en-swara">, , m p</span>
+  <span class="lyric-en">- - ShivE</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">,  ಜ ನ ನಿ</span>
+  <span class="en-swara">,  g   r  s</span>
+  <span class="lyric-en">- ja na ni</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಪ  ಮ</span>
+  <span class="kn lyric-kn">ತ ವ ಮೃ ದು</span>
+  <span class="en-swara">p m p m</span>
+  <span class="lyric-en">tavamrdu</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗಾ , , ,</span>
+  <span class="kn lyric-kn">ಲಮ್ , ,</span>
+  <span class="en-swara">g, , ,</span>
+  <span class="lyric-en">lam ---</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ಮ  ಗ</span>
+  <span class="kn lyric-kn">ಪ ದ ಯು ಗ</span>
+  <span class="en-swara">m g m g</span>
+  <span class="lyric-en">padayuga</span>
+</td>
+<td>
+  <span class="kn swara-line">ರಿ, ,  ,</span>
+  <span class="kn lyric-kn">ಲಮ್  , ,</span>
+  <span class="en-swara">r , , ,</span>
+  <span class="lyric-en">lam---</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ   ರಿ   ಗ ರಿ</span>
+  <span class="kn lyric-kn">ಮ ಮ  ಶ  ರ</span>
+  <span class="en-swara">g   r  g    r</span>
+  <span class="lyric-en">mamashara</span>
+</td>
+<td>
+  <span class="kn swara-line">ಸ ,  ,  ,</span>
+  <span class="kn lyric-kn">ಣಮ್ , ,</span>
+  <span class="en-swara">s , , ,</span>
+  <span class="lyric-en">Nam ---</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ದ-  ಮ ಪ</span>
+  <span class="kn lyric-kn">ಪ ರ  ಶಿ ವೇ</span>
+  <span class="en-swara">p d  m  p</span>
+  <span class="lyric-en">parashivE</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">,  ಜ ನ ನಿ</span>
+  <span class="en-swara">,g r s</span>
+  <span class="lyric-en">-janani</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಪ  ಮ</span>
+  <span class="kn lyric-kn">ತ ವ ಮೃ ದು</span>
+  <span class="en-swara">p m p m</span>
+  <span class="lyric-en">tavamrdu</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗಾ , , ,</span>
+  <span class="kn lyric-kn">ಲಮ್ , ,</span>
+  <span class="en-swara">g, , ,</span>
+  <span class="lyric-en">lam---</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ಮ  ಗ</span>
+  <span class="kn lyric-kn">ಪ ದ ಯು ಗ</span>
+  <span class="en-swara">m  g  m  g</span>
+  <span class="lyric-en">padayuga</span>
+</td>
+<td>
+  <span class="kn swara-line">ರಿ, ,  ,</span>
+  <span class="kn lyric-kn">ಲಮ್  , ,</span>
+  <span class="en-swara">r , , ,</span>
+  <span class="lyric-en">lam----</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ   ರಿ   ಗ ರಿ</span>
+  <span class="kn lyric-kn">ಮ ಮ  ಶ  ರ</span>
+  <span class="en-swara">g   r   g   r</span>
+  <span class="lyric-en">mamashara</span>
+</td>
+<td>
+  <span class="kn swara-line">ಸ ,  -  ದ ನಿ</span>
+  <span class="kn lyric-kn">ಣಮ್ - ಜಯ</span>
+  <span class="en-swara">s   ,  d n</span>
+  <span class="lyric-en">Nam-jaya</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ದ -  ಮ ಪ</span>
+  <span class="kn lyric-kn">ಪ  ರ   ಶಿ ವೇ</span>
+  <span class="en-swara">p d -  m  p</span>
+  <span class="lyric-en">para shivE</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">,  ಜ ನ ನಿ</span>
+  <span class="en-swara">,  g  r  s</span>
+  <span class="lyric-en">- ja na ni</span>
+</td>
+</tr></table><div class="section-title">ಅನುಪಲ್ಲವಿ • Anupallavi</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line">ಪಾ , ಮ</span>
+  <span class="kn lyric-kn">ಕ  -  ಲ್ಯಾ</span>
+  <span class="en-swara">p , , m</span>
+  <span class="lyric-en">ka --lya</span>
+</td>
+<td>
+  <span class="kn swara-line">,   ,  ಗಾ</span>
+  <span class="kn lyric-kn">-  -  ಣಾ</span>
+  <span class="en-swara">,  , g ,</span>
+  <span class="lyric-en">- -  Na-</span>
+</td>
+<td>
+  <span class="kn swara-line">, ರೀ   ,</span>
+  <span class="kn lyric-kn">,   ನಾಮ್</span>
+  <span class="en-swara">, r ,  ,</span>
+  <span class="lyric-en">- na--m</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">ವಿ   ತರ  ಣಿ</span>
+  <span class="en-swara">m  g  r  s</span>
+  <span class="lyric-en">vi ta ra Ni</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗಾ ,   ರಿ</span>
+  <span class="kn lyric-kn">ಪಾ ,  ಪೇ</span>
+  <span class="en-swara">g  ,  ,  r</span>
+  <span class="lyric-en">pA  - - pE</span>
+</td>
+<td>
+  <span class="kn swara-line">, ರಿ <span class="m">ನಿ</span> ಸ</span>
+  <span class="kn lyric-kn">,  ಮಯಿ ತೇ</span>
+  <span class="en-swara">, r  <span class="m">n</span>  s</span>
+  <span class="lyric-en">-mayitE</span>
+</td>
+<td>
+  <span class="kn swara-line">, - ಪ ಮ ಪ</span>
+  <span class="kn lyric-kn">,  ಕ ರು ಣಾ</span>
+  <span class="en-swara">, -  p  m  p</span>
+  <span class="lyric-en">-   ka ru nA</span>
+</td>
+<td>
+  <span class="kn swara-line">, -ದ ಪ ದ</span>
+  <span class="kn lyric-kn">,  ಭ  ವ ತು</span>
+  <span class="en-swara">, - d p d</span>
+  <span class="lyric-en">-  bhavatu</span>
+</td>
+</tr></table><div class="section-title">ಚರಣ ೧ • Charana 1</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line">ಮಾ ಪ ರಿ</span>
+  <span class="kn lyric-kn">ಈ   ಶ ನಾ</span>
+  <span class="en-swara">m ,  p    r</span>
+  <span class="lyric-en">ee sha nA</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ಗ  ಸಾ</span>
+  <span class="kn lyric-kn">, ಯಿ ಕೇ</span>
+  <span class="en-swara">, g s ,</span>
+  <span class="lyric-en">- yi ke-</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="m">ದಾ</span> ಸ ಗ</span>
+  <span class="kn lyric-kn">ಲೋಕಪಾ</span>
+  <span class="en-swara"><span class="m">d</span> ,  s  g</span>
+  <span class="lyric-en">lO -kapA</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ರಿ  ಗಾ</span>
+  <span class="kn lyric-kn">,  ಲಿ ಕೇ</span>
+  <span class="en-swara">, r g ,</span>
+  <span class="lyric-en">- likE</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮಾ ನಿ ದ</span>
+  <span class="kn lyric-kn">ಇಂದ್ರವಂ</span>
+  <span class="en-swara">m , n    d</span>
+  <span class="lyric-en">in  dra van</span>
+</td>
+<td>
+  <span class="kn swara-line">, ನಿ  ಪ ದ</span>
+  <span class="kn lyric-kn">, ದ್ಯ ಪ ದ</span>
+  <span class="en-swara">, n   p   d</span>
+  <span class="lyric-en">-dya pada</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ ದ ಪ ಮ</span>
+  <span class="kn lyric-kn">ಸ ರ ಸಿ ಜ</span>
+  <span class="en-swara">n   d  p  m</span>
+  <span class="lyric-en">sa ra si ja</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ ರಿ ಸಾ</span>
+  <span class="kn lyric-kn">ಲ ಸಿ ತೇ</span>
+  <span class="en-swara">g  r s ,</span>
+  <span class="lyric-en">la si tE</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line"><span class="m">ದ</span> <span class="m">ದ</span>  ಸ ಸ</span>
+  <span class="kn lyric-kn">ದಿ ತಿ ಸು ತ</span>
+  <span class="en-swara"><span class="m">d</span> <span class="m">d</span> s s</span>
+  <span class="lyric-en">ditisuta</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="m">ದ</span> <span class="m">ದ</span> ರಿ ರಿ</span>
+  <span class="kn lyric-kn">ಗ ಜ ಗ ಣ</span>
+  <span class="en-swara"><span class="m">d</span>  <span class="m">d</span> r   r</span>
+  <span class="lyric-en">gajagaNa</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="m">ದ</span> <span class="m">ದ</span> ಗ ಗ</span>
+  <span class="kn lyric-kn">ವಿ ದ ಲ ನ</span>
+  <span class="en-swara"><span class="m">d</span> <span class="m">d</span> g g</span>
+  <span class="lyric-en">vi dalana</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ  ಪ ಗ ಮ</span>
+  <span class="kn lyric-kn">ಚ ತು ರೇ  -</span>
+  <span class="en-swara">m p g m</span>
+  <span class="lyric-en">chaturE-</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ದಾ <span class="t">ಗ</span></span>
+  <span class="kn lyric-kn">ಸದಾ -  ನಿ</span>
+  <span class="en-swara">p d , -<span class="t">G</span></span>
+  <span class="lyric-en">sadA- ni</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ ದ</span>
+  <span class="kn lyric-kn">ವಸ ಮಮ</span>
+  <span class="en-swara"><span class="t">R</span> <span class="t">S</span>  n  d</span>
+  <span class="lyric-en">vasa mayi</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ  ದ  ಪ ಮ</span>
+  <span class="kn lyric-kn">ಹೃ ದಿ ಗು ಹ</span>
+  <span class="en-swara">n  d  p  m</span>
+  <span class="lyric-en">hr di gu ha</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">ಜನ ನಿ -  <span class="t">೧</span></span>
+  <span class="en-swara">p  g  r s</span>
+  <span class="lyric-en">ja na ni -</span>
+</td>
+</tr></table><div class="section-title">ಚರಣ ೨ • Charana 2</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line">ಸ ಪ ಮ ಪ</span>
+  <span class="kn lyric-kn">ಕು ವ ಲ ಯ</span>
+  <span class="en-swara">s p m p</span>
+  <span class="lyric-en">kuvalaya</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">ದ ಲ ಸ ಮ</span>
+  <span class="en-swara">m g r  s</span>
+  <span class="lyric-en">dalasama</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ನಿ ದ ನಿ</span>
+  <span class="kn lyric-kn">ಸು ರು ಚಿ ರ</span>
+  <span class="en-swara">p n d n</span>
+  <span class="lyric-en">suruchira</span>
+</td>
+<td>
+  <span class="kn swara-line">ದ ಪ ಮ ಗ</span>
+  <span class="kn lyric-kn">ನ ಯ ನೇ -</span>
+  <span class="en-swara">d p m g</span>
+  <span class="lyric-en">nayanE-</span>
+</td>
+<td>
+  <span class="kn swara-line">ದ <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಗ</span></span>
+  <span class="kn lyric-kn">ನಿ ರು ಪ ಮ</span>
+  <span class="en-swara">d <span class="t">G</span> <span class="t">R</span> <span class="t">G</span></span>
+  <span class="lyric-en">nirupama</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="t">ರಿ</span> <span class="t">ಸ</span> ನಿ ದ</span>
+  <span class="kn lyric-kn">ಪ ರಿ ಮ ಳ</span>
+  <span class="en-swara"><span class="t">R</span> <span class="t">S</span>  n d</span>
+  <span class="lyric-en">parimala</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ  ನಿ  ದ  ಪ</span>
+  <span class="kn lyric-kn">ಯು ತ ಮ ಧು</span>
+  <span class="en-swara">p n  d   p</span>
+  <span class="lyric-en">yutamadhu</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">ಚ ಷ ಕೇ -</span>
+  <span class="en-swara">m   g   r  s</span>
+  <span class="lyric-en">chashakE-</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ಗ ರಿ ಗ ಮ</span>
+  <span class="kn lyric-kn">ಅ ತಿ ಧ ವ</span>
+  <span class="en-swara">g r  g m</span>
+  <span class="lyric-en">ati dhava</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ - ಗ ಮ ಪ</span>
+  <span class="kn lyric-kn">ಲ-  ರ ಜ  ತ</span>
+  <span class="en-swara">p - g m p</span>
+  <span class="lyric-en">la- rajata</span>
+</td>
+<td>
+  <span class="kn swara-line">ದ ಮ - ಪ ದ</span>
+  <span class="kn lyric-kn">ಗಿ ರಿ -  ವ ರ</span>
+  <span class="en-swara">d m - p d</span>
+  <span class="lyric-en">giri - vara</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ <span class="t">ಸ</span> <span class="t">ಗಾ</span></span>
+  <span class="kn lyric-kn">ನಿ ಲ ಯೇ</span>
+  <span class="en-swara">n <span class="t">S</span> <span class="t">G</span> ,</span>
+  <span class="lyric-en">ni la yE-</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="t">ರಿ</span> <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span>
+  <span class="kn lyric-kn">ಕ ಲ ಶ ಜ</span>
+  <span class="en-swara"><span class="t">R</span> <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span>
+  <span class="lyric-en">kalashaja</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ ದಾ - ಸ</span>
+  <span class="kn lyric-kn">ನು ತೇ - ಮ</span>
+  <span class="en-swara">n d ,   S</span>
+  <span class="lyric-en">nutE- ma</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ ದ ಪ ಮ</span>
+  <span class="kn lyric-kn">ಧು ಮ ಥನ</span>
+  <span class="en-swara">n   d  p  m</span>
+  <span class="lyric-en">dhumathana</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗಾ ಮ ದ</span>
+  <span class="kn lyric-kn">ಸೋ ದ ರಿ೨</span>
+  <span class="en-swara">g , m d</span>
+  <span class="lyric-en">sO - dari</span>
+</td>
+</tr></table><div class="section-title">ಚರಣ ೩ • Charana 3</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line">ದಾ ನಿ ದ</span>
+  <span class="kn lyric-kn">ಸಾ ಧ ಕ</span>
+  <span class="en-swara">d  ,  n   d</span>
+  <span class="lyric-en">sA-dhaka</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಪಾ</span>
+  <span class="kn lyric-kn">ಜ ನ ತಾ</span>
+  <span class="en-swara">pm p ,</span>
+  <span class="lyric-en">janatA -</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಮ ಗ ರಿ</span>
+  <span class="kn lyric-kn">, ಪ ರ ಮ</span>
+  <span class="en-swara">, m  g  r</span>
+  <span class="lyric-en">-parama</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ ಮ ಪಾ</span>
+  <span class="kn lyric-kn">ಶು ಭ ದೇ</span>
+  <span class="en-swara">g   m   p    ,</span>
+  <span class="lyric-en">shubhadE -</span>
+</td>
+<td>
+  <span class="kn swara-line">ನೀ  ದ  ಪ</span>
+  <span class="kn lyric-kn">ಲೋ ಹಿ ತ</span>
+  <span class="en-swara">n , d p</span>
+  <span class="lyric-en">lO - hita</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಪ  ದಾ</span>
+  <span class="kn lyric-kn">ಸು ಮ ನೋ</span>
+  <span class="en-swara">m p  d ,</span>
+  <span class="lyric-en">sumanO -</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಪ ಮ ಗ</span>
+  <span class="kn lyric-kn">, ನಿ ಚ ಯ</span>
+  <span class="en-swara">, p  m  g</span>
+  <span class="lyric-en">- nichaya</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ದ ನೀ</span>
+  <span class="kn lyric-kn">ಕ ಲಿ ತೇ</span>
+  <span class="en-swara">m d n  ,</span>
+  <span class="lyric-en">kalitE -</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ಪಾ ನಿ <span class="t">ರಿ</span></span>
+  <span class="kn lyric-kn">ಪಾ ಯ ಸ</span>
+  <span class="en-swara">p , n <span class="t">R</span></span>
+  <span class="lyric-en">pA- yasa</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸಾ</span></span>
+  <span class="kn lyric-kn">ಮು ದಿ ತೇ</span>
+  <span class="en-swara"><span class="t">G</span> <span class="t">R</span> <span class="t">S</span> ,</span>
+  <span class="lyric-en">muditE-</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ನಿ ದ ಪ</span>
+  <span class="kn lyric-kn">, ಮ ಧು ರ</span>
+  <span class="en-swara">, n   d  p</span>
+  <span class="lyric-en">- madhura</span>
+</td>
+<td>
+  <span class="kn swara-line">ದ  ನಿ ಸಾ</span>
+  <span class="kn lyric-kn">ಹ  ಸಿ ತೇ</span>
+  <span class="en-swara">d n <span class="t">S</span> ,</span>
+  <span class="lyric-en">hasitE -</span>
+</td>
+<td>
+  <span class="kn swara-line">ಸ ರಿ ನಿ ಸ</span>
+  <span class="kn lyric-kn">ಭ ವ ದ ವ</span>
+  <span class="en-swara"><span class="t">S</span> <span class="t">R</span> n <span class="t">S</span></span>
+  <span class="lyric-en">jani mrti</span>
+</td>
+<td>
+  <span class="kn swara-line">ದ ನಿ ಪ  ದ</span>
+  <span class="kn lyric-kn">ಹ ರ ಸು ಧೇ</span>
+  <span class="en-swara">d  n  p  d</span>
+  <span class="lyric-en">harasudhE</span>
+</td>
+<td>
+  <span class="kn swara-line">, <span class="t">ಸ</span> ನಿ ದ</span>
+  <span class="kn lyric-kn">, ಕ ಲಿ ಮ</span>
+  <span class="en-swara">, <span class="t">S</span> n d</span>
+  <span class="lyric-en">- kalima</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಗ ರಿ</span>
+  <span class="kn lyric-kn">ಲ ಹ ರಿ ಣಿ ೩</span>
+  <span class="en-swara">p m g r</span>
+  <span class="lyric-en">lahariNi</span>
+</td>
+</tr></table><div class="section-title">ಚರಣ ೪ • Charana 4</div><table class="varna-table notation-table"><tr>
+<td>
+  <span class="kn swara-line"><span class="t">ಗಾ</span> , <span class="t">ರಿ</span></span>
+  <span class="kn lyric-kn">ಸಂ- ಸಾ</span>
+  <span class="en-swara"><span class="t">G</span>, ,   <span class="t">R</span></span>
+  <span class="lyric-en">saM--sA</span>
+</td>
+<td>
+  <span class="kn swara-line">,  , <span class="t">ಸಾ</span></span>
+  <span class="kn lyric-kn">, , ರೇ</span>
+  <span class="en-swara">, , <span class="t">S</span> ,</span>
+  <span class="lyric-en">-- rE,</span>
+</td>
+<td>
+  <span class="kn swara-line">, <span class="t">ಗ</span> <span class="t">ರಿ</span> <span class="t">ಸ</span></span>
+  <span class="kn lyric-kn">, ಪ ರ ಮ</span>
+  <span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span>
+  <span class="lyric-en">, parama</span>
+</td>
+<td>
+  <span class="kn swara-line">ನಿ ದ ಪಾ</span>
+  <span class="kn lyric-kn">ವಿ ಷ ಮೇ</span>
+  <span class="en-swara">n  d  p ,</span>
+  <span class="lyric-en">vi ShamE-</span>
+</td>
+<td>
+  <span class="kn swara-line">ದಾ ,  ಮ</span>
+  <span class="kn lyric-kn">ಸಂ ,  ತಾ</span>
+  <span class="en-swara">d , , m</span>
+  <span class="lyric-en">san --tA</span>
+</td>
+<td>
+  <span class="kn swara-line">, , ಗಾ</span>
+  <span class="kn lyric-kn">, , ಪೋ</span>
+  <span class="en-swara">,  , g  ,</span>
+  <span class="lyric-en">----pO-</span>
+</td>
+<td>
+  <span class="kn swara-line">, ದ ಪ ಮ</span>
+  <span class="kn lyric-kn">, ದ ಹ ತಿ</span>
+  <span class="en-swara">, d p m</span>
+  <span class="lyric-en">-dahati</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ ರಿ <span class="m">ನೀ</span></span>
+  <span class="kn lyric-kn">ಹೃದಯಂ</span>
+  <span class="en-swara">g r <span class="m">n</span> , |</span>
+  <span class="lyric-en">hrdayaM</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ಸಾ ,  ರಿ</span>
+  <span class="kn lyric-kn">ಏ  ,  ಹಿ  ,</span>
+  <span class="en-swara">s , , r</span>
+  <span class="lyric-en">E---hi</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ,  <span class="m">ನೀ</span></span>
+  <span class="kn lyric-kn">,  ,  ತ್ವಂ</span>
+  <span class="en-swara">, , <span class="m">n</span> ,</span>
+  <span class="lyric-en">-- tvam</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ಸ   ರಿ  ಸ</span>
+  <span class="kn lyric-kn">,  ತು  ಹಿ  ನ</span>
+  <span class="en-swara">,  s r s</span>
+  <span class="lyric-en">-  tuhina</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ  ರಿ  ಮ  ಗ</span>
+  <span class="kn lyric-kn">ಗಿ  ರಿ  ಜೇ  -</span>
+  <span class="en-swara">g r  m g</span>
+  <span class="lyric-en">gi ri je -</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮಾ ,  ಪ</span>
+  <span class="kn lyric-kn">ಪಾ  ,  ಪಂ</span>
+  <span class="en-swara">m , , p</span>
+  <span class="lyric-en">tA- - pam</span>
+</td>
+<td>
+  <span class="kn swara-line">,  , ಗಾ</span>
+  <span class="kn lyric-kn">, , ಮೇ</span>
+  <span class="en-swara">,  , g ,</span>
+  <span class="lyric-en">-- mE-</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಮ ದ ಮ</span>
+  <span class="kn lyric-kn">, ಶ ಮ ಯ</span>
+  <span class="en-swara">, m   d   m</span>
+  <span class="lyric-en">- shamaya</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ಗ ರಿ ಸ</span>
+  <span class="kn lyric-kn">ಲ ಲಿ ತೇ ,</span>
+  <span class="en-swara">p g r s</span>
+  <span class="lyric-en">la li tE -</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ರೀ , ಗ ,</span>
+  <span class="kn lyric-kn">ನೀ , ರಾ</span>
+  <span class="en-swara">r , , g</span>
+  <span class="lyric-en">nI-- rA</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಮ ಪ ದ</span>
+  <span class="kn lyric-kn">, ಗ ಮ ತಿ</span>
+  <span class="en-swara">, m p d</span>
+  <span class="lyric-en">- gamati</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮಾ , ಪ</span>
+  <span class="kn lyric-kn">ರಾ , ಯಾ</span>
+  <span class="en-swara">m , , p</span>
+  <span class="lyric-en">rA-- -yA</span>
+</td>
+<td>
+  <span class="kn swara-line">,  ದ  ನಿ  <span class="t">ಸ</span></span>
+  <span class="kn lyric-kn">, ತು ಮ ಯಿ</span>
+  <span class="en-swara">, d n  <span class="t">S</span></span>
+  <span class="lyric-en">- tumayi</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="t">ಗಾ</span> , <span class="t">ರಿ</span></span>
+  <span class="kn lyric-kn">ವೇ , ದಾ</span>
+  <span class="en-swara"><span class="t">G</span> , , <span class="t">R</span></span>
+  <span class="lyric-en">vE- - dA</span>
+</td>
+<td>
+  <span class="kn swara-line">,  <span class="t">ಗ</span>  <span class="t">ರಿ</span> <span class="t">ಸ</span></span>
+  <span class="kn lyric-kn">, ದಿ ನಯ</span>
+  <span class="en-swara">, <span class="t">G</span> <span class="t">R</span> <span class="t">S</span></span>
+  <span class="lyric-en">- dinaya</span>
+</td>
+<td>
+  <span class="kn swara-line">ದಾ ನಿ ದ</span>
+  <span class="kn lyric-kn">ಸಂ ಸ್ತು ತ</span>
+  <span class="en-swara">d ,   n  d</span>
+  <span class="lyric-en">sam-stuta</span>
+</td>
+<td>
+  <span class="kn swara-line">ಪ ಮ ಗ ಮ</span>
+  <span class="kn lyric-kn">ಚ ರಿ ತೇ ,</span>
+  <span class="en-swara">p m g m</span>
+  <span class="lyric-en">chairte -</span>
+</td>
+</tr><tr class="avarta-div"><td colspan="8"></td></tr><tr>
+<td>
+  <span class="kn swara-line">ದಾ ದ-ಮ</span>
+  <span class="kn lyric-kn">ನಾ ಕ ಲೋ</span>
+  <span class="en-swara">d , d- m</span>
+  <span class="lyric-en">nA- kalO</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಮ-ಗಾ</span>
+  <span class="kn lyric-kn">,ಕ ಶೋ</span>
+  <span class="en-swara">, m -g ,</span>
+  <span class="lyric-en">-ka shO</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ ರೀ ರಿ</span>
+  <span class="kn lyric-kn">ಕ ಹಾ ರಿ</span>
+  <span class="en-swara">g  r ,   r</span>
+  <span class="lyric-en">ka hA- ri</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ  ರಿ ಸಾ</span>
+  <span class="kn lyric-kn">ಸು ಬ ಲೇ</span>
+  <span class="en-swara">g   r  s ,</span>
+  <span class="lyric-en">su ba lE-</span>
+</td>
+<td>
+  <span class="kn swara-line"><span class="m">ನೀ</span> <span class="m">ನಿ</span> ಸ</span>
+  <span class="kn lyric-kn">ಚಾ ರು ಚಂ</span>
+  <span class="en-swara"><span class="m">n</span> ,  <span class="m">n</span>   s</span>
+  <span class="lyric-en">chA -ruchan</span>
+</td>
+<td>
+  <span class="kn swara-line">, ಸ ಗಾ ,</span>
+  <span class="kn lyric-kn">, ದ್ರ  ಭಾ</span>
+  <span class="en-swara">, s   g  ,</span>
+  <span class="lyric-en">- dra bhA-</span>
+</td>
+<td>
+  <span class="kn swara-line">ಗ  ರೀ  ಗ</span>
+  <span class="kn lyric-kn">ಸ ಮಾ ನ</span>
+  <span class="en-swara">g   r   , g</span>
+  <span class="lyric-en">sa mA- na</span>
+</td>
+<td>
+  <span class="kn swara-line">ಮ ಪ ದ ಮ</span>
+  <span class="kn lyric-kn">ಚಿ ಕು ರೇ ,</span>
+  <span class="en-swara">m  p d m</span>
+  <span class="lyric-en">chikurE-</span>
+</td>
+</tr></table>
+<div class="section-title">ಕನ್ನಡ ಸಾಹಿತ್ಯ • Kannada Sahitya</div><div class="sahitya-card"><h3>ಪಲ್ಲವಿ</h3><p class="kn">ತವ ಮೃದುಲಮ್ ಪದಯುಗಲಮ್ ಮಮ ಶರಣಮ್ ಶಿವೇ ಜನನಿ</p><p class="kn">ತವ ಮೃದುಲಮ್ ಪದಯುಗಲಮ್ ಮಮ ಶರಣಮ್ ಪರಶಿವೇ ಜನನಿ</p><p class="kn">ತವ ಮೃದುಲಮ್ ಪದಯುಗಲಮ್ ಮಮ ಶರಣಮ್ ಜಯ ಪರಶಿವೇ ಜನನಿ || ಪಲ್ಲವಿ||</p><h3>ಅನುಪಲ್ಲವಿ</h3><p class="kn">ಕಲ್ಯಾಣಾನಾಮ್ ವಿತರಣಿ ಪಾಪೇ ಮಯಿ ತೇ ಕರುಣಾ ಭವತು ||</p><h3>ಚರಣ ೧</h3><p class="kn">ಈಶನಾಯಿಕೇ ಲೋಕಪಾಲಿಕೇ ಇಂದ್ರವಂದ್ಯ ಪದಸರಸಿಜ ಲಸಿತೇ</p><p class="kn">ದಿತಿಸುತ ಗಜಗಣ ವಿದಲನಚತುರೇ ಸದಾ ನಿವಸ ಮಮ  ಹೃದಿ ಗುಹಜನನಿ <span class="t">೧</span></p><h3>ಚರಣ ೨</h3><p class="kn">ಕುವಲಯದಲಸಮಸುರುಚಿರನಯನೇ ನಿರುಪಮಪರಿಮಲಯುತ ಮಧುಚಷಕೇ</p><p class="kn">ಅತಿಧವಲ - ರಜತಗಿರಿ - ವರನಿಲಯೇ ಕಲಶಜನುತೇ ಮಧುಮಥನಸೋದರಿ <span class="t">೨</span></p><h3>ಚರಣ ೩</h3><p class="kn">ಸಾಧಕಜನತಾಪರಮಶುಭದೇ ಲೋಹಿತಸುಮನೋನಿಚಯಕಲಿತೇ</p><p class="kn">ಪಾಯಸಮುದಿತೇ ಮಧುರಹಸಿತೇ ಭವದವಹರಸುಧೇ ಕಲಿಮಲಹರಣಿ ||೩||</p><h3>ಚರಣ ೪</h3><p class="kn">ಸಂಸಾರೇ ಪರಮವಿಷಮೇ ಸಂತಾಪೋ ದಹತಿ ಹೃದಯಮ್</p><p class="kn">ಏಹಿ ತ್ವಮ್ ತುಹಿನಗಿರಿಜೇ ತಾಪಮ್ ಮೇ ಶಮಯ ಲಲಿತೇ</p><p class="kn">ನೀರಾಗಮತಿರಾಯಾತು ಮಯಿ ವೇದಾದಿನಯ ಸಂಸ್ತುತ ಚರಿತೇ</p><p class="kn">ನಾಕಲೋಕಶೋಕಹಾರಿಸುಬಲೇ ಚಾರುಚಂದ್ರಭಾಸಮಾನ ಚಿಕುರೇ! ||೪||</p></div><div class="section-title">देवनागरी साहित्य • Devanagari Sahitya</div><div class="sahitya-card devanagari"><h3>पल्लवि</h3><p>तव मृदुलम् पदयुगलम् मम शरणम् शिवे जननि</p><p>तव मृदुलम् पदयुगलम् मम शरणम् परशिवे जननि</p><p>तव मृदुलम् पदयुगलम् मम शरणम् जय परशिवे जननि ॥ पल्लवि॥</p><h3>अनुपल्लवि</h3><p>कल्याणानाम् वितरणि पापे मयि ते करुणा भवतु ॥॥</p><h3>चरण १</h3><p>ईशनायिके लोकपालिके इन्द्रवन्द्य पदसरसिज लसिते</p><p>दितिसुत गजगण विदलनचतुरे सदा निवस मम  हृदि गुहजननि ॥१॥</p><h3>चरण २</h3><p>कुवलय  दलसम सुरुचिर नयने निरुपम परिमलयुत मधुचषके</p><p>अतिधवल - रजतगिरि - वरनिलये कलशजनुते मधुमथनसोदरि ॥२॥</p><h3>चरण ३</h3><p>साधकजनतापरमशुभदे लोहितसुमनोनिचतेकलिते</p><p>पायसमुदिते मधुरहसिते भवदवहरसुधे कलिमलहरणि ॥३॥</p><h3>चरण ४</h3><p>संसारे परमविषमे संतापो दहति हृदयम्</p><p>एहि त्वम् तुहिनगिरिजे तापम् मे शमय ललिते</p><p>नीरागमतिरायातु मयि वेदादिनय संस्तुत चरिते</p><p>नाकलोकशोकहारिसुबले चारुचंद्रभासमान चिकुरे!  ॥४॥</p></div>
+<div class="signature">Composed by &nbsp;Ramaprasad K V &nbsp;|&nbsp; Sahitya by Mahesh Bhat</div>
+</body>
+</html>
